@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="STSYS">
+	<use-case>
+		<name>Register for a course</name>
+		<actor>Student</actor>
+		<description>Enable a student to register for a course, the student must have appropriate permissions. The system has to process this activity in few seconds in most of the cases</description>
+		<priority>High</priority>
+		<trigger>The student select the inscription for courses activity</trigger>
+		<preconditions>
+			<condition>The student must be logged</condition>
+			<condition>The course must be open</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do that operation</flow>
+			<flow>The system analyzes according to the courses taken by the	student which s/he is allowed to follow</flow>
+			<flow>The system shows to the student the courses s/he can follow</flow>
+			<flow>The student chooses a course</flow>
+			<flow>The system stores the information of the inscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+				<req>Safe connection</req>
+				<req>High performance</req>
+		</especial-reqs>
+		</use-case>
+		
+		<use-case>
+		<name>Register for a final exam</name>
+		<actor>Student</actor>
+		<description>Enable a student to register for a final exam, the	student must have appropriate permissions. The system has to process
+			this activity in few seconds in most of the cases</description>
+		<priority>High</priority>
+		<trigger>The student select the inscription for courses activity</trigger>
+		<preconditions>
+			<condition>The student must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do that operation</flow>
+			<flow>The system analyzes according to the courses taken by the	student which s/he is allowed to follow</flow>
+			<flow>The system shows to the student the courses s/he can follow</flow>
+			<flow>The student chooses a course</flow>
+			<flow>The system stores the information of the inscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+			<especial-reqs>
+				<req></req>
+			</especial-reqs>
+		</use-case>
+		
+		<use-case>
+		<name>Cancel Registration</name>
+		<actor>Student</actor>
+		<description>Enable a student to unregister for a final exam, the student must have appropriate permissions. The system has to process
+			this activity in few seconds in most of the cases</description>
+		<priority>Low</priority>
+		<trigger>The student select the inscription for courses activity</trigger>
+		<preconditions>
+			<condition>The student must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do that operation</flow>
+			<flow>The system analyzes according to the courses taken by the student which s/he is allowed to follow</flow>
+			<flow>The system shows to the student the courses s/he can follow</flow>
+			<flow>The student chooses a course</flow>
+			<flow>The system stores the information of the unsubscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+			<especial-reqs>
+				<req></req>
+			</especial-reqs>
+		</use-case>
+
+		<use-case>
+		<name>Update Notes</name>
+		<actor>Professor</actor>
+		<description>Enable a professor to register the notes of a final exam, the professor must have appropriate permissions.</description>
+		<priority>Medium</priority>
+		<trigger>The professor select the update notes activity</trigger>
+		<preconditions>
+			<condition>The professor must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the professor has permissions to do that operation</flow>
+			<flow>The system analyzes according to the exams taken by the	professor which he is allowed to modify</flow>
+			<flow>The system shows to the student the courses s/he can follow
+			</flow>
+			<flow>The professor chooses a course</flow>
+			<flow>The system stores the information of the exams</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the professor is not log, or the professor doesn't have any permissions, the system shows an error message</flow>
+			<flow>The professor gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+			<especial-reqs>
+				<req></req>
+			</especial-reqs>
+		</use-case>
+	
+	
+	<use-case>
+		<name>Maintain professor information</name>
+		<actor>Administrator</actor>
+		<description>This use case allows the administrator to maintain professor information in the registration system. This includes adding, modifying, and deleting professors from the system</description>
+		<priority>Low</priority>
+		<trigger>The use case begins when the administrator selects the "maintain professor" activity from the Main Form. </trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+		<alternative-flow />
+		<especial-reqs />
+	</use-case>
+	
+	
+	<use-case>
+		<name>View Report Card</name>
+		<actor>Student</actor>
+		<description>The use case begins when the Student selects the "view report card" activity from the Main Form</description>
+		<priority>Low</priority>
+		<trigger></trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+	</use-case>
+	
+	<use-case>
+		<name>Submit Grades</name>
+		<actor>Professor</actor>
+		<description>This use case allows a Professor to submit student grades for one or more classes completed in the previous semester.</description>
+		<priority>Low</priority>
+		<trigger>The use case begins when the Professor selects the "submit grades" activity from the Main Form.</trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+	</use-case>
+	
+	<use-case>
+		<name>Select Courses to Teach</name>
+		<actor>Professor</actor>
+		<description>This use case allows a professor to select the course offerings (date- and time- specific courses will be given) from the course catalog for the courses that he/she is eligible for and wishes to teach in the upcoming semester.</description> 
+		<priority>Medium</priority>
+		<trigger>The use case begins when the professor selects the "select courses to teach" activity from the Main Form.</trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+	</use-case>
+	
+		<use-case>
+		<name>Student Login</name>
+		<actor>Student</actor>
+		<description>This use case describes how a Student logs into the Course Registration System.</description>
+		<priority>High</priority>
+		<trigger>The use case begins when the Student types his/her name and password on the login form.</trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+	</use-case>
+	
+	<use-case>
+		<name>Professor Login</name>
+		<actor>Student</actor>
+		<description>This use case describes how a Professor logs into the Course Registration System.</description>
+		<priority>Medium</priority>
+		<trigger>The use case begins when the Professor types his/her name and password on the login form.</trigger>
+		<preconditions />
+		<postconditions />
+		<basic-flow />
+	</use-case>
+	
+	
+</project>

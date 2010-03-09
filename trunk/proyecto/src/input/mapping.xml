@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+  <class name="logica.Project">
+    <map-to xml="project"/>
+
+    <field name="Name"
+           type="java.lang.String">
+      <bind-xml name="name" node="attribute"/>
+    </field>
+
+    <field name="useCases"
+           type="logica.UseCase"
+              collection="arraylist">
+      <bind-xml name="use-case"/>
+    </field>
+  </class>
+
+  <class name="logica.UseCase">
+    <field name="name"
+           type="java.lang.String">
+      <bind-xml name="name" node="element"/>
+    </field>
+    <field name="description"
+           type="java.lang.String">
+      <bind-xml name="description" node="element"/>
+    </field>
+    <field name="actor"
+           type="java.lang.String">
+      <bind-xml name="actor" node="element"/>
+    </field>
+    <field name="priority"
+           type="java.lang.String">
+      <bind-xml name="priority" node="element"/>
+    </field>
+    <field name="trigger"
+           type="java.lang.String">
+      <bind-xml name="trigger" node="element"/>
+    </field>
+    
+    <field name="basicFlow"
+           type="java.lang.String" collection="arraylist">
+            <bind-xml name="flow" location="basic-flow"/>
+    </field>
+    <field name="alternativeFlow"
+           type="java.lang.String" collection="arraylist">
+            <bind-xml name="flow" location="alternative-flow"/>
+    </field>
+    <field name="specialRequirement"
+           type="java.lang.String" collection="arraylist">
+            <bind-xml name="req" location="especial-reqs"/>
+    </field>
+    <field name="preconditions"
+           type="java.lang.String" collection="arraylist">
+            <bind-xml name="condition" location="preconditions"/>
+    </field>
+    <field name="postconditions"
+           type="java.lang.String" collection="arraylist">
+            <bind-xml name="condition" location="postconditions"/>
+    </field>
+   </class>
+
+</mapping>
