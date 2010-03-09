@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+  xml:base="http://www.owl-ontologies.com/unnamed.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="ConcreteArtifact"/>
+  <owl:Class rdf:ID="ConcreteResponse"/>
+  <owl:Class rdf:ID="ConcreteSource"/>
+  <owl:Class rdf:ID="ConcreteStimulus"/>
+  <owl:Class rdf:ID="QualityAttributeScenario"/>
+  <owl:Class rdf:ID="ConcreteResponseMeasure"/>
+  <owl:Class rdf:ID="ConcreteEnviroment"/>
+  <owl:Class rdf:ID="ConcreteQualityAttributeScenario">
+    <rdfs:subClassOf rdf:resource="#QualityAttributeScenario"/>
+  </owl:Class>
+  <owl:Class rdf:ID="QualityAttribute"/>
+  <owl:Class rdf:ID="GeneralQualityAttributeScenario">
+    <rdfs:subClassOf rdf:resource="#QualityAttributeScenario"/>
+  </owl:Class>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasArtifact">
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isSpecificof">
+    <rdfs:domain rdf:resource="#QualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponseMeasure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteArtifactName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ConcreteArtifact"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasEnviroment">
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteResponseMeasureName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ConcreteResponseMeasure"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteStimulusName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteStimulus"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteEnviromentName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteEnviroment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteResponseName">
+    <rdfs:domain rdf:resource="#ConcreteResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteSourceName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteSource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="qualityAttributeName">
+    <rdfs:domain rdf:resource="#QualityAttribute"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="concreteScenarioHasStimlus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+  </owl:FunctionalProperty>
+  <QualityAttribute rdf:ID="ontology_Instance_15">
+    <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Performace</qualityAttributeName>
+  </QualityAttribute>
+  <QualityAttribute rdf:ID="KB_044591_Instance_9">
+    <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modifiability</qualityAttributeName>
+  </QualityAttribute>
+  <QualityAttribute rdf:ID="ontology_Instance_16">
+    <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Aviability</qualityAttributeName>
+  </QualityAttribute>
+  <ConcreteSource rdf:ID="KB_044591_Instance_7">
+    <concreteSourceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User</concreteSourceName>
+  </ConcreteSource>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_0">
+    <concreteScenarioHasSource rdf:resource="#KB_044591_Instance_7"/>
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+  </ConcreteQualityAttributeScenario>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

@@ -1,0 +1,7 @@
+General
+La interface Algoritmo declara un solo metodo calvularListaAtributos(listaDePalabras,earlyAspect).
+La entrada de este meotodo puede variar. Por ello es que será una lista de listas, y en cada una de las listas los parametros. Cada algoritmo sabe en que posicion estan los parametros que necesta.
+Tambien este metodo tiene que devolver directamente el AttributeTheme. No podria ser de otra manera, porque sino el reasoner no podria variar entre las distintas implementaciones de los algortimos.
+
+Algoritmo con la Ontologia
+La interface QualityAttributeBelongable declara solo un metodo, getWordPertenence. Este metodo devuelve, para una palabra, el porcentaje de pertenencia que tiene para cada atributo. La clase OntologyAnalizer imlpementa este metodo, consultando a la ontologia.
