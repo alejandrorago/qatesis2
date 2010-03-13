@@ -2,8 +2,10 @@ package ontology;
 
 import java.util.Map;
 
-import entities.QualityAttribute;
+import entities.QualityAttributeInterface;
 
 public interface QualityAttributeBelongable {
-	Map<QualityAttribute,Integer> getWordPertenence(String word);
+	Map<QualityAttributeInterface,Double> getWordPertenence(String word);
+    Map<QualityAttributeInterface, Double> loadQualityAttributes();
+
 }
