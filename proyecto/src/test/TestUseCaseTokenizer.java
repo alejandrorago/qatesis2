@@ -16,7 +16,7 @@ public class TestUseCaseTokenizer {
 		
 
 		UseCase uc = new UseCase();
-		uc.setName("Caso de Uso 1");
+		uc.setName("Caso de Uso Uso 1");
 		uc.setDescription("this use case is activated when the customer pays a bill");
 		uc.setActor("Customer");
 		uc.setPriority("Low");
