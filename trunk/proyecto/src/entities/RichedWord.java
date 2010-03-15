@@ -25,11 +25,11 @@ public class RichedWord implements RichedWordInterface {
     /** HashMap que contiene la lista de atributos de esa palabra */
     private Map<String, Object> attributes;
 
-/**
-     * Crea un nuevo objeto de tipo RichedWord
-     *
-     * @param word palabra
-     */
+    /**
+         * Crea un nuevo objeto de tipo RichedWord
+         *
+         * @param word palabra
+         */
     public RichedWord(String word) {
         this.word = word;
         this.attributes = new HashMap<String, Object>();
@@ -100,11 +100,14 @@ public class RichedWord implements RichedWordInterface {
     public void removeAttribute(String key) {
         this.attributes.remove(key);
     }
-    
-    
+
     public boolean equals(Object o) {
-    	return ((RichedWord)o).getWord().equalsIgnoreCase(this.word);   	
+    	try {
+    		RichedWord rw = (RichedWord) o;
+        	return ((rw.getWord().equalsIgnoreCase(this.word)) &&
+        			(this.getAttribute("SECTION").equals(rw.getAttribute("SECTION"))));
+        } catch (NullPointerException e) {
+        	return false;
+        }
     }
-    
-    
 }
