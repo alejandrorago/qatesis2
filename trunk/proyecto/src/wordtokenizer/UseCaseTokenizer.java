@@ -7,6 +7,10 @@ import java.util.List;
 import entities.RichedWord;
 import entities.UseCase;
 
+/**
+ * @author Sebastián Villanueva
+ *
+ */
 public class UseCaseTokenizer {
 
 	
@@ -24,6 +28,13 @@ public class UseCaseTokenizer {
 	private static final String OCURRENCES = "OCURRENCES";
 	
 
+	/**
+	 * 
+	 * Genera una lista de palabras y sus atributos (RichedWords) a partir de un caso de uso. Para ello recorre las diferentes secciones del mismo.
+	 * 
+	 * @param UseCase
+	 * @return Lista de RichedWords 
+	 */
 	public static List<RichedWord> tokenizeUseCase(UseCase uc) {
 			
 		List<RichedWord> result = new ArrayList<RichedWord>();
@@ -37,10 +48,18 @@ public class UseCaseTokenizer {
 		result.addAll((List<RichedWord>) tokenizeList(uc.getSpecialRequirement(),SPECIALREQUERIMENT));
 		result.addAll((List<RichedWord>) tokenizeList(uc.getPreconditions(),PRECONDITIONS));
 		result.addAll((List<RichedWord>) tokenizeList(uc.getPostconditions(),POSTCONDITIONS));
-
 		return result;
 	}
 
+	/**
+	 * 
+	 * Se utiliza para las secciones del caso de uso que son una lista de elementos.
+	 * Se recorre la lista y se invoca al metodo tokenize con cada elemento.
+	 * 
+	 * @param list
+	 * @param section
+	 * @return
+	 */
 	private static List<RichedWord> tokenizeList(List<String> list, String section) {
 		
 		List<RichedWord> result = new ArrayList<RichedWord>();
@@ -51,6 +70,14 @@ public class UseCaseTokenizer {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Arma la lista de palabras agregando el valor de la palabra, la sección y el número de ocurrencias.
+	 * 
+	 * @param sectionwords
+	 * @param section
+	 * @return
+	 */
 	private static List<RichedWord> tokenize(String sectionwords, String section) {
 
 		List<RichedWord> result = new ArrayList<RichedWord>();
@@ -62,12 +89,14 @@ public class UseCaseTokenizer {
 				if (!stopWordsAnalizer.isStopWord(list[i])) {
 					RichedWord rw = new RichedWord(list[i]);
 					rw.setAttribute(SECTION, section);
-						if (!result.contains(rw)) {
+					int indice = result.indexOf(rw);
+						if (indice<0) {
 							rw.setAttribute(OCURRENCES, new Integer(1));
 							result.add(rw); 
 							
 						}
 						else {
+							rw = result.get(indice);
 							Integer ocurrencias = (Integer) rw.getAttribute(OCURRENCES);
 							if (ocurrencias == null) {
 								ocurrencias = new Integer(1);
