@@ -86,9 +86,9 @@ public class RichedWord implements RichedWordInterface {
      * Agrega un atributo al map, si este existe lo reemplzaza
      *
      * @param key nombre del atributo
-     * @param value valor del atrobuto
+     * @param value valor del atributo
      */
-    public void setAttribute(String key, String value) {
+    public void setAttribute(String key, Object value) {
         this.attributes.put(key, value);
     }
 
@@ -100,4 +100,11 @@ public class RichedWord implements RichedWordInterface {
     public void removeAttribute(String key) {
         this.attributes.remove(key);
     }
+    
+    
+    public boolean equals(Object o) {
+    	return ((RichedWord)o).getWord().equalsIgnoreCase(this.word);   	
+    }
+    
+    
 }

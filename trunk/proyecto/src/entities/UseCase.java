@@ -8,7 +8,7 @@ import java.util.List;
  *
  */
 
-@SuppressWarnings("unchecked")
+
 
 public class UseCase implements UseCaseInterface {
 
@@ -18,18 +18,18 @@ public class UseCase implements UseCaseInterface {
 	private String actor;
 	private String priority;
 	private String trigger;
-	private List alternativeFlow;
-	private List basicFlow;
-	private List specialRequirement;
-	private List preconditions;
-	private List postconditions;
+	private List<String> alternativeFlow;
+	private List<String> basicFlow;
+	private List<String> specialRequirement;
+	private List<String> preconditions;
+	private List<String> postconditions;
 	
 	public UseCase() {
-		this.basicFlow = new ArrayList();
-		this.alternativeFlow = new ArrayList();
-		this.specialRequirement = new ArrayList();
-		this.preconditions = new ArrayList();
-		this.postconditions = new ArrayList();
+		this.basicFlow = new ArrayList<String>();
+		this.alternativeFlow = new ArrayList<String>();
+		this.specialRequirement = new ArrayList<String>();
+		this.preconditions = new ArrayList<String>();
+		this.postconditions = new ArrayList<String>();
 	}
 	/**
 	 * @return the id
@@ -108,7 +108,7 @@ public class UseCase implements UseCaseInterface {
 		/**
 		 * @return the basicFlow
 		 */
-		public List getBasicFlow() {
+		public List<String> getBasicFlow() {
 			return basicFlow;
 		}
 		/**
@@ -120,7 +120,7 @@ public class UseCase implements UseCaseInterface {
 		/**
 		 * @return the alternativeFlow
 		 */
-		public List getAlternativeFlow() {
+		public List<String> getAlternativeFlow() {
 			return alternativeFlow;
 		}
 		/**
@@ -132,7 +132,7 @@ public class UseCase implements UseCaseInterface {
 		/**
 		 * @return the specialRequirement
 		 */
-		public List getSpecialRequirement() {
+		public List<String> getSpecialRequirement() {
 			return specialRequirement;
 		}
 		/**
@@ -144,7 +144,7 @@ public class UseCase implements UseCaseInterface {
 		/**
 		 * @return the preconditions
 		 */
-		public List getPreconditions() {
+		public List<String> getPreconditions() {
 			return preconditions;
 		}
 		/**
@@ -156,7 +156,7 @@ public class UseCase implements UseCaseInterface {
 		/**
 		 * @return the postconditions
 		 */
-		public List getPostconditions() {
+		public List<String> getPostconditions() {
 			return postconditions;
 		}
 		/**
