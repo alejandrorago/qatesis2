@@ -160,7 +160,22 @@ public class WordReader {
 		
 	 UseCase uc = new UseCase();
 
-	  
+	 String[] array = this.getText().split("Use Case Specification:");
+	 String name = (array[1].split(""))[0];
+
+	 array = this.getText().split("Brief Description");
+	 String description = (array[2].split("Flow of Events"))[0];
+
+	 array = this.getText().split("Basic Flow");
+	 String basicFlow = (array[2].split("Alternative Flows"))[0];
+
+	 array = this.getText().split("Alternative Flows");
+	 String alternativeFlow = (array[2].split("Special Requirements"))[0];
+	 
+	 uc.setName(name);
+	 uc.setDescription(description);
+	 uc.setBasicFlow(basicFlow);
+	 uc.setAlternativeFlow(alternativeFlow);
 	 return uc;
 		
 		
