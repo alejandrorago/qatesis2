@@ -11,9 +11,9 @@ import java.util.List;
 public class TestUseCaseTokenizer {
     public static void main(String[] args) {
         UseCase uc = new UseCase();
-        uc.setName("Caso de Uso Uso 1");
+        uc.setName("Use Case 1 . Use Case");
         uc.setDescription(
-            "this use case is activated when the customer pays a bill");
+            "this use case is activated when the customer pays a bill . The bill . . .");
         uc.setActor("Customer");
         uc.setPriority("Low");
         uc.setBasicFlow("The user logs into the system customer.");

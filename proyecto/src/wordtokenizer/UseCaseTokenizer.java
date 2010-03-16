@@ -93,7 +93,7 @@ public class UseCaseTokenizer {
             String[] list = sectionwords.split("[\\s,;]+");
 
             for (int i = 0; i < list.length; i++) {
-            	String palabra = list[i];
+            	String palabra = list[i].toLowerCase();
             	if (!stopWordsAnalizer.isStopWord(palabra)) {
                     RichedWord rw = new RichedWord(this.steemer.stemmer(palabra));
                     rw.setAttribute(SECTION, section);
