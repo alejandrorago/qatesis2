@@ -16,15 +16,15 @@ public interface UseCaseInterface {
 	public void setPriority(String priority) ;
 	public String getTrigger();
 	public void setTrigger(String trigger);
-	public List getBasicFlow() ;
+	public List<String> getBasicFlow() ;
 	public void setBasicFlow(String basicFlow);
-	public List getAlternativeFlow();
+	public List<String> getAlternativeFlow();
 	public void setAlternativeFlow(String alternativeFlow);
-	public List getSpecialRequirement();
+	public List<String> getSpecialRequirement();
 	public void setSpecialRequirement(String especialRequirement);
-	public List getPreconditions();
+	public List<String> getPreconditions();
 	public void setPreconditions(String preconditions);
-	public List getPostconditions();
+	public List<String> getPostconditions();
 	public void setPostconditions(String postconditions);
 
 }
