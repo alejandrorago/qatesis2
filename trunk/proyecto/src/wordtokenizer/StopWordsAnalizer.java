@@ -1,5 +1,9 @@
 package wordtokenizer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,18 +13,25 @@ public class StopWordsAnalizer {
     List<String> stopWords;
 
     public StopWordsAnalizer() {
-        stopWords = new ArrayList<String>();
-        stopWords.add("a");
-        stopWords.add("an");
-        stopWords.add("at");
-        stopWords.add("be");
-        stopWords.add("for");
-        stopWords.add("he");
-        stopWords.add("is");
-        stopWords.add("she");
-        stopWords.add("the");
-
-    }
+        
+    	stopWords = new ArrayList<String>();
+		File f = new File("resources//stopWordsList.txt");
+		FileReader fr;
+		try {
+			fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			String eachLine;
+			eachLine = br.readLine();
+			while (eachLine != null) {
+				stopWords.add(eachLine);
+				eachLine = br.readLine();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+      
 
     public void addWord(String word) {
         stopWords.add(word);
@@ -32,6 +43,10 @@ public class StopWordsAnalizer {
 
     public void cleanStopWords() {
         stopWords.clear();
+    }
+    
+    public List<String> getStopWords() {
+    	return this.stopWords;
     }
 
     public List<String> analize(List<String> list) {
@@ -65,4 +80,7 @@ public class StopWordsAnalizer {
     public boolean isStopWord(String word) {
         return stopWords.contains(word);
     }
+    
+
+    
 }
