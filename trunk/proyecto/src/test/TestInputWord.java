@@ -10,7 +10,7 @@ public class TestInputWord {
 
 	public static void main(String[] args) {
 
-		String filename = ".//src//test//use_case_template.doc";
+		String filename = "resources//UseCaseSpecificationTemplate.doc";
 		WordReader analizador = new WordReader(filename);
 		try {
 			analizador.analize();
