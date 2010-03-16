@@ -9,7 +9,7 @@ import entities.UseCase;
 public class Project {
 	
 	private String name;
-	private List useCases;
+	private List<UseCase> useCases;
 	
 	public String getName() {
 		return name;
@@ -17,16 +17,16 @@ public class Project {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List getUseCases() {
+	public List<UseCase> getUseCases() {
 		return useCases;
 	}
-	public void setUseCases(List useCases) {
+	public void setUseCases(List<UseCase> useCases) {
 		this.useCases = useCases;
 	}
 
-	public List getActors() {
-		List actors = new ArrayList(); 
-		Iterator i = useCases.iterator();
+	public List<String> getActors() {
+		List<String> actors = new ArrayList<String>(); 
+		Iterator<UseCase> i = useCases.iterator();
 		while (i.hasNext())  {
 			UseCase u = (UseCase) i.next();
 			String a = u.getActor();

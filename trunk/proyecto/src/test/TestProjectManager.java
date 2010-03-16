@@ -14,6 +14,7 @@ public class TestProjectManager {
 		ProjectManager pm = new ProjectManager();
 		pm.loadProject(".//src//logica//proyecto.xml");
 		Project p = pm.getProject();
+		System.out.println(p.getUseCases());
 	}
 
 }
