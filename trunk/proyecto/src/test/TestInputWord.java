@@ -19,7 +19,9 @@ public class TestInputWord {
 		}
 
 		System.out.println(analizador.getText());
-
+		
+		System.out.println("\nCaso de Uso:"); 
+		System.out.println(analizador.getUsecase().toString());			
 	}
 
 }
