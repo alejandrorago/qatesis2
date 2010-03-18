@@ -1,5 +1,7 @@
 package test;
 
+import java.util.regex.Pattern;
+
 import input.WordReader;
 
 public class TestInputWord {
@@ -18,10 +20,18 @@ public class TestInputWord {
 			System.out.println("Error" + e2.toString());
 		}
 
-		System.out.println(analizador.getText());
-		
-		System.out.println("\nCaso de Uso:"); 
-		System.out.println(analizador.getUsecase().toString());			
+		String[] paragraphs = analizador.getParagraphs();
+		System.out.println("Word Document has " + paragraphs.length
+				+ " paragraphs");
+		for (int i = 0; i < paragraphs.length; i++) {
+			String illegals = "[]$^*\"'^’+%&/()“=?!_#½{}\\|-~`;,´.:<>\n\r";
+			String pattern = "[" + Pattern.quote(illegals) + "]";
+
+			String text = paragraphs[i];
+			String result = text.replaceAll(pattern, "");
+			System.out.println(result);
+		}
+
 	}
 
 }

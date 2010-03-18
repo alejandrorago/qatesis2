@@ -9,6 +9,8 @@ import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.poifs.eventfilesystem.POIFSReaderEvent;
 import org.apache.poi.poifs.eventfilesystem.POIFSReaderListener;
 
+
+
 public class StandardReaderListener implements POIFSReaderListener {
 
     private WordReader datos = null;
@@ -46,5 +48,6 @@ public class StandardReaderListener implements POIFSReaderListener {
     	            System.out.println("Error->"+e1.toString());
     	        }
     	        datos.setText(we.getText());
+    	        datos.setParagraphs(we.getParagraphText());
     	        }
             }	
