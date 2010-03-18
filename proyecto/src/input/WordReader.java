@@ -17,6 +17,7 @@ public class WordReader {
 	private String comments;
 	private String text;
 	private String fileName;
+	private String[] paragraphs;
 
 	public WordReader(String fileName) {
 		this.fileName = fileName;
@@ -141,6 +142,21 @@ public class WordReader {
 	public void setText(String text) {
 		this.text = text;
 	}
+	
+	public String[] getParagraphs() {
+		return paragraphs;
+	}
+	
+	
+	/**
+	 * @param text the paragraphs to set
+	 */
+	public void setParagraphs(String[] paragraphs) {
+		this.paragraphs = paragraphs;
+	}
+
+	
+	
 
 	/**
 	 * @return the fileName
