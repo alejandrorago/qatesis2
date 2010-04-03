@@ -59,7 +59,7 @@ public class StandardReaderListener implements POIFSReaderListener {
 			int index = 0;
 
 			c = dirtyString.charAt(index);
-			while (StringUtils.isAsciiPrintable(String.valueOf(c))) {
+			while (StringUtils.isAsciiPrintable(String.valueOf(c) )) {
 				index++;
 				c = dirtyString.charAt(index);
 			}
@@ -67,7 +67,9 @@ public class StandardReaderListener implements POIFSReaderListener {
 					String.valueOf(dirtyString.charAt(index)), " "));
 		}
 
-		datos.setText(WordExtractor.stripFields(dirtyString.toString()));
+		String texto = ":START:"+StringUtils.substringAfterLast(dirtyString.toString(), "Use Case Specification:") + ":END:";
+		
+		datos.setText(WordExtractor.stripFields(texto));
 
 	}
 }

@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<project name="STSYS">
+<!DOCTYPE proyect PUBLIC "ProyectoCasosDeUso" "resources//proyecto.dtd">
+<project name="ProyectName">
 	<use-case>
+		<id>1</id>
 		<name>Register for a course</name>
 		<actor>Student</actor>
 		<description>Enable a student to register for a course, the student must have appropriate permissions. The system has to process this activity in few seconds in most of the cases</description>
@@ -30,6 +32,7 @@
 		</use-case>
 		
 		<use-case>
+		<id>2</id>
 		<name>Register for a final exam</name>
 		<actor>Student</actor>
 		<description>Enable a student to register for a final exam, the	student must have appropriate permissions. The system has to process
@@ -58,6 +61,7 @@
 		</use-case>
 		
 		<use-case>
+		<id>3</id>
 		<name>Cancel Registration</name>
 		<actor>Student</actor>
 		<description>Enable a student to unregister for a final exam, the student must have appropriate permissions. The system has to process
@@ -86,6 +90,7 @@
 		</use-case>
 
 		<use-case>
+		<id>4</id>		
 		<name>Update Notes</name>
 		<actor>Professor</actor>
 		<description>Enable a professor to register the notes of a final exam, the professor must have appropriate permissions.</description>
@@ -112,9 +117,8 @@
 				<req></req>
 			</especial-reqs>
 		</use-case>
-	
-	
 	<use-case>
+		<id>5</id>
 		<name>Maintain professor information</name>
 		<actor>Administrator</actor>
 		<description>This use case allows the administrator to maintain professor information in the registration system. This includes adding, modifying, and deleting professors from the system</description>
@@ -129,6 +133,7 @@
 	
 	
 	<use-case>
+		<id>6</id>
 		<name>View Report Card</name>
 		<actor>Student</actor>
 		<description>The use case begins when the Student selects the "view report card" activity from the Main Form</description>
@@ -140,6 +145,7 @@
 	</use-case>
 	
 	<use-case>
+		<id>7</id>
 		<name>Submit Grades</name>
 		<actor>Professor</actor>
 		<description>This use case allows a Professor to submit student grades for one or more classes completed in the previous semester.</description>
@@ -151,6 +157,7 @@
 	</use-case>
 	
 	<use-case>
+		<id>8</id>
 		<name>Select Courses to Teach</name>
 		<actor>Professor</actor>
 		<description>This use case allows a professor to select the course offerings (date- and time- specific courses will be given) from the course catalog for the courses that he/she is eligible for and wishes to teach in the upcoming semester.</description> 
@@ -161,7 +168,8 @@
 		<basic-flow />
 	</use-case>
 	
-		<use-case>
+	<use-case>
+		<id>9</id>
 		<name>Student Login</name>
 		<actor>Student</actor>
 		<description>This use case describes how a Student logs into the Course Registration System.</description>
@@ -173,6 +181,7 @@
 	</use-case>
 	
 	<use-case>
+		<id>10</id>
 		<name>Professor Login</name>
 		<actor>Student</actor>
 		<description>This use case describes how a Professor logs into the Course Registration System.</description>
@@ -182,6 +191,16 @@
 		<postconditions />
 		<basic-flow />
 	</use-case>
+	
+	<candidate-aspect>
+		<id>1</id>
+		<name>login</name>
+		<use-cases>
+			<usecase>9</usecase>
+			<usecase>10</usecase>
+		</use-cases>	
+	</candidate-aspect>
+	
 	
 	
 </project>

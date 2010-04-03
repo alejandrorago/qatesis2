@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
+
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
                          "http://castor.org/mapping.dtd">
 
 <mapping>
-  <class name="logica.Project">
+
+  <class name="input.Project">
     <map-to xml="project"/>
+
 
     <field name="Name"
            type="java.lang.String">
@@ -12,16 +15,20 @@
     </field>
 
     <field name="useCases"
-           type="logica.UseCase"
+           type="entities.UseCase"
               collection="arraylist">
       <bind-xml name="use-case"/>
     </field>
   </class>
 
-  <class name="logica.UseCase">
+  <class name="entities.UseCase">
     <field name="name"
            type="java.lang.String">
       <bind-xml name="name" node="element"/>
+    </field>
+    <field name="id"
+           type="java.lang.Integer">
+      <bind-xml name="id" node="element"/>
     </field>
     <field name="description"
            type="java.lang.String">

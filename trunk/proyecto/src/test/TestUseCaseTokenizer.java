@@ -1,11 +1,11 @@
 package test;
 
-import entities.RichedWord;
-import entities.UseCase;
+import java.util.ArrayList;
+import java.util.List;
 
 import wordtokenizer.UseCaseTokenizer;
-
-import java.util.List;
+import entities.RichedWord;
+import entities.UseCase;
 
 
 public class TestUseCaseTokenizer {
@@ -21,7 +21,8 @@ public class TestUseCaseTokenizer {
             "The user selects the option bill pay at the menu. He click the link");
 
         UseCaseTokenizer uct = new UseCaseTokenizer();
-        List<RichedWord> tokens = uct.tokenizeUseCase(uc);
+        List<RichedWord> tokens = new ArrayList<RichedWord>();
+        uct.tokenizeUseCase(uc,tokens);
 
         for (RichedWord tok : tokens) {
             System.out.println("Word: " + tok.getWord());

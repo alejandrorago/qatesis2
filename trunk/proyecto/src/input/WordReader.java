@@ -3,6 +3,7 @@ package input;
 import java.io.FileInputStream;
 
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.poi.poifs.eventfilesystem.POIFSReader;
 
 import entities.UseCase;
@@ -176,26 +177,17 @@ public class WordReader {
 		
 	 UseCase uc = new UseCase();
 
-	 String[] array = this.getText().split("Use Case Specification:");
-	 String name = (array[1].split(""))[0];
-
-	 array = this.getText().split("Brief Description");
-	 String description = (array[2].split("Flow of Events"))[0];
-
-	 array = this.getText().split("Basic Flow");
-	 String basicFlow = (array[2].split("Alternative Flows"))[0];
-
-	 array = this.getText().split("Alternative Flows");
-	 String alternativeFlow = (array[2].split("Special Requirements"))[0];
+	 String name = StringUtils.substringBetween(this.getText(), ":START:", "Brief Description");
+	 String description = StringUtils.substringBetween(this.getText(), " Brief Description", "Flow of Events");
+	 String basicFlow = StringUtils.substringBetween(this.getText(), "Basic Flow", "Alternative Flows");
+	 String alternativeFlow = StringUtils.substringBetween(this.getText(), "Alternative Flows", "Special Requirements");
 	 
-	 uc.setName(name);
-	 uc.setDescription(description);
-	 uc.setBasicFlow(basicFlow);
-	 uc.setAlternativeFlow(alternativeFlow);
-	 return uc;
-		
-		
-	}
 
-
+	 uc.setName(name.trim());
+	 uc.setDescription(description.trim());
+	 uc.setBasicFlow(basicFlow.trim());
+	 uc.setAlternativeFlow(alternativeFlow.trim());
+	 return uc;	
+	
+	}	
 }
