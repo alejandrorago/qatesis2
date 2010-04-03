@@ -1,11 +1,12 @@
 package wordtokenizer;
 
-import entities.RichedWord;
-import entities.UseCase;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import entities.RichedWord;
+import entities.UseCase;
 
 
 /**
@@ -27,6 +28,9 @@ public class UseCaseTokenizer {
     private static final String OCURRENCES = "OCURRENCES";
 
     StemmerIngles steemer;
+   
+    static final Logger logger = Logger.getLogger(UseCaseTokenizer.class);
+	
     
     public UseCaseTokenizer() {
 		super();
@@ -40,20 +44,22 @@ public class UseCaseTokenizer {
      * @param UseCase
      * @return Lista de RichedWords
      */
-    public  List<RichedWord> tokenizeUseCase(UseCase uc) {
-        List<RichedWord> result = new ArrayList<RichedWord>();
-        result.addAll((List<RichedWord>) tokenize(uc.getName(), NAME));
-        result.addAll((List<RichedWord>) tokenize(uc.getDescription(), DESCRIPTION));
-        result.addAll((List<RichedWord>) tokenize(uc.getActor(), ACTOR));
-        result.addAll((List<RichedWord>) tokenize(uc.getPriority(), PRIORITY));
-        result.addAll((List<RichedWord>) tokenize(uc.getTrigger(), TRIGGUER));
-        result.addAll((List<RichedWord>) tokenizeList(uc.getBasicFlow(), BASICFLOW));
-        result.addAll((List<RichedWord>) tokenizeList(uc.getAlternativeFlow(), ALTERNATIVEFLOW));
-        result.addAll((List<RichedWord>) tokenizeList(uc.getSpecialRequirement(), SPECIALREQUERIMENT));
-        result.addAll((List<RichedWord>) tokenizeList(uc.getPreconditions(), PRECONDITIONS));
-        result.addAll((List<RichedWord>) tokenizeList(uc.getPostconditions(), POSTCONDITIONS));
-        return result;
-    }
+    public  void tokenizeUseCase(UseCase uc, List<RichedWord> list) {
+
+    	logger.info("Tokenizando Caso de Uso: " + uc.getName());
+
+		tokenize(list, uc.getName(), NAME);
+		tokenize(list, uc.getDescription(), DESCRIPTION);
+		tokenize(list, uc.getActor(), ACTOR);
+		tokenize(list, uc.getPriority(), PRIORITY);
+		tokenize(list, uc.getTrigger(), TRIGGUER);
+		tokenizeList(list, uc.getBasicFlow(), BASICFLOW);
+		tokenizeList(list, uc.getAlternativeFlow(), ALTERNATIVEFLOW);
+		tokenizeList(list, uc.getSpecialRequirement(), SPECIALREQUERIMENT);
+		tokenizeList(list, uc.getPreconditions(), PRECONDITIONS);
+		tokenizeList(list, uc.getPostconditions(), POSTCONDITIONS);
+
+	}
 
     /**
      *
@@ -64,16 +70,14 @@ public class UseCaseTokenizer {
      * @param section
      * @return
      */
-    private  List<RichedWord> tokenizeList(List<String> list,
+    private  void tokenizeList(List<RichedWord> rwlist, List<String> list,
         String section) {
-        List<RichedWord> result = new ArrayList<RichedWord>();
 
         for (Iterator<String> i = list.iterator(); i.hasNext();) {
             String word = (String) i.next();
-            result = tokenize(word.toLowerCase(), section);
+            tokenize(rwlist, word.toLowerCase(), section);
         }
 
-        return result;
     }
 
     /**
@@ -84,19 +88,26 @@ public class UseCaseTokenizer {
      * @param section
      * @return
      */
-    private List<RichedWord> tokenize(String sectionwords, String section) {
+    private void tokenize(List<RichedWord> result, String sectionwords, String section) {
         
-    	List<RichedWord> result = new ArrayList<RichedWord>();
-        StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer();
+    	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer();
         
         if (sectionwords != null) {
-            String[] list = sectionwords.split("[\\s,;]+");
+        
+        	String[] list = sectionwords.split("[^a-zA-Z0-9]");
 
             for (int i = 0; i < list.length; i++) {
             	String palabra = list[i].toLowerCase();
             	if (!stopWordsAnalizer.isStopWord(palabra)) {
-                    RichedWord rw = new RichedWord(this.steemer.stemmer(palabra));
-                    rw.setAttribute(SECTION, section);
+                   
+                	logger.info("> Palabra Antes de Steeming: " + palabra);
+
+                	palabra = this.steemer.stemmer(palabra);
+                	RichedWord rw = new RichedWord(palabra);
+                    
+                	logger.info("> Palabra Pos Steeming: " + palabra);
+
+                	rw.setAttribute(SECTION, section);
                     int indice = result.indexOf(rw);
                     if (indice < 0) {
                         rw.setAttribute(OCURRENCES, new Integer(1));
@@ -108,9 +119,12 @@ public class UseCaseTokenizer {
                         rw.setAttribute(OCURRENCES, ++ocurrencias);
                     }
                 }
+            	else {
+            	   	logger.info("> La palabra: " + palabra + " fue detectada como StopWord");
+            	}
+            		
             }
         }
 
-        return result;
-    }
+       }
 }

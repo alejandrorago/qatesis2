@@ -1,0 +1,64 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT project (use-case)+>
+<!ATTLIST project
+  xmlns CDATA #FIXED ''
+  name NMTOKEN #REQUIRED>
+
+<!ELEMENT use-case (name,actor,description,priority,trigger,
+                    preconditions,postconditions,basic-flow,
+                    (alternative-flow,especial-reqs)?)>
+<!ATTLIST use-case
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT actor (#PCDATA)>
+<!ATTLIST actor
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST description
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT priority (#PCDATA)>
+<!ATTLIST priority
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT trigger (#PCDATA)>
+<!ATTLIST trigger
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT preconditions (condition)*>
+<!ATTLIST preconditions
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT postconditions EMPTY>
+<!ATTLIST postconditions
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT basic-flow (flow)*>
+<!ATTLIST basic-flow
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT alternative-flow (flow)*>
+<!ATTLIST alternative-flow
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT especial-reqs (req)*>
+<!ATTLIST especial-reqs
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT condition (#PCDATA)>
+<!ATTLIST condition
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT req (#PCDATA)>
+<!ATTLIST req
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT flow (#PCDATA)>
+<!ATTLIST flow
+  xmlns CDATA #FIXED ''>
