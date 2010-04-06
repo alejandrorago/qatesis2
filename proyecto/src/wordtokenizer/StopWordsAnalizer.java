@@ -8,10 +8,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * The Class StopWordsAnalizer.
+ * 
+ * @author Sebastián Villanueva
+ * 
+ */
 
 public class StopWordsAnalizer {
+    
     List<String> stopWords;
 
+    /**
+     * Instantiates a new stop words analizer.
+     */
     public StopWordsAnalizer() {
         
     	stopWords = new ArrayList<String>();
@@ -33,22 +43,46 @@ public class StopWordsAnalizer {
 	}
       
 
+    /**
+     * Adds the word.
+     *
+     * @param word the word
+     */
     public void addWord(String word) {
         stopWords.add(word);
     }
 
+    /**
+     * Removes the word.
+     *
+     * @param word the word
+     */
     public void removeWord(String word) {
         stopWords.remove(word);
     }
 
+    /**
+     * Clean stop words.
+     */
     public void cleanStopWords() {
         stopWords.clear();
     }
     
+    /**
+     * Gets the stop words.
+     *
+     * @return the stop words
+     */
     public List<String> getStopWords() {
     	return this.stopWords;
     }
 
+    /**
+     * Analize a list of words.
+     *
+     * @param list 
+     * @return the list
+     */
     public List<String> analize(List<String> list) {
         List<String> resultado = new ArrayList<String>();
 
@@ -63,6 +97,12 @@ public class StopWordsAnalizer {
         return resultado;
     }
 
+    /**
+     * Analize.
+     *
+     * @param list the list
+     * @return the list
+     */
     public List<String> analize(String[] list) {
         List<String> resultado = new ArrayList<String>();
 
@@ -77,10 +117,14 @@ public class StopWordsAnalizer {
         return resultado;
     }
 
+    /**
+     * Checks if is stop word.
+     *
+     * @param word 
+     * @return true, if is stop word
+     */
     public boolean isStopWord(String word) {
         return stopWords.contains(word);
     }
-    
 
-    
 }
