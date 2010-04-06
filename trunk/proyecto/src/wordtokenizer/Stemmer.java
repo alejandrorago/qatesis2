@@ -2,12 +2,31 @@ package wordtokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Class Stemmer
+ * 
+ * @author Sebastián Villanueva
+ * 
+ */
 public abstract class Stemmer {
 
 	protected List<String> vocales = new ArrayList<String>();
-	public abstract String stemmer (String cadena);
 	
-	//Región R1
+	/**
+	 * Stemmer
+	 *
+	 * @param cadena
+	 * @return string
+	 */
+	public abstract String stemmer(String cadena);
+	
+	
+	/**
+	 * R1 (region R1)
+	 *
+	 * @param palabra
+	 * @return string
+	 */
 	public String R1(String palabra){
 		char c;
 		String r1="";
@@ -38,8 +57,12 @@ public abstract class Stemmer {
 		return r1;
 	} 
 	
-	
-	//Región R2
+	/**
+	 * R2 (Region 2)
+	 *
+	 * @param palabra 
+	 * @return the string
+	 */
 	public String R2(String palabra){
 		
 		String r1 = this.R1(palabra);

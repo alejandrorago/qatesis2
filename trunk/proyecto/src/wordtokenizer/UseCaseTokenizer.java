@@ -97,15 +97,15 @@ public class UseCaseTokenizer {
         	String[] list = sectionwords.split("[^a-zA-Z0-9]");
 
             for (int i = 0; i < list.length; i++) {
-            	String palabra = list[i].toLowerCase();
-            	if (!stopWordsAnalizer.isStopWord(palabra)) {
+            	String originalWord = list[i].toLowerCase();
+            	if (!stopWordsAnalizer.isStopWord(originalWord)) {
                    
-                	logger.info("> Palabra Antes de Steeming: " + palabra);
-
-                	palabra = this.steemer.stemmer(palabra);
-                	RichedWord rw = new RichedWord(palabra);
+                	String analizedWord = this.steemer.stemmer(originalWord);
+                	RichedWord rw = new RichedWord(analizedWord);
                     
-                	logger.info("> Palabra Pos Steeming: " + palabra);
+					if (!originalWord.equals(analizedWord))
+						logger.info("PreSteeming: \"" + originalWord
+								+ "\" - PosSteeming: \"" + analizedWord+ "\"");
 
                 	rw.setAttribute(SECTION, section);
                     int indice = result.indexOf(rw);
@@ -120,7 +120,7 @@ public class UseCaseTokenizer {
                     }
                 }
             	else {
-            	   	logger.info("> La palabra: " + palabra + " fue detectada como StopWord");
+            	   	logger.info("La palabra: \"" + originalWord + "\" fue detectada como StopWord");
             	}
             		
             }
