@@ -3,6 +3,11 @@
  */
 package ontology;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.Literal;
@@ -17,15 +22,6 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 import entities.AbstractEntityFactory;
 import entities.EntityFactory;
 import entities.QualityAttributeInterface;
-import entities.RichedWord;
-
-import org.apache.log4j.Logger;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 
 /**
@@ -282,7 +278,7 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
      * Lista por consola todas las sentencia de la ontologia.
      */
     public void listarOntologia() {
-        Statement b = null;
+        //Statement b = null;
         RDFNode rdfNode;
         StmtIterator stmIterator = this.ontModel.listStatements();
 

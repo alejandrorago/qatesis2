@@ -133,5 +133,7 @@ public class OntologyAlgorithm implements Algorithm {
         list.add(new RichedWord("Stimulus1"));
 
         QualityAttributeTheme qt = algorithm.getQualityAttributeTheme(list, null);
+        System.out.println(qt.getQualityAttribute().getName());
+        
     }
 }
