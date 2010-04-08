@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -10,20 +11,6 @@ import java.util.List;
  * @version $Revision$
   */
 public interface QualityAttributeThemeInterface {
-    /**
-     * DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
-     */
-    public QualityAttributeInterface getQualityAttribute();
-
-    /**
-     * DOCUMENT ME!
-     *
-     * @param qualityAttribute DOCUMENT ME!
-     */
-    public void setQualityAttribute(QualityAttributeInterface qualityAttribute);
-
     /**
      * DOCUMENT ME!
      *
@@ -51,4 +38,18 @@ public interface QualityAttributeThemeInterface {
      * @param useCases DOCUMENT ME!
      */
     public void setUseCases(List<UseCaseInterface> useCases);
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @return DOCUMENT ME!
+     */
+    public Map<QualityAttributeInterface, Double> getMap();
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @param map DOCUMENT ME!
+     */
+    public void setMap(Map<QualityAttributeInterface, Double> map);
 }
