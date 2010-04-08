@@ -3,6 +3,7 @@ package algorithms;
 import entities.EarlyAspect;
 import entities.QualityAttributeInterface;
 import entities.QualityAttributeTheme;
+import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
 import ontology.OntologyAnalyzer;
@@ -55,12 +56,13 @@ public class OntologyAlgorithm implements Algorithm {
 
     //TODO darle bolilla al EarlyAspect, ¿como lo usamos?
     @Override
-    public QualityAttributeTheme getQualityAttributeTheme(
+    public QualityAttributeThemeInterface getQualityAttributeTheme(
         List<RichedWord> words, EarlyAspect earlyAspect) {
         Map<QualityAttributeInterface, Double> map = this.getAttributesMap(words);
         MapUtils.imprimirMap(map);
-
-        return null;
+        QualityAttributeThemeInterface qualityAttributeTheme = new QualityAttributeTheme();
+        qualityAttributeTheme.setMap(map);
+        return qualityAttributeTheme;
     }
 
     /**
@@ -132,8 +134,8 @@ public class OntologyAlgorithm implements Algorithm {
         list.add(new RichedWord("User2"));
         list.add(new RichedWord("Stimulus1"));
 
-        QualityAttributeTheme qt = algorithm.getQualityAttributeTheme(list, null);
-        System.out.println(qt.getQualityAttribute().getName());
+        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(list, null);
+        System.out.println(qt.toString());
         
     }
 }
