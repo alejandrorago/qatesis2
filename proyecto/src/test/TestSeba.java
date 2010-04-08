@@ -6,7 +6,12 @@ import input.ProjectManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import algorithms.Algorithm;
+import algorithms.OntologyAlgorithm;
+
+import utils.MapUtils;
 import wordtokenizer.UseCaseTokenizer;
+import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 import entities.UseCase;
 
@@ -48,6 +53,11 @@ public class TestSeba {
             System.out.println("Section: " + tok.getAttribute("SECTION"));
             System.out.println("Ocurrences: " + tok.getAttribute("OCURRENCES") + "\n***\n");
         }
+	    
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
+        
+        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(tokens, null);
+        MapUtils.imprimirMap(qt.getMap());
     	
 	}
 

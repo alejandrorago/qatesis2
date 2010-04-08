@@ -99,7 +99,9 @@ public class MapUtils {
      */
     public static Map<QualityAttributeInterface, Double> convertMapToPromedy(
         Map<QualityAttributeInterface, Double> map) {
-        Iterator<Double> values = map.values().iterator();
+        //TODO revisar el caso de que el map sea null, puede venir de antes
+    	if (map==null) return null; 
+    	Iterator<Double> values = map.values().iterator();
         Double total = Double.valueOf(0.0);
 
         while (values.hasNext()) {

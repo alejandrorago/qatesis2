@@ -59,7 +59,7 @@ public class OntologyAlgorithm implements Algorithm {
     public QualityAttributeThemeInterface getQualityAttributeTheme(
         List<RichedWord> words, EarlyAspect earlyAspect) {
         Map<QualityAttributeInterface, Double> map = this.getAttributesMap(words);
-        MapUtils.imprimirMap(map);
+        //MapUtils.imprimirMap(map);
         QualityAttributeThemeInterface qualityAttributeTheme = new QualityAttributeTheme();
         qualityAttributeTheme.setMap(map);
         return qualityAttributeTheme;
