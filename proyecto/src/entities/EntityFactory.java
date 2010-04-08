@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -50,10 +51,10 @@ public class EntityFactory extends AbstractEntityFactory {
      */
     public QualityAttributeThemeInterface creatQualityAttributeTheme(
         List<UseCaseInterface> useCases, EarlyAspectInterface earlyAspect,
-        QualityAttributeInterface qualityAttribute) {
+        Map<QualityAttributeInterface, Double> map) {
         QualityAttributeTheme qualityAttributeTheme = new QualityAttributeTheme();
         qualityAttributeTheme.setEarlyAspect(earlyAspect);
-        qualityAttributeTheme.setQualityAttribute(qualityAttribute);
+        qualityAttributeTheme.setMap(map);
         qualityAttributeTheme.setUseCases(useCases);
 
         return qualityAttributeTheme;
