@@ -59,7 +59,6 @@ public class OntologyAlgorithm implements Algorithm {
     public QualityAttributeThemeInterface getQualityAttributeTheme(
         List<RichedWord> words, EarlyAspect earlyAspect) {
         Map<QualityAttributeInterface, Double> map = this.getAttributesMap(words);
-        //MapUtils.imprimirMap(map);
         QualityAttributeThemeInterface qualityAttributeTheme = new QualityAttributeTheme();
         qualityAttributeTheme.setMap(map);
         return qualityAttributeTheme;
@@ -97,7 +96,7 @@ public class OntologyAlgorithm implements Algorithm {
                 totalWords++;
             }
         }
-
+        MapUtils.imprimirMap(totalMap);
         totalMap = MapUtils.divideTotal(totalMap, totalWords);
 
         return totalMap;
@@ -121,6 +120,21 @@ public class OntologyAlgorithm implements Algorithm {
         this.qabelongable = qabelongable;
     }
 
+    
+    
+    
+    public static QualityAttributeThemeInterface getTest() {
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.repository",
+                "file:resources/ontology.owl");
+
+        List<RichedWord> list = new ArrayList<RichedWord>();
+        list.add(new RichedWord("User2"));
+        list.add(new RichedWord("Stimulus1"));
+
+        return algorithm.getQualityAttributeTheme(list, null);
+    }
+    
+    
     /**
      * DOCUMENT ME!
      *
