@@ -39,8 +39,8 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponse">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasSource">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -56,8 +56,8 @@
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="qualityAttributeName">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="#QualityAttribute"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#QualityAttribute"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponseMeasure">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -100,22 +100,23 @@
   </QualityAttribute>
   <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_10004">
     <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_10003"/>
-    <isSpecificof rdf:resource="#ontology_Instance_16"/>
-  </ConcreteQualityAttributeScenario>
-  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_0">
     <concreteScenarioHasSource>
       <ConcreteSource rdf:ID="ontology_Instance_10000">
         <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >student</concreteScenarioPartDescription>
       </ConcreteSource>
     </concreteScenarioHasSource>
+    <isSpecificof rdf:resource="#ontology_Instance_16"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_0">
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
     <concreteScenarioHasStimlus>
       <ConcreteStimulus rdf:ID="ontology_Instance_10002">
         <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >Stimulus1</concreteScenarioPartDescription>
       </ConcreteStimulus>
     </concreteScenarioHasStimlus>
-    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_10000"/>
   </ConcreteQualityAttributeScenario>
 </rdf:RDF>
 
