@@ -4,8 +4,10 @@ import entities.QualityAttributeInterface;
 
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -74,7 +76,8 @@ public class MapUtils {
     public static Map<QualityAttributeInterface, Double> addTotal(
         Map<QualityAttributeInterface, Double> totalMap,
         Map<QualityAttributeInterface, Double> wordMap) {
-        Iterator<QualityAttributeInterface> qaIterator = wordMap.keySet()
+        
+    	Iterator<QualityAttributeInterface> qaIterator = wordMap.keySet()
                                                                 .iterator();
         QualityAttributeInterface qaInterface = null;
 
@@ -99,11 +102,12 @@ public class MapUtils {
      */
     public static Map<QualityAttributeInterface, Double> convertMapToPromedy(
         Map<QualityAttributeInterface, Double> map) {
-        //TODO revisar el caso de que el map sea null, puede venir de antes
+    	
+    	//Si el map es null, se retorna null
     	if (map==null) return null; 
+    	
     	Iterator<Double> values = map.values().iterator();
         Double total = Double.valueOf(0.0);
-
         while (values.hasNext()) {
             total = total + values.next();
         }
@@ -120,5 +124,20 @@ public class MapUtils {
         }
 
         return mapConverted;
+    }
+        
+    public static List<WrappedResult> getWrappedResults(Map<QualityAttributeInterface, Double> map){
+
+    	Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
+    	QualityAttributeInterface qa = null;
+    	WrappedResult wrappedResult = null;
+    	List<WrappedResult> list = new ArrayList<WrappedResult>();
+    	while (iterator.hasNext()) {
+            qa = iterator.next();
+            wrappedResult = new WrappedResult(qa, map.get(qa));
+            list.add(wrappedResult);
+        }
+    	
+    	return list;
     }
 }
