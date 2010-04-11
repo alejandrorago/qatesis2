@@ -35,7 +35,7 @@ public class TestSeba {
 		List<UseCase> casosDeUso = p.getUseCases();
 		
 		// OBTENGO LA LISTA DE PALBRABS PARA TODOS LOS CASOS DE USO
-		UseCaseTokenizer uct = new UseCaseTokenizer();
+		UseCaseTokenizer uct = new UseCaseTokenizer("resources/stopWordsList.txt");
 
 		// CREO LA LISTA 
 		List<RichedWord> tokens = new ArrayList<RichedWord>();

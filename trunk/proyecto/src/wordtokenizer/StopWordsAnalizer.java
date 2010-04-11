@@ -22,10 +22,10 @@ public class StopWordsAnalizer {
     /**
      * Instantiates a new stop words analizer.
      */
-    public StopWordsAnalizer() {
+    public StopWordsAnalizer(String fileName) {
         
     	stopWords = new ArrayList<String>();
-		File f = new File("resources//stopWordsList.txt");
+		File f = new File(fileName);
 		FileReader fr;
 		try {
 			fr = new FileReader(f);

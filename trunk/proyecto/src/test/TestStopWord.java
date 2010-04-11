@@ -12,7 +12,7 @@ public class TestStopWord {
 	public static void main(String[] args) {
 
 		
-		StopWordsAnalizer sp = new StopWordsAnalizer();
+		StopWordsAnalizer sp = new StopWordsAnalizer("resources/stopWordsList.txt");
 		String descripcion = "the user is an operator or a student";
 		String[] a = descripcion.split(" ");
 		List<String> rdo = sp.analize(a);
