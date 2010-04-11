@@ -28,12 +28,14 @@ public class UseCaseTokenizer {
     private static final String OCURRENCES = "OCURRENCES";
 
     StemmerIngles steemer;
+    String stopWordsFileName;
    
     static final Logger logger = Logger.getLogger(UseCaseTokenizer.class);
 	
     
-    public UseCaseTokenizer() {
+    public UseCaseTokenizer(String stopWordsFile) {
 		super();
+		this.stopWordsFileName = stopWordsFile;
 		this.steemer = new StemmerIngles();
 	}
 
@@ -90,7 +92,7 @@ public class UseCaseTokenizer {
      */
     private void tokenize(List<RichedWord> result, String sectionwords, String section) {
         
-    	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer();
+    	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer(stopWordsFileName);
         
         if (sectionwords != null) {
         
