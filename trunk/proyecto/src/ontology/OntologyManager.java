@@ -9,6 +9,8 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import ontology.OntologyAnalyzer;
+import wordtokenizer.StemmerIngles;
+import wordtokenizer.StopWordsAnalizer;
 
 
 /**
@@ -71,24 +73,28 @@ public class OntologyManager extends OntologyAnalyzer {
         Resource formatedInstance = null;
 
         while (stmIterator.hasNext()) {
-            //Deberia haber un solo statement, pero se itera por las dudas
+        	StemmerIngles steemer = new StemmerIngles();
+        	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer("resources/stopWords.txt");
+
+        	//Deberia haber un solo statement, pero se itera por las dudas
             statement = stmIterator.next();
 
             //words representa la descripcion original, potencialmente formada por mas de una palabra
             words = statement.getString().split(" ");
 
             for (int i = 0; i < words.length; i++) {
-                word = words[i];
-                formatedInstance = this.existeInstanciaFormateada(super.getType(
-                            instance), word);
+                //TODO cambiar esta logica de formatear la palabra cuando lo cambie seba
+            	word = words[i].toLowerCase();
 
-                if (formatedInstance == null) {
-                    formatedInstance = this.createInstance(super.getType(
-                                instance));
-                    this.addLiteralPropertyToResource(formatedInstance, word);
+                if((!stopWordsAnalizer.isStopWord(word))){
+                	word = steemer.stemmer(word);
+                	formatedInstance = this.existeInstanciaFormateada(super.getType(instance), word);
+                	if (formatedInstance == null) {
+                		formatedInstance = this.createInstance(super.getType(instance));
+                    	this.addLiteralPropertyToResource(formatedInstance, word);
+                	}
+                	redirectScenariosToNewPart(instance, formatedInstance);
                 }
-
-                redirectScenariosToNewPart(instance, formatedInstance);
             }
         }
 
