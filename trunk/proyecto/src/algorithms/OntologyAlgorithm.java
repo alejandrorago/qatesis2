@@ -7,6 +7,7 @@ import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
 import ontology.OntologyAnalyzer;
+import ontology.OntologyManager;
 import ontology.QualityAttributeBelongable;
 
 import org.apache.log4j.Logger;
@@ -41,7 +42,7 @@ public class OntologyAlgorithm implements Algorithm {
      * @param repositoryFilePath DOCUMENT ME!
      */
     public OntologyAlgorithm(String owlFilePath, String repositoryFilePath) {
-        this.qabelongable = new OntologyAnalyzer(owlFilePath, repositoryFilePath);
+        this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath);
     }
 
     /**
