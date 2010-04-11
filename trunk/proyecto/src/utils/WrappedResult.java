@@ -2,7 +2,7 @@ package utils;
 
 import entities.QualityAttributeInterface;
 
-public class WrappedResult {
+public class WrappedResult implements Comparable<WrappedResult> {
 	QualityAttributeInterface qualityAttributeInterface;
 	Double value;
 	
@@ -22,5 +22,10 @@ public class WrappedResult {
 	}
 	public void setValue(Double value) {
 		this.value = value;
+	}
+
+	@Override
+	public int compareTo(WrappedResult arg0) {
+		return this.getValue().compareTo(arg0.getValue());
 	}
 }
