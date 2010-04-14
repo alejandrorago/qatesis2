@@ -202,13 +202,19 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
 
     /**
      * Funcion principal de la clase. Dada una palabra, realiza los
-     * siguientes pasos. 1) Dada la plabra, chequea en la ontologia con que
+     * siguientes pasos. 
+     * 1) Dada la plabra, chequea en la ontologia con que
      * parte de un escenario concreto se corresponde (Fuente de
      * estimulo,Estimulo, Ambiente, Artefacto, Respuesta o tiempo de
      * respuesta).En caso de que se corresponda con mas de uno, toma en cuenta
      * la que se relacione con la mayor cantidad de instancias de escenarios.
      * Todo esto lo realiza el método getWordMeaning.
-     *
+     * 2)Tomando como total la cantidad de  escenarios que se relacionan con esa 
+     * instancia de parte de escenario, se averigua los porcentajes con que esos escenarios se
+     * relacionan con los atributos de calidad.
+     * La salida es de la forma Aviability 0.3 , Modificability 0.2, etc, sumando obviamente
+     * un total de 1 entre todas las probabilidades.
+     * 
      * @param word palabra a analizar
      *
      * @return map que relaciona los atributos de calidad con la cantidad de
@@ -217,7 +223,6 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
      *         de un escenario concreto
      */
 
-    //TODO terminar la explicacion
     @Override
     public Map<QualityAttributeInterface, Double> getWordPertenence(String word) {
         logger.info("Palabra entrante: " + word);
