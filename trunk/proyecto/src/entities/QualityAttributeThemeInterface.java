@@ -16,20 +16,6 @@ public interface QualityAttributeThemeInterface {
      *
      * @return DOCUMENT ME!
      */
-    public EarlyAspectInterface getEarlyAspect();
-
-    /**
-     * DOCUMENT ME!
-     *
-     * @param earlyAspect DOCUMENT ME!
-     */
-    public void setEarlyAspect(EarlyAspectInterface earlyAspect);
-
-    /**
-     * DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
-     */
     public List<UseCaseInterface> getUseCases();
 
     /**
