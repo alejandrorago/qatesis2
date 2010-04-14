@@ -1,12 +1,10 @@
 package algorithms;
 
-import entities.EarlyAspect;
 import entities.QualityAttributeInterface;
 import entities.QualityAttributeTheme;
 import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
-import ontology.OntologyAnalyzer;
 import ontology.OntologyManager;
 import ontology.QualityAttributeBelongable;
 
@@ -27,15 +25,13 @@ import java.util.Map;
  * @version $Revision$
  */
 public class OntologyAlgorithm implements Algorithm {
-    /**
-     * DOCUMENT ME!
-     */
+    /** DOCUMENT ME! */
     static final Logger logger = Logger.getLogger(OntologyAlgorithm.class);
 
     /** DOCUMENT ME! */
     private QualityAttributeBelongable qabelongable;
 
-    /**
+/**
      * Creates a new OntologyAlgorithm object.
      *
      * @param owlFilePath DOCUMENT ME!
@@ -50,18 +46,16 @@ public class OntologyAlgorithm implements Algorithm {
      * palabras y de un EarlyAspect
      *
      * @param words DOCUMENT ME!
-     * @param earlyAspect DOCUMENT ME!
      *
      * @return DOCUMENT ME!
      */
-
-    //TODO darle bolilla al EarlyAspect, ¿como lo usamos?
     @Override
     public QualityAttributeThemeInterface getQualityAttributeTheme(
-        List<RichedWord> words, EarlyAspect earlyAspect) {
+        List<RichedWord> words) {
         Map<QualityAttributeInterface, Double> map = this.getAttributesMap(words);
         QualityAttributeThemeInterface qualityAttributeTheme = new QualityAttributeTheme();
         qualityAttributeTheme.setMap(map);
+
         return qualityAttributeTheme;
     }
 
@@ -97,6 +91,7 @@ public class OntologyAlgorithm implements Algorithm {
                 totalWords++;
             }
         }
+
         MapUtils.imprimirMap(totalMap);
         totalMap = MapUtils.divideTotal(totalMap, totalWords);
 
@@ -121,9 +116,11 @@ public class OntologyAlgorithm implements Algorithm {
         this.qabelongable = qabelongable;
     }
 
-    
-    
-    
+    /**
+     * DOCUMENT ME!
+     *
+     * @return DOCUMENT ME!
+     */
     public static QualityAttributeThemeInterface getTest() {
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.repository",
                 "file:resources/ontology.owl");
@@ -132,10 +129,9 @@ public class OntologyAlgorithm implements Algorithm {
         list.add(new RichedWord("User2"));
         list.add(new RichedWord("Stimulus1"));
 
-        return algorithm.getQualityAttributeTheme(list, null);
+        return algorithm.getQualityAttributeTheme(list);
     }
-    
-    
+
     /**
      * DOCUMENT ME!
      *
@@ -149,8 +145,7 @@ public class OntologyAlgorithm implements Algorithm {
         list.add(new RichedWord("User2"));
         list.add(new RichedWord("Stimulus1"));
 
-        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(list, null);
+        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(list);
         System.out.println(qt.toString());
-        
     }
 }
