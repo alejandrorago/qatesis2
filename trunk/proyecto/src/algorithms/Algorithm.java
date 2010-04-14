@@ -1,11 +1,25 @@
 package algorithms;
 
-import java.util.List;
-
-import entities.EarlyAspect;
 import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
+import java.util.List;
+
+
+/**
+ * DOCUMENT ME!
+ *
+ * @author $author$
+ * @version $Revision$
+  */
 public interface Algorithm {
-	QualityAttributeThemeInterface getQualityAttributeTheme(List<RichedWord> words, EarlyAspect earlyAspect);
+    /**
+     * DOCUMENT ME!
+     *
+     * @param words DOCUMENT ME!
+     *
+     * @return DOCUMENT ME!
+     */
+    QualityAttributeThemeInterface getQualityAttributeTheme(
+        List<RichedWord> words);
 }
