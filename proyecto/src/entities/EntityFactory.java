@@ -14,20 +14,6 @@ import java.util.Map;
  */
 public class EntityFactory extends AbstractEntityFactory {
     /**
-     * Factory de entidades.
-     *
-     * @param verb DOCUMENT ME!
-     * @param noun DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
-     */
-    public EarlyAspectInterface creatEarlyAspect(String verb, String noun) {
-        EarlyAspect earlyAspect = new EarlyAspect(noun, verb);
-
-        return earlyAspect;
-    }
-
-    /**
      * DOCUMENT ME!
      *
      * @param name DOCUMENT ME!
@@ -44,16 +30,14 @@ public class EntityFactory extends AbstractEntityFactory {
      * DOCUMENT ME!
      *
      * @param useCases DOCUMENT ME!
-     * @param earlyAspect DOCUMENT ME!
-     * @param qualityAttribute DOCUMENT ME!
+     * @param map DOCUMENT ME!
      *
      * @return DOCUMENT ME!
      */
     public QualityAttributeThemeInterface creatQualityAttributeTheme(
-        List<UseCaseInterface> useCases, EarlyAspectInterface earlyAspect,
+        List<UseCaseInterface> useCases,
         Map<QualityAttributeInterface, Double> map) {
         QualityAttributeTheme qualityAttributeTheme = new QualityAttributeTheme();
-        qualityAttributeTheme.setEarlyAspect(earlyAspect);
         qualityAttributeTheme.setMap(map);
         qualityAttributeTheme.setUseCases(useCases);
 
@@ -74,7 +58,7 @@ public class EntityFactory extends AbstractEntityFactory {
     /**
      * DOCUMENT ME!
      *
-     * @param value DOCUMENT ME!
+     * @param word DOCUMENT ME!
      *
      * @return DOCUMENT ME!
      */

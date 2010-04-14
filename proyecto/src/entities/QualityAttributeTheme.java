@@ -12,13 +12,8 @@ import java.util.Map;
  * @author fbertoni
  */
 public class QualityAttributeTheme implements QualityAttributeThemeInterface {
-    /**
-     * DOCUMENT ME!
-     */
+    /** DOCUMENT ME! */
     private Map<QualityAttributeInterface, Double> map;
-
-    /** Early Aspect (Aspecto temprano) */
-    private EarlyAspectInterface earlyAspect;
 
     /** Listado de casos de uso */
     private List<UseCaseInterface> useCases;
@@ -28,26 +23,7 @@ public class QualityAttributeTheme implements QualityAttributeThemeInterface {
      */
     public QualityAttributeTheme() {
         this.map = null;
-        earlyAspect = null;
         useCases = null;
-    }
-
-    /**
-     * Devuelve el Early Aspect
-     *
-     * @return Early Aspect
-     */
-    public EarlyAspectInterface getEarlyAspect() {
-        return earlyAspect;
-    }
-
-    /**
-     * Setea el early aspect
-     *
-     * @param earlyAspect Early Aspect
-     */
-    public void setEarlyAspect(EarlyAspectInterface earlyAspect) {
-        this.earlyAspect = earlyAspect;
     }
 
     /**
