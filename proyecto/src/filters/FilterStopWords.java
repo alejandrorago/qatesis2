@@ -28,4 +28,3 @@ public class FilterStopWords extends Filter {
 	}
 
 }
-i9
