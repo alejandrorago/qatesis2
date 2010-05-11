@@ -65,7 +65,10 @@ public class FilterManager {
 		for (Filter f : filters) {
 			f.filter(result);
 		}
-		return ((RichedWord)result.get(0)).getWord();				
+		if(!result.isEmpty()){
+			return ((RichedWord)result.get(0)).getWord();
+		}
+		return null;
 	}
 
 	
