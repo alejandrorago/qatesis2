@@ -6,6 +6,11 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
+import filters.FilterLowerCase;
+import filters.FilterManager;
+import filters.FilterStemming;
+import filters.FilterStopWords;
+
 import ontology.OntologyAnalyzer;
 
 import org.apache.log4j.Logger;
@@ -32,6 +37,8 @@ public class OntologyManager extends OntologyAnalyzer {
      * instancia nueva en la ontologi
      */
     Integer instanceNumber;
+    
+    FilterManager fm;
 
     /**
      * Creates a new OntologyManager object.
@@ -42,10 +49,18 @@ public class OntologyManager extends OntologyAnalyzer {
     public OntologyManager(String owlFilePath, String repositoryFilePath) {
         super(owlFilePath, repositoryFilePath);
         this.instanceNumber = Integer.valueOf(0);
+
+        
+        //TODO pasar el fm como parametro o algo asi, mas adelante
+        fm = new FilterManager();
+        fm.addFilter(new FilterLowerCase());
+        fm.addFilter(new FilterStopWords("resources/stopWordsList.txt"));
+        fm.addFilter(new FilterStemming());
+        
         this.formatModel();
         logger.info("Inicio Ontologia");
         this.listarOntologia();
-        logger.info("Fin Ontologia");
+        logger.info("Fin Ontologia");        
     }
 
     /**
@@ -88,22 +103,19 @@ public class OntologyManager extends OntologyAnalyzer {
         Resource formatedInstance = null;
 
         while (stmIterator.hasNext()) {
-            StemmerIngles steemer = new StemmerIngles();
-            StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer(
-                    "resources/stopWords.txt");
 
-            //Deberia haber un solo statement, pero se itera por las dudas
+        	//Deberia haber un solo statement, pero se itera por las dudas
             statement = stmIterator.next();
 
             //words representa la descripcion original, potencialmente formada por mas de una palabra
             words = statement.getString().split(" ");
 
             for (int i = 0; i < words.length; i++) {
-                //TODO cambiar esta logica de formatear la palabra cuando lo cambie seba
-                word = words[i].toLowerCase();
 
-                if ((!stopWordsAnalizer.isStopWord(word))) {
-                    word = steemer.stemmer(word);
+            	word = fm.runFiltersWord(words[i]);
+
+                if (word!= null) {
+
                     formatedInstance = this.existeInstanciaFormateada(super.getType(
                                 instance), word);
 
