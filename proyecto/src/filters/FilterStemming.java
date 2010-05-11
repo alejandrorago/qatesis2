@@ -20,9 +20,11 @@ public class FilterStemming extends Filter {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		
 	 	for (RichedWord rw : list) {
-	 		String analizedWord = steemer.stemmer(rw.getWord());
-	 		rw.setWord(analizedWord);
+	 		String originalWord = rw.getWord();
+	 		rw.setWord(steemer.stemmer(originalWord));
 	 		result.add(rw);
+	 		if (!originalWord.equals(rw.getWord()))
+		 		logger.info("Filtro Stemming: " + originalWord + " -> " + rw.getWord()+ ".");
  		}
 	 	return result;
 	}
