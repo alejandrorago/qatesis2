@@ -1,7 +1,5 @@
 package ontology;
 
-import org.apache.log4j.Logger;
-
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -9,26 +7,37 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import ontology.OntologyAnalyzer;
+
+import org.apache.log4j.Logger;
+
 import wordtokenizer.StemmerIngles;
 import wordtokenizer.StopWordsAnalizer;
 
 
 /**
- * DOCUMENT ME!
- *
- * @author $author$
- * @version $Revision$
+ * Clase Ontology Manager  Esta clase extiende de OntologyAnalyzer.
+ * Principalmente agrega la funcion de formatear la ontologia, en la
+ * constructora de la clase, para  que todos los conceptos sean palabras
+ * atomicas.
  */
 public class OntologyManager extends OntologyAnalyzer {
-    /** DOCUMENT ME! */
-    Integer instanceNumber;
+
+    /**
+     * Logger
+     */
     private static final Logger logger = Logger.getLogger(OntologyManager.class);
 
+    /**
+     * Numero de instancia. Se va aumentando cada vez que se crea una
+     * instancia nueva en la ontologi
+     */
+    Integer instanceNumber;
 
-/**
-     * Creates a new OntologyFormatter object.
+    /**
+     * Creates a new OntologyManager object.
      *
-     * @param ontmodel DOCUMENT ME!
+     * @param owlFilePath archivo .owl de la ontologia
+     * @param repositoryFilePath archivo .repository de la ontologia
      */
     public OntologyManager(String owlFilePath, String repositoryFilePath) {
         super(owlFilePath, repositoryFilePath);
@@ -60,9 +69,15 @@ public class OntologyManager extends OntologyAnalyzer {
     }
 
     /**
-     * DOCUMENT ME!
+     * Una instancia de un concepto puede estar compuesta por varias palabras. Esta funcion
+     * separa a cada una de esas palabras, crea una instancia para cada una y las relaciona
+     * con el o los conceptos con que la instancia original estaba relacionada.
+     * 
+     * Supongamos que una instancia de Stimulus, Instancia-98, esta formada por "palabra1 palabra2". Esta funcion
+     * crea una instancia nueva para palabra1 y otra para palabra2. Ademas rrelaciona estas instancias
+     * con todas las instancias que estaba relacionada Instancia-98.
      *
-     * @param instance DOCUMENT ME!
+     * @param instance instancia a ser formateada.
      */
     public void formatearInstancia(Resource instance) {
         StmtIterator stmIterator = instance.listProperties(this.ontModel.getProperty(
@@ -73,10 +88,11 @@ public class OntologyManager extends OntologyAnalyzer {
         Resource formatedInstance = null;
 
         while (stmIterator.hasNext()) {
-        	StemmerIngles steemer = new StemmerIngles();
-        	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer("resources/stopWords.txt");
+            StemmerIngles steemer = new StemmerIngles();
+            StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer(
+                    "resources/stopWords.txt");
 
-        	//Deberia haber un solo statement, pero se itera por las dudas
+            //Deberia haber un solo statement, pero se itera por las dudas
             statement = stmIterator.next();
 
             //words representa la descripcion original, potencialmente formada por mas de una palabra
@@ -84,31 +100,30 @@ public class OntologyManager extends OntologyAnalyzer {
 
             for (int i = 0; i < words.length; i++) {
                 //TODO cambiar esta logica de formatear la palabra cuando lo cambie seba
-            	word = words[i].toLowerCase();
+                word = words[i].toLowerCase();
 
-                if((!stopWordsAnalizer.isStopWord(word))){
-                	word = steemer.stemmer(word);
-                	formatedInstance = this.existeInstanciaFormateada(super.getType(instance), word);
-                	if (formatedInstance == null) {
-                		formatedInstance = this.createInstance(super.getType(instance));
-                    	this.addLiteralPropertyToResource(formatedInstance, word);
-                	}
-                	redirectScenariosToNewPart(instance, formatedInstance);
+                if ((!stopWordsAnalizer.isStopWord(word))) {
+                    word = steemer.stemmer(word);
+                    formatedInstance = this.existeInstanciaFormateada(super.getType(
+                                instance), word);
+
+                    if (formatedInstance == null) {
+                        formatedInstance = this.createInstance(super.getType(
+                                    instance));
+                        this.addLiteralPropertyToResource(formatedInstance, word);
+                    }
+
+                    redirectScenariosToNewPart(instance, formatedInstance);
                 }
             }
         }
 
         eliminateStatements(instance);
     }
-
-    /*
+    /**
      * Elimina todas las sentencias de la ontologia en la que el recurso pasado como parametro aprece en el subject o en
      * el object
-     */
-    /**
-     * DOCUMENT ME!
-     *
-     * @param instance DOCUMENT ME!
+     * @param instance instancia por la que se realiza la consulta y borrado
      */
     public void eliminateStatements(Resource instance) {
         Property property = null;
@@ -120,14 +135,12 @@ public class OntologyManager extends OntologyAnalyzer {
         this.ontModel.remove(stmIterator);
     }
 
-    /*
-     * Todas las instancias de escenarios concretos que apunten a oldInstance deberian apuntar ahora a newInstance
-     */
     /**
-     * DOCUMENT ME!
+     * Todas las instancias de escenarios concretos que apunten a oldInstance 
+     * deberian apuntar ahora a newInstance
      *
-     * @param oldInstance DOCUMENT ME!
-     * @param newInstance DOCUMENT ME!
+     * @param oldInstance instancia anterior
+     * @param newInstance instancia nueva
      */
     public void redirectScenariosToNewPart(Resource oldInstance,
         Resource newInstance) {
@@ -148,15 +161,13 @@ public class OntologyManager extends OntologyAnalyzer {
         }
     }
 
-    /*
+
+    /**
      * Devuelve la instancia de tipo instanceType que se relaciona con literalValue, si es que esa instancia está previamente formateada.
      * Caso contrario devuelve null
-     */
-    /**
-     * DOCUMENT ME!
      *
-     * @param instanceType DOCUMENT ME!
-     * @param literalValue DOCUMENT ME!
+     * @param instanceType tipo de la instancia
+     * @param literalValue valor con que se relaciona la instancia
      *
      * @return DOCUMENT ME!
      */
@@ -195,11 +206,11 @@ public class OntologyManager extends OntologyAnalyzer {
     }
 
     /**
-     * DOCUMENT ME!
+     * Crea una nueva instancia en la ontologia, del tipo pasado como parametro.
+     * 
+     * @param instanceType tipo de la instancia a crear
      *
-     * @param instanceType DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
+     * @return instancia creada
      */
     public Resource createInstance(Resource instanceType) {
         this.instanceNumber = this.instanceNumber + 1;
@@ -215,10 +226,10 @@ public class OntologyManager extends OntologyAnalyzer {
     }
 
     /**
-     * DOCUMENT ME!
-     *
-     * @param instance DOCUMENT ME!
-     * @param literalValue DOCUMENT ME!
+     * Crea una sentencia cuyo predicado es de el uriType.
+     * 
+     * @param instance subject de la sentencia a crear
+     * @param literalValue object de la sentencia a crear
      */
     public void addLiteralPropertyToResource(Resource instance,
         String literalValue) {

@@ -36,7 +36,7 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
     /** DOCUMENT ME! */
     protected OntModel ontModel;
 
-/**
+    /**
      * Construcora de la clase
      */
     public OntologyAnalyzer(String owlFilePath, String repositoryFilePath) {
@@ -150,6 +150,8 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
      *
      * @return DOCUMENT ME!
      */
+    //TODO esta bien que devuelva un map? con cero el double? se esta metiendo en la implementacion
+    //del algoritmo?
     public Map<QualityAttributeInterface, Double> loadQualityAttributes() {
         AbstractEntityFactory factory = new EntityFactory();
 
