@@ -23,6 +23,9 @@ public class FilterStopWords extends Filter {
 	 		if (!stopWordsAnalizer.isStopWord(rw.getWord())) {
 	 			result.add(rw);
 	 		}
+	 		else {
+		 	 logger.info("Filtro StopWords: \"" + rw.getWord()+ "\" es una StopWord.");
+	 		}
 	 	}
 	 	return result;
 	}
