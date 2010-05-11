@@ -7,14 +7,18 @@ import org.apache.log4j.Logger;
 
 import entities.RichedWord;
 import entities.UseCase;
+import filters.FilterLowerCase;
+import filters.FilterManager;
+import filters.FilterStemming;
+import filters.FilterStopWords;
 
 
 /**
  * @author Sebastián Villanueva
- *
+ * 
  */
 public class UseCaseTokenizer {
-    private static final String SECTION = "SECTION";
+
     private static final String NAME = "NAME";
     private static final String DESCRIPTION = "DESCRIPTION";
     private static final String BASICFLOW = "BASICFLOW";
@@ -25,18 +29,21 @@ public class UseCaseTokenizer {
     private static final String POSTCONDITIONS = "POSTCONDITIONS";
     private static final String SPECIALREQUERIMENT = "SPECIALREQUERIMENT";
     private static final String PRECONDITIONS = "PRECONDITIONS";
-    private static final String OCURRENCES = "OCURRENCES";
+   // private static final String OCURRENCES = "OCURRENCES";
 
-    StemmerIngles steemer;
-    String stopWordsFileName;
-   
+	FilterManager filterManager = new FilterManager();
+    
     static final Logger logger = Logger.getLogger(UseCaseTokenizer.class);
 	
     
     public UseCaseTokenizer(String stopWordsFile) {
-		super();
-		this.stopWordsFileName = stopWordsFile;
-		this.steemer = new StemmerIngles();
+    	super();
+
+
+    	filterManager.addFilter(new FilterLowerCase());
+    	filterManager.addFilter(new FilterStopWords(stopWordsFile));
+    	filterManager.addFilter(new FilterStemming());
+    	
 	}
 
 	/**
@@ -48,7 +55,7 @@ public class UseCaseTokenizer {
      */
     public  void tokenizeUseCase(UseCase uc, List<RichedWord> list) {
 
-    	logger.info("Tokenizando Caso de Uso: " + uc.getName());
+    	logger.info("Tokenizing Use Case:" + uc.getName() + ".");
 
 		tokenize(list, uc.getName(), NAME);
 		tokenize(list, uc.getDescription(), DESCRIPTION);
@@ -90,28 +97,14 @@ public class UseCaseTokenizer {
      * @param section
      * @return
      */
-    private void tokenize(List<RichedWord> result, String sectionwords, String section) {
+    private void tokenize(List<RichedWord> result, String text, String section) {
         
-    	StopWordsAnalizer stopWordsAnalizer = new StopWordsAnalizer(stopWordsFileName);
-        
-        if (sectionwords != null) {
-        
-        	String[] list = sectionwords.split("[^a-zA-Z0-9]");
-
-            for (int i = 0; i < list.length; i++) {
-            	String originalWord = list[i].toLowerCase();
-            	if (!stopWordsAnalizer.isStopWord(originalWord)) {
-                   
-                	String analizedWord = this.steemer.stemmer(originalWord);
-                	RichedWord rw = new RichedWord(analizedWord);
-                    
-					if (!originalWord.equals(analizedWord))
-						logger.info("PreSteeming: \"" + originalWord
-								+ "\" - PosSteeming: \"" + analizedWord+ "\"");
-
-                	rw.setAttribute(SECTION, section);
-                    int indice = result.indexOf(rw);
-                    if (indice < 0) {
+    	logger.info("Tokenizing Section: " + section + ".");
+    	result = filterManager.runFilters(text, section);
+                
+                
+            /*    int indice = result.indexOf(rw);
+                 if (indice < 0) {
                         rw.setAttribute(OCURRENCES, new Integer(1));
                         rw.setAttribute(SECTION, section);
                         result.add(rw);
@@ -120,13 +113,8 @@ public class UseCaseTokenizer {
                         Integer ocurrencias = (Integer) rw.getAttribute(OCURRENCES);
                         rw.setAttribute(OCURRENCES, ++ocurrencias);
                     }
-                }
-            	else {
-            	   	logger.info("La palabra: \"" + originalWord + "\" fue detectada como StopWord");
-            	}
-            		
-            }
+            }*/
         }
 
        }
-}
+

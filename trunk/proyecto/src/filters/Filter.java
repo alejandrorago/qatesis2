@@ -1,10 +1,15 @@
 package filters;
 
 import java.util.List;
-
 import org.apache.log4j.Logger;
-
 import entities.RichedWord;
+
+/**
+ * 
+ * Clase abstracta que representa un Filtro.
+ *
+ * @author Sebastian Villanueva
+ */
 
 public abstract class Filter {
 

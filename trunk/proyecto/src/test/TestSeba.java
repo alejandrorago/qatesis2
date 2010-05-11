@@ -56,8 +56,8 @@ public class TestSeba {
 	    
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
         
-        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(tokens);
-        MapUtils.imprimirMap(qt.getMap());
+    //    QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(tokens);
+     //   MapUtils.imprimirMap(qt.getMap());
     	
 	}
 
