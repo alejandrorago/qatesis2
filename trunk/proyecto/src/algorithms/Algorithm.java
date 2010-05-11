@@ -1,5 +1,6 @@
 package algorithms;
 
+import entities.EarlyAspect;
 import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
@@ -7,19 +8,16 @@ import java.util.List;
 
 
 /**
- * DOCUMENT ME!
+ * Interface Algorithm. 
  *
- * @author $author$
- * @version $Revision$
-  */
+ */
 public interface Algorithm {
     /**
-     * DOCUMENT ME!
+     * Dada una lista de palabras y un caso de uso, el algoritmo debe
+     * devolver un Quality Attribute Theme.
      *
-     * @param words DOCUMENT ME!
-     *
-     * @return DOCUMENT ME!
+     * @return Quality Attribute Theme
      */
     QualityAttributeThemeInterface getQualityAttributeTheme(
-        List<RichedWord> words);
+        List<RichedWord> words, EarlyAspect earlyAspect);
 }
