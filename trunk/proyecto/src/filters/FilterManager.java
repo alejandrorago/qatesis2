@@ -27,8 +27,8 @@ public class FilterManager {
 	
 	}
 	
-	public List<RichedWord> createList(String text, String section) {
 		
+	public List<RichedWord> createList( String text, String section) {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		String[] list = splitList(text);
 		for (int i = 0; i < list.length; i++) {
@@ -41,22 +41,22 @@ public class FilterManager {
 	}
 
 
-	public List<RichedWord> runFilters(String text, String section) {
+	public void runFilters(List<RichedWord> result, String text, String section) {
 
-		List<RichedWord> result = createList(text, section);
+		List<RichedWord> resultFilters = createList(text, section);
 		for (Filter f : filters) {
-			f.filter(result);
+			resultFilters = f.filter(resultFilters);
 		}
-		return result;
+		result.addAll(resultFilters);
 	}
 
-	public List<RichedWord> runFilters(String text) {
+	public void runFilters(List<RichedWord> result, String text) {
 
-		List<RichedWord> result = createList(text, null);
+		List<RichedWord> resultFilters = createList(text, null);
 		for (Filter f : filters) {
-			f.filter(result);
+			f.filter(resultFilters);
 		}
-		return result;
+		result.addAll(resultFilters);
 	}
 	
 	
