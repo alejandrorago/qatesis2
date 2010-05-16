@@ -3,10 +3,13 @@
  */
 package ontology;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+
+import utils.MapUtils;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -145,17 +148,14 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
      * relacionado mediante la propiedad qualityAttributeName
      * (http://www.owl-ontologies.com/unnamed.owl#qualityAttributeName). Con
      * cada nombre de los atributos de calidad, se crea una instancia y se
-     * alamanca en el map como clave, poniendo asociando cada clave con el
-     * valor cero
-     *
-     * @return DOCUMENT ME!
+     * alamanca en una lista
+     * 
+     * @return list con todos los atributos de calidad declarados en la ontologia
      */
-    //TODO esta bien que devuelva un map? con cero el double? se esta metiendo en la implementacion
-    //del algoritmo?
-    public Map<QualityAttributeInterface, Double> loadQualityAttributes() {
+    public List<QualityAttributeInterface> loadQualityAttributes() {
         AbstractEntityFactory factory = new EntityFactory();
 
-        Map<QualityAttributeInterface, Double> map = new HashMap<QualityAttributeInterface, Double>();
+        List<QualityAttributeInterface> list = new ArrayList<QualityAttributeInterface>();
         Property qualityAttributeNameProperty = this.ontModel.getProperty(Uris.qualityAttributeName);
         ResIterator qualityAttributeIterator = this.ontModel.listResourcesWithProperty(this.ontModel.getProperty(
                     Uris.type),
@@ -168,11 +168,10 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
             qualityAttributeResource = qualityAttributeIterator.next();
             qualityAttributeName = qualityAttributeResource.listProperties(qualityAttributeNameProperty)
                                                            .next().getString();
-            map.put(factory.creatQualityAttribute(qualityAttributeName),
-                Double.valueOf(0.0));
+            list.add(factory.creatQualityAttribute(qualityAttributeName));
         }
 
-        return map;
+        return list;
     }
 
     /**
@@ -230,7 +229,7 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
         logger.info("Palabra entrante: " + word);
 
         AbstractEntityFactory entityFactory = new EntityFactory();
-        Map<QualityAttributeInterface, Double> map = this.loadQualityAttributes();
+        Map<QualityAttributeInterface, Double> map = MapUtils.convertAttributesLisToMap(this.loadQualityAttributes());
 
         Resource scenarioPart = this.getWordMeaning(word); //Devuelve un numero de instancia, ejemplo intance_0
 
@@ -309,18 +308,18 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
     }
 
     /**
-     * DOCUMENT ME!
+     * Recupera el ontModel
      *
-     * @return DOCUMENT ME!
+     * @return ontModel
      */
     public OntModel getOntModel() {
         return ontModel;
     }
 
     /**
-     * DOCUMENT ME!
+     *  Setea la vatiable ontModel
      *
-     * @param ontModel DOCUMENT ME!
+     * @param ontModel variable a setear
      */
     public void setOntModel(OntModel ontModel) {
         this.ontModel = ontModel;
