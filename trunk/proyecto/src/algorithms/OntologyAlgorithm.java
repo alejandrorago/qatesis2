@@ -121,8 +121,6 @@ public class OntologyAlgorithm implements Algorithm {
      * @return multiplicaciond el peso por las ocurrencias
      */
     Integer getWordWeight(RichedWord richedWord) {
-        //TODO hay que modificar la clase RichedWord, o se hace todo un map con la palabra adentro, o se hace un metodo para sacar cada valor
-        //o se crean variables estaticas, asi no se pide el atributo como un string
         Integer weight = (Integer) richedWord.getAttribute("WEIGHT");
         Integer ocurrencies = (Integer) richedWord.getAttribute("OCURRENCES");
 
