@@ -4,7 +4,6 @@ import entities.QualityAttributeInterface;
 
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,12 +15,9 @@ import java.util.Map;
  *
  * @author fbertoni
  * @version $Revision$
-  */
+ */
 public class MapUtils {
-    
-	/**
-     * Logger
-     */
+    /** Logger */
     static final Logger logger = Logger.getLogger(MapUtils.class);
 
     /**
@@ -76,8 +72,7 @@ public class MapUtils {
     public static Map<QualityAttributeInterface, Double> addTotal(
         Map<QualityAttributeInterface, Double> totalMap,
         Map<QualityAttributeInterface, Double> wordMap) {
-        
-    	Iterator<QualityAttributeInterface> qaIterator = wordMap.keySet()
+        Iterator<QualityAttributeInterface> qaIterator = wordMap.keySet()
                                                                 .iterator();
         QualityAttributeInterface qaInterface = null;
 
@@ -98,16 +93,18 @@ public class MapUtils {
      *
      * @param map con atributos de calidad como clave y un double como valor
      *
-     * @return map con el porcentaje d total para cada atributo
+     * @return map con el porcentaje de total para cada atributo
      */
     public static Map<QualityAttributeInterface, Double> convertMapToPromedy(
         Map<QualityAttributeInterface, Double> map) {
-    	
-    	//Si el map es null, se retorna null
-    	if (map==null) return null; 
-    	
-    	Iterator<Double> values = map.values().iterator();
+        //Si el map es null, se retorna null
+        if (map == null) {
+            return null;
+        }
+
+        Iterator<Double> values = map.values().iterator();
         Double total = Double.valueOf(0.0);
+
         while (values.hasNext()) {
             total = total + values.next();
         }
@@ -125,19 +122,48 @@ public class MapUtils {
 
         return mapConverted;
     }
-        
-    public static List<WrappedResult> getWrappedResults(Map<QualityAttributeInterface, Double> map){
 
-    	Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
-    	QualityAttributeInterface qa = null;
-    	WrappedResult wrappedResult = null;
-    	List<WrappedResult> list = new ArrayList<WrappedResult>();
-    	while (iterator.hasNext()) {
+    /**
+     * Esta funcion maultiplica cada valor del map por la variable
+     * factor.
+     *
+     * @param map con QualityAttributeInterface como clave y una variable de
+     *        tipo Double como valor
+     * @param factor Integer por el que se multiplica cada valor del map
+     *
+     * @return map con los valores multiplicados por la variable factor
+     */
+    public static Map<QualityAttributeInterface, Double> multiplyMapByFactor(
+        Map<QualityAttributeInterface, Double> map, Integer factor) {
+        QualityAttributeInterface qa = null;
+        Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
+
+        while (iterator.hasNext()) {
             qa = iterator.next();
-            wrappedResult = new WrappedResult(qa, map.get(qa));
-            list.add(wrappedResult);
+            map.put(qa, map.get(qa) * factor);
         }
-    	
-    	return list;
+
+        return map;
+    }
+
+    /**
+     * Toma como parametro una lista de QualittyAtributesInterfaces.
+     * Itera sobre la lista y va a gregando cada  uno de ellos, como clave a
+     * un HasMap, con valor 0.0
+     *
+     * @param list lista de atributos de calidad
+     *
+     * @return Map con cada atributo de calidad como clave y el double 0.0 como
+     *         valor
+     */
+    public static Map<QualityAttributeInterface, Double> convertAttributesLisToMap(
+        List<QualityAttributeInterface> list) {
+        Map<QualityAttributeInterface, Double> map = new HashMap<QualityAttributeInterface, Double>();
+
+        for (QualityAttributeInterface qa : list) {
+            map.put(qa, Double.valueOf(0.0));
+        }
+
+        return map;
     }
 }
