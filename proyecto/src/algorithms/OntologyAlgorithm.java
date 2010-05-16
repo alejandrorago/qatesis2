@@ -1,9 +1,6 @@
 package algorithms;
 
-import entities.EarlyAspect;
 import entities.QualityAttributeInterface;
-import entities.QualityAttributeTheme;
-import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
 
 import ontology.OntologyManager;
@@ -21,22 +18,19 @@ import java.util.Map;
 
 /**
  * Implementacion de un algoritmo que utiliza una ontologia.
- *
  */
 public class OntologyAlgorithm implements Algorithm {
-    /**
-     * Logger
-     */
+    /** Logger */
     static final Logger logger = Logger.getLogger(OntologyAlgorithm.class);
 
-    /** 
-     * Se instancia a un OntologyManager. Se utiliza para cargar los atributos de calidad
-     * y el grado de pertenencia que tenga una palabra con respecto a los atributos de calidad
-     * 
-     * */
+    /**
+     * Se instancia a un OntologyManager. Se utiliza para cargar los
+     * atributos de calidad y el grado de pertenencia que tenga una palabra
+     * con respecto a los atributos de calidad
+     */
     private QualityAttributeBelongable qabelongable;
 
-    /**
+/**
      * Creates a new OntologyAlgorithm object.
      *
      * @param owlFilePath DOCUMENT ME!
@@ -50,20 +44,19 @@ public class OntologyAlgorithm implements Algorithm {
      * Devuelve un QualityAttributeTheme a partir de una lista de
      * palabras y de un EarlyAspect
      *
-     * @param words Listado de palabras
-     * @param earlyAspect Aspecto temprano
+     * @param useCaseWordsList Listado de palabras
+     * @param earlyAspectWordsList Aspecto temprano
      *
      * @return Quality Attribute Theme
      */
-
-    //TODO darle bolilla al EarlyAspect, ¿como lo usamos?
     @Override
-    public QualityAttributeThemeInterface getQualityAttributeTheme(
-        List<RichedWord> words, EarlyAspect earlyAspect) {
-        Map<QualityAttributeInterface, Double> map = this.getAttributesMap(words);
-        QualityAttributeThemeInterface qualityAttributeTheme = new QualityAttributeTheme();
-        qualityAttributeTheme.setMap(map);
-        return qualityAttributeTheme;
+    public Map<QualityAttributeInterface, Double> getQualityAttributePertenence(
+        List<RichedWord> useCaseWordsList, List<RichedWord> earlyAspectWordsList) {
+        Map<QualityAttributeInterface, Double> useCaseMap = this.getAttributesMap(useCaseWordsList);
+
+        //TODO darle bolilla al EarlyAspect
+        //Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
+        return useCaseMap;
     }
 
     /**
@@ -79,29 +72,69 @@ public class OntologyAlgorithm implements Algorithm {
      *         la clava un numero entre 0 y 1 indicando el grado de pertenecia
      *         de la lista con ese atributo.
      */
+
+    //TODO esto es lo que estoy haciendo :)
     private Map<QualityAttributeInterface, Double> getAttributesMap(
         List<RichedWord> words) {
         Map<QualityAttributeInterface, Double> wordMap = null;
-        Map<QualityAttributeInterface, Double> totalMap = qabelongable.loadQualityAttributes();
+
+        //Recupera los atributos de calidad declarados en la ontologia
+        Map<QualityAttributeInterface, Double> totalMap = MapUtils.convertAttributesLisToMap(qabelongable.loadQualityAttributes());
 
         Iterator<RichedWord> richedWordIterator = words.iterator();
-        String word = null;
+        RichedWord richedWord = null;
         Integer totalWords = 0;
 
         while (richedWordIterator.hasNext()) {
-            word = richedWordIterator.next().getWord();
-            wordMap = MapUtils.convertMapToPromedy(qabelongable.getWordPertenence(
-                        word));
+            richedWord = richedWordIterator.next();
+            wordMap = qabelongable.getWordPertenence(richedWord.getWord());
 
+            //Puede ser que la palabra no pertenezca a la ontologia, por lo que no 
+            //se tiene en cuenta.
             if (wordMap != null) {
+                wordMap = MapUtils.convertMapToPromedy(wordMap);
+
+                //Ahora hay que tener en cuenta el peso y las ocurrencias de la palabra
+                Integer weight = this.getWordWeight(richedWord);
+
+                //Cada valor del map se multiplica por weight
+                //TODO probar lo anterior
+                wordMap = MapUtils.multiplyMapByFactor(wordMap, weight);
+
                 totalMap = MapUtils.addTotal(totalMap, wordMap);
-                totalWords++;
+                totalWords = totalWords + weight;
             }
         }
-        MapUtils.imprimirMap(totalMap);
+
         totalMap = MapUtils.divideTotal(totalMap, totalWords);
 
         return totalMap;
+    }
+
+    /**
+     * Calcula el "peso total" de una palabra. Para eso multiplica el peso de la pabra por la cantidad
+     * de ocurrencias. Si el peso es igual a cero, devuelve el numero de ocurrencias.
+     * Se supone que el numero de ocurrencias es mayor que cero.
+     *
+     * @param richedWord palabra enriqeucida
+     *
+     * @return multiplicaciond el peso por las ocurrencias
+     */
+    Integer getWordWeight(RichedWord richedWord) {
+        //TODO hay que modificar la clase RichedWord, o se hace todo un map con la palabra adentro, o se hace un metodo para sacar cada valor
+        //o se crean variables estaticas, asi no se pide el atributo como un string
+        Integer weight = (Integer) richedWord.getAttribute("WEIGHT");
+        Integer ocurrencies = (Integer) richedWord.getAttribute("OCURRENCES");
+
+        //Si se tiene en cuenta el peso de la palabra y el nunmero de ocurrencias, ninguna de estos valores
+        //deberia ser cero. El numero de ocurrencias, al menos, siempre es mayor o igual a cero.
+
+        //Si el peso es cero, que se devuelva el numero de ocurrencias
+        if ((weight == null) || (weight == 0)) {
+            return ocurrencies;
+        }
+
+        return weight * ocurrencies;
     }
 
     /**
@@ -122,7 +155,6 @@ public class OntologyAlgorithm implements Algorithm {
         this.qabelongable = qabelongable;
     }
 
-   
     /**
      * Metodo main
      *
@@ -136,8 +168,9 @@ public class OntologyAlgorithm implements Algorithm {
         list.add(new RichedWord("User2"));
         list.add(new RichedWord("Stimulus1"));
 
-        QualityAttributeThemeInterface qt = algorithm.getQualityAttributeTheme(list, null);
-        System.out.println(qt.toString());
-        
+        Map<QualityAttributeInterface, Double> qt = algorithm.getQualityAttributePertenence(null,
+                null);
+
+        //System.out.println(qt.toString());
     }
 }
