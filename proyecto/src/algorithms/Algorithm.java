@@ -1,10 +1,10 @@
 package algorithms;
 
-import entities.EarlyAspect;
-import entities.QualityAttributeThemeInterface;
+import entities.QualityAttributeInterface;
 import entities.RichedWord;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -13,11 +13,16 @@ import java.util.List;
  */
 public interface Algorithm {
     /**
-     * Dada una lista de palabras y un caso de uso, el algoritmo debe
-     * devolver un Quality Attribute Theme.
+     * Dada una lista de palabras extraidas de los casos de uso y otra extraidas de un early aspect el algoritmo
+     * devuevle un map con los atributos de calidad como clave y un numero entr 0 y 1 que indica el grado
+     * de pertenencia de los conjuntos de palabras con cada atributo.
+     * La suma de los valores es igual a 1
+     * 
+     * @param useCaseWordsList lista de palabras enriquecidas extraidas de los casos de uso
+     * @param earlyAspectWordsList lista de palabras enriquecidas extraidas del early aspect
      *
-     * @return Quality Attribute Theme
+     * @return DOCUMENT ME!
      */
-    QualityAttributeThemeInterface getQualityAttributeTheme(
-        List<RichedWord> words, EarlyAspect earlyAspect);
+    Map<QualityAttributeInterface, Double> getQualityAttributePertenence(
+        List<RichedWord> useCaseWordsList, List<RichedWord> earlyAspectWordsList);
 }
