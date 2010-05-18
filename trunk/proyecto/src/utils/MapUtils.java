@@ -69,20 +69,20 @@ public class MapUtils {
      *
      * @return map con los valores sumados de ambos maps
      */
-    public static Map<QualityAttributeInterface, Double> addTotal(
-        Map<QualityAttributeInterface, Double> totalMap,
-        Map<QualityAttributeInterface, Double> wordMap) {
-        Iterator<QualityAttributeInterface> qaIterator = wordMap.keySet()
+    public static Map<QualityAttributeInterface, Double> addMaps(
+        Map<QualityAttributeInterface, Double> map1,
+        Map<QualityAttributeInterface, Double> map2) {
+        Iterator<QualityAttributeInterface> qaIterator = map1.keySet()
                                                                 .iterator();
         QualityAttributeInterface qaInterface = null;
 
         while (qaIterator.hasNext()) {
             qaInterface = qaIterator.next();
-            totalMap.put(qaInterface,
-                totalMap.get(qaInterface) + wordMap.get(qaInterface));
+            map1.put(qaInterface,
+            		map1.get(qaInterface) + map2.get(qaInterface));
         }
 
-        return totalMap;
+        return map1;
     }
 
     /**
@@ -129,18 +129,32 @@ public class MapUtils {
      *
      * @param map con QualityAttributeInterface como clave y una variable de
      *        tipo Double como valor
-     * @param factor Integer por el que se multiplica cada valor del map
+     * @param factor Double por el que se multiplica cada valor del map
      *
      * @return map con los valores multiplicados por la variable factor
      */
     public static Map<QualityAttributeInterface, Double> multiplyMapByFactor(
-        Map<QualityAttributeInterface, Double> map, Integer factor) {
+        Map<QualityAttributeInterface, Double> map, Double factor) {
         QualityAttributeInterface qa = null;
         Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
 
         while (iterator.hasNext()) {
             qa = iterator.next();
             map.put(qa, map.get(qa) * factor);
+        }
+
+        return map;
+    }
+    
+
+    public static Map<QualityAttributeInterface, Double> divideMapByFactor(
+        Map<QualityAttributeInterface, Double> map, Double factor) {
+        QualityAttributeInterface qa = null;
+        Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
+
+        while (iterator.hasNext()) {
+            qa = iterator.next();
+            map.put(qa, map.get(qa) / factor);
         }
 
         return map;
