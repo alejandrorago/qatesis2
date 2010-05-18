@@ -19,17 +19,23 @@ import entities.RichedWord;
 public class TestOcurrenciesAndWeight {
     public static void main(String[] args) {
     	
-        List<RichedWord> list = new ArrayList<RichedWord>();
+        List<RichedWord> listCase = new ArrayList<RichedWord>();
         RichedWord administr = new RichedWord("administr");
-        administr.setAttribute("OCURRENCES", Integer.valueOf(9));
-        list.add(administr);
+        administr.setAttribute("OCURRENCES", Integer.valueOf(1));
+        listCase.add(administr);
+        
+        List<RichedWord> listAspect = new ArrayList<RichedWord>();
         RichedWord student = new RichedWord("student");
         student.setAttribute("OCURRENCES", Integer.valueOf(1));
-        student.setAttribute("WEIGHT", Integer.valueOf(10));
-        list.add(student);
+        student.setAttribute("WEIGHT", Integer.valueOf(1));
+        RichedWord administr2 = new RichedWord("administr");
+        administr2.setAttribute("OCURRENCES", Integer.valueOf(1));
+        listAspect.add(student);
+        listAspect.add(administr2);
         
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
-        Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(list,null);
+        algorithm.setUseCaseFactor(Double.valueOf(0.75));
+        Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(listCase,listAspect);
         MapUtils.imprimirMap(map);
     }
 }
