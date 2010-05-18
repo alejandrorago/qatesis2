@@ -18,16 +18,32 @@ import java.util.Map;
  * @author fbertoni
  * @version $Revision$
  */
+
 //TODO hay que modificar la clase RichedWord, o se hace todo un map con la palabra adentro, o se hace un metodo para sacar cada valor
 //o se crean variables estaticas, asi no se pide el atributo como un string
 public class RichedWord implements RichedWordInterface {
+    /**
+     * Cantidad de ocurrencias de la palabra
+     */
+    public static final String OCURRENCES = "OCURRENCES";
+
+    /**
+     * Peso de la palabra
+     */
+    public static final String WEIGHT = "WEIGHT";
+
+    /**
+     * Seccion del caso de uso en que se encuentra la palabra
+     */
+    public static final String SECTION = "SECTION";
+
     /** Palabra */
     private String word;
 
     /** HashMap que contiene la lista de atributos de esa palabra */
     private Map<String, Object> attributes;
 
-    /**
+/**
          * Crea un nuevo objeto de tipo RichedWord
          *
          * @param word palabra
@@ -103,13 +119,22 @@ public class RichedWord implements RichedWordInterface {
         this.attributes.remove(key);
     }
 
+    /**
+     * DOCUMENT ME!
+     *
+     * @param o DOCUMENT ME!
+     *
+     * @return DOCUMENT ME!
+     */
     public boolean equals(Object o) {
-    	try {
-    		RichedWord rw = (RichedWord) o;
-        	return ((rw.getWord().equalsIgnoreCase(this.word)) &&
-        			(this.getAttribute("SECTION").equals(rw.getAttribute("SECTION"))));
+        try {
+            RichedWord rw = (RichedWord) o;
+
+            return ((rw.getWord().equalsIgnoreCase(this.word)) &&
+            (this.getAttribute(RichedWord.SECTION)
+                 .equals(rw.getAttribute(RichedWord.SECTION))));
         } catch (NullPointerException e) {
-        	return false;
+            return false;
         }
     }
 }
