@@ -29,6 +29,8 @@ public class OntologyAlgorithm implements Algorithm {
      * con respecto a los atributos de calidad
      */
     private QualityAttributeBelongable qabelongable;
+    
+    private Double useCaseFactor;
 
 /**
      * Creates a new OntologyAlgorithm object.
@@ -38,6 +40,7 @@ public class OntologyAlgorithm implements Algorithm {
      */
     public OntologyAlgorithm(String owlFilePath, String repositoryFilePath) {
         this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath);
+        this.useCaseFactor = Double.valueOf(1.0);
     }
 
     /**
@@ -52,11 +55,22 @@ public class OntologyAlgorithm implements Algorithm {
     @Override
     public Map<QualityAttributeInterface, Double> getQualityAttributePertenence(
         List<RichedWord> useCaseWordsList, List<RichedWord> earlyAspectWordsList) {
-        Map<QualityAttributeInterface, Double> useCaseMap = this.getAttributesMap(useCaseWordsList);
-
-        //TODO darle bolilla al EarlyAspect
-        //Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
-        return useCaseMap;
+        
+    	//Map de los casos de uso
+    	Map<QualityAttributeInterface, Double> useCaseMap = this.getAttributesMap(useCaseWordsList);
+    	
+    	//Si useCaseFactor=1, no hace falta el analisis de las palabras del EarlyAspect
+    	if (!this.useCaseFactor.equals(Double.valueOf(1.0))){
+    		//Map del earlyAspect
+    		Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
+    		
+    		useCaseMap = MapUtils.multiplyMapByFactor(useCaseMap, useCaseFactor);
+    		earlyApectMap = MapUtils.multiplyMapByFactor(earlyApectMap, 1.0 - useCaseFactor);
+    		
+    		Map<QualityAttributeInterface, Double> totalMap = MapUtils.addMaps(useCaseMap, earlyApectMap);
+    		return totalMap;
+        }
+    	return useCaseMap;
     }
 
     /**
@@ -99,9 +113,9 @@ public class OntologyAlgorithm implements Algorithm {
 
                 //Cada valor del map se multiplica por weight
                 //TODO probar lo anterior
-                wordMap = MapUtils.multiplyMapByFactor(wordMap, weight);
+                wordMap = MapUtils.multiplyMapByFactor(wordMap, Double.valueOf(weight));
 
-                totalMap = MapUtils.addTotal(totalMap, wordMap);
+                totalMap = MapUtils.addMaps(totalMap, wordMap);
                 totalWords = totalWords + weight;
             }
         }
@@ -121,8 +135,8 @@ public class OntologyAlgorithm implements Algorithm {
      * @return multiplicaciond el peso por las ocurrencias
      */
     Integer getWordWeight(RichedWord richedWord) {
-        Integer weight = (Integer) richedWord.getAttribute("WEIGHT");
-        Integer ocurrencies = (Integer) richedWord.getAttribute("OCURRENCES");
+        Integer weight = (Integer) richedWord.getAttribute(RichedWord.WEIGHT);
+        Integer ocurrencies = (Integer) richedWord.getAttribute(RichedWord.OCURRENCES);
 
         //Si se tiene en cuenta el peso de la palabra y el nunmero de ocurrencias, ninguna de estos valores
         //deberia ser cero. El numero de ocurrencias, al menos, siempre es mayor o igual a cero.
@@ -170,5 +184,22 @@ public class OntologyAlgorithm implements Algorithm {
                 null);
 
         //System.out.println(qt.toString());
+    }
+    
+    
+    
+    public Double getUseCaseFactor() {
+		return useCaseFactor;
+	}
+
+	public void setUseCaseFactor(Double useCaseFactor) {
+		if(useCaseFactor>Double.valueOf(0.0) && useCaseFactor<=Double.valueOf(1.0)){
+			this.useCaseFactor = useCaseFactor;
+		}
+	}
+
+	public Map<QualityAttributeInterface, Double> combineMaps(Map<QualityAttributeInterface, Double> earlyAspectMap, Map<QualityAttributeInterface, Double> useCasesMap){
+    	
+    	return null;
     }
 }
