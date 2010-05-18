@@ -25,4 +25,8 @@ public interface Algorithm {
      */
     Map<QualityAttributeInterface, Double> getQualityAttributePertenence(
         List<RichedWord> useCaseWordsList, List<RichedWord> earlyAspectWordsList);
+    
+    public Double getUseCaseFactor(); 
+	public void setUseCaseFactor(Double useCaseFactor);
+
 }
