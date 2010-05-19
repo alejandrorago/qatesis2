@@ -6,8 +6,8 @@
 <mapping>
 
   <class name="input.Project">
-    <map-to xml="project"/>
 
+    <map-to xml="project"/>
 
     <field name="Name"
            type="java.lang.String">
@@ -19,6 +19,19 @@
               collection="arraylist">
       <bind-xml name="use-case"/>
     </field>
+    
+    <field name="earlyAspects"
+           type="entities.EarlyAspect"
+              collection="arraylist">
+      <bind-xml name="early-aspect"/>
+    </field>
+  
+	<field name="relations"
+           type="entities.Relation"
+              collection="arraylist">
+      <bind-xml name="relation"/>
+   </field>
+
   </class>
 
   <class name="entities.UseCase">
@@ -68,5 +81,47 @@
             <bind-xml name="condition" location="postconditions"/>
     </field>
    </class>
+
+	<class name="entities.EarlyAspect">
+  	 <field name="pairs"
+           type="entities.EarlyAspectPair"
+              collection="arraylist">
+      <bind-xml name="pair" location="pairs"/>
+    </field>
+ 
+    <field name="name" type="java.lang.String">
+      <bind-xml name="name" node="element"/>
+    </field>
+
+    <field name="id" type="java.lang.Integer">
+      <bind-xml name="id" node="element"/>
+    </field>
+   
+  
+   </class>
+   
+    <class name="entities.EarlyAspectPair">
+    
+    <field name="verb" type="java.lang.String">
+      <bind-xml name="verb" node="element"/>
+    </field>
+    <field name="object" type="java.lang.String">
+      <bind-xml name="object" node="element"/>
+    </field>
+   </class>
+
+	<class name="entities.Relation">
+ 
+    <field name="earlyAspectId" type="java.lang.Integer">
+      <bind-xml name="early-aspect" node="element"/>
+    </field>
+     <field name="useCaseIds"
+           type="java.lang.Integer"
+              collection="arraylist">
+      <bind-xml name="id" location="use-cases"/>
+    </field>
+ 
+   </class>
+
 
 </mapping>

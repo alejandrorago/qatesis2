@@ -53,9 +53,7 @@ public class OntologyManager extends OntologyAnalyzer {
         
         //TODO pasar el fm como parametro o algo asi, mas adelante
         fm = new FilterManager();
-        fm.addFilter(new FilterLowerCase());
-        fm.addFilter(new FilterStopWords("resources/stopWordsList.txt"));
-        fm.addFilter(new FilterStemming());
+        fm.setOntologyFilters("resources/stopWordsList.txt");
         
         this.formatModel();
         logger.info("Inicio Ontologia");

@@ -6,12 +6,13 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import entities.RichedWord;
-import entities.UseCase;
+import entities.UseCaseInterface;
 import filters.FilterLowerCase;
 import filters.FilterManager;
 import filters.FilterOcurrences;
 import filters.FilterStemming;
 import filters.FilterStopWords;
+import filters.FilterWeight;
 
 /**
  * @author Sebastián Villanueva
@@ -35,14 +36,9 @@ public class UseCaseTokenizer {
 
 	static final Logger logger = Logger.getLogger(UseCaseTokenizer.class);
 
-	public UseCaseTokenizer(String stopWordsFile) {
+	public UseCaseTokenizer(String stopWordsFile, String weightsFile) {
 		super();
-
-		filterManager.addFilter(new FilterLowerCase());
-		filterManager.addFilter(new FilterStopWords(stopWordsFile));
-		filterManager.addFilter(new FilterStemming());
-		filterManager.addFilter(new FilterOcurrences());
-
+		filterManager.setUseCaseFilters(stopWordsFile,weightsFile);
 	}
 
 	/**
@@ -53,7 +49,7 @@ public class UseCaseTokenizer {
 	 * @param UseCase
 	 * @return Lista de RichedWords
 	 */
-	public void tokenizeUseCase(UseCase uc, List<RichedWord> list) {
+	public void tokenizeUseCase(UseCaseInterface uc, List<RichedWord> list) {
 
 		logger.info("Tokenizing Use Case:" + uc.getName() + ".");
 

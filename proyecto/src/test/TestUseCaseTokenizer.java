@@ -20,7 +20,7 @@ public class TestUseCaseTokenizer {
         uc.setBasicFlow(
             "The user selects the option bill pay at the menu. He click the link");
 
-        UseCaseTokenizer uct = new UseCaseTokenizer("resources/stopWordsList.txt");
+        UseCaseTokenizer uct = new UseCaseTokenizer("resources/stopWordsList.txt", "resources/useCaseWeights.properties");
         List<RichedWord> tokens = new ArrayList<RichedWord>();
         uct.tokenizeUseCase(uc,tokens);
 

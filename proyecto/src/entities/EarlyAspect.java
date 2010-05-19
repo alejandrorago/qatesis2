@@ -1,27 +1,46 @@
 package entities;
 
+import java.util.List;
+
 public class EarlyAspect implements EarlyAspectInterface {
-    private String verb;
-    private String noun;
 
-    public EarlyAspect(String noun, String verb) {
-        this.noun = noun;
-        this.verb = verb;
-    }
+	private int id;
+	private String name;
+	private List<EarlyAspectPairInterface> pairs;
+	
 
-    public String getVerb() {
-        return verb;
-    }
+	public EarlyAspect() {
+		
+	}
+	
+	public EarlyAspect(int id, String name, List<EarlyAspectPairInterface> list) {
+		this.id = id;
+		this.name = name;
+		this.pairs = list;
+	}
 
-    public void setVerb(String verb) {
-        this.verb = verb;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getNoun() {
-        return noun;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setNoun(String noun) {
-        this.noun = noun;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<EarlyAspectPairInterface> getPairs() {
+		return pairs;
+	}
+
+	public void setPairs(List<EarlyAspectPairInterface> pairs) {
+		this.pairs = pairs;
+	}
+	
 }

@@ -6,14 +6,11 @@ import input.ProjectManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import wordtokenizer.UseCaseTokenizer;
 import algorithms.Algorithm;
 import algorithms.OntologyAlgorithm;
-
-import utils.MapUtils;
-import wordtokenizer.UseCaseTokenizer;
-import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
-import entities.UseCase;
+import entities.UseCaseInterface;
 
 public class TestSeba {
 
@@ -32,17 +29,17 @@ public class TestSeba {
 		
 		// OBTENGO LA LISTA DE TOODS LOS CASOS DE USO
 		
-		List<UseCase> casosDeUso = p.getUseCases();
+		List<UseCaseInterface> casosDeUso = p.getUseCases();
 		
 		// OBTENGO LA LISTA DE PALBRABS PARA TODOS LOS CASOS DE USO
-		UseCaseTokenizer uct = new UseCaseTokenizer("resources/stopWordsList.txt");
+		UseCaseTokenizer uct = new UseCaseTokenizer("resources//stopWordsList.txt", "resources//useCaseWeights.properties");
 
 		// CREO LA LISTA 
 		List<RichedWord> tokens = new ArrayList<RichedWord>();
 		
 		// RECORRO TODOS LOS CASOS DE USO y LOS "TOKENIZO"
 
-		for (UseCase uc : casosDeUso) {
+		for (UseCaseInterface uc : casosDeUso) {
 			uct.tokenizeUseCase(uc, tokens);
 		}
 		
