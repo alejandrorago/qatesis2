@@ -16,7 +16,20 @@ public class FilterManager {
 	public FilterManager() {
 		filters = new ArrayList<Filter>();
 	}
+	
+	public void setOntologyFilters(String stopWordsFile) {
+		this.addFilter(new FilterLowerCase());
+		this.addFilter(new FilterStopWords(stopWordsFile));
+		this.addFilter(new FilterStemming());
+	}
 
+	public void setUseCaseFilters(String stopWordsFile, String weightFile) {
+		this.addFilter(new FilterLowerCase());
+		this.addFilter(new FilterStopWords(stopWordsFile));
+		this.addFilter(new FilterStemming());
+		this.addFilter(new FilterOcurrences());
+		this.addFilter(new FilterWeight(weightFile));
+	}
 	
 	public String[] splitList(String text) {
 		
@@ -24,10 +37,8 @@ public class FilterManager {
 			return text.split("[^a-zA-Z0-9]");
 		}
 		return new String[0];
-	
 	}
 	
-		
 	public List<RichedWord> createList( String text, String section) {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		String[] list = splitList(text);
@@ -70,8 +81,6 @@ public class FilterManager {
 		}
 		return null;
 	}
-
-	
 	
 	public void addFilter(Filter f) {
 		filters.add(f);

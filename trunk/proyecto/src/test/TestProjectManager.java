@@ -2,6 +2,7 @@ package test;
 
 import input.Project;
 import input.ProjectManager;
+import entities.QualityAttributeThemeInterface;
 
 public class TestProjectManager {
 
@@ -17,6 +18,12 @@ public class TestProjectManager {
 		pm.loadProject(".//src//input//proyecto.xml");
 		Project p = pm.getProject();
 		System.out.println(p.getUseCases());
+	
+		QualityAttributeThemeInterface a = (p.getQATs()).get(0);
+			
+		System.out.println(a.getEarlyAspect());
+		
+	
 	}
 
 }

@@ -21,8 +21,8 @@ public class EntityFactory extends AbstractEntityFactory {
      *
      * @return DOCUMENT ME!
      */
-    public EarlyAspectInterface creatEarlyAspect(String verb, String noun) {
-        EarlyAspect earlyAspect = new EarlyAspect(noun, verb);
+    public EarlyAspectPairInterface creatEarlyAspectPair(String verb, String noun) {
+        EarlyAspectPair earlyAspect = new EarlyAspectPair(noun, verb);
 
         return earlyAspect;
     }
@@ -83,4 +83,13 @@ public class EntityFactory extends AbstractEntityFactory {
 
         return richedWord;
     }
+
+
+	public EarlyAspectInterface creatEarlyAspect(int id, String name,
+			List<Integer> listUseCases, List<EarlyAspectPairInterface> listPairs) {
+        EarlyAspect earlyAspect = new EarlyAspect(id, name, listPairs);
+        return earlyAspect;
+	}
+
+
 }
