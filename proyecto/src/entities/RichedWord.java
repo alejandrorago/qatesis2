@@ -19,8 +19,6 @@ import java.util.Map;
  * @version $Revision$
  */
 
-//TODO hay que modificar la clase RichedWord, o se hace todo un map con la palabra adentro, o se hace un metodo para sacar cada valor
-//o se crean variables estaticas, asi no se pide el atributo como un string
 public class RichedWord implements RichedWordInterface {
     /**
      * Cantidad de ocurrencias de la palabra
@@ -126,6 +124,7 @@ public class RichedWord implements RichedWordInterface {
      *
      * @return DOCUMENT ME!
      */
+    //TODO meterlo en comparator o algo similar para comparar bien
     public boolean equals(Object o) {
         try {
             RichedWord rw = (RichedWord) o;
