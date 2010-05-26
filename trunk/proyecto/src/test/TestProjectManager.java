@@ -50,7 +50,7 @@ public class TestProjectManager {
         }
 		
 		
-        //TODO Esto hay que hacer el tokenizer
+        //TODO Hay que hacer el tokenizer la lista del earlyaspect
 		List<RichedWord> listAspect = new ArrayList<RichedWord>();
         RichedWord student = new RichedWord("student");
         student.setAttribute("OCURRENCES", Integer.valueOf(1));
