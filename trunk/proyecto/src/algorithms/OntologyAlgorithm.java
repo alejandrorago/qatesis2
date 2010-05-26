@@ -87,7 +87,6 @@ public class OntologyAlgorithm implements Algorithm {
      *         de la lista con ese atributo.
      */
 
-    //TODO esto es lo que estoy haciendo :)
     private Map<QualityAttributeInterface, Double> getAttributesMap(
         List<RichedWord> words) {
         Map<QualityAttributeInterface, Double> wordMap = null;
@@ -145,7 +144,7 @@ public class OntologyAlgorithm implements Algorithm {
         if ((weight == null) || (weight == 0)) {
             return ocurrencies;
         }
-
+        
         return weight * ocurrencies;
     }
 
