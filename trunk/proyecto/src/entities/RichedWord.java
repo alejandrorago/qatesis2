@@ -136,4 +136,17 @@ public class RichedWord implements RichedWordInterface {
             return false;
         }
     }
+    
+    public static void main(String[] args){
+    	
+        RichedWord r1 = new RichedWord("r2");
+        r1.setAttribute("SECTION", "seccion1");
+        RichedWord r2 = new RichedWord("r1");
+        r2.setAttribute("SECTION", "seccion1");
+        
+        if(r1.equals(r2))
+        	System.out.println("Son iguales");
+        else
+        	System.out.println("Distintas");
+    }
 }
