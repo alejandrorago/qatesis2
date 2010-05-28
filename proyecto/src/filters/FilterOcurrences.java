@@ -28,8 +28,7 @@ public class FilterOcurrences extends Filter {
 			}
 
 		}
-		list=result;
-		return list;
+		return result;
 	}
 
 }
