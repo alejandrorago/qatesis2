@@ -6,17 +6,12 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 
-import filters.FilterLowerCase;
 import filters.FilterManager;
-import filters.FilterStemming;
-import filters.FilterStopWords;
 
 import ontology.OntologyAnalyzer;
 
 import org.apache.log4j.Logger;
 
-import wordtokenizer.StemmerIngles;
-import wordtokenizer.StopWordsAnalizer;
 
 
 /**
