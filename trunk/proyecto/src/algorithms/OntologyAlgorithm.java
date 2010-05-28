@@ -64,6 +64,13 @@ public class OntologyAlgorithm implements Algorithm {
     		//Map del earlyAspect
     		Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
     		
+
+    		if (MapUtils.areAllValuesZero(useCaseMap)) 
+    			return earlyApectMap;
+    		
+    		if (MapUtils.areAllValuesZero(earlyApectMap)) 
+    			return useCaseMap;
+    		
     		useCaseMap = MapUtils.multiplyMapByFactor(useCaseMap, useCaseFactor);
     		earlyApectMap = MapUtils.multiplyMapByFactor(earlyApectMap, 1.0 - useCaseFactor);
     		
@@ -111,15 +118,16 @@ public class OntologyAlgorithm implements Algorithm {
                 Integer weight = this.getWordWeight(richedWord);
 
                 //Cada valor del map se multiplica por weight
-                //TODO probar lo anterior
                 wordMap = MapUtils.multiplyMapByFactor(wordMap, Double.valueOf(weight));
 
                 totalMap = MapUtils.addMaps(totalMap, wordMap);
                 totalWords = totalWords + weight;
             }
         }
-
-        totalMap = MapUtils.divideTotal(totalMap, totalWords);
+        
+        //Si totalWords es igual a cero, significa que ninguna de las palabras se encuentra en la ontologia
+        if (totalWords!=0)
+        	totalMap = MapUtils.divideTotal(totalMap, totalWords);
 
         return totalMap;
     }
