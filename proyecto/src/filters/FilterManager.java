@@ -27,7 +27,6 @@ public class FilterManager {
 		this.addFilter(new FilterLowerCase());
 		this.addFilter(new FilterStopWords(stopWordsFile));
 		this.addFilter(new FilterStemming());
-		this.addFilter(new FilterOcurrences());
 		this.addFilter(new FilterWeight(weightFile));
 	}
 	
@@ -59,6 +58,9 @@ public class FilterManager {
 			resultFilters = f.filter(resultFilters);
 		}
 		result.addAll(resultFilters);
+		Filter a = new FilterOcurrences();
+		result = a.filter(result);
+		
 	}
 
 	public void runFilters(List<RichedWord> result, String text) {
@@ -68,6 +70,7 @@ public class FilterManager {
 			f.filter(resultFilters);
 		}
 		result.addAll(resultFilters);
+		
 	}
 	
 	
