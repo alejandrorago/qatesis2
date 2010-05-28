@@ -15,26 +15,28 @@ import entities.RichedWord;
  * Clase para testear una lista de palabras con sus pesos y numero de ocurrencias
  * 
  */
-//TODO Esto parece que anda joya, pero bien se podrias testear un poco mas
 public class TestOcurrenciesAndWeight {
     public static void main(String[] args) {
     	
         List<RichedWord> listCase = new ArrayList<RichedWord>();
-        RichedWord administr = new RichedWord("administr");
-        administr.setAttribute("OCURRENCES", Integer.valueOf(1));
+        RichedWord administr = new RichedWord("user2");
+        administr.setAttribute(RichedWord.OCURRENCES, Integer.valueOf(1));
         listCase.add(administr);
+        RichedWord xxx = new RichedWord("system");
+        xxx.setAttribute(RichedWord.OCURRENCES, Integer.valueOf(1));
+        listCase.add(xxx);
         
         List<RichedWord> listAspect = new ArrayList<RichedWord>();
         RichedWord student = new RichedWord("student");
-        student.setAttribute("OCURRENCES", Integer.valueOf(1));
-        student.setAttribute("WEIGHT", Integer.valueOf(1));
-        RichedWord administr2 = new RichedWord("administr");
-        administr2.setAttribute("OCURRENCES", Integer.valueOf(1));
+        student.setAttribute(RichedWord.OCURRENCES, Integer.valueOf(1));
+        student.setAttribute(RichedWord.WEIGHT, Integer.valueOf(1));
+        RichedWord administr2 = new RichedWord("stimulus1");
+        administr2.setAttribute(RichedWord.OCURRENCES, Integer.valueOf(1));
         listAspect.add(student);
         listAspect.add(administr2);
         
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
-        algorithm.setUseCaseFactor(Double.valueOf(0.75));
+        algorithm.setUseCaseFactor(Double.valueOf(0.50));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(listCase,listAspect);
         MapUtils.imprimirMap(map);
     }
