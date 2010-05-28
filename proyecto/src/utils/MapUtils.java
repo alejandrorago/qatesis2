@@ -63,23 +63,22 @@ public class MapUtils {
      * Suma a cada valor de cada atributo de calidad de totalMap, el
      * valor que se encuentra en el mismo atributo del map wordmap
      *
-     * @param totalMap map al que se le suma el valor
-     * @param wordMap map de donde se saca el valor de cada clave, y se le suma
-     *        al valor de la misma clave perteneciente a totalMap
+     * @param map1 map al que se le suma el valor
+     * @param map2 map de donde se saca el valor de cada clave, y se le suma al
+     *        valor de la misma clave perteneciente a totalMap
      *
      * @return map con los valores sumados de ambos maps
      */
     public static Map<QualityAttributeInterface, Double> addMaps(
         Map<QualityAttributeInterface, Double> map1,
         Map<QualityAttributeInterface, Double> map2) {
-        Iterator<QualityAttributeInterface> qaIterator = map1.keySet()
-                                                                .iterator();
+        Iterator<QualityAttributeInterface> qaIterator = map1.keySet().iterator();
         QualityAttributeInterface qaInterface = null;
 
         while (qaIterator.hasNext()) {
             qaInterface = qaIterator.next();
-            map1.put(qaInterface,
-            		map1.get(qaInterface) + map2.get(qaInterface));
+            map1.put(qaInterface, map1.get(qaInterface) +
+                map2.get(qaInterface));
         }
 
         return map1;
@@ -145,8 +144,15 @@ public class MapUtils {
 
         return map;
     }
-    
 
+    /**
+     * DOCUMENT ME!
+     *
+     * @param map DOCUMENT ME!
+     * @param factor DOCUMENT ME!
+     *
+     * @return DOCUMENT ME!
+     */
     public static Map<QualityAttributeInterface, Double> divideMapByFactor(
         Map<QualityAttributeInterface, Double> map, Double factor) {
         QualityAttributeInterface qa = null;
@@ -179,5 +185,25 @@ public class MapUtils {
         }
 
         return map;
+    }
+
+    /**
+     * Funcion que devuelve true si todos los valores del map son iguales a cero. False en caso 
+     * contrario
+     *
+     * @param map con QualityAttributeInterface como clave y una variable de
+     *        tipo Double como valor
+     *
+     * @return true si todos los valores son iguales a cero, false en caso contrario
+     */
+    public static boolean areAllValuesZero(
+        Map<QualityAttributeInterface, Double> map) {
+        for (QualityAttributeInterface qa : map.keySet()) {
+            if (!map.get(qa).equals(Double.valueOf(0))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
