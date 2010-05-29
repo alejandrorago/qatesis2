@@ -15,20 +15,17 @@ public class FilterOcurrences extends Filter {
 	public List<RichedWord> filter(List<RichedWord> list) {
 
 		List<RichedWord> result = new ArrayList<RichedWord>();
-
 		for (RichedWord rw : list) {
 			int indice = result.indexOf(rw);
 			if (indice < 0) {
-				rw.setAttribute(OCURRENCES, new Integer(1));
-				result.add(rw);
+				rw.setAttribute(OCURRENCES,  new Integer(1));
+				result.add(new RichedWord(rw.getWord(), rw.getAttributes()));
 			} else {
-				rw = result.get(indice);
-				Integer ocurrencias = (Integer) rw.getAttribute(OCURRENCES);
-				rw.setAttribute(OCURRENCES, ++ocurrencias);
+				RichedWord rwRes = result.get(indice);
+				Integer ocurrencias = (Integer) rwRes.getAttribute(OCURRENCES);
+				rwRes.setAttribute(OCURRENCES, ++ocurrencias);
 			}
-
 		}
 		return result;
 	}
-
 }

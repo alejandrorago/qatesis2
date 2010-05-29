@@ -1,5 +1,6 @@
 package wordtokenizer;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -7,12 +8,6 @@ import org.apache.log4j.Logger;
 
 import entities.RichedWord;
 import entities.UseCaseInterface;
-import filters.FilterLowerCase;
-import filters.FilterManager;
-import filters.FilterOcurrences;
-import filters.FilterStemming;
-import filters.FilterStopWords;
-import filters.FilterWeight;
 
 /**
  * @author Sebastián Villanueva
@@ -31,14 +26,13 @@ public class UseCaseTokenizer {
 	private static final String SPECIALREQUERIMENT = "SPECIALREQUERIMENT";
 	private static final String PRECONDITIONS = "PRECONDITIONS";
 
+    private static final String SECTION = "SECTION";
 
-	FilterManager filterManager = new FilterManager();
 
 	static final Logger logger = Logger.getLogger(UseCaseTokenizer.class);
 
-	public UseCaseTokenizer(String stopWordsFile, String weightsFile) {
+	public UseCaseTokenizer() {
 		super();
-		filterManager.setUseCaseFilters(stopWordsFile,weightsFile);
 	}
 
 	/**
@@ -49,21 +43,23 @@ public class UseCaseTokenizer {
 	 * @param UseCase
 	 * @return Lista de RichedWords
 	 */
-	public void tokenizeUseCase(UseCaseInterface uc, List<RichedWord> list) {
+	public List<RichedWord> tokenizeUseCase(UseCaseInterface uc) {
 
 		logger.info("Tokenizing Use Case:" + uc.getName() + ".");
 
-		tokenize(list, uc.getName(), NAME);
-		tokenize(list, uc.getDescription(), DESCRIPTION);
-		tokenize(list, uc.getActor(), ACTOR);
-		tokenize(list, uc.getPriority(), PRIORITY);
-		tokenize(list, uc.getTrigger(), TRIGGUER);
-		tokenizeList(list, uc.getBasicFlow(), BASICFLOW);
-		tokenizeList(list, uc.getAlternativeFlow(), ALTERNATIVEFLOW);
-		tokenizeList(list, uc.getSpecialRequirement(), SPECIALREQUERIMENT);
-		tokenizeList(list, uc.getPreconditions(), PRECONDITIONS);
-		tokenizeList(list, uc.getPostconditions(), POSTCONDITIONS);
+		List<RichedWord> result = new ArrayList<RichedWord>();
+		result.addAll(tokenize(uc.getName(), NAME));
+		result.addAll(tokenize(uc.getDescription(), DESCRIPTION));
+		result.addAll(tokenize(uc.getActor(), ACTOR));
+		result.addAll(tokenize(uc.getPriority(), PRIORITY));
+		result.addAll(tokenize(uc.getTrigger(), TRIGGUER));
+		result.addAll(tokenizeList(uc.getBasicFlow(), BASICFLOW));
+		result.addAll(tokenizeList(uc.getAlternativeFlow(), ALTERNATIVEFLOW));
+		result.addAll(tokenizeList(uc.getSpecialRequirement(), SPECIALREQUERIMENT));
+		result.addAll(tokenizeList(uc.getPreconditions(), PRECONDITIONS));
+		result.addAll(tokenizeList(uc.getPostconditions(), POSTCONDITIONS));
 
+		return result;
 	}
 
 	/**
@@ -76,14 +72,14 @@ public class UseCaseTokenizer {
 	 * @param section
 	 * @return
 	 */
-	private void tokenizeList(List<RichedWord> rwlist, List<String> list,
+	private List<RichedWord> tokenizeList(List<String> list,
 			String section) {
 
 		for (Iterator<String> i = list.iterator(); i.hasNext();) {
 			String word = (String) i.next();
-			tokenize(rwlist, word.toLowerCase(), section);
+			return tokenize(word.toLowerCase(), section);
 		}
-
+		return new ArrayList<RichedWord>();
 	}
 
 	/**
@@ -95,10 +91,20 @@ public class UseCaseTokenizer {
 	 * @param section
 	 * @return
 	 */
-	private void tokenize(List<RichedWord> result, String text, String section) {
-
-		logger.info("Tokenizing Section: " + section + ".");
-		filterManager.runFilters(result, text, section);
+	private List<RichedWord> tokenize(String text, String section) {
+		
+		List<RichedWord> result = new ArrayList<RichedWord>();
+		if (text != null) {
+			logger.info("Tokenizing Section: " + section + ".");
+			String[] list = text.split("[^a-zA-Z0-9]");
+			for (int i = 0; i < list.length; i++) {
+				RichedWord rw = new RichedWord(list[i]);
+				if (section != null)
+					rw.setAttribute(SECTION, section);
+				result.add(rw);
+			}
+		}
+		return result;
+		
 	}
-
 }
