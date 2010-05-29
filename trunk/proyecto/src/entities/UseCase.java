@@ -165,16 +165,5 @@ public class UseCase implements UseCaseInterface {
 		public void setPostconditions(String postconditions) {
 			this.postconditions.add(postconditions);
 		}
-		
-		public String toString() {
-		
-			return ("Name: " + this.getName() + 
-					"Description: " + this.getDescription() +
-					"Actor: " + this.getActor() +
-					"BasicFlow: " + this.getBasicFlow().toString() + 
-					"AlternativeFlow" + this.getAlternativeFlow());
-			
-		// TODO TERMINAR ESTO!!! y hacerlo bien
-		}
-		
+				
 }

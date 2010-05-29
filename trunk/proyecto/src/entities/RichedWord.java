@@ -137,16 +137,4 @@ public class RichedWord implements RichedWordInterface {
      *
      * @return DOCUMENT ME!
      */
-    //TODO meterlo en comparator o algo similar para comparar bien
-    public boolean equals(Object o) {
-        try {
-            RichedWord rw = (RichedWord) o;
-
-            return ((rw.getWord().equalsIgnoreCase(this.word)) &&
-            (this.getAttribute(RichedWord.SECTION)
-                 .equals(rw.getAttribute(RichedWord.SECTION))));
-        } catch (NullPointerException e) {
-            return false;
-        }
-    }
-}
+   }
