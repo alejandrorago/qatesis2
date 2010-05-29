@@ -51,6 +51,19 @@ public class RichedWord implements RichedWordInterface {
         this.attributes = new HashMap<String, Object>();
     }
 
+
+    /**
+     * Crea un nuevo objeto de tipo RichedWord
+     *
+     * @param word palabra
+     */
+    public RichedWord(String word, Map<String, Object> args) {
+    this.word = word;
+    this.attributes = args;
+    }
+
+
+
     /**
      * Devuelve la palabra
      *
@@ -135,18 +148,5 @@ public class RichedWord implements RichedWordInterface {
         } catch (NullPointerException e) {
             return false;
         }
-    }
-    
-    public static void main(String[] args){
-    	
-        RichedWord r1 = new RichedWord("r2");
-        r1.setAttribute("SECTION", "seccion1");
-        RichedWord r2 = new RichedWord("r1");
-        r2.setAttribute("SECTION", "seccion1");
-        
-        if(r1.equals(r2))
-        	System.out.println("Son iguales");
-        else
-        	System.out.println("Distintas");
     }
 }
