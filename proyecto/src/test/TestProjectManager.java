@@ -11,9 +11,11 @@ import utils.MapUtils;
 import wordtokenizer.Tokenizer;
 import algorithms.Algorithm;
 import algorithms.OntologyAlgorithm;
+import entities.EARichedWordComparator;
 import entities.QualityAttributeInterface;
 import entities.QualityAttributeThemeInterface;
 import entities.RichedWord;
+import entities.UCRichedWordComparator;
 import entities.UseCaseInterface;
 import filters.FilterManager;
 
@@ -43,11 +45,12 @@ public class TestProjectManager {
 			tokensUseCase.addAll(tokenizer.tokenize(uc));
 		}
 		FilterManager fm = new FilterManager();
-		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties");
+		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new UCRichedWordComparator());
 		List<RichedWord> tokensUseCaseFiltered = fm.runFilters(tokensUseCase);
 		
 		
-        for (RichedWord tok : tokensUseCaseFiltered) {
+        System.out.println("CASOS DE USO FILTRADOS ");
+		for (RichedWord tok : tokensUseCaseFiltered) {
             System.out.println("Word: " + tok.getWord());
             System.out.println("Section: " + tok.getAttribute("SECTION"));
             System.out.println("Peso: " + tok.getAttribute("WEIGHT"));
@@ -55,13 +58,20 @@ public class TestProjectManager {
         }
 		
 		
-        //TODO Hay que hacer el tokenizer la lista del earlyaspect
 		List<RichedWord> tokensEA = new ArrayList<RichedWord>();
 		// AGARRO EL EARLY ASPECT DEL PRIMER QAT .
 		tokensEA.addAll(tokenizer.tokenize((p.getQATs()).get(0).getEarlyAspect()));
-		fm.setOntologyFilters("resources//stopWordsList.txt");
+		fm.setEarlyAspectFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new EARichedWordComparator());
 		List<RichedWord> tokensEAFiltered = fm.runFilters(tokensEA);
 		
+		
+		System.out.println("EARLY ASPECT FILTRADO ");
+		for (RichedWord tok : tokensEAFiltered) {
+            System.out.println("Word: " + tok.getWord());
+            System.out.println("Section: " + tok.getAttribute("SECTION"));
+            System.out.println("Peso: " + tok.getAttribute("WEIGHT"));
+            System.out.println("Ocurrences: " + tok.getAttribute("OCURRENCES") + "\n***\n");
+        }
         
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
         algorithm.setUseCaseFactor(Double.valueOf(1.0));

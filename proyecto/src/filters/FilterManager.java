@@ -1,6 +1,7 @@
 package filters;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import entities.RichedWord;
@@ -21,13 +22,21 @@ public class FilterManager {
 		this.addFilter(new FilterStemming());
 	}
 
-	public void setUseCaseFilters(String stopWordsFile, String weightFile) {
+	public void setUseCaseFilters(String stopWordsFile, String weightFile, Comparator<RichedWord> comp) {
 		this.filters.clear();
 		this.addFilter(new FilterLowerCase());
 		this.addFilter(new FilterStopWords(stopWordsFile));
 		this.addFilter(new FilterStemming());
-		this.addFilter(new FilterOcurrences());
+		this.addFilter(new FilterOcurrences(comp));
 		this.addFilter(new FilterWeight(weightFile));
+	}
+	
+	public void setEarlyAspectFilters(String stopWordsFile, String weightFile, Comparator<RichedWord> comp) {
+		this.filters.clear();
+		this.addFilter(new FilterLowerCase());
+		this.addFilter(new FilterStopWords(stopWordsFile));
+		this.addFilter(new FilterStemming());
+		this.addFilter(new FilterOcurrences(comp));
 	}
 	
 	public List<RichedWord> runFilters(List<RichedWord> listWords) {
