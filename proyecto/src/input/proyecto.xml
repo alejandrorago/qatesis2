@@ -242,6 +242,7 @@
 		<use-cases>
 			<id>1</id>
 			<id>2</id>
+			<id>3</id>
 		</use-cases>
 	</relation>
 

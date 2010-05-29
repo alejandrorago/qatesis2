@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import utils.MapUtils;
-import wordtokenizer.EarlyAspectTokenizer;
-import wordtokenizer.UseCaseTokenizer;
+import wordtokenizer.Tokenizer;
 import algorithms.Algorithm;
 import algorithms.OntologyAlgorithm;
 import entities.QualityAttributeInterface;
@@ -36,30 +35,30 @@ public class TestProjectManager {
 		QualityAttributeThemeInterface qat = (p.getQATs()).get(0);
 		
 		// OBTENGO LA LISTA DE PALBRABS PARA TODOS LOS CASOS DE USO
-		UseCaseTokenizer uct = new UseCaseTokenizer();		// CREO LA LISTA 
+		Tokenizer tokenizer = new Tokenizer();		// CREO LA LISTA 
+	
 		List<RichedWord> tokensUseCase = new ArrayList<RichedWord>();
 		// RECORRO TODOS LOS CASOS DE USO y LOS "TOKENIZO"
 		for (UseCaseInterface uc : qat.getUseCases()) {
-			tokensUseCase.addAll(uct.tokenizeUseCase(uc));
+			tokensUseCase.addAll(tokenizer.tokenize(uc));
 		}
 		FilterManager fm = new FilterManager();
 		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties");
 		List<RichedWord> tokensUseCaseFiltered = fm.runFilters(tokensUseCase);
 		
 		
-/*        for (RichedWord tok : tokensUseCaseFiltered) {
+        for (RichedWord tok : tokensUseCaseFiltered) {
             System.out.println("Word: " + tok.getWord());
             System.out.println("Section: " + tok.getAttribute("SECTION"));
             System.out.println("Peso: " + tok.getAttribute("WEIGHT"));
             System.out.println("Ocurrences: " + tok.getAttribute("OCURRENCES") + "\n***\n");
         }
-*/		
+		
 		
         //TODO Hay que hacer el tokenizer la lista del earlyaspect
 		List<RichedWord> tokensEA = new ArrayList<RichedWord>();
-		EarlyAspectTokenizer eat = new EarlyAspectTokenizer();		// CREO LA LISTA 
 		// AGARRO EL EARLY ASPECT DEL PRIMER QAT .
-		tokensEA.addAll(eat.tokenize((p.getQATs()).get(0).getEarlyAspect()));
+		tokensEA.addAll(tokenizer.tokenize((p.getQATs()).get(0).getEarlyAspect()));
 		fm.setOntologyFilters("resources//stopWordsList.txt");
 		List<RichedWord> tokensEAFiltered = fm.runFilters(tokensEA);
 		
