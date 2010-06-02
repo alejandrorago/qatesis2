@@ -206,8 +206,4 @@ public class OntologyAlgorithm implements Algorithm {
 		}
 	}
 
-	public Map<QualityAttributeInterface, Double> combineMaps(Map<QualityAttributeInterface, Double> earlyAspectMap, Map<QualityAttributeInterface, Double> useCasesMap){
-    	
-    	return null;
-    }
 }
