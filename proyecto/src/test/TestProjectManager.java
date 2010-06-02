@@ -44,6 +44,7 @@ public class TestProjectManager {
 		for (UseCaseInterface uc : qat.getUseCases()) {
 			tokensUseCase.addAll(tokenizer.tokenize(uc));
 		}
+       
 		FilterManager fm = new FilterManager();
 		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new UCRichedWordComparator());
 		List<RichedWord> tokensUseCaseFiltered = fm.runFilters(tokensUseCase);
@@ -74,7 +75,7 @@ public class TestProjectManager {
         }
         
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
-        algorithm.setUseCaseFactor(Double.valueOf(1.0));
+        algorithm.setUseCaseFactor(Double.valueOf(0.5));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(tokensUseCaseFiltered,tokensEAFiltered);
         MapUtils.imprimirMap(map);
 	
