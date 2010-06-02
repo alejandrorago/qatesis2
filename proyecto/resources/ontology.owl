@@ -39,8 +39,8 @@
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponse">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasSource">
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
@@ -56,12 +56,12 @@
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="qualityAttributeName">
     <rdfs:domain rdf:resource="#QualityAttribute"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponseMeasure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioPartDescription">
     <rdfs:domain rdf:resource="#ConcreteScenarioPart"/>
@@ -69,8 +69,8 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasStimlus">
-    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
   </owl:FunctionalProperty>
   <QualityAttribute rdf:ID="ontology_Instance_15">
     <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -78,7 +78,7 @@
   </QualityAttribute>
   <ConcreteSource rdf:ID="ontology_Instance_20000">
     <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >administr</concreteScenarioPartDescription>
+    >system</concreteScenarioPartDescription>
   </ConcreteSource>
   <QualityAttribute rdf:ID="KB_044591_Instance_9">
     <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -86,13 +86,13 @@
   </QualityAttribute>
   <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_10001">
     <concreteScenarioHasSource rdf:resource="#ontology_Instance_20000"/>
-    <isSpecificof rdf:resource="#KB_044591_Instance_9"/>
     <concreteScenarioHasStimlus>
       <ConcreteStimulus rdf:ID="ontology_Instance_10003">
         <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >User2</concreteScenarioPartDescription>
       </ConcreteStimulus>
     </concreteScenarioHasStimlus>
+    <isSpecificof rdf:resource="#KB_044591_Instance_9"/>
   </ConcreteQualityAttributeScenario>
   <QualityAttribute rdf:ID="ontology_Instance_16">
     <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -109,6 +109,7 @@
     <isSpecificof rdf:resource="#ontology_Instance_16"/>
   </ConcreteQualityAttributeScenario>
   <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_0">
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
     <concreteScenarioHasSource rdf:resource="#ontology_Instance_10000"/>
     <concreteScenarioHasStimlus>
       <ConcreteStimulus rdf:ID="ontology_Instance_10002">
@@ -116,7 +117,6 @@
         >Stimulus1</concreteScenarioPartDescription>
       </ConcreteStimulus>
     </concreteScenarioHasStimlus>
-    <isSpecificof rdf:resource="#ontology_Instance_15"/>
   </ConcreteQualityAttributeScenario>
 </rdf:RDF>
 
