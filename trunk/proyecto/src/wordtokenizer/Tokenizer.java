@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import utils.LogguerUtils;
+import utils.LoggerUtils;
 
 import entities.EarlyAspectInterface;
 import entities.EarlyAspectPair;
@@ -67,7 +67,7 @@ public class Tokenizer {
 		result.addAll(doTokenize(uc.getSpecialRequirement(),USECASE, Integer.toString(uc.getId()),SPECIALREQUERIMENT));
 		result.addAll(doTokenize(uc.getPreconditions(),USECASE, Integer.toString(uc.getId()),PRECONDITIONS));
 		result.addAll(doTokenize(uc.getPostconditions(),USECASE, Integer.toString(uc.getId()),POSTCONDITIONS));
-		LogguerUtils.logList(result, "Lista Casos de Uso Entrada");
+		LoggerUtils.logList(result, "Lista Casos de Uso Entrada");
 		return result;
 	}
 
@@ -132,7 +132,7 @@ public class Tokenizer {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		result.addAll(doTokenize(ea.getName(),EARLYASPECT, Integer.toString(ea.getId()) , NAME));
 		result.addAll(doTokenize(ea.getPairs(), Integer.toString(ea.getId())));
-		LogguerUtils.logList(result, "Lista Early Aspect Entrada");
+		LoggerUtils.logList(result, "Lista Early Aspect Entrada");
 		return result;
 	}
 
