@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import utils.LogguerUtils;
 import utils.MapUtils;
 import wordtokenizer.Tokenizer;
 import algorithms.Algorithm;
@@ -49,15 +50,7 @@ public class TestProjectManager {
 		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new UCRichedWordComparator());
 		List<RichedWord> tokensUseCaseFiltered = fm.runFilters(tokensUseCase);
 		
-		
-        System.out.println("CASOS DE USO FILTRADOS ");
-		for (RichedWord tok : tokensUseCaseFiltered) {
-            System.out.println("Word: " + tok.getWord());
-            System.out.println("Section: " + tok.getAttribute("SECTION"));
-            System.out.println("Peso: " + tok.getAttribute("WEIGHT"));
-            System.out.println("Ocurrences: " + tok.getAttribute("OCURRENCES") + "\n***\n");
-        }
-		
+		LogguerUtils.logList(tokensUseCaseFiltered, "Lista Casos de Uso Filtrados");
 		
 		List<RichedWord> tokensEA = new ArrayList<RichedWord>();
 		// AGARRO EL EARLY ASPECT DEL PRIMER QAT .
@@ -65,15 +58,8 @@ public class TestProjectManager {
 		fm.setEarlyAspectFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new EARichedWordComparator());
 		List<RichedWord> tokensEAFiltered = fm.runFilters(tokensEA);
 		
-		
-		System.out.println("EARLY ASPECT FILTRADO ");
-		for (RichedWord tok : tokensEAFiltered) {
-            System.out.println("Word: " + tok.getWord());
-            System.out.println("Section: " + tok.getAttribute("SECTION"));
-            System.out.println("Peso: " + tok.getAttribute("WEIGHT"));
-            System.out.println("Ocurrences: " + tok.getAttribute("OCURRENCES") + "\n***\n");
-        }
-        
+		LogguerUtils.logList(tokensEAFiltered, "Lista Early Aspects Filtrados");
+		        
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
         algorithm.setUseCaseFactor(Double.valueOf(0.5));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(tokensUseCaseFiltered,tokensEAFiltered);
