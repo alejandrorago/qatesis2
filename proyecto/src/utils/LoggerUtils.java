@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import wordtokenizer.Tokenizer;
 import entities.RichedWord;
 
-public class LogguerUtils {
+public class LoggerUtils {
 	
 	private static final Logger logger = Logger.getLogger(Tokenizer.class);
 
