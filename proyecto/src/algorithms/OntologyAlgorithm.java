@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 
 import utils.MapUtils;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -180,7 +179,8 @@ public class OntologyAlgorithm implements Algorithm {
      * @param args arreglo de parametros
      */
     public static void main(String[] args) {
-        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.repository",
+       
+    	/*Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.repository",
                 "file:resources/ontology.owl");
 
         List<RichedWord> list = new ArrayList<RichedWord>();
@@ -189,8 +189,9 @@ public class OntologyAlgorithm implements Algorithm {
 
         Map<QualityAttributeInterface, Double> qt = algorithm.getQualityAttributePertenence(null,
                 null);
+       
 
-        //System.out.println(qt.toString());
+       System.out.println(qt.toString());*/
     }
     
     
