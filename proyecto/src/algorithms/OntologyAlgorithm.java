@@ -8,6 +8,7 @@ import ontology.QualityAttributeBelongable;
 
 import org.apache.log4j.Logger;
 
+import utils.LoggerUtils;
 import utils.MapUtils;
 
 import java.util.Iterator;
@@ -64,18 +65,23 @@ public class OntologyAlgorithm implements Algorithm {
     		Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
     		
 
-    		if (MapUtils.areAllValuesZero(useCaseMap)) 
+    		if (MapUtils.areAllValuesZero(useCaseMap)){ 
+    			MapUtils.imprimirMap(earlyApectMap);
     			return earlyApectMap;
-    		
-    		if (MapUtils.areAllValuesZero(earlyApectMap)) 
+    			
+    		}
+    		if (MapUtils.areAllValuesZero(earlyApectMap)){
+    			MapUtils.imprimirMap(useCaseMap);
     			return useCaseMap;
-    		
+    		}
     		useCaseMap = MapUtils.multiplyMapByFactor(useCaseMap, useCaseFactor);
     		earlyApectMap = MapUtils.multiplyMapByFactor(earlyApectMap, 1.0 - useCaseFactor);
     		
     		Map<QualityAttributeInterface, Double> totalMap = MapUtils.addMaps(useCaseMap, earlyApectMap);
+    		MapUtils.imprimirMap(totalMap);
     		return totalMap;
         }
+		MapUtils.imprimirMap(useCaseMap);
     	return useCaseMap;
     }
 
@@ -95,7 +101,9 @@ public class OntologyAlgorithm implements Algorithm {
 
     private Map<QualityAttributeInterface, Double> getAttributesMap(
         List<RichedWord> words) {
-        Map<QualityAttributeInterface, Double> wordMap = null;
+        logger.info("Anális de las palabras - Comienzo");
+    	
+    	Map<QualityAttributeInterface, Double> wordMap = null;
 
         //Recupera los atributos de calidad declarados en la ontologia
         Map<QualityAttributeInterface, Double> totalMap = MapUtils.convertAttributesLisToMap(qabelongable.loadQualityAttributes());
@@ -106,13 +114,20 @@ public class OntologyAlgorithm implements Algorithm {
 
         while (richedWordIterator.hasNext()) {
             richedWord = richedWordIterator.next();
+            logger.info("Palabra entrante: " + richedWord.getWord());
+            logger.info("ID: " + richedWord.getAttribute(richedWord.SECTION));
+            logger.info("Weight: " + richedWord.getAttribute(richedWord.WEIGHT));
+            logger.info("Ocurrencias: " + richedWord.OCURRENCES);
+            
             wordMap = qabelongable.getWordPertenence(richedWord.getWord());
 
             //Puede ser que la palabra no pertenezca a la ontologia, por lo que no 
             //se tiene en cuenta.
             if (wordMap != null) {
-                wordMap = MapUtils.convertMapToPromedy(wordMap);
-
+            	logger.info("La palabra se encuentra en la ontology");
+            	wordMap = MapUtils.convertMapToPromedy(wordMap);
+            	LoggerUtils.imprimirMap(wordMap, "Mapa de la palabra: " + richedWord.getWord() );
+            	
                 //Ahora hay que tener en cuenta el peso y las ocurrencias de la palabra
                 Integer weight = this.getWordWeight(richedWord);
 
@@ -121,9 +136,11 @@ public class OntologyAlgorithm implements Algorithm {
 
                 totalMap = MapUtils.addMaps(totalMap, wordMap);
                 totalWords = totalWords + weight;
+            }else{
+            	logger.info("La palabra no se encuentra en la ontologia");
             }
         }
-        
+        logger.info("Anális de las palabras - Fin");
         //Si totalWords es igual a cero, significa que ninguna de las palabras se encuentra en la ontologia
         if (totalWords!=0)
         	totalMap = MapUtils.divideTotal(totalMap, totalWords);
