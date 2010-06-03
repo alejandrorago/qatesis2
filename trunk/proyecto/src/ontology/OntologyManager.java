@@ -51,9 +51,7 @@ public class OntologyManager extends OntologyAnalyzer {
         fm.setOntologyFilters("resources/stopWordsList.txt");
         
         this.formatModel();
-        logger.info("Inicio Ontologia");
-        this.listarOntologia();
-        logger.info("Fin Ontologia");        
+    
     }
 
     /**
