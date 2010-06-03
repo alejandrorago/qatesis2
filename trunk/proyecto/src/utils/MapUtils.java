@@ -4,6 +4,7 @@ import entities.QualityAttributeInterface;
 
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -205,5 +206,19 @@ public class MapUtils {
         }
 
         return true;
+    }
+    public static List<WrappedResult> getWrappedResults(Map<QualityAttributeInterface, Double> map){
+
+    	Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
+    	QualityAttributeInterface qa = null;
+    	WrappedResult wrappedResult = null;
+    	List<WrappedResult> list = new ArrayList<WrappedResult>();
+    	while (iterator.hasNext()) {
+            qa = iterator.next();
+            wrappedResult = new WrappedResult(qa, map.get(qa));
+            list.add(wrappedResult);
+        }
+    	
+    	return list;
     }
 }
