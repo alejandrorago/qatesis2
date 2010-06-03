@@ -63,8 +63,5 @@ public class TestProjectManager {
         Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
         algorithm.setUseCaseFactor(Double.valueOf(0.5));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(tokensUseCaseFiltered,tokensEAFiltered);
-        MapUtils.imprimirMap(map);
-	
 	}
-
 }
