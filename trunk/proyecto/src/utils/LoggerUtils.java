@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import wordtokenizer.Tokenizer;
+import entities.QualityAttributeInterface;
 import entities.RichedWord;
 
 public class LoggerUtils {
@@ -30,6 +31,18 @@ public class LoggerUtils {
 			}
 		logger.info(mensaje +" *** Fin");
 	}
+	
+    public static void imprimirMap(Map<QualityAttributeInterface, Double> map, String mensaje) {
+        Iterator<QualityAttributeInterface> iterator = map.keySet().iterator();
+        QualityAttributeInterface qa = null;
+
+        logger.info(mensaje +" *** Comienzo");
+        while (iterator.hasNext()) {
+            qa = iterator.next();
+            logger.info(qa.getName() + " - " + map.get(qa).toString());
+        }
+        logger.info(mensaje +" *** Fin");
+    }
 
 }
 
