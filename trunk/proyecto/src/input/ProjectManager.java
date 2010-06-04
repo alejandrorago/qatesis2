@@ -29,10 +29,10 @@ public class ProjectManager {
 	 * @return the project
 	 */
 
-	public Project loadProject(String file) {
+	public Project loadProject(String file, String fileMapping) {
 		Mapping mapping = new Mapping();
 		try {
-			mapping.loadMapping(getClass().getResource("mapping.xml"));
+			mapping.loadMapping(fileMapping);
 			Unmarshaller unmar = new Unmarshaller(mapping);
 			Project p = (Project) unmar.unmarshal(new InputSource(
 					new FileReader(file)));
