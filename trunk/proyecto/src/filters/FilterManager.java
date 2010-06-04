@@ -9,20 +9,25 @@ import entities.RichedWord;
 
 public class FilterManager {
 
+	private String stopWordsFile;
+	private String weightFile;
+	
 	List<Filter> filters;
 
-	public FilterManager() {
+	public FilterManager(String stopWordsFile, String weightFile) {
+		this.stopWordsFile = stopWordsFile;
+		this.weightFile = weightFile;
 		filters = new ArrayList<Filter>();
 	}
 	
-	public void setOntologyFilters(String stopWordsFile) {
+	public void setOntologyFilters() {
 		this.filters.clear();
 		this.addFilter(new FilterLowerCase());
 		this.addFilter(new FilterStopWords(stopWordsFile));
 		this.addFilter(new FilterStemming());
 	}
 
-	public void setUseCaseFilters(String stopWordsFile, String weightFile, Comparator<RichedWord> comp) {
+	public void setUseCaseFilters(Comparator<RichedWord> comp) {
 		this.filters.clear();
 		this.addFilter(new FilterLowerCase());
 		this.addFilter(new FilterStopWords(stopWordsFile));
@@ -31,7 +36,7 @@ public class FilterManager {
 		this.addFilter(new FilterWeight(weightFile));
 	}
 	
-	public void setEarlyAspectFilters(String stopWordsFile, String weightFile, Comparator<RichedWord> comp) {
+	public void setEarlyAspectFilters(Comparator<RichedWord> comp) {
 		this.filters.clear();
 		this.addFilter(new FilterLowerCase());
 		this.addFilter(new FilterStopWords(stopWordsFile));
@@ -70,4 +75,21 @@ public class FilterManager {
 		filters.remove(f);
 	}
 
+	public String getStopWordsFile() {
+		return stopWordsFile;
+	}
+
+	public void setStopWordsFile(String stopWordsFile) {
+		this.stopWordsFile = stopWordsFile;
+	}
+
+	public String getWeightFile() {
+		return weightFile;
+	}
+
+	public void setWeightFile(String weightFile) {
+		this.weightFile = weightFile;
+	}
+
+	
 }
