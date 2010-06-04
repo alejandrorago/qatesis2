@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import utils.LoggerUtils;
-import utils.MapUtils;
 import wordtokenizer.Tokenizer;
 import algorithms.Algorithm;
 import algorithms.OntologyAlgorithm;
@@ -31,7 +30,7 @@ public class TestProjectManager {
 		// con esto te retorna una lista de todos los casos de uso que estan en el XML
 		
 		ProjectManager pm = new ProjectManager();
-		pm.loadProject(".//src//input//proyecto.xml");
+		pm.loadProject("resources//proyecto.xml", "resources//mapping.xml");
 		Project p = pm.getProject();
 		System.out.println(p.getUseCases());
 	
