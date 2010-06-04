@@ -2,6 +2,7 @@ package algorithms;
 
 import entities.QualityAttributeInterface;
 import entities.RichedWord;
+import filters.FilterManager;
 
 import ontology.OntologyManager;
 import ontology.QualityAttributeBelongable;
@@ -38,8 +39,8 @@ public class OntologyAlgorithm implements Algorithm {
      * @param owlFilePath DOCUMENT ME!
      * @param repositoryFilePath DOCUMENT ME!
      */
-    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath) {
-        this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath);
+    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath, FilterManager fm) {
+        this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath, fm);
         this.useCaseFactor = Double.valueOf(1.0);
     }
 
