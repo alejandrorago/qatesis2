@@ -41,15 +41,12 @@ public class OntologyManager extends OntologyAnalyzer {
      * @param owlFilePath archivo .owl de la ontologia
      * @param repositoryFilePath archivo .repository de la ontologia
      */
-    public OntologyManager(String owlFilePath, String repositoryFilePath) {
+    public OntologyManager(String owlFilePath, String repositoryFilePath, FilterManager fm) {
         super(owlFilePath, repositoryFilePath);
         this.instanceNumber = Integer.valueOf(0);
-
         
-        //TODO pasar el fm como parametro o algo asi, mas adelante
-        fm = new FilterManager();
-        fm.setOntologyFilters("resources/stopWordsList.txt");
-        
+        fm.setOntologyFilters();
+        this.fm = fm;
         this.formatModel();
     
     }
