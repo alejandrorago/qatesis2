@@ -10,6 +10,7 @@ import algorithms.Algorithm;
 import algorithms.OntologyAlgorithm;
 import entities.QualityAttributeInterface;
 import entities.RichedWord;
+import filters.FilterManager;
 
 /*
  * Clase para testear una lista de palabras con sus pesos y numero de ocurrencias
@@ -35,7 +36,8 @@ public class TestOcurrenciesAndWeight {
         listAspect.add(student);
         listAspect.add(administr2);
         
-        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository",fm);
         algorithm.setUseCaseFactor(Double.valueOf(0.50));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(listCase,listAspect);
         MapUtils.imprimirMap(map);

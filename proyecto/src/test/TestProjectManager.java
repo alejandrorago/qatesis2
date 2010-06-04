@@ -46,8 +46,9 @@ public class TestProjectManager {
 			tokensUseCase.addAll(tokenizer.tokenize(uc));
 		}
        
-		FilterManager fm = new FilterManager();
-		fm.setUseCaseFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new UCRichedWordComparator());
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+
+		fm.setUseCaseFilters( new UCRichedWordComparator());
 		List<RichedWord> tokensUseCaseFiltered = fm.runFilters(tokensUseCase);
 		
 		LoggerUtils.logList(tokensUseCaseFiltered, "Lista Casos de Uso Filtrados");
@@ -55,12 +56,12 @@ public class TestProjectManager {
 		List<RichedWord> tokensEA = new ArrayList<RichedWord>();
 		// AGARRO EL EARLY ASPECT DEL PRIMER QAT .
 		tokensEA.addAll(tokenizer.tokenize((p.getQATs()).get(0).getEarlyAspect()));
-		fm.setEarlyAspectFilters("resources//stopWordsList.txt", "resources//useCaseWeights.properties", new EARichedWordComparator());
+		fm.setEarlyAspectFilters(new EARichedWordComparator());
 		List<RichedWord> tokensEAFiltered = fm.runFilters(tokensEA);
 		
 		LoggerUtils.logList(tokensEAFiltered, "Lista Early Aspects Filtrados");
 		        
-        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository");
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository", fm);
         algorithm.setUseCaseFactor(Double.valueOf(0.5));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(tokensUseCaseFiltered,tokensEAFiltered);
 	}

@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import utils.MapUtils;
 
 import entities.QualityAttributeInterface;
+import filters.FilterManager;
 
 public class TestOntology {
 	
@@ -26,7 +27,8 @@ public class TestOntology {
 	 */
 	public static void caso11(){
 		
-		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso1.owl","file:resources/caso1.repository");
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso1.owl","file:resources/caso1.repository",fm);
 		Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("response");
 		MapUtils.imprimirMap(map);
 	}
@@ -34,8 +36,9 @@ public class TestOntology {
 	 * Se chequea el metodo wordPertenence por la palabra "pan", que no existe en la ontologia
 	 */	
 	public static void caso12(){
-		
-		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso1.owl","file:resources/caso1.repository");
+
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso1.owl","file:resources/caso1.repository",fm);
 		Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("pan");
 		if(map==null){
 			System.out.println("El map es null");
@@ -53,7 +56,8 @@ public class TestOntology {
 	 */	
 	public static void caso21(){
 		
-		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso2.owl","file:resources/caso2.repository");
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso2.owl","file:resources/caso2.repository",fm);
 		Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("response2");
 		if(map==null){
 			System.out.println("El map es null");
@@ -74,8 +78,8 @@ public class TestOntology {
 		 * como un enviroment, deberia ser considerada como una instancia de concreteEnviroment.
 		 */	
 		public static void caso31(){
-			
-			QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso3.owl","file:resources/caso3.repository");
+	        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+			QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso3.owl","file:resources/caso3.repository",fm);
 			Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("response1");
 			if(map==null){
 				System.out.println("El map es null");
@@ -89,8 +93,8 @@ public class TestOntology {
 		 * como un enviroment, deberia ser considerada como una instancia de concreteEnviroment.
 		 */	
 		public static void caso32(){
-			
-			QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso3.owl","file:resources/caso3.repository");
+	        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+			QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso3.owl","file:resources/caso3.repository",fm);
 			Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("response2");
 			if(map==null){
 				System.out.println("El map es null");
@@ -114,8 +118,8 @@ public class TestOntology {
 	 * valor de 1 en ambos casos
 	 */	
 	public static void caso41(){
-		
-		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso4.owl","file:resources/caso4.repository");
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
+		QualityAttributeBelongable qualityAttributeBelongable = new OntologyManager("file:resources/caso4.owl","file:resources/caso4.repository",fm);
 		Map<QualityAttributeInterface,Double> map = qualityAttributeBelongable.getWordPertenence("response1");
 		if(map==null){
 			System.out.println("El map es null");
