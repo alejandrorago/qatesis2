@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -602,15 +602,73 @@ Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
 \end_layout
 
 \begin_layout Section
-Algoritmo de Grado de pertenencia
+Etapa 2 (Cambiar despues por nombre de la etapa)
 \end_layout
 
-\begin_layout Section
-Ontolgia
+\begin_layout Standard
+En la etapa 2 se encuentran todas las tareas necesarias para 
+\begin_inset Quotes eld
+\end_inset
+
+descubrir
+\begin_inset Quotes erd
+\end_inset
+
+ los atributos de calidad a partir de una lista de tokens extraidos de los
+ casos de uso y del aspecto temprano.
+ En este punto ya la entrada ha sido analizada, armando listas de tokens
+ con la palabra de cada token pasada a minuscula, llevada a su raiz, ponderizand
+ola de acuerdo a su peso y dejando constancia del numero de ocurrencias.
+ De esta manera, a esta etapa llegan dos listas de tokens: una correspondiente
+ a los casos de uso y otra correspondiente al aspecto temprano.
+\end_layout
+
+\begin_layout Standard
+Por cada palabra de cada una de la lista de palabras se averigua el grado
+ de pertenencia de esa palabra con los distintos atributos de calidad.
+ Es decir, que tan ligada se encuentra esa palabra con los distintos atributos
+ de calidad y en que porcentaje o grado.
+ Para ello se hace uso de una ontologia.
+\end_layout
+
+\begin_layout Standard
+El mecanismo anterior se repite para cada palabra y los resultados individuales
+ de cada una se combinan en una ecuación definida, que tiene en cuenta el
+ peso de cada uno de los tokens y el numero de ocurrencias de la misma,
+ y que da como resultado un conjunto de atributos de calidad y un porcentaje
+ asociado a cada uno de ellos.
+ 
+\end_layout
+
+\begin_layout Standard
+Los cálculos anteriores se aplican a cada una de las listas, las de los
+ casos de uso y la del aspecto temprano.
+ Finalmente estos resultados parciales se combinan, obteniendo los resultados
+ finales.
+ 
 \end_layout
 
 \begin_layout Subsection
-Definción 
+Ontolgia
+\end_layout
+
+\begin_layout Standard
+La funcion 
+\shape italic
+Grado de Pertenencia
+\shape default
+, o GP, es una funcion que se aplica a una palabra y cuyo resultado es un
+ conjunto de atributos de calidad asociados a porecntajes, que indican el
+ grado o porcentaje de pertenencia de esa palabra con los distintos atributos
+ de calidad.
+ Para realizar este cálculo, la funcion se basa en el análisis de una ontologia
+ previamente definida y que se supone cargada por un experto.
+ En las siguiente subsecciones se detallará y describirá la ontolgía usada,
+ para finalmente explicitar el funcionamiento de la función GP.
+\end_layout
+
+\begin_layout Subsubsection
+Definción de Ontología
 \end_layout
 
 \begin_layout Standard
@@ -702,7 +760,7 @@ Separar el conocmiento del dominio del comocimiento operacional.
 Analizar el conocimiento del dominio.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Componentes de una ontologia
 \end_layout
 
@@ -769,7 +827,7 @@ Slots Los slots describen propiedades de clases o instancias.
  relación.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Lenguajes de implementación de ontologías: OWL
 \end_layout
 
@@ -807,8 +865,45 @@ key "key-4"
  
 \end_layout
 
-\begin_layout Section
-Escenarios de calidad
+\begin_layout Subsubsection
+Ontologia propuesta
+\end_layout
+
+\begin_layout Standard
+Como se dijo anteriormente, la funcion 
+\shape italic
+Grado de Pertenencia
+\shape default
+ utiliza una ontologia para su realizar su análsis.
+ A continuación se muestra un diagrama con la ontologia propuesta.
+ Su construcción se basa principalmente en conceptos, definiciones, y relaciones
+ extraidas del libro 
+\begin_inset Quotes eld
+\end_inset
+
+Software Architecture in Practice
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.Luego de la misma se brinda una explicación y justificación de los conceptos
+ y de las relaciones que se presentan en la ontología.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ontologiaReducida.jpeg
+	scale 30
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -832,8 +927,29 @@ key "key-5"
 Traduciendo, un escenario de calidad es un requerimiento específico de un
  atributo de calidad.
  De esta manera, los escenarios son utilizados para caracterizar atributos
- de caliad de una forma especifica.
- Un escenario de calidad esta formado por seis partes:
+ de calidad de una forma especifica.
+\end_layout
+
+\begin_layout Standard
+Es por ello que en la ontologia se encuentran los conceptos 
+\shape italic
+QualityAttributeScenario
+\shape default
+ y 
+\shape italic
+QualityAttribute
+\shape default
+ relacionados por la propiedad 
+\series bold
+\shape slanted
+isSpecificOf
+\series default
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Un escenario de calidad esta formado por seis partes:
 \end_layout
 
 \begin_layout Description
@@ -889,10 +1005,73 @@ respuesta.
 \end_layout
 
 \begin_layout Standard
+Los conceptos 
+\shape italic
+ConcreteSource
+\shape default
+, 
+\shape italic
+ConcreteStimulus
+\shape default
+, 
+\shape italic
+ConcreteEnviroment
+\shape default
+, 
+\shape italic
+ConcreteArtifact
+\shape default
+, 
+\shape italic
+ConcreteResponse
+\shape default
+ y 
+\shape italic
+ConcreteResponseMeasure
+\shape default
+ representan estas seis partes mencionadas.
+ Todos estos conceptos derivan del concepto abstracto 
+\shape italic
+scenarioPart
+\shape default
+ que representa una parte de un escenario y a su vez cada uno se relaciona
+ con el concepto 
+\shape italic
+Concrete Quality-Atrribute Scenario
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
 Se distinguen como escenarios generales de calidad a aquellos que son independie
 ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
- de aquellos denominados escenarios concretos de calidad que son específicos
+ de aquellos denominados escenarios concretos de calidad, que son específicos
  de un sistema en particular que esta bajo consideración.
+\end_layout
+
+\begin_layout Standard
+Es por esto ultimo que aparece el concepto abstracto 
+\shape italic
+Quality-Atrribute Scenario, 
+\shape default
+mientras que los conceptos 
+\shape italic
+Quality-Attribute Scenario
+\shape default
+ y 
+\shape italic
+Quality-Attribute Scenario
+\shape default
+ derivan del mismo.
+ A su vez la relacion 
+\series bold
+isDerivedFrom
+\series default
+ deja constancia del hecho de que un escenario concreta deriva de uno general,
+ haciendo las partes del ultimos especificas de un sistema bajo consideracion.
+
+\series bold
+ 
 \end_layout
 
 \begin_layout Standard
