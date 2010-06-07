@@ -1,0 +1,513 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Part
+Identificación de atributos de calidad
+\end_layout
+
+\begin_layout Standard
+En esta seccion se estudiará en profundidad el enfoque elegido para la técnica
+ de identificacion de atributos de calidad en documentos de especificaciones
+ de requirimientos.
+ Esta técnica brindará una asistencia extra al analista, para identificar
+ los atributos de calidad del sistema lo antes posible y evitar los problemas
+ sucitados anteriormente.
+\end_layout
+
+\begin_layout Section
+Desarrollo de la téncina de identificacion de atributos de calidad propuesta
+\end_layout
+
+\begin_layout Standard
+Aca iria el grafico y explicariamos cada una de las etapas por arriba.
+\end_layout
+
+\begin_layout Section
+Filtrado de Tokens
+\end_layout
+
+\begin_layout Section
+Algoritmo de Grado de pertenencia
+\end_layout
+
+\begin_layout Section
+Ontolgia
+\end_layout
+
+\begin_layout Subsection
+Definción 
+\end_layout
+
+\begin_layout Standard
+La literatura de Inteligencia Artificial contiene varias definiciones de
+ ontologías, muchas veces contrdictorias entre ellas.
+ En este trabajo se acuerda en definir una ontologia de la siguiente manera:
+ 
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Una ontologia es un modelo de datos que describe conceptos en un dominio
+ del discurso (tambien llamados clases), propiedades de cada concepto que
+ describen las diversas características y atributos del concepto (slots,
+ tambien llamados propiedades o roles) y restricciones sobre los slots.”
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un dominio es un área de temática específica o un área de conocimiento,
+ tal como medicina, fabricación de herramientas, bienes inmuebles, reparación
+ automovilística, gestión financiera, etc.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+ Las ontologías incluyen definiciones de conceptos básicos del dominio,
+ y las relaciones entre ellos, que son útiles para los sistemas, codifican
+ el conocimiento de un dominio específico y también el conocimiento que
+ extiende de los dominios.
+ Un dominio específico es la parte del mundo que se quiere modelar.
+ Representa el significado aplicado a los términos usados en la construcción
+ de la ontología.
+ Una ontología es la descripción de los conceptos que forman parte del dominio
+ según un punto de vista.
+ Un sistema sólo conoce lo que puede representar en algún lenguaje, por
+ lo tanto, todo lo que no se exprese en la ontología no será conocido para
+ el sistema que use la ontología.
+ Un beneficio principal cuando una ontología es creada es:”Compartir el
+ entendimiento común de la estructura de información entre personas y sistemas
+ de software” 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ Las ontologías se usan para favorecer la comunicación y la comprensión
+ común de la información entre personas, organizaciones y aplicaciones,
+ permitiendo que entre ellas estén de acuerdo en los términos que usan cuando
+ se comunican.
+\end_layout
+
+\begin_layout Standard
+Los beneficios de utilizar ontologías se pueden resumir de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Itemize
+Compartir un entendimiento común de la estrucura de la información entre
+ personas o agentes de software.
+\end_layout
+
+\begin_layout Itemize
+Permitir el rehuso de un conocimiento del dominio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hacer explicitas presunciones de un dominio.
+\end_layout
+
+\begin_layout Itemize
+Separar el conocmiento del dominio del comocimiento operacional.
+\end_layout
+
+\begin_layout Itemize
+Analizar el conocimiento del dominio.
+\end_layout
+
+\begin_layout Subsection
+Componentes de una ontologia
+\end_layout
+
+\begin_layout Standard
+Las ontologías tienen los siguientes componentes que servirán para representar
+ el conocimiento de algún dominio 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ Los principales son
+\end_layout
+
+\begin_layout Description
+Conceptos
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+Clases Generalmente el foco de cualquier ontologia, las clases son las ideas
+ básicas que se intentan formalizar.
+ Por ejemplo, en una ontologia de vinos, la clase “Vino” representa todos
+ los vinos.
+ Una clase tambien puede tener sub-clases que representan conceptos que
+ son mas especificos que las superclases.
+ Por ejemplo, sublclases de la vlase “Vino” podrian ser “Tinto”, “Blanco”,
+ “Rosado”, etc.
+ 
+\end_layout
+
+\begin_layout Description
+Instancias Las instancias son representaciones de objetos determinados de
+ un concepto.
+ Siguiendo el ejemplo anterior, un vinos especificos son instancias de la
+ clase “Vino”.
+ Una botella de NewAge que se vende en el supermercado es una instancia
+ de la clase “Vino”.
+ 
+\end_layout
+
+\begin_layout Description
+Propiedades
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+Slots Los slots describen propiedades de clases o instancias.
+ En el ejemplo anterior “New Age” es la marca del vino.
+ Por lo tanto, esa instancia posee un slot(propiedad), que poseen todas
+ las instancias de la clase “Vino”, que podria denominarse marca, y cuyo
+ valor es la cadena de caracteres “New Age”.
+ El valor de una propiedad puede ser una cadena de caracteres, un numero,
+ otra instancia, etc.
+ En el caso de que fuera otra instancia se forma lo que se denomina una
+ relación.
+\end_layout
+
+\begin_layout Subsection
+Lenguajes de implementación de ontologías: OWL
+\end_layout
+
+\begin_layout Standard
+OWL (Ontology Web Languague) es un lenguaje web para ontologías compatible
+ con la World Wide Web .
+ OWL es utilizado cuando la información contenida en los documentos necesitan
+ ser procesados por las aplicaciones, a diferencia de situaciones en que
+ el contenido sólo es necesario presentar a los seres humanos.
+ OWL puede ser utilizado para representar explícitamente el significado
+ de los términos en los vocabularios y las relaciones entre esos términos
+ (justamente una ontología).
+ OWL tiene más facilidades para expresar el sentido y la semántica que otros
+ lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
+ lenguajes en su capacidad para representar a la máquina de contenido interpreta
+ble en la Web.
+ Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL que
+ incorpora lecciones aprendidas desde el diseño y aplicaciones de DAML+OIL.
+ La especificación de este lenguaje se encuentra dentro de las recomendaciones
+ de la W3C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+.
+ OWL se diferencia de otros leguajes porque OWL es un lenguaje de ontologías
+ Web.
+ Lenguajes anteriores han sido utilizados para desarrollar herramientas
+ y ontologías destinadas a comunidades específicas (especialmente para ciencias
+ y aplicaciones específicas de comercio electrónico), no fueron definidos
+ para ser compatibles con la arquitectura de la World Wide Web en general,
+ y la Web Semántica en particular.
+ 
+\end_layout
+
+\begin_layout Section
+Escenarios de calidad
+\end_layout
+
+\begin_layout Standard
+El concepto de escenario de calidad fue presentado por Bass, Clements y
+ Kazman, en el libro “Software Architecture in Practice”.
+ Textualmente, la definición es:
+\end_layout
+
+\begin_layout Quotation
+“A quality attribue scenario is a quality-attribute-specific requirement.”
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Traduciendo, un escenario de calidad es un requerimiento específico de un
+ atributo de calidad.
+ De esta manera, los escenarios son utilizados para caracterizar atributos
+ de caliad de una forma especifica.
+ Un escenario de calidad esta formado por seis partes:
+\end_layout
+
+\begin_layout Description
+Fuente
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+estímulo.
+ Alguna entidad (un humano, un sistema de computación u otro actor) que
+ genera una estimulo.
+\end_layout
+
+\begin_layout Description
+Estímulo.
+ Una condicion que necesita ser considerada cuando arriba al sistema.
+\end_layout
+
+\begin_layout Description
+Ambiente.
+ El estímulo ocurre bajo ciertas condiciones.
+ El sistema puede estar sobrecargado o puede estar ejecutandose normalmente
+ cuando el estimulo ocurre, o alguna otra condicion puede ser verdadera.
+\end_layout
+
+\begin_layout Description
+Artefacto.
+ Algun artefacto es estimulado.
+ Este puede ser el sistema completo o alguna parte de él.
+\end_layout
+
+\begin_layout Description
+Respuesta.
+ La respuesta es una actividad llevada a cabo luego del arribo del estimulo.
+\end_layout
+
+\begin_layout Description
+Medida
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+respuesta.
+ Cuando la respuesta ocurre, debería ser medido de alguna manera así el
+ requerimiento puede ser medido.
+ 
+\end_layout
+
+\begin_layout Standard
+Se distinguen como escenarios generales de calidad a aquellos que son independie
+ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
+ de aquellos denominados escenarios concretos de calidad que son específicos
+ de un sistema en particular que esta bajo consideración.
+\end_layout
+
+\begin_layout Standard
+Una colección de escenarios concretos pueden ser usados como los requerimientos
+ de calidad para un sistema.
+ Cada escenario es suficientemente concreto para ser significativo para
+ un arquitecto, y los detalles de la respuesta son suficientemente significaivos
+ para soportar tests convalidando que los requerimientos hayan sido cumplimentad
+os.
+\end_layout
+
+\begin_layout Section
+Mapa
+\end_layout
+
+\begin_layout Standard
+Se define un mapa como una conjunto de tuplas <K,V> , donde a K se lo denomina
+ “clave” y a V se lo denomina “valor”.
+ Un mapa no puede tener dos tuplas con claves idénticas, Es decir, dado
+ un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2> tal que K1=K2.
+\end_layout
+
+\begin_layout Subsection
+Suma de dos mapas
+\end_layout
+
+\begin_layout Standard
+Sean M1 y M2 dos mapas con igual numero de tuplas.
+ Además toda clave K que pertenece a alguna tupla de M1, también pertenece
+ a alguna tupla de M2.
+ Sea además cualquier valor de V perteneciente a M1 y M2 un número real.
+ Se define la suma M1+M2, como un mapa M3 en donde cada tupla que posee
+ éste es el resultado de la suma de los valores de las tuplas de igual clave
+ de M1 y M2.
+ Por ejemplo, si tenemos el mapa 
+\begin_inset Formula $M_{1}=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+ y el mapa 
+\begin_inset Formula $M_{2}=(<K_{1},c>;<K_{2},d>)$
+\end_inset
+
+ se define 
+\begin_inset Formula $M_{1}+M_{2}=(<K_{1},a+c>;<K_{2},b+d>)$
+\end_inset
+
+ siendo K1 y K2 claves; a, b, c y d números reales
+\end_layout
+
+\begin_layout Subsection
+Division de dos mapas
+\end_layout
+
+\begin_layout Standard
+Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
+ y V son números reales.
+ Sea x un numero real distinto de cero.
+ La división de M por x da como resultado el mismo mapa, con todos los valores
+ V divididos por ese numero.
+ Por ejemplo, si 
+\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $M/x=(<K_{1},a/x>;<K_{2},b/x>)$
+\end_inset
+
+, siendo a,b y x numero reales; M un mapa; K1,K2 claves del mapa.
+ 
+\end_layout
+
+\begin_layout Subsection
+Multipliacion de un mapa por un numero real
+\end_layout
+
+\begin_layout Standard
+Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
+ y V son números reales.
+ Sea x un numero real.
+ La multiplicación de M por x da como resultado el mismo mapa, con todos
+ los valores V multiplicados por ese numero.
+ Por ejemplo, si
+\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $M\times x=(<K_{1},a\times x>;<K_{2},b\times x>)$
+\end_inset
+
+, siendo a,b y x numeros reales; M un mapa; K1,K2 claves del mapa.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Ontology Development 101: A Guide to Creating Your First Ontology Escenario
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+OWL Web Ontology Language - Use Cases and Requirements (W3C Recommendation-
+ http://www.w3.org/TR/webont-req/), 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+Gruber, T.
+ R.
+ A translation approach to portable ontology specifications (Knowl.
+ Acquis., Vol.
+ 5, No.
+ 2.
+ (June 1993), pp.
+ 199-220.).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+OWL Web Ontology Language Overview (W3C Recommendation - 10 February 2004)
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+Software Architecture in Practice, Second Edition.
+\end_layout
+
+\end_body
+\end_document
