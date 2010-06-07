@@ -1,10 +1,10 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
 \textclass article
 \use_default_options true
-\language english
+\language spanish
 \inputencoding auto
 \font_roman default
 \font_sans default
@@ -17,6 +17,7 @@
 
 \graphics default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -42,6 +43,18 @@
 \begin_body
 
 \begin_layout Part
+Introducción
+\end_layout
+
+\begin_layout Part
+Dominio
+\end_layout
+
+\begin_layout Part
+Trabajos Relacionados
+\end_layout
+
+\begin_layout Part
 Identificación de atributos de calidad
 \end_layout
 
@@ -63,7 +76,529 @@ Aca iria el grafico y explicariamos cada una de las etapas por arriba.
 \end_layout
 
 \begin_layout Section
-Filtrado de Tokens
+Análisis de la Entrada
+\end_layout
+
+\begin_layout Standard
+Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
+ y sintáctico de los textos definidos como entrada para la técnica.
+ Esta entrada es la información generada como salida por la herramienta
+ Aspect Extractor Tool [X].
+ Se considera que la salida de dicha herramienta, luego del procesamiento
+ con la técnica de “análisis semántico” [X], es la lista de casos de uso,
+ los early aspects detectados y las relaciones entre ellos.
+ Los casos de uso respetan el estándar establecido por Rational comentado
+ en la sección XX.
+ De igual forma, los early aspect respetarán el formato definido en el Aspect
+ Extract Tool para la técnica de reconocimiento semántico.
+ La técnica propuesta, a partir de esta información, crea las entidades
+ Caso de Uso y Early Aspects con los cuál trabajará el algoritmo, basándose
+ además en las relaciones entre estas entidades para agruparlos inicialmente
+ en el Quality Attribute Theme.
+ Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
+ de la especificación de casos de uso y un early aspect, que en forma conjunta
+ hacen referencia a un atributo de calidad.
+ En esta etapa del proceso, se completará la información de los casos de
+ uso y early aspect, mientras se dejara pendiente instanciar la información
+ del atributo de calidad.
+ Esta información será justamente la que retorne el algoritmo.
+\end_layout
+
+\begin_layout Standard
+Para este análisis en necesario realizar en primer lugar un pre procesamiento
+ de los datos y luego un filtrado sobre los mismos.
+ En estas actividades, se logrará determinar un subconjunto del conjunto
+ de palabras que forman la especificación de los casos de uso y la definición
+ del early aspect, las cuales serán relevantes para la identificación del
+ atributo de calidad involucrado.
+ 
+\end_layout
+
+\begin_layout Subsection
+Pre Procesamiento de los datos
+\end_layout
+
+\begin_layout Standard
+El objetivo de esta tarea es procesar la entrada para dejar la información
+ en un formato uniforme antes de que el algoritmo sea invocado.
+ Este pre procesamiento es realizado a través de la separación de la información
+ de las entidades de entrada en tokens.
+ Sobre estos tokens se aplicará luego una secuencia de filtros para transformar
+ las palabras de los casos de uso y early aspects a un formato esperado
+ por el algoritmo.
+ Se considera un token a una unidad básica de texto que puede ser enriquecida
+ con diferentes atributos, como por ejemplo, peso, ocurrencias, etc.
+ El resultado de este pre procesamiento es una lista de tokens para las
+ palabras obtenidas de los casos de uso y otra lista de tokens para las
+ palabras del early aspect.
+ 
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, considerando la siguiente fracción de un caso de uso:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Registrar Usuario 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descripción
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Se registran los datos del usuario en el sistema
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se genera la siguiente lista de tokens:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="11">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Registrar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Usuario
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Se
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+registran
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+los
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+datos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+del
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+usario
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+en
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+el
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sistema
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+section: desc
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Filtrado de los datos
+\end_layout
+
+\begin_layout Standard
+Como se mencionó en la sección anterior, el filtrado de los datos es otra
+ de las tareas que se realiza sobre la entrada.
+ En este caso, se ejecutan una serie de filtros sobre los tokens de las
+ listas de casos de uso y early aspects.
+ Estos filtros, además, serán utilizados luego para el formateo de las palabras
+ de la ontología.
+ 
+\end_layout
+
+\begin_layout Standard
+Un filtro es una unidad de procesamiento que realiza una modificación (enriquece
+, refina o transforma) sobre los datos de entrada y los copia a la salida
+ para que otro filtro trabaje sobre los mismos datos.
+ Mediante los filtros podemos realizar transformaciones independientes sobre
+ el flujo de datos.
+\end_layout
+
+\begin_layout Standard
+El patrón de arquitectura de tubos y filtros provee una estructura para
+ procesar flujos de datos.
+ Cada paso de procesamiento se encapsula en un filtro.
+ Los datos se pasan usando los tubos entre filtros adyacentes.
+ Recombinando los filtros se pueden construir distintas familias de sistemas
+ relacionados
+\end_layout
+
+\begin_layout Standard
+Ventajas:
+\end_layout
+
+\begin_layout Itemize
+futuros cambios intercambiando algunos filtros;
+\end_layout
+
+\begin_layout Itemize
+pequeñas transformaciones son más fácilmente reutilizadas;
+\end_layout
+
+\begin_layout Itemize
+los datos pueden tener diferentes formatos.
+\end_layout
+
+\begin_layout Standard
+En este caso, la entrada para los filtros es una lista de tokens, por lo
+ que el filtro ejecutará acciones sobre los tokens de la lista (modificar
+ la palabra, agregar atributos), para luego devolver la lista de tokens
+ modificada.
+\end_layout
+
+\begin_layout Subsubsection
+Filtro Lower Case
+\end_layout
+
+\begin_layout Standard
+Filtro encargado de pasar las palabras a minúsculas.
+ Para el ejemplo anterior, solo se modificarían los tokens que su palabra
+ tenga alguna mayúscula.
+\end_layout
+
+\begin_layout Subsubsection
+Filtro Stop Words
+\end_layout
+
+\begin_layout Standard
+Se eliminan las denominadas stop-words, que son palabras qué, desde el punto
+ de vista no lingüístico, no contienen información relevante.
+ Las stop-words difieren de acuerdo al lenguaje, en el caso del idioma Español
+ podemos mencionar artículos, preposiciones, etc.
+ (por ejemplo: a, de, del, el, en, ella, los, se).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Filtro Stemming
+\end_layout
+
+\begin_layout Standard
+Dado que diferentes variantes de una misma palabra pueden ser problemáticas
+ al realizar análisis de texto porque tienen diferente deletreo pero el
+ mismo significado, por ejemplo: aprender, aprenden, aprendió, aprender,
+ se decidió utilizar stemming, que es el proceso de transformar una palabra
+ en su raíz (stem).
+ Para tal ejemplo, todas esas palabras estarían identificadas por su raíz,
+ es decir “aprend”.
+ Con el Stemming se aumenta el recall sobre el número de palabras que se
+ pueden encontrar en una consulta a la ontología.
+ Por ejemplo, una consulta sobre el término “bibliotecas” encontrará instancias
+ en las que solo aparezca “bibliotecario” ya que el stem de las dos palabras
+ es el mismo (”bibliotec”).
+ Para realizar el stemming se utiliza uno de los algoritmos más comunes
+ y ampliamente usados, el algoritmo de Porter.
+\end_layout
+
+\begin_layout Standard
+Diagrama XX.
+ Algoritmo de Porter.
+\end_layout
+
+\begin_layout Standard
+Continuando con el ejemplo anterior, se llevarían las palabras de los tokens
+ a su raíz:
+\end_layout
+
+\begin_layout Subsubsection
+Filtro Ocurrencias
+\end_layout
+
+\begin_layout Standard
+Este algoritmo elimina tokens duplicados en la lista y enriquece cada token
+ con el número de ocurrencias.
+ Para los tokens obtenidos de los casos de uso se considera un token duplicado
+ en caso de que el token sea la misma palabra y además aparezca en la misma
+ sección.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Filtro Pesos
+\end_layout
+
+\begin_layout Standard
+Este filtro es aplicado para enriquecer los tokens de la lista de tokens
+ de casos de uso asignando un peso a cada token.
+ Este peso depende de la sección donde aparece la palabra.
+ Por ejemplo se asignará un peso alto a una palabra que pertenece al nombre
+ o descripción del caso de uso, mientras que se asignará un peso más bajo
+ a una palabra perteneciente a un flujo alternativo.
+ 
+\end_layout
+
+\begin_layout Standard
+Siguiendo el ejemplo, y suponiendo que para la sección “nombre” se asigna
+ un peso de 5 y para la sección “descripción” un peso de 4, la lista de
+ tokens final quedaría de la siguiente forma:
+\end_layout
+
+\begin_layout Standard
+Los filtros ejecutados sobre la lista de tokens de Casos de Uso son:
+\end_layout
+
+\begin_layout Itemize
+Lower Case
+\end_layout
+
+\begin_layout Itemize
+Stop Words
+\end_layout
+
+\begin_layout Itemize
+Stemming
+\end_layout
+
+\begin_layout Itemize
+Ocurrencias
+\end_layout
+
+\begin_layout Itemize
+Pesos
+\end_layout
+
+\begin_layout Standard
+Diagrama XX.
+ Filtros utilizados para los Casos de Usos
+\end_layout
+
+\begin_layout Standard
+Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
+ debido a que se considera que todas las palabras dentro del early aspect
+ tienen el mismo peso para el algoritmo.
+ Esta diferencia radica en que el caso de uso está dividido en secciones
+ y claramente hay secciones que deben ser ponderadas sobre otras.
+ De igual forma a la hora de formatear la ontología no se correrán todos
+ los filtros sobre las palabras de la misma.
+ Solo será necesario correr los tres primeros filtros para dejar las palabras
+ pertenecientes a la ontología en el mismo formato que las listas de tokens.
 \end_layout
 
 \begin_layout Section
