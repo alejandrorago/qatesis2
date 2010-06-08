@@ -59,20 +59,20 @@ Identificación de atributos de calidad
 \end_layout
 
 \begin_layout Standard
-En esta seccion se estudiará en profundidad el enfoque elegido para la técnica
- de identificacion de atributos de calidad en documentos de especificaciones
- de requirimientos.
+En esta sección se estudiará en profundidad el enfoque elegido para la técnica
+ de identificación de atributos de calidad en documentos de especificaciones
+ de requerimientos.
  Esta técnica brindará una asistencia extra al analista, para identificar
  los atributos de calidad del sistema lo antes posible y evitar los problemas
- sucitados anteriormente.
+ suscitados anteriormente.
 \end_layout
 
 \begin_layout Section
-Desarrollo de la téncina de identificacion de atributos de calidad propuesta
+Desarrollo de la técnica de identificación de atributos de calidad propuesta
 \end_layout
 
 \begin_layout Standard
-Aca iria el grafico y explicariamos cada una de las etapas por arriba.
+Acá iría el gráfico y explicaríamos cada una de las etapas por arriba.
 \end_layout
 
 \begin_layout Section
@@ -278,7 +278,7 @@ del
 \begin_inset Text
 
 \begin_layout Plain Layout
-usario
+usuario
 \end_layout
 
 \end_inset
@@ -602,7 +602,7 @@ Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
 \end_layout
 
 \begin_layout Section
-Etapa 2 (Cambiar despues por nombre de la etapa)
+Etapa 2 (Cambiar después por nombre de la etapa)
 \end_layout
 
 \begin_layout Standard
@@ -614,10 +614,10 @@ descubrir
 \begin_inset Quotes erd
 \end_inset
 
- los atributos de calidad a partir de una lista de tokens extraidos de los
+ los atributos de calidad a partir de una lista de tokens extraídos de los
  casos de uso y del aspecto temprano.
  En este punto ya la entrada ha sido analizada, armando listas de tokens
- con la palabra de cada token pasada a minuscula, llevada a su raiz, ponderizand
+ con la palabra de cada token pasada a minúscula, llevada a su raíz, ponderizand
 ola de acuerdo a su peso y dejando constancia del numero de ocurrencias.
  De esta manera, a esta etapa llegan dos listas de tokens: una correspondiente
  a los casos de uso y otra correspondiente al aspecto temprano.
@@ -628,7 +628,7 @@ Por cada palabra de cada una de la lista de palabras se averigua el grado
  de pertenencia de esa palabra con los distintos atributos de calidad.
  Es decir, que tan ligada se encuentra esa palabra con los distintos atributos
  de calidad y en que porcentaje o grado.
- Para ello se hace uso de una ontologia.
+ Para ello se hace uso de una ontología.
 \end_layout
 
 \begin_layout Standard
@@ -649,32 +649,32 @@ Los cálculos anteriores se aplican a cada una de las listas, las de los
 \end_layout
 
 \begin_layout Subsection
-Ontolgia
+Ontología
 \end_layout
 
 \begin_layout Standard
-La funcion 
+La función 
 \shape italic
 Grado de Pertenencia
 \shape default
-, o GP, es una funcion que se aplica a una palabra y cuyo resultado es un
- conjunto de atributos de calidad asociados a porecntajes, que indican el
+, o GP, es una función que se aplica a una palabra y cuyo resultado es un
+ conjunto de atributos de calidad asociados a porcentajes, que indican el
  grado o porcentaje de pertenencia de esa palabra con los distintos atributos
  de calidad.
- Para realizar este cálculo, la funcion se basa en el análisis de una ontologia
+ Para realizar este cálculo, la función se basa en el análisis de una ontología
  previamente definida y que se supone cargada por un experto.
- En las siguiente subsecciones se detallará y describirá la ontolgía usada,
+ En las siguiente subsecciones se detallará y describirá la ontología usada,
  para finalmente explicitar el funcionamiento de la función GP.
 \end_layout
 
 \begin_layout Subsubsection
-Definción de Ontología
+Definición de Ontología
 \end_layout
 
 \begin_layout Standard
 La literatura de Inteligencia Artificial contiene varias definiciones de
- ontologías, muchas veces contrdictorias entre ellas.
- En este trabajo se acuerda en definir una ontologia de la siguiente manera:
+ ontologías, muchas veces contradictorias entre ellas.
+ En este trabajo se acuerda en definir una ontología de la siguiente manera:
  
 \end_layout
 
@@ -682,10 +682,10 @@ La literatura de Inteligencia Artificial contiene varias definiciones de
 \begin_inset Quotes eld
 \end_inset
 
-Una ontologia es un modelo de datos que describe conceptos en un dominio
- del discurso (tambien llamados clases), propiedades de cada concepto que
+Una ontología es un modelo de datos que describe conceptos en un dominio
+ del discurso (también llamados clases), propiedades de cada concepto que
  describen las diversas características y atributos del concepto (slots,
- tambien llamados propiedades o roles) y restricciones sobre los slots.”
+ también llamados propiedades o roles) y restricciones sobre los slots.”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-1"
@@ -739,12 +739,12 @@ Los beneficios de utilizar ontologías se pueden resumir de la siguiente
 \end_layout
 
 \begin_layout Itemize
-Compartir un entendimiento común de la estrucura de la información entre
+Compartir un entendimiento común de la estructura de la información entre
  personas o agentes de software.
 \end_layout
 
 \begin_layout Itemize
-Permitir el rehuso de un conocimiento del dominio.
+Permitir el re uso de un conocimiento del dominio.
  
 \end_layout
 
@@ -753,7 +753,7 @@ Hacer explicitas presunciones de un dominio.
 \end_layout
 
 \begin_layout Itemize
-Separar el conocmiento del dominio del comocimiento operacional.
+Separar el conocimiento del dominio del conocimiento operacional.
 \end_layout
 
 \begin_layout Itemize
@@ -761,7 +761,7 @@ Analizar el conocimiento del dominio.
 \end_layout
 
 \begin_layout Subsubsection
-Componentes de una ontologia
+Componentes de una ontología
 \end_layout
 
 \begin_layout Standard
@@ -786,13 +786,13 @@ o
 \begin_inset space ~
 \end_inset
 
-Clases Generalmente el foco de cualquier ontologia, las clases son las ideas
+Clases Generalmente el foco de cualquier ontología, las clases son las ideas
  básicas que se intentan formalizar.
- Por ejemplo, en una ontologia de vinos, la clase “Vino” representa todos
+ Por ejemplo, en una ontología de vinos, la clase “Vino” representa todos
  los vinos.
- Una clase tambien puede tener sub-clases que representan conceptos que
- son mas especificos que las superclases.
- Por ejemplo, sublclases de la vlase “Vino” podrian ser “Tinto”, “Blanco”,
+ Una clase también puede tener sub-clases que representan conceptos que
+ son mas específicos que las superclases.
+ Por ejemplo, sublclases de la clase “Vino” podrían ser “Tinto”, “Blanco”,
  “Rosado”, etc.
  
 \end_layout
@@ -800,7 +800,7 @@ Clases Generalmente el foco de cualquier ontologia, las clases son las ideas
 \begin_layout Description
 Instancias Las instancias son representaciones de objetos determinados de
  un concepto.
- Siguiendo el ejemplo anterior, un vinos especificos son instancias de la
+ Siguiendo el ejemplo anterior, un vinos específicos son instancias de la
  clase “Vino”.
  Una botella de NewAge que se vende en el supermercado es una instancia
  de la clase “Vino”.
@@ -819,7 +819,7 @@ o
 Slots Los slots describen propiedades de clases o instancias.
  En el ejemplo anterior “New Age” es la marca del vino.
  Por lo tanto, esa instancia posee un slot(propiedad), que poseen todas
- las instancias de la clase “Vino”, que podria denominarse marca, y cuyo
+ las instancias de la clase “Vino”, que podría denominarse marca, y cuyo
  valor es la cadena de caracteres “New Age”.
  El valor de una propiedad puede ser una cadena de caracteres, un numero,
  otra instancia, etc.
@@ -855,7 +855,7 @@ key "key-4"
 \end_inset
 
 .
- OWL se diferencia de otros leguajes porque OWL es un lenguaje de ontologías
+ OWL se diferencia de otros lenguajes porque OWL es un lenguaje de ontologías
  Web.
  Lenguajes anteriores han sido utilizados para desarrollar herramientas
  y ontologías destinadas a comunidades específicas (especialmente para ciencias
@@ -866,22 +866,22 @@ key "key-4"
 \end_layout
 
 \begin_layout Subsubsection
-Ontologia propuesta
+Ontología propuesta
 \end_layout
 
 \begin_layout Standard
-Como se dijo anteriormente, la funcion 
+Como se dijo anteriormente, la función 
 \shape italic
 Grado de Pertenencia
 \shape default
- utiliza una ontologia para su realizar su análsis.
- A continuación se muestra un diagrama con la ontologia propuesta.
+ utiliza una ontología para su realizar su análisis.
+ A continuación se muestra un diagrama con la ontología propuesta.
  Su construcción se basa principalmente en conceptos, definiciones, y relaciones
- extraidas del libro 
+ extraídas del libro 
 \begin_inset Quotes eld
 \end_inset
 
-Software Architecture in Practice
+Software Architecure in Practice
 \begin_inset Quotes erd
 \end_inset
 
@@ -913,7 +913,7 @@ El concepto de escenario de calidad fue presentado por Bass, Clements y
 \end_layout
 
 \begin_layout Quotation
-“A quality attribue scenario is a quality-attribute-specific requirement.”
+“A quality attribute scenario is a quality-attribute-specific requirement.”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
@@ -931,7 +931,7 @@ Traduciendo, un escenario de calidad es un requerimiento específico de un
 \end_layout
 
 \begin_layout Standard
-Es por ello que en la ontologia se encuentran los conceptos 
+Es por ello que en la ontología se encuentran los conceptos 
 \shape italic
 QualityAttributeScenario
 \shape default
@@ -968,19 +968,19 @@ estímulo.
 
 \begin_layout Description
 Estímulo.
- Una condicion que necesita ser considerada cuando arriba al sistema.
+ Una condición que necesita ser considerada cuando arriba al sistema.
 \end_layout
 
 \begin_layout Description
 Ambiente.
  El estímulo ocurre bajo ciertas condiciones.
- El sistema puede estar sobrecargado o puede estar ejecutandose normalmente
- cuando el estimulo ocurre, o alguna otra condicion puede ser verdadera.
+ El sistema puede estar sobrecargado o puede estar ejecutándose normalmente
+ cuando el estimulo ocurre, o alguna otra condición puede ser verdadera.
 \end_layout
 
 \begin_layout Description
 Artefacto.
- Algun artefacto es estimulado.
+ Algún artefacto es estimulado.
  Este puede ser el sistema completo o alguna parte de él.
 \end_layout
 
@@ -1040,6 +1040,10 @@ scenarioPart
 Concrete Quality-Atrribute Scenario
 \shape default
 .
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1052,7 +1056,7 @@ ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
 \begin_layout Standard
 Es por esto ultimo que aparece el concepto abstracto 
 \shape italic
-Quality-Atrribute Scenario, 
+Quality-Attribute Scenario, 
 \shape default
 mientras que los conceptos 
 \shape italic
@@ -1063,24 +1067,25 @@ Quality-Attribute Scenario
 Quality-Attribute Scenario
 \shape default
  derivan del mismo.
- A su vez la relacion 
+ A su vez la relación 
 \series bold
 isDerivedFrom
 \series default
  deja constancia del hecho de que un escenario concreta deriva de uno general,
- haciendo las partes del ultimos especificas de un sistema bajo consideracion.
+ haciendo las partes del últimos especificas de un sistema bajo consideración.
+\begin_inset Newline newline
+\end_inset
 
-\series bold
- 
+
 \end_layout
 
 \begin_layout Standard
 Una colección de escenarios concretos pueden ser usados como los requerimientos
  de calidad para un sistema.
  Cada escenario es suficientemente concreto para ser significativo para
- un arquitecto, y los detalles de la respuesta son suficientemente significaivos
- para soportar tests convalidando que los requerimientos hayan sido cumplimentad
-os.
+ un arquitecto, y los detalles de la respuesta son suficientemente significativo
+s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
+dos.
 \end_layout
 
 \begin_layout Section
@@ -1122,7 +1127,7 @@ Sean M1 y M2 dos mapas con igual numero de tuplas.
 \end_layout
 
 \begin_layout Subsection
-Division de dos mapas
+División de dos mapas
 \end_layout
 
 \begin_layout Standard
@@ -1144,7 +1149,7 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
 \end_layout
 
 \begin_layout Subsection
-Multipliacion de un mapa por un numero real
+Multiplicación de un mapa por un numero real
 \end_layout
 
 \begin_layout Standard
