@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -139,8 +139,8 @@ s:4>, etc.
 El resultado de este pre procesamiento es una lista de tokens para las palabras
  obtenidas de los casos de uso y otra lista de tokens para las palabras
  del early aspect.
- Al realizar la división de la entrada en tokens, se estan generando los
- siguientes atributos para cada tokens:
+ Al realizar la división de la entrada en tokens, se estarán agregando además
+ los siguientes atributos para cada token:
 \end_layout
 
 \begin_layout Itemize
@@ -490,9 +490,9 @@ Como se mencionó en la sección anterior, el filtrado de los datos es otra
 \end_layout
 
 \begin_layout Standard
-Un filtro es una unidad de procesamiento que realiza una modificación (enriquece
-, refina o transforma) sobre los datos de entrada y los copia a la salida
- para que otro filtro trabaje sobre los mismos datos.
+Se considera un filtro es una unidad de procesamiento que realiza una modificaci
+ón (enriquece, refina o transforma) sobre los datos de entrada y los copia
+ a la salida para que otro filtro trabaje sobre los mismos datos.
  Mediante los filtros podemos realizar transformaciones independientes sobre
  el flujo de datos.
 \end_layout
@@ -500,14 +500,11 @@ Un filtro es una unidad de procesamiento que realiza una modificación (enriquec
 \begin_layout Standard
 El patrón de arquitectura de tubos y filtros provee una estructura para
  procesar flujos de datos.
- Cada paso de procesamiento se encapsula en un filtro.
- Los datos se pasan usando los tubos entre filtros adyacentes.
- Recombinando los filtros se pueden construir distintas familias de sistemas
- relacionados
-\end_layout
-
-\begin_layout Standard
-Ventajas:
+ Cada paso de procesamiento se encapsula en un filtro y es independiente
+ del resto.
+ Los datos se pasan usando los tubos entre filtros adyacentes y mediante
+ la combinación de los filtros se pueden conseguir distintas salidas.
+ Las ventajas de utilizar este concepto es:
 \end_layout
 
 \begin_layout Itemize
@@ -520,6 +517,10 @@ pequeñas transformaciones son más fácilmente reutilizadas;
 
 \begin_layout Itemize
 los datos pueden tener diferentes formatos.
+\end_layout
+
+\begin_layout Itemize
+se pueden agregar facilmente etapas intermedias
 \end_layout
 
 \begin_layout Standard
@@ -1147,8 +1148,13 @@ Filtro Ocurrencias
 \end_layout
 
 \begin_layout Standard
-Este algoritmo elimina tokens duplicados en la lista y enriquece cada token
- con el número de ocurrencias.
+Este filtro elimina tokens duplicados en la lista de entrada y enriquece
+ cada token con el número de ocurrencias.
+ Se agrega el siguiente atributo al token:
+\end_layout
+
+\begin_layout Itemize
+Ocurrencias: número de ocurrencias del token en la lista.
  Para los tokens obtenidos de los casos de uso se considera un token duplicado
  en caso de que el token sea la misma palabra y además aparezca en la misma
  sección.
@@ -1160,7 +1166,7 @@ Este algoritmo elimina tokens duplicados en la lista y enriquece cada token
 \end_layout
 
 \begin_layout Standard
-Igualmente, en este ejemplo, solo se tendrá en cuenta la palabra del token
+Igualmente, para este ejemplo, solo se tendrá en cuenta la palabra del token
  para considerarlo repetido.
 \end_layout
 
@@ -1285,16 +1291,152 @@ Filtro Pesos
 Este filtro es aplicado para enriquecer los tokens de la lista de tokens
  de casos de uso asignando un peso a cada token.
  Este peso depende de la sección donde aparece la palabra.
- Por ejemplo se asignará un peso alto a una palabra que pertenece al nombre
+ Es evidente que existen secciones en las cuáles las palabras que la forman
+ tendran mayor importancia para el análisis.
+ Por ejemplo, se asignará un peso alto a una palabra perteneciente al nombre
  o descripción del caso de uso, mientras que se asignará un peso más bajo
  a una palabra perteneciente a un flujo alternativo.
- 
 \end_layout
 
 \begin_layout Standard
-Siguiendo el ejemplo, y suponiendo que para la sección “nombre” se asigna
- un peso de 5 y para la sección “descripción” un peso de 4, la lista de
- tokens final quedaría de la siguiente forma:
+Siguiendo el ejemplo anterior, y suponiendo la siguiente tabla de pesos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features>
+<column alignment="center" valignment="bottom" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sección
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Peso
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<Nombre>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<Descripción>,<Requerimientos especiales>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<Flujo Básico>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<Flujo Alternativo>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<Precondiciones>,<Postcondiciones>,<trigger>,<prioridad>,<actor>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La lista de tokens final quedaría de la siguiente forma:
 \end_layout
 
 \begin_layout Standard
