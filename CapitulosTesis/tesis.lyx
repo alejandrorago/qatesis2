@@ -2035,7 +2035,7 @@ La siguiente figura ilustra este caso.
 \end_layout
 
 \begin_layout Standard
-En el diagrama se muestra en un recuadrp rojo la instancia, mientras que
+En el diagrama se muestra en un recuadro rojo la instancia, mientras que
  en un recuadro negro se representa la clase.
  A su vez la instancia posee una propiedad de tipo String que se denomina
  concreteScenarioPartDescription y cuyo valor, en este caso, es 
@@ -2172,18 +2172,46 @@ bility".
  
 \end_layout
 
-\begin_layout Section
-Mapa
+\begin_layout Subsection
+Algoritmo basado en la onologia
+\end_layout
+
+\begin_layout Standard
+En esta seccion se estudiará el algoritmo que finalmente asigna un conjunto
+ de tributos de calidad, con un porcentaje cada uno, a un conjunto de casos
+ uso relacionados con un aspecto temprano.
+ Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
+ lista de tokens extraidos de los casos de uso y otra del aspecto temprano.
+ Cada uno de estos token posee atributos como peso, ocurrencias, etc.
+ Para su análisis, este algoritmo utiliza, entre otras cosas estos atributos
+ de token más la funcion GP (Grado de pertenencia) explicada en la seccion
+ anterior.
+\end_layout
+
+\begin_layout Standard
+Primero se define el concepto de mapa y de de operaciones sobre ellos, para
+ luego explicar en detalle el algoritmo.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Mapa 
 \end_layout
 
 \begin_layout Standard
 Se define un mapa como una conjunto de tuplas <K,V> , donde a K se lo denomina
  “clave” y a V se lo denomina “valor”.
- Un mapa no puede tener dos tuplas con claves idénticas, Es decir, dado
- un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2> tal que K1=K2.
+ Un mapa no puede tener dos tuplas con claves idénticas.
+ Es decir, dado un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2>
+ tal que K1=K2.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
+En este algoritmo se usará como claves los nombres de los atributos de calidad
+ y los valores seran numeros reales entr 0 y 1.
+\end_layout
+
+\begin_layout Paragraph
 Suma de dos mapas
 \end_layout
 
@@ -2210,7 +2238,7 @@ Sean M1 y M2 dos mapas con igual numero de tuplas.
  siendo K1 y K2 claves; a, b, c y d números reales
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 División de dos mapas
 \end_layout
 
@@ -2232,7 +2260,7 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Multiplicación de un mapa por un numero real
 \end_layout
 
@@ -2251,6 +2279,44 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
 \end_inset
 
 , siendo a,b y x numeros reales; M un mapa; K1,K2 claves del mapa.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Exlplicacion del algoritmo
+\end_layout
+
+\begin_layout Standard
+De los casos de uso se extraen en una lista de tokens.
+ De esta manera se define como UCL[] a un arreglo compuesto por tokens extraídos
+ de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
+ Early Aspect.
+ Sea i un numero entero, UCL[i] se refiere a l token en la posición i del
+ arreglo UCL.
+ Similar es el caso del arreglo EAL.
+\end_layout
+
+\begin_layout Standard
+Sea totalUCM un mapa que se define como:
+\end_layout
+
+\begin_layout Standard
+Y sea totalEAM un mapa que se define como:
+\end_layout
+
+\begin_layout Standard
+Entonces se define el mapa totalMap como:
+\end_layout
+
+\begin_layout Standard
+en donde k es un numero real entre 0 y 1.
+ La constante k indica el “peso “ correspondiente a la lista de tokens extraídos
+ de los casos de uso y a la lista de tokens extraídos del aspecto temprano.
+ Es decir, a la hora de calcular el total Map, k indica que porcentaje sera
+ extraído del totalUCM y qué porcentaje del totalEAM.
+ Nótese que si k=1, entonces totalMap es igual a totalUCM; si k=0 entonces
+ totalMap es igual a totalEAM; si k=0.5 totalMap es la mitad de totalUCM
+ más la mitad de totalEAM.
  
 \end_layout
 
