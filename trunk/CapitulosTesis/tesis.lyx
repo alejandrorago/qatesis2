@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -1931,6 +1931,245 @@ Una colección de escenarios concretos pueden ser usados como los requerimientos
  un arquitecto, y los detalles de la respuesta son suficientemente significativo
 s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
 dos.
+\end_layout
+
+\begin_layout Subsection
+Funcion Grado de Pertenencia (GP)
+\end_layout
+
+\begin_layout Standard
+La funcion Grado de pertenencia toma como parametro de entrada una secuencia
+ de caracteres que representa una palabra y devuelve un conjunto de atributos
+ de calidad, asociados cada uno con un porcentaje.
+ Este porcentaje indica el grado o porcentaje de asociacion o pertenencia
+ que tiene ese palabra con cada atributo de calidad.
+ Para realizar este cálculo, la funcion consulta las instancias de la ontologia
+ formada por los conceptos y relaciones explicadas anteriormente.
+ Se supone que las instancias han sido creadas por un experto.
+\end_layout
+
+\begin_layout Standard
+Basicamente esta funcion consta de dos partes.
+ La primera es averiguar a que parte del escenario corresponde la palabra.
+ Es decir, descubrir si corresponede a una Fuente, a un Estimulo o a alguna
+ otra.
+ Una vez reconocida la instancia a la que se corresponde la palabra, se
+ averigua cuantos y cuales escenarios se relacionan con esa instancia.
+ A partir de esto ultimo, y de calcular los porcentajes en que ese grupo
+ de escenarios se relacionan con los atributos de calidad, se obtiene el
+ mapa 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+En la seccion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Mapa"
+
+\end_inset
+
+ se definirá formalmente un Mapa y las operaciones sobre el mismo.
+ 
+\end_layout
+
+\end_inset
+
+ de atributos de calidad y porcentajes.
+\end_layout
+
+\begin_layout Subsubsection
+Relacion entre una palabra y una parte del escenario
+\end_layout
+
+\begin_layout Standard
+En esta parte intenta identificar si la palabra se corresponde con alguna
+ instancia de los conceptos de 
+\shape italic
+ConcreteSource
+\shape default
+, 
+\shape italic
+ConcreteStimulus
+\shape default
+, 
+\shape italic
+ConcreteEnviroment
+\shape default
+, 
+\shape italic
+ConcreteArtifact
+\shape default
+, 
+\shape italic
+ConcreteResponse
+\shape default
+ y 
+\shape italic
+ConcreteResponseMeasure.
+ 
+\shape default
+Basicamente, al arribar la palabra X se intenta responder a la pregunta,
+ ¿ es X una fuente, un estimulo, un ambiente, un artefacto, una respuesta
+ o una medida de respuesta?
+\end_layout
+
+\begin_layout Standard
+Esta tarea podria parecer trivial, pero no lo es tanto.
+ El caso ideal es que exista una sola instancia, de alguna de esas seis,
+ que se corresponda con la palabra.
+\end_layout
+
+\begin_layout Standard
+La siguiente figura ilustra este caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename instancia-ejemplo1.jpeg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el diagrama se muestra en un recuadrp rojo la instancia, mientras que
+ en un recuadro negro se representa la clase.
+ A su vez la instancia posee una propiedad de tipo String que se denomina
+ concreteScenarioPartDescription y cuyo valor, en este caso, es 
+\begin_inset Quotes eld
+\end_inset
+
+user
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Uno o mas escenario se pueden relacionar con esta instancia mediante la
+ propiedad concreteScenariohasSource.
+\end_layout
+
+\begin_layout Standard
+Se pretende identificar la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+user
+\begin_inset Quotes erd
+\end_inset
+
+.
+ En este caso hay una sola instancia en la ontologia, la Instancia_1, que
+ es de tipo ConcreteSource, que mediante la propiedad concreteScenarioPartDescri
+ption posee el valor 
+\begin_inset Quotes eld
+\end_inset
+
+user
+\begin_inset Quotes erd
+\end_inset
+
+, por lo que se retorna esta instancia.
+\end_layout
+
+\begin_layout Standard
+Distinto es el caso en el que la misma palabra pueda representar, simultaneament
+e, distintas partes de un escenario.
+ La siguiente figura ilustra este caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename instancia-ejemplo2.jpeg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+system
+\begin_inset Quotes erd
+\end_inset
+
+ podria ser una fuente o un artefacto.
+ Lo que lleva a la cuestion de decidir entre ambas opciones.
+ Para ello se cheque con cuantos escenarios se relacionan cada una de las
+ instancias.
+ Será elegida como significado semántico de la palabra la instancia que
+ se relacione con un mayor numero de escenarios.
+ En este ultimo caso si la instancia_1 se relaciona con 3 escenerios y la
+ instancia_2 con 6, se retorna la instancia_2, tomandose como que la palabra
+ 
+\begin_inset Quotes eld
+\end_inset
+
+system
+\begin_inset Quotes erd
+\end_inset
+
+ es un artefacto.
+\end_layout
+
+\begin_layout Subsubsection
+Obtencion de porcentajes de atributos de calidad para una palabra
+\end_layout
+
+\begin_layout Standard
+Una vez que, dada una palabra, se ha encontrada la instancia de alguna parte
+ de un escenario que se corresponde con esa palabra, se dispone a obtener
+ los distintos porcentajes de los distintos atributos de calidad que se
+ relacionan con esa palabra.
+\end_layout
+
+\begin_layout Standard
+En este momento se puede pensar que la salida es una lista de pares <Atributo
+ de calidad, valor>, en donde valor indica el porcentaje de asosiacion de
+ esa palabra con ese atributo de calidad.
+ La suma de los valores de la lista es igual a 1 o a 100%.
+ Como se dijo anteriormente, mas adelante se definirá un Mapa, que es al
+ salida real de esta funcion.
+\end_layout
+
+\begin_layout Standard
+Para encontrar estos porcentajes, primero se recupera todos los escenarios
+ que se relacionan con la instancia encontrada en el paso anterior.
+ Cada uno de estos escenarios se relaciona con un atributo de calidad mediante
+ la propiedad isSpecifOf.
+ De esta manera, para cada atributo de calidad, se devuelven los porcentajes
+ en que estos escenarios se relacionan con cada uno de ellos.
+ 
+\end_layout
+
+\begin_layout Standard
+Por ejemplo, supongase que como entrada se obtuvo el término "latency".
+ Despues del paso anterior, se encuentra que esa palabra se corresponde
+ con la instancia_48 que es de tipo 
+\begin_inset Quotes eld
+\end_inset
+
+Response Measure
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A su vez 40 escenarios se relacionan con la instancia_48 mediante la propiedad
+ scenarioHasResponseMeasure.
+ De esos 40 escenarios, 30 de ellos se relacionan con el atributo de calidad
+ "Performance", 8 con "Aviability" y 2 con "Modificability".
+ De esta manera podemos concluir que ese concepto, latency, se relaciona
+ en un 75% de certeza con "Performance", 20% con "Aviability" y 5% con "Modifica
+bility".
+ En este caso la función finalemente devolvería <Performance 0.75, Aviability
+ 0.2, Modificability 0.05>.
+ 
 \end_layout
 
 \begin_layout Section
