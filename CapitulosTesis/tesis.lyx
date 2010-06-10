@@ -2101,13 +2101,13 @@ Basicamente esta funcion consta de dos partes.
  de escenarios se relacionan con los atributos de calidad, se obtiene el
  mapa 
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 En la seccion 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Mapa"
+reference "sub:Mapa"
 
 \end_inset
 
@@ -2338,6 +2338,13 @@ Primero se define el concepto de mapa y de de operaciones sobre ellos, para
 
 \begin_layout Subsubsection
 Mapa 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Mapa"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2431,12 +2438,38 @@ Exlplicacion del algoritmo
 \begin_layout Standard
 Como se ha dicho anteriormente este algoritmo tiene como entrada dos listas
  de tokens extraidos de los casos de uso y del aspecto temprano.
- Asi, se define como UCL[] a un arreglo compuesto por tokens extraídos de
- los casos de uso y a EAL[] como otro arreglo de tokens extraídos del Early
- Aspect.
- Sea i un numero entero, UCL[i] se refiere al token en la posición i del
- arreglo UCL.
+ Asi, se denomina como UCL[] a un arreglo compuesto por tokens extraídos
+ de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
+ Early Aspect.
+\end_layout
+
+\begin_layout Standard
+Aunque se ha mencionado anteriormente vale la pena recordar que un token
+ 
+\shape italic
+x
+\shape default
+ tiene varias propiedades, y en las siguiente ecuaciones se denomina como
+ 
+\shape italic
+x.palabra
+\shape default
+ al conjunto de caracteres del token que representan la palabra, 
+\shape italic
+x.ocurrencias
+\shape default
+ a la propiedad que indica el numero de ocurrencias de ese token y 
+\shape italic
+x.peso
+\shape default
+ al valor o peso que se le asiga a ese token.
+\end_layout
+
+\begin_layout Standard
+Entonces, sea i un numero entero, UCL[i] se refiere al token en la posición
+ i del arreglo UCL.
  Similar es el caso del arreglo EAL.
+ De esta manera se definen las siguientes ecuaciones.
 \end_layout
 
 \begin_layout Standard
