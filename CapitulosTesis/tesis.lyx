@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -2429,11 +2429,12 @@ Exlplicacion del algoritmo
 \end_layout
 
 \begin_layout Standard
-De los casos de uso se extraen en una lista de tokens.
- De esta manera se define como UCL[] a un arreglo compuesto por tokens extraídos
- de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
- Early Aspect.
- Sea i un numero entero, UCL[i] se refiere a l token en la posición i del
+Como se ha dicho anteriormente este algoritmo tiene como entrada dos listas
+ de tokens extraidos de los casos de uso y del aspecto temprano.
+ Asi, se define como UCL[] a un arreglo compuesto por tokens extraídos de
+ los casos de uso y a EAL[] como otro arreglo de tokens extraídos del Early
+ Aspect.
+ Sea i un numero entero, UCL[i] se refiere al token en la posición i del
  arreglo UCL.
  Similar es el caso del arreglo EAL.
 \end_layout
@@ -2443,11 +2444,38 @@ Sea totalUCM un mapa que se define como:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \[
+totalUCM=\frac{\overset{n}{\underset{i=1}{\sum}}GP(UCL[i].palabra)\times UCL[i].ocurrencias\times UCL[i].peso}{\overset{n}{\underset{i=1}{\sum}}UCL[i].ocurrencias\times UCL[i].peso}\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
 Y sea totalEAM un mapa que se define como:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula \[
+totalEAM=\frac{\overset{n}{\underset{i=1}{\sum}}GP(EAL[i].palabra)\times EAL[i].ocurrencias}{\underset{i=1}{\overset{n}{\sum}}EAL[i].ocurrencias}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Entonces se define el mapa totalMap como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+totalMap=k\times totalUCM+(1-k)\times totalEAM\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
