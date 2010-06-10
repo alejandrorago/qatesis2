@@ -2101,7 +2101,7 @@ Basicamente esta funcion consta de dos partes.
  de escenarios se relacionan con los atributos de calidad, se obtiene el
  mapa 
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 En la seccion 
@@ -2437,8 +2437,8 @@ Exlplicacion del algoritmo
 
 \begin_layout Standard
 Como se ha dicho anteriormente este algoritmo tiene como entrada dos listas
- de tokens extraidos de los casos de uso y del aspecto temprano.
- Asi, se denomina como UCL[] a un arreglo compuesto por tokens extraídos
+ de tokens extraídos de los casos de uso y del aspecto temprano.
+ Así, se denomina como UCL[] a un arreglo compuesto por tokens extraídos
  de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
  Early Aspect.
 \end_layout
@@ -2462,7 +2462,7 @@ x.ocurrencias
 \shape italic
 x.peso
 \shape default
- al valor o peso que se le asiga a ese token.
+ al valor o peso que se le asigna a ese token.
 \end_layout
 
 \begin_layout Standard
@@ -2515,7 +2515,7 @@ totalMap=k\times totalUCM+(1-k)\times totalEAM\]
 en donde k es un numero real entre 0 y 1.
  La constante k indica el “peso “ correspondiente a la lista de tokens extraídos
  de los casos de uso y a la lista de tokens extraídos del aspecto temprano.
- Es decir, a la hora de calcular el total Map, k indica que porcentaje sera
+ Es decir, a la hora de calcular el totalMap, k indica que porcentaje sera
  extraído del totalUCM y qué porcentaje del totalEAM.
  Nótese que si k=1, entonces totalMap es igual a totalUCM; si k=0 entonces
  totalMap es igual a totalEAM; si k=0.5 totalMap es la mitad de totalUCM
