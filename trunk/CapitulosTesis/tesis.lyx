@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -110,6 +110,18 @@ Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename qat-inicial.PNG
+	scale 50
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Para este análisis en necesario realizar dos tareas principales.
  En primer lugar un pre procesamiento de los datos de entrada y, luegom
  un filtrado sobre los mismos.
@@ -133,6 +145,17 @@ El objetivo de esta tarea es procesar la entrada para dejar la información
  con diferentes pares <atributos,valor>, como por ejemplo: <peso:1>, <ocurrencia
 s:4>, etc.
  Estos tokens representan al conjunto de palabras de entrada.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename entrada.PNG
+	scale 40
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -978,6 +1001,16 @@ Dado que diferentes variantes de una misma palabra pueden ser problemáticas
  es el mismo (”bibliotec”).
  Para realizar el stemming se utiliza uno de los algoritmos más comunes
  y ampliamente usados, el algoritmo de Porter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename porter.JPG
+	scale 40
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
