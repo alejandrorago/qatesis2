@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -123,8 +123,8 @@ Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
 
 \begin_layout Standard
 Para este análisis en necesario realizar dos tareas principales.
- En primer lugar un pre procesamiento de los datos de entrada y, luegom
- un filtrado sobre los mismos.
+ En primer lugar un pre procesamiento de los datos de entrada y, luego un
+ filtrado sobre los mismos.
  En estas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
  del early aspect, las cuales serán relevantes para la identificación del
