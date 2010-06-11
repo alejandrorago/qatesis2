@@ -1624,11 +1624,12 @@ Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
 \end_layout
 
 \begin_layout Section
-Etapa 2 (Cambiar después por nombre de la etapa)
+Análisis de las listas de tokens
 \end_layout
 
 \begin_layout Standard
-En la etapa 2 se encuentran todas las tareas necesarias para 
+En la etapa de análisis de las listas de tokens se encuentran todas las
+ tareas necesarias para 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1650,7 +1651,11 @@ Por cada palabra de cada una de la lista de palabras se averigua el grado
  de pertenencia de esa palabra con los distintos atributos de calidad.
  Es decir, que tan ligada se encuentra esa palabra con los distintos atributos
  de calidad y en que porcentaje o grado.
- Para ello se hace uso de una ontología.
+ Para ello se invoca, por cada token, a la funcion 
+\shape italic
+Grado de pertenencia
+\shape default
+, que hace uso de una ontología.
 \end_layout
 
 \begin_layout Standard
@@ -1686,7 +1691,8 @@ Grado de Pertenencia
  Para realizar este cálculo, la función se basa en el análisis de una ontología
  previamente definida y que se supone cargada por un experto.
  En las siguiente subsecciones se detallará y describirá la ontología usada,
- para finalmente explicitar el funcionamiento de la función GP.
+ para luego en la siguiente seccion explicitar el funcionamiento de la función
+ GP.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2354,15 +2360,14 @@ Algoritmo basado en la onologia
 \end_layout
 
 \begin_layout Standard
-En esta seccion se estudiará el algoritmo que finalmente asigna un conjunto
- de tributos de calidad, con un porcentaje cada uno, a un conjunto de casos
+En esta seccion se estudiará el algoritmo que, finalmente, asigna un conjunto
+ de atributos de calidad, con un porcentaje cada uno, a un conjunto de casos
  uso relacionados con un aspecto temprano.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraidos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos token posee atributos como peso, ocurrencias, etc.
- Para su análisis, este algoritmo utiliza, entre otras cosas estos atributos
- de token más la funcion GP (Grado de pertenencia) explicada en la seccion
- anterior.
+ Para su análisis, este algoritmo utiliza estos atributos del token, además
+ de la funcion GP (Grado de pertenencia) explicada en la seccion anterior.
 \end_layout
 
 \begin_layout Standard
