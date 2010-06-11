@@ -513,19 +513,19 @@ Como se mencionó en la sección anterior, el filtrado de los datos es otra
 \end_layout
 
 \begin_layout Standard
-Se considera un filtro es una unidad de procesamiento que realiza una modificaci
-ón (enriquece, refina o transforma) sobre los datos de entrada y los copia
- a la salida para que otro filtro trabaje sobre los mismos datos.
- Mediante los filtros podemos realizar transformaciones independientes sobre
- el flujo de datos.
+Se considera que un filtro es una unidad de procesamiento que realiza una
+ modificación (enriquece, refina o transforma) sobre los datos de entrada
+ y los copia a la salida para que otro filtro trabaje sobre los mismos datos.
+ Mediante los filtros se pueden realizar transformaciones independientes
+ sobre el flujo de datos.
 \end_layout
 
 \begin_layout Standard
-El patrón de arquitectura de tubos y filtros provee una estructura para
+El patrón de arquitectura de tuberias y filtros provee una estructura para
  procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
- Los datos se pasan usando los tubos entre filtros adyacentes y mediante
+ Los datos se pasan usando las tuberias entre filtros adyacentes y mediante
  la combinación de los filtros se pueden conseguir distintas salidas.
  Las ventajas de utilizar este concepto es:
 \end_layout
@@ -821,10 +821,11 @@ Filtro Stop Words
 \end_layout
 
 \begin_layout Standard
-Se eliminan las denominadas stop-words, que son palabras qué, desde el punto
+Se eliminan las denominadas stop-words, que son palabras que, desde el punto
  de vista no lingüístico, no contienen información relevante.
- Las stop-words difieren de acuerdo al lenguaje, en el caso del idioma Español
- podemos mencionar artículos, preposiciones, etc.
+ Las stop-words difieren de acuerdo al lenguaje.
+ En el caso del idioma Español se pueden mencionar artículos, preposiciones,
+ etc.
  (por ejemplo: a, de, del, el, en, ella, los, se).
  
 \end_layout
@@ -987,18 +988,19 @@ Filtro Stemming
 \end_layout
 
 \begin_layout Standard
-Dado que diferentes variantes de una misma palabra pueden ser problemáticas
- al realizar análisis de texto porque tienen diferente deletreo pero el
- mismo significado, por ejemplo: aprender, aprenden, aprendió, aprender,
- se decidió utilizar stemming, que es el proceso de transformar una palabra
- en su raíz (stem).
- Para tal ejemplo, todas esas palabras estarían identificadas por su raíz,
- es decir “aprend”.
+Diferentes palabras pueden tener el mismo significado, dede el punto de
+ vista semántico, pero no tener exactamente la misma secuencia de caracteres.
+ Un ejemplo de esto pueden ser las palabras aprender, aprenden, aprendió,
+ aprender, que, desde el enfoque en este trabajo, tienen el mismo significado.
+ Por ello se decidió utilizarla técnica stemming, que es el proceso de transform
+ar una palabra en su raíz (stem).
+ Para el ejemplo anterior, todas esas palabras estarían identificadas por
+ su raíz, es decir, “aprend”.
  Con el Stemming se aumenta el recall sobre el número de palabras que se
  pueden encontrar en una consulta a la ontología.
- Por ejemplo, una consulta sobre el término “bibliotecas” encontrará instancias
- en las que solo aparezca “bibliotecario” ya que el stem de las dos palabras
- es el mismo (”bibliotec”).
+ Por ejemplo, una consulta sobre el término “bibliotecas” también encontrará
+ instancias en las que aparezca la palabra “bibliotecario” ya que el stem
+ de las dos palabras es el mismo (”bibliotec”).
  Para realizar el stemming se utiliza uno de los algoritmos más comunes
  y ampliamente usados, el algoritmo de Porter.
 \end_layout
@@ -1322,10 +1324,10 @@ Filtro Pesos
 
 \begin_layout Standard
 Este filtro es aplicado para enriquecer los tokens de la lista de tokens
- de casos de uso asignando un peso a cada token.
+ de casos de uso, asignando un peso a cada token.
  Este peso depende de la sección donde aparece la palabra.
  Es evidente que existen secciones en las cuáles las palabras que la forman
- tendran mayor importancia para el análisis.
+ tienen mayor importancia para el análisis.
  Por ejemplo, se asignará un peso alto a una palabra perteneciente al nombre
  o descripción del caso de uso, mientras que se asignará un peso más bajo
  a una palabra perteneciente a un flujo alternativo.
