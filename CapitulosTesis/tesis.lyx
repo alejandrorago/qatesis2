@@ -93,9 +93,30 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  definido en Aspect Extract Tool para la técnica de reconocimiento semántico,
  introducido en la sección XX.
  La técnica propuesta, a partir de esta información, crea las entidades
- Caso de Uso y Early Aspects con los cuál trabajará el algoritmo, basándose
- además en las relaciones entre estas entidades para agruparlos inicialmente
- en el Quality Attribute Theme.
+ Caso de Uso y Early Aspects 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+¿Esto significa que crea las clases UseCase y Aspecto?
+\end_layout
+
+\end_inset
+
+con los cuál trabajará el algoritmo
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Mmmm.
+ tecnicamente el algoritmo trabaja con la listas de tokens (el que viene
+ en la otra etapa), no se si te referiras a tro algoritmo
+\end_layout
+
+\end_inset
+
+, basándose además en las relaciones entre estas entidades para agruparlos
+ inicialmente en el Quality Attribute Theme.
  
 \end_layout
 
@@ -104,8 +125,28 @@ Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
  de la especificación de casos de uso y un early aspect, que en forma conjunta
  hacen referencia a un atributo de calidad.
  En esta etapa del proceso, se completará la información de los casos de
- uso y early aspect, mientras que se permanecerá pendiente instanciar la
- información del atributo de calidad.
+ uso y early aspect
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Esto es cierto, pero lo de instanciar parcialmente el QAT es automatico,
+ no te centras mucho en hablar de lo que realmente hace esta etapa.
+ Lo de QAT 
+\begin_inset Quotes eld
+\end_inset
+
+parcialmente instanciados
+\begin_inset Quotes erd
+\end_inset
+
+ no se si es tan importante
+\end_layout
+
+\end_inset
+
+, mientras que se permanecerá pendiente instanciar la información del atributo
+ de calidad.
  Esta información será, justamente, la que se calcule a través del algoritmo.
 \end_layout
 
@@ -115,6 +156,25 @@ Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
 	filename qat-inicial.PNG
 	scale 50
 	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+El grafico tampoco me convence :P.
+ No me parece muy descriptivo de esta etapa, la salida no es exactamente
+\end_layout
+
+\begin_layout Plain Layout
+los QATs iniciales.
+\end_layout
 
 \end_inset
 
@@ -138,7 +198,17 @@ Pre Procesamiento de los datos
 
 \begin_layout Standard
 El objetivo de esta tarea es procesar la entrada para dejar la información
- en un formato uniforme antes de que el algoritmo sea invocado.
+ en un formato uniforme antes de que el algoritmo
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Lo mismo, no se si queda claro a que algoritmo te referis
+\end_layout
+
+\end_inset
+
+ sea invocado.
  Este pre procesamiento es realizado a través de la separación de la información
  de las entidades de entrada en tokens.
  Se considera un token a una unidad básica de texto que puede ser enriquecida
