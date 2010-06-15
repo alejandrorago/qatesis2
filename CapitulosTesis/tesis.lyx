@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -72,24 +72,94 @@ Desarrollo de la técnica de identificación de atributos de calidad propuesta
 \end_layout
 
 \begin_layout Standard
-Acá iría el gráfico y explicaríamos cada una de las etapas por arriba.
+En el siguiente gráfico se pueden observar las tareas realizadas en la solución
+ propuesta.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Seba:modficar el grafico y ponerlo aca! DONE! :p
-\end_layout
-
-\begin_layout Plain Layout
-Fran: Hacer el texto de esto
-\end_layout
+\begin_inset Graphics
+	filename Tareas.jpeg
+	scale 30
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Las circunferencias que contienen los textos 
+\begin_inset Quotes eld
+\end_inset
+
+Casos de Uso
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+Aspecto Temprano
+\begin_inset Quotes erd
+\end_inset
+
+ son los datos de entrada.
+ la circunferencia que contiene el texto 
+\begin_inset Quotes eld
+\end_inset
+
+QualityAttributeTheme
+\begin_inset Quotes erd
+\end_inset
+
+ representa la salida de la tecnica.
+ La circunferencia que posee el texto 
+\begin_inset Quotes eld
+\end_inset
+
+Ontologia
+\begin_inset Quotes erd
+\end_inset
+
+ es precisamente una ontolgía que es utilizada en la solucion.
+ Los rectangulos representan tareas realizadas, mientras que als flechas
+ representan datos que fluyen de tarea a tarea.
+ 
+\end_layout
+
+\begin_layout Standard
+Básicamente el gráfico se divide en dos etapas: la de generación de las
+ listas de tokens y la del análisis de las listas de tokens.
+ 
+\end_layout
+
+\begin_layout Standard
+En la primera se toma la entrada de la herramienta Aspect Extractor Tool,
+ que consiste en casos de usos relacionados con aspectos tempranos.
+ A partir de estas entradas se crean listas de tokens, cada uno representandolas
+ palabras que los conforman esta entrada.
+ A estas listas luego se les realiza un filtrado, haciendo pasar cada token
+ por distintos filtros.
+ Cada filtro modifica el token de diferente manera, potencialmente agregando
+ propiedades adicionales a cada token que serán de utilidad en siguientes
+ tareas.
+\end_layout
+
+\begin_layout Standard
+En la segunda etapa se calcula el porcentaje de pertenencia de las listas
+ de tokens con los distintos atributos de calidad.
+ Para ello se itera sobre cada uno de los tokens invocando a la función
+ Grado de Pertenencia.
+ Esta función indica el porcentaje de asociación de cada palabra con los
+ distintos atributos de calidad.
+ Los resultados parciales de cada palabra se combinan en la tarea Algoritmo,
+ que calcula el resultado para el conjunto de la lista de tokens.
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
+ Theme.
 \end_layout
 
 \begin_layout Section
@@ -106,7 +176,7 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  uso, los aspectos tempranos detectados y las relaciones entre ellos.
  Los casos de uso respetan el estándar establecido por Rational introducido
  en la sección XX.
- De igual forma, la especificación de los early aspect siguen el formato
+ De igual forma, la especificación de los aspectos tempranos siguen el formato
  definido en Aspect Extract Tool para la técnica de reconocimiento semántico,
  introducido en la sección XX.
  La técnica propuesta con esta información crea las entidades Caso de Uso
@@ -189,7 +259,7 @@ Sección: se registra la sección a la cuál pertenece el token.
  Para el caso de los casos de uso, será alguna de las secciones establecidas
  por el template de Rational (nombre, descripción, flujo básico, actor,
  etc.) mientras que para el aspecto temprano sera alguna de las partes que
- conforman un aspecto temprano segun lo establecido en la herramienta Aspect
+ conforman un aspecto temprano según lo establecido en la herramienta Aspect
  Extractor Tool (nombre o par <verbo, objeto directo>).
 \end_layout
 
@@ -294,7 +364,7 @@ Registrar
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<seccion,name>
+<id,1>, <tipo,casodeuso>,<sección,name>
 \end_layout
 
 \end_inset
@@ -314,7 +384,7 @@ Usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<seccion,name>
+<id,2>, <tipo,casodeuso>,<sección,name>
 \end_layout
 
 \end_inset
@@ -334,7 +404,7 @@ Se
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,3>, <tipo,casodeuso>,<seccion,descripcion>
+<id,3>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -354,7 +424,7 @@ registran
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,4>, <tipo,casodeuso>,<seccion,descripcion>
+<id,4>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -374,7 +444,7 @@ los
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,5>, <tipo,casodeuso>,<seccion,descripcion>
+<id,5>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -394,7 +464,7 @@ datos
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<seccion,descripcion>
+<id,6>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -414,7 +484,7 @@ del
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,7>, <tipo,casodeuso>,<seccion,descripcion>
+<id,7>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -434,7 +504,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,8>, <tipo,casodeuso>,<seccion,descripcion>
+<id,8>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -454,7 +524,7 @@ en
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,9>, <tipo,casodeuso>,<seccion,descripcion>
+<id,9>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -474,7 +544,7 @@ el
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,10>, <tipo,casodeuso>,<seccion,descripcion>
+<id,10>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -494,7 +564,7 @@ sistema
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<seccion,descripcion>
+<id,11>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -530,19 +600,6 @@ Como se mencionó en la sección anterior, el filtrado de los tokens es otra
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Seba: poner filtros
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Se considera que un filtro es una unidad de procesamiento que realiza una
  modificación (enriquece, refina o transforma) sobre los datos de entrada
  y los copia a la salida para que otro filtro trabaje sobre los mismos datos.
@@ -551,11 +608,11 @@ Se considera que un filtro es una unidad de procesamiento que realiza una
 \end_layout
 
 \begin_layout Standard
-El patrón de arquitectura de tuberias y filtros provee una estructura para
+El patrón de arquitectura de tuberías y filtros provee una estructura para
  procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
- Los datos se pasan usando las tuberias entre filtros adyacentes y mediante
+ Los datos se pasan usando las tuberías entre filtros adyacentes y mediante
  la combinación de los filtros se pueden conseguir distintas salidas.
  Las ventajas de utilizar este concepto es:
 \end_layout
@@ -573,7 +630,7 @@ los datos pueden tener diferentes formatos;
 \end_layout
 
 \begin_layout Itemize
-se pueden agregar facilmente etapas intermedias;
+se pueden agregar fácilmente etapas intermedias;
 \end_layout
 
 \begin_layout Itemize
@@ -1027,7 +1084,7 @@ Filtro Stemming
 \end_layout
 
 \begin_layout Standard
-Diferentes palabras pueden tener el mismo significado, dede el punto de
+Diferentes palabras pueden tener el mismo significado desde el punto de
  vista semántico, pero no tener exactamente la misma secuencia de caracteres.
  Un ejemplo de esto pueden ser las palabras aprender, aprenden y aprendió,
  que, desde el enfoque en este trabajo, tienen el mismo significado.
@@ -1041,7 +1098,7 @@ ar una palabra en su raíz (stem).
 
 \begin_layout Standard
 Por lo tanto, a través de este filtro, se modifican los tokens de la lista
- llevando la palabra de cada token a su raiz.
+ llevando la palabra de cada token a su raíz.
 \end_layout
 
 \begin_layout Standard
@@ -1235,7 +1292,7 @@ Ocurrencias: número de ocurrencias del token en la lista.
  Esta particularidad se debe a que luego los tokens son ponderados y debe
  respetarse la sección en la cual aparece el token a la hora de asignarle
  su peso.
- Por lo tanto, existiran tokens con la misma palabra pero diferente sección.
+ Por lo tanto, existirán tokens con la misma palabra pero diferente sección.
  
 \end_layout
 
@@ -1664,7 +1721,7 @@ Por cada palabra de cada una de la lista de palabras se averigua el grado
  de pertenencia de esa palabra con los distintos atributos de calidad.
  Es decir, qué tan ligada se encuentra esa palabra con los distintos atributos
  de calidad y en que porcentaje o grado.
- Para ello se invoca, por cada token, a la funcion 
+ Para ello se invoca, por cada token, a la función 
 \shape italic
 Grado de pertenencia
 \shape default
@@ -1704,7 +1761,7 @@ Grado de Pertenencia
  Para realizar este cálculo, la función se basa en el análisis de una ontología
  previamente definida y que se supone cargada por un experto.
  En las siguiente subsecciones se detallará y describirá la ontología usada,
- para luego, en la siguiente seccion, explicitar el funcionamiento de la
+ para luego, en la siguiente sección, explicitar el funcionamiento de la
  función GP.
 \end_layout
 
@@ -1748,7 +1805,7 @@ key "key-2"
 
  Las ontologías incluyen definiciones de conceptos básicos del dominio,
  y las relaciones entre ellos.
- Tambien codifican el conocimiento de un dominio específico y el conocimiento
+ También codifican el conocimiento de un dominio específico y el conocimiento
  que extiende de los dominios.
  
 \end_layout
@@ -1841,7 +1898,7 @@ Clases Generalmente el foco de cualquier ontología, las clases son las ideas
  los vinos.
  Una clase también puede tener sub-clases que representan conceptos que
  son mas específicos que las superclases.
- Por ejemplo, sublclases de la clase “Vino” podrían ser “Tinto”, “Blanco”,
+ Por ejemplo, subclases de la clase “Vino” podrían ser “Tinto”, “Blanco”,
  “Rosado”, etc.
  
 \end_layout
@@ -1881,7 +1938,7 @@ Lenguajes de implementación de ontologías: OWL
 \end_layout
 
 \begin_layout Standard
-OWL (Ontology Web Languague) es un lenguaje web para ontologías compatible
+OWL (Ontology Web Language) es un lenguaje web para ontologías compatible
  con la World Wide Web .
  Este es utilizado cuando la información contenida en los documentos necesitan
  ser procesados por las aplicaciones, a diferencia de situaciones en que
@@ -2142,24 +2199,24 @@ dos.
 \end_layout
 
 \begin_layout Subsection
-Funcion Grado de Pertenencia (GP)
+Función Grado de Pertenencia (GP)
 \end_layout
 
 \begin_layout Standard
-La funcion Grado de pertenencia toma como parametro de entrada una secuencia
+La función Grado de pertenencia toma como parámetro de entrada una secuencia
  de caracteres que representa una palabra y devuelve un conjunto de atributos
  de calidad, asociados cada uno con un porcentaje.
- Este porcentaje indica el grado o porcentaje de asociacion o pertenencia
+ Este porcentaje indica el grado o porcentaje de asociación o pertenencia
  que tiene ese palabra con cada atributo de calidad.
- Para realizar este cálculo, la funcion consulta las instancias de la ontologia
+ Para realizar este cálculo, la función consulta las instancias de la ontología
  formada por los conceptos y relaciones explicadas anteriormente.
  Se supone que las instancias han sido creadas por un experto.
 \end_layout
 
 \begin_layout Standard
-Basicamente esta funcion consta de dos partes.
+Básicamente esta función consta de dos partes.
  La primera es averiguar a que parte del escenario corresponde la palabra.
- Es decir, descubrir si corresponede a una Fuente, a un Estimulo o a alguna
+ Es decir, descubrir si corresponde a una Fuente, a un Estimulo o a alguna
  otra.
  Una vez reconocida la instancia a la que se corresponde la palabra, se
  averigua cuantos y cuales escenarios se relacionan con esa instancia.
@@ -2170,7 +2227,7 @@ Basicamente esta funcion consta de dos partes.
 status collapsed
 
 \begin_layout Plain Layout
-En la seccion 
+En la sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Mapa"
@@ -2187,7 +2244,7 @@ reference "sub:Mapa"
 \end_layout
 
 \begin_layout Subsubsection
-Relacion entre una palabra y una parte del escenario
+Relación entre una palabra y una parte del escenario
 \end_layout
 
 \begin_layout Standard
@@ -2217,13 +2274,13 @@ ConcreteResponse
 ConcreteResponseMeasure.
  
 \shape default
-Basicamente, al arribar la palabra X se intenta responder a la pregunta,
+Básicamente, al arribar la palabra X se intenta responder a la pregunta,
  ¿ es X una fuente, un estimulo, un ambiente, un artefacto, una respuesta
  o una medida de respuesta?
 \end_layout
 
 \begin_layout Standard
-Esta tarea podria parecer trivial, pero no lo es tanto.
+Esta tarea podría parecer trivial, pero no lo es tanto.
  El caso ideal es que exista una sola instancia, de alguna de esas seis,
  que se corresponda con la palabra.
 \end_layout
@@ -2269,7 +2326,7 @@ user
 \end_inset
 
 .
- En este caso hay una sola instancia en la ontologia, la Instancia_1, que
+ En este caso hay una sola instancia en la ontología, la Instancia_1, que
  es de tipo ConcreteSource, que mediante la propiedad concreteScenarioPartDescri
 ption posee el valor 
 \begin_inset Quotes eld
@@ -2283,7 +2340,7 @@ user
 \end_layout
 
 \begin_layout Standard
-Distinto es el caso en el que la misma palabra pueda representar, simultaneament
+Distinto es el caso en el que la misma palabra pueda representar, simultáneament
 e, distintas partes de un escenario.
  La siguiente figura ilustra este caso.
 \end_layout
@@ -2307,14 +2364,14 @@ system
 \begin_inset Quotes erd
 \end_inset
 
- podria ser una fuente o un artefacto.
- Lo que lleva a la cuestion de decidir entre ambas opciones.
+ podría ser una fuente o un artefacto.
+ Lo que lleva a la cuestión de decidir entre ambas opciones.
  Para ello se chequea con cuantos escenarios se relacionan cada una de las
  instancias.
  Será elegida como significado semántico de la palabra la instancia que
  se relacione con un mayor numero de escenarios.
- En este ultimo caso si la instancia_1 se relaciona con 3 escenerios y la
- instancia_2 con 6, se retorna la instancia_2, tomandose como que la palabra
+ En este ultimo caso si la instancia_1 se relaciona con 3 escenarios y la
+ instancia_2 con 6, se retorna la instancia_2, tomándose como que la palabra
  
 \begin_inset Quotes eld
 \end_inset
@@ -2327,7 +2384,7 @@ system
 \end_layout
 
 \begin_layout Subsubsection
-Obtencion de porcentajes de atributos de calidad para una palabra
+Obtención de porcentajes de atributos de calidad para una palabra
 \end_layout
 
 \begin_layout Standard
@@ -2339,11 +2396,11 @@ Una vez que, dada una palabra, se ha encontrado la instancia de alguna parte
 
 \begin_layout Standard
 En este momento se puede pensar que la salida es una lista de pares <Atributo
- de calidad, valor>, en donde valor indica el porcentaje de asosiacion de
+ de calidad, valor>, en donde valor indica el porcentaje de asociación de
  esa palabra con ese atributo de calidad.
  La suma de los valores de la lista es igual a 1 o a 100%.
  Como se dijo anteriormente, mas adelante se definirá un Mapa, que es al
- salida real de esta funcion.
+ salida real de esta función.
 \end_layout
 
 \begin_layout Standard
@@ -2357,8 +2414,8 @@ Para encontrar estos porcentajes, primero se recuperan todos los escenarios
 \end_layout
 
 \begin_layout Standard
-Por ejemplo, supongase que como entrada se obtuvo el término "latency".
- Despues del paso anterior, se encuentra que esa palabra se corresponde
+Por ejemplo, supóngase que como entrada se obtuvo el término "latency".
+ Después del paso anterior, se encuentra que esa palabra se corresponde
  con la instancia_48 que es de tipo 
 \begin_inset Quotes eld
 \end_inset
@@ -2375,24 +2432,24 @@ Response Measure
  De esta manera podemos concluir que ese concepto, latency, se relaciona
  en un 75% de certeza con "Performance", 20% con "Aviability" y 5% con "Modifica
 bility".
- En este caso la función finalemente devolvería <Performance 0.75, Aviability
+ En este caso la función finalmente devolvería <Performance 0.75, Aviability
  0.2, Modificability 0.05>.
- (Agrega un ejemplo gŕafico)
+ (Agrega un ejemplo gráfico)
 \end_layout
 
 \begin_layout Subsection
-Algoritmo basado en la onologia
+Algoritmo basado en la ontología
 \end_layout
 
 \begin_layout Standard
-En esta seccion se estudiará el algoritmo que, finalmente, asigna un conjunto
+En esta sección se estudiará el algoritmo que, finalmente, asigna un conjunto
  de atributos de calidad, con un porcentaje cada uno, a un conjunto de casos
  uso relacionados con un aspecto temprano.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
- lista de tokens extraidos de los casos de uso y otra del aspecto temprano.
+ lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
  Para su análisis, este algoritmo utiliza estos atributos del token, además
- de la funcion GP (Grado de pertenencia) explicada en la seccion anterior.
+ de la función GP (Grado de pertenencia) explicada en la sección anterior.
 \end_layout
 
 \begin_layout Standard
@@ -2422,7 +2479,7 @@ Se define un mapa como una conjunto de tuplas <K,V> , donde a K se lo denomina
 
 \begin_layout Standard
 En este algoritmo se usará como claves los nombres de los atributos de calidad
- y los valores seran numeros reales entre 0 y 1.
+ y los valores serán números reales entre 0 y 1.
 \end_layout
 
 \begin_layout Paragraph
@@ -2492,12 +2549,12 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
 \begin_inset Formula $M\times x=(<K_{1},a\times x>;<K_{2},b\times x>)$
 \end_inset
 
-, siendo a,b y x numeros reales; M un mapa; K1,K2 claves del mapa.
+, siendo a,b y x números reales; M un mapa; K1,K2 claves del mapa.
  
 \end_layout
 
 \begin_layout Subsubsection
-Exlplicacion del algoritmo
+Explicación del algoritmo
 \end_layout
 
 \begin_layout Standard
@@ -2589,7 +2646,7 @@ en donde k es un numero real entre 0 y 1.
 \end_layout
 
 \begin_layout Standard
-(Agrega ejemplo gŕafico)
+(Agrega ejemplo gráfico)
 \end_layout
 
 \begin_layout Bibliography
