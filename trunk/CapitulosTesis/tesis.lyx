@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -93,7 +93,7 @@ Fran: Hacer el texto de esto
 \end_layout
 
 \begin_layout Section
-Análisis de la Entrada
+Generación de la Lista de Tokens
 \end_layout
 
 \begin_layout Standard
@@ -103,14 +103,14 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  Aspect Extractor Tool [REF].
  Se considera que la salida de dicha herramienta, luego del procesamiento
  con la técnica de “Análisis Semántico” [REF], es una lista de casos de
- uso, los early aspects detectados y las relaciones entre ellos.
+ uso, los aspectos tempranos detectados y las relaciones entre ellos.
  Los casos de uso respetan el estándar establecido por Rational introducido
  en la sección XX.
  De igual forma, la especificación de los early aspect siguen el formato
  definido en Aspect Extract Tool para la técnica de reconocimiento semántico,
  introducido en la sección XX.
  La técnica propuesta con esta información crea las entidades Caso de Uso
- y Early Aspects, basándose además en las relaciones entre estas entidades
+ y Aspecto Temprano, basándose además en las relaciones entre estas entidades
  para agruparlos inicialmente en el Quality Attribute Theme.
  A partir de estas entidades se confeccionaran las listas de palabras tokens,
  las cuales serán la entrada de la próxima etapa, quien será la responsable
@@ -136,13 +136,13 @@ Para este análisis en necesario realizar dos tareas principales.
  filtrado sobre los mismos.
  En estas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
- del early aspect, las cuales serán relevantes para la identificación del
- atributo de calidad involucrado.
+ del aspecto temprano, las cuales serán relevantes para la identificación
+ del atributo de calidad involucrado.
  
 \end_layout
 
 \begin_layout Subsection
-Procesamiento de los datos
+Procesamiento de la Entrada
 \end_layout
 
 \begin_layout Standard
@@ -170,7 +170,7 @@ s:4>, etc.
 \begin_layout Standard
 El resultado de este pre procesamiento es una lista de tokens para las palabras
  obtenidas de los casos de uso y otra lista de tokens para las palabras
- del early aspect en cuestión.
+ del aspecto temprano en cuestión.
  Al realizar la división de la entrada en tokens, se agregan además los
  siguientes atributos para cada token:
 \end_layout
@@ -181,16 +181,16 @@ Id: identificador único del token.
 
 \begin_layout Itemize
 Tipo: este atributo representa el tipo de documento del cuál se extrajo
- el token (en este punto será Early Aspect o Caso de Uso).
+ el token (en este punto será Aspecto Temprano o Caso de Uso).
 \end_layout
 
 \begin_layout Itemize
 Sección: se registra la sección a la cuál pertenece el token.
  Para el caso de los casos de uso, será alguna de las secciones establecidas
  por el template de Rational (nombre, descripción, flujo básico, actor,
- etc.) mientras que para el early aspect sera alguna de las partes que conforman
- un early aspect segun lo establecido en la herramienta Aspect Extractor
- Tool (nombre o par <verbo, objeto directo>).
+ etc.) mientras que para el aspecto temprano sera alguna de las partes que
+ conforman un aspecto temprano segun lo establecido en la herramienta Aspect
+ Extractor Tool (nombre o par <verbo, objeto directo>).
 \end_layout
 
 \begin_layout Standard
@@ -508,15 +508,14 @@ sistema
 \end_layout
 
 \begin_layout Subsection
-Filtrado de las listas de tokens
+Filtrado de las Listas de Tokens
 \end_layout
 
 \begin_layout Standard
 Como se mencionó en la sección anterior, el filtrado de los tokens es otra
- de las tareas que se realiza sobre la entrada.
+ de las tareas que se realiza sobre la información de entrada.
  En este caso, se ejecutan una serie de filtros sobre los tokens de las
- listas de casos de uso y early aspects.
- 
+ listas de casos de uso y de aspectos tempranos.
 \end_layout
 
 \begin_layout Standard
@@ -562,7 +561,7 @@ El patrón de arquitectura de tuberias y filtros provee una estructura para
 \end_layout
 
 \begin_layout Itemize
-futuros cambios intercambiando algunos filtros;
+permite futuros cambios intercambiando algunos filtros;
 \end_layout
 
 \begin_layout Itemize
@@ -570,11 +569,15 @@ pequeñas transformaciones son más fácilmente reutilizadas;
 \end_layout
 
 \begin_layout Itemize
-los datos pueden tener diferentes formatos.
+los datos pueden tener diferentes formatos;
 \end_layout
 
 \begin_layout Itemize
-se pueden agregar facilmente etapas intermedias
+se pueden agregar facilmente etapas intermedias;
+\end_layout
+
+\begin_layout Itemize
+reutilización de los filtros
 \end_layout
 
 \begin_layout Standard
@@ -1624,54 +1627,13 @@ sistem
 \end_layout
 
 \begin_layout Standard
-Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
- debido a que se considera que todas las palabras dentro del early aspect
- tienen el mismo peso para el algoritmo.
+Para el caso de los aspectos tempranos no es necesario aplicar el filtro
+ de peso debido a que se considera que todas las palabras dentro del aspecto
+ temprano tienen el mismo peso para el algoritmo.
  Esta diferencia radica en que el caso de uso está dividido en secciones
  y se considera, en esta técnica, que hay secciones que deben ser ponderadas
  sobre otras.
  
-\end_layout
-
-\begin_layout Subsubsection
-Conclusión de la etapa
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Seba: borrar esto, o hacerlo y ponerle un nombre so conclusion no te gusta
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Los filtros ejecutados sobre la lista de tokens de Casos de Uso son:
-\end_layout
-
-\begin_layout Itemize
-Lower Case
-\end_layout
-
-\begin_layout Itemize
-Stop Words
-\end_layout
-
-\begin_layout Itemize
-Stemming
-\end_layout
-
-\begin_layout Itemize
-Ocurrencias
-\end_layout
-
-\begin_layout Itemize
-Pesos
 \end_layout
 
 \begin_layout Section
@@ -2543,7 +2505,7 @@ Como se ha dicho anteriormente este algoritmo tiene como entrada dos listas
  de tokens extraídos de los casos de uso y del aspecto temprano.
  Así, se denomina como UCL[] a un arreglo compuesto por tokens extraídos
  de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
- Early Aspect.
+ aspecto temprano.
 \end_layout
 
 \begin_layout Standard
