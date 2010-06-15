@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -75,6 +75,23 @@ Desarrollo de la técnica de identificación de atributos de calidad propuesta
 Acá iría el gráfico y explicaríamos cada una de las etapas por arriba.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Seba:modficar el grafico y ponerlo aca
+\end_layout
+
+\begin_layout Plain Layout
+Fran: Hacer el texto de esto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Análisis de la Entrada
 \end_layout
@@ -83,10 +100,10 @@ Análisis de la Entrada
 Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  y sintáctico sobre los textos definidos como entrada para esta técnica.
  Esta entrada es la información generada como salida por la herramienta
- Aspect Extractor Tool [X].
+ Aspect Extractor Tool [REF].
  Se considera que la salida de dicha herramienta, luego del procesamiento
- con la técnica de “Análisis Semántico” [X], es una lista de casos de uso,
- los early aspects detectados y las relaciones entre ellos.
+ con la técnica de “Análisis Semántico” [REF], es una lista de casos de
+ uso, los early aspects detectados y las relaciones entre ellos.
  Los casos de uso respetan el estándar establecido por Rational introducido
  en la sección XX.
  De igual forma, la especificación de los early aspect siguen el formato
@@ -95,20 +112,9 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  La técnica propuesta con esta información crea las entidades Caso de Uso
  y Early Aspects, basándose además en las relaciones entre estas entidades
  para agruparlos inicialmente en el Quality Attribute Theme.
- A partir de estas entidades se confeccionaran las listas de palabras relevantes
- con los cuál trabajará el algoritmo.
-\end_layout
-
-\begin_layout Standard
-Un Quality Attribute Theme (QAT), básicamente está formado por un subconjunto
- de la especificación de casos de uso y un early aspect, que en forma conjunta
- hacen referencia a un atributo de calidad.
- En esta etapa del proceso, se completará la información de los casos de
- uso y early aspect, y se proveera la listas de palabras relevantes a la
- siguiente etapa, quien será la responsable de instanciar la información
- referida al atributo de calidad.
- Esta información será, justamente, la que el algortimo calcule a partir
- de las listas de tokens.
+ A partir de estas entidades se confeccionaran las listas de palabras tokens,
+ las cuales serán la entrada de la próxima etapa, quien será la responsable
+ de instanciar la información referida al atributo de calidad.
 \end_layout
 
 \begin_layout Standard
@@ -181,7 +187,7 @@ Tipo: este atributo representa el tipo de documento del cuál se extrajo
 \begin_layout Itemize
 Sección: se registra la sección a la cuál pertenece el token.
  Para el caso de los casos de uso, será alguna de las secciones establecidas
- por el template de rational (nombre, descripción, flujo básico, actor,
+ por el template de Rational (nombre, descripción, flujo básico, actor,
  etc.) mientras que para el early aspect sera alguna de las partes que conforman
  un early aspect segun lo establecido en la herramienta Aspect Extractor
  Tool (nombre o par <verbo, objeto directo>).
@@ -288,7 +294,7 @@ Registrar
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>
+<id,1>, <tipo,casodeuso>,<seccion,name>
 \end_layout
 
 \end_inset
@@ -308,7 +314,7 @@ Usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>
+<id,2>, <tipo,casodeuso>,<seccion,name>
 \end_layout
 
 \end_inset
@@ -328,7 +334,7 @@ Se
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,3>, <tipo,casodeuso>,<section,description>
+<id,3>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -348,7 +354,7 @@ registran
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,4>, <tipo,casodeuso>,<section,description>
+<id,4>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -368,7 +374,7 @@ los
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,5>, <tipo,casodeuso>,<section,description>
+<id,5>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -388,7 +394,7 @@ datos
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>
+<id,6>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -408,7 +414,7 @@ del
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,7>, <tipo,casodeuso>,<section,description>
+<id,7>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -428,7 +434,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,8>, <tipo,casodeuso>,<section,description>
+<id,8>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -448,7 +454,7 @@ en
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,9>, <tipo,casodeuso>,<section,description>
+<id,9>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -468,7 +474,7 @@ el
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,10>, <tipo,casodeuso>,<section,description>
+<id,10>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -488,7 +494,7 @@ sistema
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>
+<id,11>, <tipo,casodeuso>,<seccion,descripcion>
 \end_layout
 
 \end_inset
@@ -502,16 +508,14 @@ sistema
 \end_layout
 
 \begin_layout Subsection
-Filtrado de los datos
+Filtrado de las listas de tokens
 \end_layout
 
 \begin_layout Standard
-Como se mencionó en la sección anterior, el filtrado de los datos es otra
+Como se mencionó en la sección anterior, el filtrado de los tokens es otra
  de las tareas que se realiza sobre la entrada.
  En este caso, se ejecutan una serie de filtros sobre los tokens de las
  listas de casos de uso y early aspects.
- Estos filtros, además, serán utilizados luego para el formateo de las palabras
- de la ontología.
  
 \end_layout
 
@@ -520,6 +524,19 @@ Como se mencionó en la sección anterior, el filtrado de los datos es otra
 	filename etapa-filtrado.JPG
 	scale 40
 	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Seba: poner filtros
+\end_layout
 
 \end_inset
 
@@ -572,8 +589,12 @@ Filtro Lower Case
 \end_layout
 
 \begin_layout Standard
-Este filtro es el encargado de pasar las palabras a minúsculas.
- Siguiendo el ejemplo anterior, solo se modifican los tokens que su palabra
+Este filtro es el encargado de pasar las palabras de los tokens a minúsculas.
+ 
+\end_layout
+
+\begin_layout Standard
+Siguiendo el ejemplo anterior, solo se modifican los tokens que su palabra
  contenga al menos una mayúscula.
 \end_layout
 
@@ -841,8 +862,8 @@ Se eliminan las denominadas stop-words, que son palabras que, desde el punto
  En el caso del idioma Español se pueden mencionar artículos, preposiciones,
  etc.
  (por ejemplo: a, de, del, el, en, ella, los, se).
- Por lo tanto, este filtro elimina de la lista de tokens aquellos que la
- palabra aparezca en la lista de stop-words dada.
+ Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
+ cuales su palabra aparezca en la lista de stop-words dada.
 \end_layout
 
 \begin_layout Standard
@@ -1005,17 +1026,12 @@ Filtro Stemming
 \begin_layout Standard
 Diferentes palabras pueden tener el mismo significado, dede el punto de
  vista semántico, pero no tener exactamente la misma secuencia de caracteres.
- Un ejemplo de esto pueden ser las palabras aprender, aprenden, aprendió,
- aprender, que, desde el enfoque en este trabajo, tienen el mismo significado.
+ Un ejemplo de esto pueden ser las palabras aprender, aprenden y aprendió,
+ que, desde el enfoque en este trabajo, tienen el mismo significado.
  Por ello se decidió utilizarla técnica stemming, que es el proceso de transform
 ar una palabra en su raíz (stem).
  Para el ejemplo anterior, todas esas palabras estarían identificadas por
  su raíz, es decir, “aprend”.
- Con el Stemming se aumenta el recall sobre el número de palabras que se
- pueden encontrar en una consulta a la ontología.
- Por ejemplo, una consulta sobre el término “bibliotecas” también encontrará
- instancias en las que aparezca la palabra “bibliotecario” ya que el stem
- de las dos palabras es el mismo (”bibliotec”).
  Para realizar el stemming se utiliza uno de los algoritmos más populares
  y conocidos, el algoritmo de Porter.
 \end_layout
@@ -1608,6 +1624,33 @@ sistem
 \end_layout
 
 \begin_layout Standard
+Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
+ debido a que se considera que todas las palabras dentro del early aspect
+ tienen el mismo peso para el algoritmo.
+ Esta diferencia radica en que el caso de uso está dividido en secciones
+ y se considera, en esta técnica, que hay secciones que deben ser ponderadas
+ sobre otras.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Conclusión de la etapa
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Seba: borrar esto, o hacerlo y ponerle un nombre so conclusion no te gusta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Los filtros ejecutados sobre la lista de tokens de Casos de Uso son:
 \end_layout
 
@@ -1629,18 +1672,6 @@ Ocurrencias
 
 \begin_layout Itemize
 Pesos
-\end_layout
-
-\begin_layout Standard
-Para el caso de los Early Aspect no es necesario aplicar el filtro de peso
- debido a que se considera que todas las palabras dentro del early aspect
- tienen el mismo peso para el algoritmo.
- Esta diferencia radica en que el caso de uso está dividido en secciones
- y claramente hay secciones que deben ser ponderadas sobre otras.
- De igual forma a la hora de formatear la ontología no se correrán todos
- los filtros sobre las palabras de la misma.
- Solo será necesario correr los tres primeros filtros para dejar las palabras
- pertenecientes a la ontología en el mismo formato que las listas de tokens.
 \end_layout
 
 \begin_layout Section
@@ -1669,27 +1700,27 @@ ola de acuerdo a su peso y dejando constancia del numero de ocurrencias.
 \begin_layout Standard
 Por cada palabra de cada una de la lista de palabras se averigua el grado
  de pertenencia de esa palabra con los distintos atributos de calidad.
- Es decir, que tan ligada se encuentra esa palabra con los distintos atributos
+ Es decir, qué tan ligada se encuentra esa palabra con los distintos atributos
  de calidad y en que porcentaje o grado.
  Para ello se invoca, por cada token, a la funcion 
 \shape italic
 Grado de pertenencia
 \shape default
-, que hace uso de una ontología.
+, la cual hace uso de una ontología.
 \end_layout
 
 \begin_layout Standard
-El mecanismo anterior se repite para cada palabra y los resultados individuales
+El mecanismo anterior se repite para cada token y los resultados individuales
  de cada una se combinan en una ecuación definida, que tiene en cuenta el
- peso de cada uno de los tokens y el numero de ocurrencias de la misma,
- y que da como resultado un conjunto de atributos de calidad y un porcentaje
- asociado a cada uno de ellos.
+ peso de cada uno de los tokens y el numero de ocurrencias del mismo, y
+ da como resultado un conjunto de atributos de calidad y un porcentaje asociado
+ a cada uno de ellos.
  
 \end_layout
 
 \begin_layout Standard
-Los cálculos anteriores se aplican a cada una de las listas, las de los
- casos de uso y la del aspecto temprano.
+Los cálculos anteriores se aplican a cada una de las listas, la de los casos
+ de uso y la del aspecto temprano.
  Finalmente estos resultados parciales se combinan, obteniendo los resultados
  finales.
  
@@ -1711,8 +1742,8 @@ Grado de Pertenencia
  Para realizar este cálculo, la función se basa en el análisis de una ontología
  previamente definida y que se supone cargada por un experto.
  En las siguiente subsecciones se detallará y describirá la ontología usada,
- para luego en la siguiente seccion explicitar el funcionamiento de la función
- GP.
+ para luego, en la siguiente seccion, explicitar el funcionamiento de la
+ función GP.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1722,7 +1753,7 @@ Definición de Ontología
 \begin_layout Standard
 La literatura de Inteligencia Artificial contiene varias definiciones de
  ontologías, muchas veces contradictorias entre ellas.
- En este trabajo se acuerda en definir una ontología de la siguiente manera:
+ En este trabajo se acuerda en definir a una ontología de la siguiente manera:
  
 \end_layout
 
@@ -1732,8 +1763,8 @@ La literatura de Inteligencia Artificial contiene varias definiciones de
 
 Una ontología es un modelo de datos que describe conceptos en un dominio
  del discurso (también llamados clases), propiedades de cada concepto que
- describen las diversas características y atributos del concepto (slots,
- también llamados propiedades o roles) y restricciones sobre los slots.”
+ describen las diversas características y atributos del concepto, y restriccione
+s sobre esas propiedades.”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-1"
@@ -1754,10 +1785,14 @@ key "key-2"
 \end_inset
 
  Las ontologías incluyen definiciones de conceptos básicos del dominio,
- y las relaciones entre ellos, que son útiles para los sistemas, codifican
- el conocimiento de un dominio específico y también el conocimiento que
- extiende de los dominios.
- Un dominio específico es la parte del mundo que se quiere modelar.
+ y las relaciones entre ellos.
+ Tambien codifican el conocimiento de un dominio específico y el conocimiento
+ que extiende de los dominios.
+ 
+\end_layout
+
+\begin_layout Standard
+Un dominio específico es la parte del mundo que se quiere modelar.
  Representa el significado aplicado a los términos usados en la construcción
  de la ontología.
  Una ontología es la descripción de los conceptos que forman parte del dominio
@@ -1765,9 +1800,13 @@ key "key-2"
  Un sistema sólo conoce lo que puede representar en algún lenguaje, por
  lo tanto, todo lo que no se exprese en la ontología no será conocido para
  el sistema que use la ontología.
- Un beneficio principal cuando una ontología es creada es:”Compartir el
- entendimiento común de la estructura de información entre personas y sistemas
- de software” 
+ 
+\end_layout
+
+\begin_layout Standard
+Un beneficio principal cuando una ontología es creada es:”Compartir el entendimi
+ento común de la estructura de información entre personas y sistemas de
+ software” 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
@@ -1848,8 +1887,8 @@ Clases Generalmente el foco de cualquier ontología, las clases son las ideas
 \begin_layout Description
 Instancias Las instancias son representaciones de objetos determinados de
  un concepto.
- Siguiendo el ejemplo anterior, un vinos específicos son instancias de la
- clase “Vino”.
+ Siguiendo el ejemplo anterior, vinos específicos son instancias de la clase
+ “Vino”.
  Una botella de NewAge que se vende en el supermercado es una instancia
  de la clase “Vino”.
  
@@ -1882,12 +1921,12 @@ Lenguajes de implementación de ontologías: OWL
 \begin_layout Standard
 OWL (Ontology Web Languague) es un lenguaje web para ontologías compatible
  con la World Wide Web .
- OWL es utilizado cuando la información contenida en los documentos necesitan
+ Este es utilizado cuando la información contenida en los documentos necesitan
  ser procesados por las aplicaciones, a diferencia de situaciones en que
  el contenido sólo es necesario presentar a los seres humanos.
- OWL puede ser utilizado para representar explícitamente el significado
- de los términos en los vocabularios y las relaciones entre esos términos
- (justamente una ontología).
+ Puede ser utilizado para representar explícitamente el significado de los
+ términos en los vocabularios y las relaciones entre esos términos (justamente
+ una ontología).
  OWL tiene más facilidades para expresar el sentido y la semántica que otros
  lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
  lenguajes en su capacidad para representar a la máquina de contenido interpreta
@@ -1907,9 +1946,9 @@ key "key-4"
  Web.
  Lenguajes anteriores han sido utilizados para desarrollar herramientas
  y ontologías destinadas a comunidades específicas (especialmente para ciencias
- y aplicaciones específicas de comercio electrónico), no fueron definidos
- para ser compatibles con la arquitectura de la World Wide Web en general,
- y la Web Semántica en particular.
+ y aplicaciones específicas de comercio electrónico).
+ Además no fueron definidos para ser compatibles con la arquitectura de
+ la World Wide Web en general, y la Web Semántica en particular.
  
 \end_layout
 
@@ -1940,7 +1979,11 @@ key "key-5"
 
 \end_inset
 
-.Luego de la misma se brinda una explicación y justificación de los conceptos
+.
+\end_layout
+
+\begin_layout Standard
+Luego de la misma se brinda una explicación y justificación de los conceptos
  y de las relaciones que se presentan en la ontología.
 \end_layout
 
@@ -2108,18 +2151,18 @@ Quality-Attribute Scenario,
 \shape default
 mientras que los conceptos 
 \shape italic
-Quality-Attribute Scenario
+Concrete Quality-Attribute Scenario
 \shape default
  y 
 \shape italic
-Quality-Attribute Scenario
+General Quality-Attribute Scenario
 \shape default
  derivan del mismo.
  A su vez la relación 
 \series bold
 isDerivedFrom
 \series default
- deja constancia del hecho de que un escenario concreta deriva de uno general,
+ deja constancia del hecho de que un escenario concreto deriva de uno general,
  haciendo las partes del últimos especificas de un sistema bajo consideración.
 \begin_inset Newline newline
 \end_inset
@@ -2186,7 +2229,7 @@ Relacion entre una palabra y una parte del escenario
 \end_layout
 
 \begin_layout Standard
-En esta parte intenta identificar si la palabra se corresponde con alguna
+En esta parte se intenta identificar si la palabra se corresponde con alguna
  instancia de los conceptos de 
 \shape italic
 ConcreteSource
@@ -2304,7 +2347,7 @@ system
 
  podria ser una fuente o un artefacto.
  Lo que lleva a la cuestion de decidir entre ambas opciones.
- Para ello se cheque con cuantos escenarios se relacionan cada una de las
+ Para ello se chequea con cuantos escenarios se relacionan cada una de las
  instancias.
  Será elegida como significado semántico de la palabra la instancia que
  se relacione con un mayor numero de escenarios.
@@ -2326,7 +2369,7 @@ Obtencion de porcentajes de atributos de calidad para una palabra
 \end_layout
 
 \begin_layout Standard
-Una vez que, dada una palabra, se ha encontrada la instancia de alguna parte
+Una vez que, dada una palabra, se ha encontrado la instancia de alguna parte
  de un escenario que se corresponde con esa palabra, se dispone a obtener
  los distintos porcentajes de los distintos atributos de calidad que se
  relacionan con esa palabra.
@@ -2342,7 +2385,7 @@ En este momento se puede pensar que la salida es una lista de pares <Atributo
 \end_layout
 
 \begin_layout Standard
-Para encontrar estos porcentajes, primero se recupera todos los escenarios
+Para encontrar estos porcentajes, primero se recuperan todos los escenarios
  que se relacionan con la instancia encontrada en el paso anterior.
  Cada uno de estos escenarios se relaciona con un atributo de calidad mediante
  la propiedad isSpecifOf.
@@ -2372,7 +2415,7 @@ Response Measure
 bility".
  En este caso la función finalemente devolvería <Performance 0.75, Aviability
  0.2, Modificability 0.05>.
- 
+ (Agrega un ejemplo gŕafico)
 \end_layout
 
 \begin_layout Subsection
@@ -2385,7 +2428,7 @@ En esta seccion se estudiará el algoritmo que, finalmente, asigna un conjunto
  uso relacionados con un aspecto temprano.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraidos de los casos de uso y otra del aspecto temprano.
- Cada uno de estos token posee atributos como peso, ocurrencias, etc.
+ Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
  Para su análisis, este algoritmo utiliza estos atributos del token, además
  de la funcion GP (Grado de pertenencia) explicada en la seccion anterior.
 \end_layout
@@ -2417,7 +2460,7 @@ Se define un mapa como una conjunto de tuplas <K,V> , donde a K se lo denomina
 
 \begin_layout Standard
 En este algoritmo se usará como claves los nombres de los atributos de calidad
- y los valores seran numeros reales entr 0 y 1.
+ y los valores seran numeros reales entre 0 y 1.
 \end_layout
 
 \begin_layout Paragraph
@@ -2429,8 +2472,8 @@ Sean M1 y M2 dos mapas con igual numero de tuplas.
  Además toda clave K que pertenece a alguna tupla de M1, también pertenece
  a alguna tupla de M2.
  Sea además cualquier valor de V perteneciente a M1 y M2 un número real.
- Se define la suma M1+M2, como un mapa M3 en donde cada tupla que posee
- éste es el resultado de la suma de los valores de las tuplas de igual clave
+ Se define la suma M1+M2, como un mapa M3 en donde cada tupla que éste posee
+ es el resultado de la suma de los valores de las tuplas de igual clave
  de M1 y M2.
  Por ejemplo, si tenemos el mapa 
 \begin_inset Formula $M_{1}=(<K_{1},a>;<K_{2},b>)$
@@ -2448,7 +2491,7 @@ Sean M1 y M2 dos mapas con igual numero de tuplas.
 \end_layout
 
 \begin_layout Paragraph
-División de dos mapas
+División de un mapa por un numero real
 \end_layout
 
 \begin_layout Standard
@@ -2581,6 +2624,10 @@ en donde k es un numero real entre 0 y 1.
  totalMap es igual a totalEAM; si k=0.5 totalMap es la mitad de totalUCM
  más la mitad de totalEAM.
  
+\end_layout
+
+\begin_layout Standard
+(Agrega ejemplo gŕafico)
 \end_layout
 
 \begin_layout Bibliography
