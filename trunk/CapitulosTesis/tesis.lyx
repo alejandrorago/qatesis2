@@ -162,6 +162,463 @@ Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
  Theme.
 \end_layout
 
+\begin_layout Subsection
+Ontología
+\end_layout
+
+\begin_layout Standard
+La función 
+\shape italic
+Grado de Pertenencia
+\shape default
+, o GP, es una función que se aplica a una palabra y cuyo resultado es un
+ conjunto de atributos de calidad asociados a porcentajes, que indican el
+ grado o porcentaje de pertenencia de esa palabra con los distintos atributos
+ de calidad.
+ Para realizar este cálculo, la función se basa en el análisis de una ontología
+ previamente definida y que se supone cargada por un experto.
+ En las siguiente subsecciones se detallará y describirá la ontología usada,
+ para luego, en la siguiente sección, explicitar el funcionamiento de la
+ función GP.
+\end_layout
+
+\begin_layout Subsubsection
+Definición
+\end_layout
+
+\begin_layout Standard
+La literatura de Inteligencia Artificial contiene varias definiciones de
+ ontologías, muchas veces contradictorias entre ellas.
+ En este trabajo se acuerda en definir a una ontología de la siguiente manera:
+ 
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+Una ontología es un modelo de datos que describe conceptos en un dominio
+ del discurso (también llamados clases), propiedades de cada concepto que
+ describen las diversas características y atributos del concepto, y restriccione
+s sobre esas propiedades.”
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un dominio es un área de temática específica o un área de conocimiento,
+ tal como medicina, fabricación de herramientas, bienes inmuebles, reparación
+ automovilística, gestión financiera, etc.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-2"
+
+\end_inset
+
+ Las ontologías incluyen definiciones de conceptos básicos del dominio,
+ y las relaciones entre ellos.
+ También codifican el conocimiento de un dominio específico y el conocimiento
+ que extiende de los dominios.
+ 
+\end_layout
+
+\begin_layout Standard
+Un dominio específico es la parte del mundo que se quiere modelar.
+ Representa el significado aplicado a los términos usados en la construcción
+ de la ontología.
+ Una ontología es la descripción de los conceptos que forman parte del dominio
+ según un punto de vista.
+ Un sistema sólo conoce lo que puede representar en algún lenguaje, por
+ lo tanto, todo lo que no se exprese en la ontología no será conocido para
+ el sistema que use la ontología.
+ 
+\end_layout
+
+\begin_layout Standard
+Un beneficio principal cuando una ontología es creada es:”Compartir el entendimi
+ento común de la estructura de información entre personas y sistemas de
+ software” 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ Las ontologías se usan para favorecer la comunicación y la comprensión
+ común de la información entre personas, organizaciones y aplicaciones,
+ permitiendo que entre ellas estén de acuerdo en los términos que usan cuando
+ se comunican.
+\end_layout
+
+\begin_layout Standard
+Los beneficios de utilizar ontologías se pueden resumir de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Itemize
+Compartir un entendimiento común de la estructura de la información entre
+ personas o agentes de software.
+\end_layout
+
+\begin_layout Itemize
+Permitir el re uso de un conocimiento del dominio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hacer explicitas presunciones de un dominio.
+\end_layout
+
+\begin_layout Itemize
+Separar el conocimiento del dominio del conocimiento operacional.
+\end_layout
+
+\begin_layout Itemize
+Analizar el conocimiento del dominio.
+\end_layout
+
+\begin_layout Subsubsection
+Componentes
+\end_layout
+
+\begin_layout Standard
+Las ontologías tienen los siguientes componentes que servirán para representar
+ el conocimiento de algún dominio 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-3"
+
+\end_inset
+
+.
+ Los principales son
+\end_layout
+
+\begin_layout Description
+Conceptos
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+Clases Generalmente el foco de cualquier ontología, las clases son las ideas
+ básicas que se intentan formalizar.
+ Por ejemplo, en una ontología de vinos, la clase “Vino” representa todos
+ los vinos.
+ Una clase también puede tener sub-clases que representan conceptos que
+ son mas específicos que las superclases.
+ Por ejemplo, subclases de la clase “Vino” podrían ser “Tinto”, “Blanco”,
+ “Rosado”, etc.
+ 
+\end_layout
+
+\begin_layout Description
+Instancias Las instancias son representaciones de objetos determinados de
+ un concepto.
+ Siguiendo el ejemplo anterior, vinos específicos son instancias de la clase
+ “Vino”.
+ Una botella de NewAge que se vende en el supermercado es una instancia
+ de la clase “Vino”.
+ 
+\end_layout
+
+\begin_layout Description
+Propiedades
+\begin_inset space ~
+\end_inset
+
+o
+\begin_inset space ~
+\end_inset
+
+Slots Los slots describen propiedades de clases o instancias.
+ En el ejemplo anterior “New Age” es la marca del vino.
+ Por lo tanto, esa instancia posee un slot(propiedad), que poseen todas
+ las instancias de la clase “Vino”, que podría denominarse marca, y cuyo
+ valor es la cadena de caracteres “New Age”.
+ El valor de una propiedad puede ser una cadena de caracteres, un numero,
+ otra instancia, etc.
+ En el caso de que fuera otra instancia se forma lo que se denomina una
+ relación.
+\end_layout
+
+\begin_layout Subsubsection
+Lenguajes de implementación de ontologías : OWL
+\end_layout
+
+\begin_layout Standard
+OWL (Ontology Web Language) es un lenguaje web para ontologías compatible
+ con la World Wide Web .
+ Este es utilizado cuando la información contenida en los documentos necesitan
+ ser procesados por las aplicaciones, a diferencia de situaciones en que
+ el contenido sólo es necesario presentar a los seres humanos.
+ Puede ser utilizado para representar explícitamente el significado de los
+ términos en los vocabularios y las relaciones entre esos términos (justamente
+ una ontología).
+ OWL tiene más facilidades para expresar el sentido y la semántica que otros
+ lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
+ lenguajes en su capacidad para representar a la máquina de contenido interpreta
+ble en la Web.
+ Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL que
+ incorpora lecciones aprendidas desde el diseño y aplicaciones de DAML+OIL.
+ La especificación de este lenguaje se encuentra dentro de las recomendaciones
+ de la W3C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+.
+ OWL se diferencia de otros lenguajes porque OWL es un lenguaje de ontologías
+ Web.
+ Lenguajes anteriores han sido utilizados para desarrollar herramientas
+ y ontologías destinadas a comunidades específicas (especialmente para ciencias
+ y aplicaciones específicas de comercio electrónico).
+ Además no fueron definidos para ser compatibles con la arquitectura de
+ la World Wide Web en general, y la Web Semántica en particular.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Ontología propuesta
+\end_layout
+
+\begin_layout Standard
+Como se dijo anteriormente, la función 
+\shape italic
+Grado de Pertenencia
+\shape default
+ utiliza una ontología para su realizar su análisis.
+ A continuación se muestra un diagrama con la ontología propuesta.
+ Su construcción se basa principalmente en conceptos, definiciones, y relaciones
+ extraídas del libro 
+\begin_inset Quotes eld
+\end_inset
+
+Software Architecure in Practice
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Luego de la misma se brinda una explicación y justificación de los conceptos
+ y de las relaciones que se presentan en la ontología.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ontologiaReducida.jpeg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El concepto de escenario de calidad fue presentado por Bass, Clements y
+ Kazman, en el libro “Software Architecture in Practice”.
+ Textualmente, la definición es:
+\end_layout
+
+\begin_layout Quotation
+“A quality attribute scenario is a quality-attribute-specific requirement.”
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Traduciendo, un escenario de calidad es un requerimiento específico de un
+ atributo de calidad.
+ De esta manera, los escenarios son utilizados para caracterizar atributos
+ de calidad de una forma especifica.
+\end_layout
+
+\begin_layout Standard
+Es por ello que en la ontología se encuentran los conceptos 
+\shape italic
+QualityAttributeScenario
+\shape default
+ y 
+\shape italic
+QualityAttribute
+\shape default
+ relacionados por la propiedad 
+\series bold
+\shape slanted
+isSpecificOf
+\series default
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Un escenario de calidad esta formado por seis partes:
+\end_layout
+
+\begin_layout Description
+Fuente
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+estímulo.
+ Alguna entidad (un humano, un sistema de computación u otro actor) que
+ genera una estimulo.
+\end_layout
+
+\begin_layout Description
+Estímulo.
+ Una condición que necesita ser considerada cuando arriba al sistema.
+\end_layout
+
+\begin_layout Description
+Ambiente.
+ El estímulo ocurre bajo ciertas condiciones.
+ El sistema puede estar sobrecargado o puede estar ejecutándose normalmente
+ cuando el estimulo ocurre, o alguna otra condición puede ser verdadera.
+\end_layout
+
+\begin_layout Description
+Artefacto.
+ Algún artefacto es estimulado.
+ Este puede ser el sistema completo o alguna parte de él.
+\end_layout
+
+\begin_layout Description
+Respuesta.
+ La respuesta es una actividad llevada a cabo luego del arribo del estimulo.
+\end_layout
+
+\begin_layout Description
+Medida
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+respuesta.
+ Cuando la respuesta ocurre, debería ser medido de alguna manera así el
+ requerimiento puede ser medido.
+ 
+\end_layout
+
+\begin_layout Standard
+Los conceptos 
+\shape italic
+ConcreteSource
+\shape default
+, 
+\shape italic
+ConcreteStimulus
+\shape default
+, 
+\shape italic
+ConcreteEnviroment
+\shape default
+, 
+\shape italic
+ConcreteArtifact
+\shape default
+, 
+\shape italic
+ConcreteResponse
+\shape default
+ y 
+\shape italic
+ConcreteResponseMeasure
+\shape default
+ representan estas seis partes mencionadas.
+ Todos estos conceptos derivan del concepto abstracto 
+\shape italic
+scenarioPart
+\shape default
+ que representa una parte de un escenario y a su vez cada uno se relaciona
+ con el concepto 
+\shape italic
+Concrete Quality-Atrribute Scenario
+\shape default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se distinguen como escenarios generales de calidad a aquellos que son independie
+ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
+ de aquellos denominados escenarios concretos de calidad, que son específicos
+ de un sistema en particular que esta bajo consideración.
+\end_layout
+
+\begin_layout Standard
+Es por esto ultimo que aparece el concepto abstracto 
+\shape italic
+Quality-Attribute Scenario, 
+\shape default
+mientras que los conceptos 
+\shape italic
+Concrete Quality-Attribute Scenario
+\shape default
+ y 
+\shape italic
+General Quality-Attribute Scenario
+\shape default
+ derivan del mismo.
+ A su vez la relación 
+\series bold
+isDerivedFrom
+\series default
+ deja constancia del hecho de que un escenario concreto deriva de uno general,
+ haciendo las partes del últimos especificas de un sistema bajo consideración.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una colección de escenarios concretos pueden ser usados como los requerimientos
+ de calidad para un sistema.
+ Cada escenario es suficientemente concreto para ser significativo para
+ un arquitecto, y los detalles de la respuesta son suficientemente significativo
+s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
+dos.
+\end_layout
+
+\begin_layout Subsubsection
+Instancias propuestas
+\end_layout
+
 \begin_layout Section
 Generación de la Lista de Tokens
 \end_layout
@@ -1746,459 +2203,27 @@ Los cálculos anteriores se aplican a cada una de las listas, la de los casos
 \end_layout
 
 \begin_layout Subsection
-Ontología
+Quality-Attribute Algorithm
 \end_layout
 
 \begin_layout Standard
-La función 
-\shape italic
-Grado de Pertenencia
-\shape default
-, o GP, es una función que se aplica a una palabra y cuyo resultado es un
- conjunto de atributos de calidad asociados a porcentajes, que indican el
- grado o porcentaje de pertenencia de esa palabra con los distintos atributos
- de calidad.
- Para realizar este cálculo, la función se basa en el análisis de una ontología
- previamente definida y que se supone cargada por un experto.
- En las siguiente subsecciones se detallará y describirá la ontología usada,
- para luego, en la siguiente sección, explicitar el funcionamiento de la
- función GP.
-\end_layout
-
-\begin_layout Subsubsection
-Definición de Ontología
+En esta sección se estudiará el algoritmo que, finalmente, asigna un conjunto
+ de atributos de calidad, con un porcentaje cada uno, a un conjunto de casos
+ uso relacionados con un aspecto temprano.
+ Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
+ lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
+ Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
+ Para su análisis, este algoritmo utiliza estos atributos del token, además
+ de la función GP (Grado de pertenencia) explicada en la sección anterior.
 \end_layout
 
 \begin_layout Standard
-La literatura de Inteligencia Artificial contiene varias definiciones de
- ontologías, muchas veces contradictorias entre ellas.
- En este trabajo se acuerda en definir a una ontología de la siguiente manera:
- 
-\end_layout
-
-\begin_layout Quotation
-\begin_inset Quotes eld
-\end_inset
-
-Una ontología es un modelo de datos que describe conceptos en un dominio
- del discurso (también llamados clases), propiedades de cada concepto que
- describen las diversas características y atributos del concepto, y restriccione
-s sobre esas propiedades.”
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Un dominio es un área de temática específica o un área de conocimiento,
- tal como medicina, fabricación de herramientas, bienes inmuebles, reparación
- automovilística, gestión financiera, etc.
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-2"
-
-\end_inset
-
- Las ontologías incluyen definiciones de conceptos básicos del dominio,
- y las relaciones entre ellos.
- También codifican el conocimiento de un dominio específico y el conocimiento
- que extiende de los dominios.
- 
-\end_layout
-
-\begin_layout Standard
-Un dominio específico es la parte del mundo que se quiere modelar.
- Representa el significado aplicado a los términos usados en la construcción
- de la ontología.
- Una ontología es la descripción de los conceptos que forman parte del dominio
- según un punto de vista.
- Un sistema sólo conoce lo que puede representar en algún lenguaje, por
- lo tanto, todo lo que no se exprese en la ontología no será conocido para
- el sistema que use la ontología.
- 
-\end_layout
-
-\begin_layout Standard
-Un beneficio principal cuando una ontología es creada es:”Compartir el entendimi
-ento común de la estructura de información entre personas y sistemas de
- software” 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-3"
-
-\end_inset
-
-.
- Las ontologías se usan para favorecer la comunicación y la comprensión
- común de la información entre personas, organizaciones y aplicaciones,
- permitiendo que entre ellas estén de acuerdo en los términos que usan cuando
- se comunican.
-\end_layout
-
-\begin_layout Standard
-Los beneficios de utilizar ontologías se pueden resumir de la siguiente
- manera:
-\end_layout
-
-\begin_layout Itemize
-Compartir un entendimiento común de la estructura de la información entre
- personas o agentes de software.
-\end_layout
-
-\begin_layout Itemize
-Permitir el re uso de un conocimiento del dominio.
- 
-\end_layout
-
-\begin_layout Itemize
-Hacer explicitas presunciones de un dominio.
-\end_layout
-
-\begin_layout Itemize
-Separar el conocimiento del dominio del conocimiento operacional.
-\end_layout
-
-\begin_layout Itemize
-Analizar el conocimiento del dominio.
-\end_layout
-
-\begin_layout Subsubsection
-Componentes de una ontología
-\end_layout
-
-\begin_layout Standard
-Las ontologías tienen los siguientes componentes que servirán para representar
- el conocimiento de algún dominio 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-3"
-
-\end_inset
-
-.
- Los principales son
-\end_layout
-
-\begin_layout Description
-Conceptos
-\begin_inset space ~
-\end_inset
-
-o
-\begin_inset space ~
-\end_inset
-
-Clases Generalmente el foco de cualquier ontología, las clases son las ideas
- básicas que se intentan formalizar.
- Por ejemplo, en una ontología de vinos, la clase “Vino” representa todos
- los vinos.
- Una clase también puede tener sub-clases que representan conceptos que
- son mas específicos que las superclases.
- Por ejemplo, subclases de la clase “Vino” podrían ser “Tinto”, “Blanco”,
- “Rosado”, etc.
- 
-\end_layout
-
-\begin_layout Description
-Instancias Las instancias son representaciones de objetos determinados de
- un concepto.
- Siguiendo el ejemplo anterior, vinos específicos son instancias de la clase
- “Vino”.
- Una botella de NewAge que se vende en el supermercado es una instancia
- de la clase “Vino”.
- 
-\end_layout
-
-\begin_layout Description
-Propiedades
-\begin_inset space ~
-\end_inset
-
-o
-\begin_inset space ~
-\end_inset
-
-Slots Los slots describen propiedades de clases o instancias.
- En el ejemplo anterior “New Age” es la marca del vino.
- Por lo tanto, esa instancia posee un slot(propiedad), que poseen todas
- las instancias de la clase “Vino”, que podría denominarse marca, y cuyo
- valor es la cadena de caracteres “New Age”.
- El valor de una propiedad puede ser una cadena de caracteres, un numero,
- otra instancia, etc.
- En el caso de que fuera otra instancia se forma lo que se denomina una
- relación.
-\end_layout
-
-\begin_layout Subsubsection
-Lenguajes de implementación de ontologías: OWL
-\end_layout
-
-\begin_layout Standard
-OWL (Ontology Web Language) es un lenguaje web para ontologías compatible
- con la World Wide Web .
- Este es utilizado cuando la información contenida en los documentos necesitan
- ser procesados por las aplicaciones, a diferencia de situaciones en que
- el contenido sólo es necesario presentar a los seres humanos.
- Puede ser utilizado para representar explícitamente el significado de los
- términos en los vocabularios y las relaciones entre esos términos (justamente
- una ontología).
- OWL tiene más facilidades para expresar el sentido y la semántica que otros
- lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
- lenguajes en su capacidad para representar a la máquina de contenido interpreta
-ble en la Web.
- Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL que
- incorpora lecciones aprendidas desde el diseño y aplicaciones de DAML+OIL.
- La especificación de este lenguaje se encuentra dentro de las recomendaciones
- de la W3C 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-4"
-
-\end_inset
-
-.
- OWL se diferencia de otros lenguajes porque OWL es un lenguaje de ontologías
- Web.
- Lenguajes anteriores han sido utilizados para desarrollar herramientas
- y ontologías destinadas a comunidades específicas (especialmente para ciencias
- y aplicaciones específicas de comercio electrónico).
- Además no fueron definidos para ser compatibles con la arquitectura de
- la World Wide Web en general, y la Web Semántica en particular.
+Primero se define el concepto de mapa y de de operaciones sobre ellos, para
+ luego explicar en detalle el algoritmo.
  
 \end_layout
 
 \begin_layout Subsubsection
-Ontología propuesta
-\end_layout
-
-\begin_layout Standard
-Como se dijo anteriormente, la función 
-\shape italic
-Grado de Pertenencia
-\shape default
- utiliza una ontología para su realizar su análisis.
- A continuación se muestra un diagrama con la ontología propuesta.
- Su construcción se basa principalmente en conceptos, definiciones, y relaciones
- extraídas del libro 
-\begin_inset Quotes eld
-\end_inset
-
-Software Architecure in Practice
-\begin_inset Quotes erd
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-5"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Luego de la misma se brinda una explicación y justificación de los conceptos
- y de las relaciones que se presentan en la ontología.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename ontologiaReducida.jpeg
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-El concepto de escenario de calidad fue presentado por Bass, Clements y
- Kazman, en el libro “Software Architecture in Practice”.
- Textualmente, la definición es:
-\end_layout
-
-\begin_layout Quotation
-“A quality attribute scenario is a quality-attribute-specific requirement.”
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-5"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Traduciendo, un escenario de calidad es un requerimiento específico de un
- atributo de calidad.
- De esta manera, los escenarios son utilizados para caracterizar atributos
- de calidad de una forma especifica.
-\end_layout
-
-\begin_layout Standard
-Es por ello que en la ontología se encuentran los conceptos 
-\shape italic
-QualityAttributeScenario
-\shape default
- y 
-\shape italic
-QualityAttribute
-\shape default
- relacionados por la propiedad 
-\series bold
-\shape slanted
-isSpecificOf
-\series default
-\shape default
-.
-\end_layout
-
-\begin_layout Standard
-Un escenario de calidad esta formado por seis partes:
-\end_layout
-
-\begin_layout Description
-Fuente
-\begin_inset space ~
-\end_inset
-
-de
-\begin_inset space ~
-\end_inset
-
-estímulo.
- Alguna entidad (un humano, un sistema de computación u otro actor) que
- genera una estimulo.
-\end_layout
-
-\begin_layout Description
-Estímulo.
- Una condición que necesita ser considerada cuando arriba al sistema.
-\end_layout
-
-\begin_layout Description
-Ambiente.
- El estímulo ocurre bajo ciertas condiciones.
- El sistema puede estar sobrecargado o puede estar ejecutándose normalmente
- cuando el estimulo ocurre, o alguna otra condición puede ser verdadera.
-\end_layout
-
-\begin_layout Description
-Artefacto.
- Algún artefacto es estimulado.
- Este puede ser el sistema completo o alguna parte de él.
-\end_layout
-
-\begin_layout Description
-Respuesta.
- La respuesta es una actividad llevada a cabo luego del arribo del estimulo.
-\end_layout
-
-\begin_layout Description
-Medida
-\begin_inset space ~
-\end_inset
-
-de
-\begin_inset space ~
-\end_inset
-
-respuesta.
- Cuando la respuesta ocurre, debería ser medido de alguna manera así el
- requerimiento puede ser medido.
- 
-\end_layout
-
-\begin_layout Standard
-Los conceptos 
-\shape italic
-ConcreteSource
-\shape default
-, 
-\shape italic
-ConcreteStimulus
-\shape default
-, 
-\shape italic
-ConcreteEnviroment
-\shape default
-, 
-\shape italic
-ConcreteArtifact
-\shape default
-, 
-\shape italic
-ConcreteResponse
-\shape default
- y 
-\shape italic
-ConcreteResponseMeasure
-\shape default
- representan estas seis partes mencionadas.
- Todos estos conceptos derivan del concepto abstracto 
-\shape italic
-scenarioPart
-\shape default
- que representa una parte de un escenario y a su vez cada uno se relaciona
- con el concepto 
-\shape italic
-Concrete Quality-Atrribute Scenario
-\shape default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Se distinguen como escenarios generales de calidad a aquellos que son independie
-ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
- de aquellos denominados escenarios concretos de calidad, que son específicos
- de un sistema en particular que esta bajo consideración.
-\end_layout
-
-\begin_layout Standard
-Es por esto ultimo que aparece el concepto abstracto 
-\shape italic
-Quality-Attribute Scenario, 
-\shape default
-mientras que los conceptos 
-\shape italic
-Concrete Quality-Attribute Scenario
-\shape default
- y 
-\shape italic
-General Quality-Attribute Scenario
-\shape default
- derivan del mismo.
- A su vez la relación 
-\series bold
-isDerivedFrom
-\series default
- deja constancia del hecho de que un escenario concreto deriva de uno general,
- haciendo las partes del últimos especificas de un sistema bajo consideración.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Una colección de escenarios concretos pueden ser usados como los requerimientos
- de calidad para un sistema.
- Cada escenario es suficientemente concreto para ser significativo para
- un arquitecto, y los detalles de la respuesta son suficientemente significativo
-s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
-dos.
-\end_layout
-
-\begin_layout Subsection
 Función Grado de Pertenencia (GP)
 \end_layout
 
@@ -2243,7 +2268,7 @@ reference "sub:Mapa"
  de atributos de calidad y porcentajes.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Relación entre una palabra y una parte del escenario
 \end_layout
 
@@ -2383,7 +2408,7 @@ system
  es un artefacto.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Obtención de porcentajes de atributos de calidad para una palabra
 \end_layout
 
@@ -2435,27 +2460,6 @@ bility".
  En este caso la función finalmente devolvería <Performance 0.75, Aviability
  0.2, Modificability 0.05>.
  (Agrega un ejemplo gráfico)
-\end_layout
-
-\begin_layout Subsection
-Algoritmo basado en la ontología
-\end_layout
-
-\begin_layout Standard
-En esta sección se estudiará el algoritmo que, finalmente, asigna un conjunto
- de atributos de calidad, con un porcentaje cada uno, a un conjunto de casos
- uso relacionados con un aspecto temprano.
- Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
- lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
- Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
- Para su análisis, este algoritmo utiliza estos atributos del token, además
- de la función GP (Grado de pertenencia) explicada en la sección anterior.
-\end_layout
-
-\begin_layout Standard
-Primero se define el concepto de mapa y de de operaciones sobre ellos, para
- luego explicar en detalle el algoritmo.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -2554,7 +2558,7 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
 \end_layout
 
 \begin_layout Subsubsection
-Explicación del algoritmo
+Explicación matemática del algoritmo del algoritmo
 \end_layout
 
 \begin_layout Standard
