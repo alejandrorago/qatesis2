@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -599,10 +599,6 @@ Tareas realizadas en la solucion propuesta
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -685,7 +681,7 @@ Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
 \end_layout
 
 \begin_layout Section
-Generación de la Lista de Tokens
+Generación de Tokens
 \end_layout
 
 \begin_layout Standard
@@ -693,18 +689,17 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  y sintáctico sobre los textos definidos como entrada para esta técnica.
  Esta entrada es la información generada como salida por la herramienta
  Aspect Extractor Tool [REF].
- Se considera que la salida de dicha herramienta, luego del procesamiento
- con la técnica de “Análisis Semántico” [REF], es una lista de casos de
- uso, los aspectos tempranos detectados y las relaciones entre ellos.
- Los casos de uso respetan el estándar establecido por Rational introducido
- en la sección XX.
+ La salida de dicha herramienta, luego del procesamiento con la técnica
+ de “Análisis Semántico” [REF], es una lista de casos de uso, los aspectos
+ tempranos detectados y las relaciones entre ellos.
+ Los casos de uso respetan el estándar establecido por Rational [REF].
  De igual forma, la especificación de los aspectos tempranos siguen el formato
- definido en Aspect Extract Tool para la técnica de reconocimiento semántico,
- introducido en la sección XX.
- La técnica propuesta con esta información crea las entidades Caso de Uso
- y Aspecto Temprano, basándose además en las relaciones entre estas entidades
- para agruparlos inicialmente en el Quality Attribute Theme.
- A partir de estas entidades se confeccionaran las listas de palabras tokens,
+ definido en Aspect Extract Tool, el cuál es semejante al de los casos de
+ uso.
+ Esta técnica, con esta información crea las entidades Caso de Uso y Aspecto
+ Temprano, basándose además en las relaciones entre estas entidades para
+ agruparlos inicialmente en el Quality Attribute Theme.
+ A partir de estas entidades se confeccionarán las listas de palabras tokens,
  las cuales serán la entrada de la próxima etapa, quien será la responsable
  de instanciar la información referida al atributo de calidad.
 \end_layout
@@ -886,7 +881,7 @@ Registrar
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<sección,name>
+<id,1>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -906,7 +901,7 @@ Usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<sección,name>
+<id,2>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1100,7 +1095,7 @@ sistema
 \end_layout
 
 \begin_layout Subsection
-Filtrado de las Listas de Tokens
+Filtrado de Tokens
 \end_layout
 
 \begin_layout Standard
@@ -1130,8 +1125,8 @@ Se considera que un filtro es una unidad de procesamiento que realiza una
 \end_layout
 
 \begin_layout Standard
-El patrón de arquitectura de tuberías y filtros provee una estructura para
- procesar flujos de datos.
+El patrón de arquitectura Pipes & Filters [REF.Mary Shaw] provee una estructura
+ para procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
  Los datos se pasan usando las tuberías entre filtros adyacentes y mediante
@@ -1144,7 +1139,7 @@ permite futuros cambios intercambiando algunos filtros;
 \end_layout
 
 \begin_layout Itemize
-pequeñas transformaciones son más fácilmente reutilizadas;
+reutilización de los filtros;
 \end_layout
 
 \begin_layout Itemize
@@ -1152,11 +1147,7 @@ los datos pueden tener diferentes formatos;
 \end_layout
 
 \begin_layout Itemize
-se pueden agregar fácilmente etapas intermedias;
-\end_layout
-
-\begin_layout Itemize
-reutilización de los filtros
+se pueden agregar fácilmente etapas intermedias.
 \end_layout
 
 \begin_layout Standard
@@ -1164,6 +1155,21 @@ En este caso, la entrada para los filtros es una lista de tokens, por lo
  que el filtro ejecutará acciones sobre los tokens de la lista (modificar
  la palabra, agregar atributos), para luego devolver la lista de tokens
  modificada.
+\end_layout
+
+\begin_layout Standard
+Para esta actividad se han definido diferentes filtros que realizan transformaci
+ones sobre los tokens de la lista.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+explicar un poco aca
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1220,7 +1226,7 @@ registrar
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>
+<id,1>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1240,7 +1246,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>
+<id,2>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1260,7 +1266,7 @@ se
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,3>, <tipo,casodeuso>,<section,description>
+<id,3>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1280,7 +1286,7 @@ registran
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,4>, <tipo,casodeuso>,<section,description>
+<id,4>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1300,7 +1306,7 @@ los
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,5>, <tipo,casodeuso>,<section,description>
+<id,5>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1320,7 +1326,7 @@ datos
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>
+<id,6>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1340,7 +1346,7 @@ del
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,7>, <tipo,casodeuso>,<section,description>
+<id,7>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1360,7 +1366,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,8>, <tipo,casodeuso>,<section,description>
+<id,8>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1380,7 +1386,7 @@ en
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,9>, <tipo,casodeuso>,<section,description>
+<id,9>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1400,7 +1406,7 @@ el
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,10>, <tipo,casodeuso>,<section,description>
+<id,10>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1420,7 +1426,7 @@ sistema
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>
+<id,11>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1441,11 +1447,34 @@ Filtro Stop Words
 Se eliminan las denominadas stop-words, que son palabras que, desde el punto
  de vista no lingüístico, no contienen información relevante.
  Las stop-words difieren de acuerdo al lenguaje.
- En el caso del idioma Español se pueden mencionar artículos, preposiciones,
+ Algunas de las stop words más comunes son los artículos, preposiciones,
  etc.
  (por ejemplo: a, de, del, el, en, ella, los, se).
  Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
  cuales su palabra aparezca en la lista de stop-words dada.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hablar de la incorporacion de palabras no relevantes que el desarrollador
+ puede 
+\begin_inset Quotes eld
+\end_inset
+
+sacar
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1488,7 +1517,7 @@ registrar
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>
+<id,1>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1508,7 +1537,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>
+<id,2>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1528,7 +1557,7 @@ registran
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,4>, <tipo,casodeuso>,<section,description>
+<id,4>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1548,7 +1577,7 @@ datos
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>
+<id,6>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1568,7 +1597,7 @@ usuario
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,8>, <tipo,casodeuso>,<section,description>
+<id,8>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1588,7 +1617,7 @@ sistema
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>
+<id,11>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1610,32 +1639,17 @@ Diferentes palabras pueden tener el mismo significado desde el punto de
  vista semántico, pero no tener exactamente la misma secuencia de caracteres.
  Un ejemplo de esto pueden ser las palabras aprender, aprenden y aprendió,
  que, desde el enfoque en este trabajo, tienen el mismo significado.
- Por ello se decidió utilizarla técnica stemming, que es el proceso de transform
-ar una palabra en su raíz (stem).
+ Por ello se decidió utilizarla técnica stemming [REF], que es el proceso
+ de transformar una palabra en su raíz (stem).
  Para el ejemplo anterior, todas esas palabras estarían identificadas por
  su raíz, es decir, “aprend”.
  Para realizar el stemming se utiliza uno de los algoritmos más populares
- y conocidos, el algoritmo de Porter.
+ y conocidos, el algoritmo de Porter [REF].
 \end_layout
 
 \begin_layout Standard
 Por lo tanto, a través de este filtro, se modifican los tokens de la lista
  llevando la palabra de cada token a su raíz.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename porter.JPG
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Diagrama.
- Algoritmo de Porter.
 \end_layout
 
 \begin_layout Standard
@@ -1683,7 +1697,7 @@ regist
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>
+<id,1>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1703,7 +1717,7 @@ usuari
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>
+<id,2>, <tipo,casodeuso>,<sección,nombre>
 \end_layout
 
 \end_inset
@@ -1723,7 +1737,7 @@ regist
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,4>, <tipo,casodeuso>,<section,description>
+<id,4>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1743,7 +1757,7 @@ dat
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>
+<id,6>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1763,7 +1777,7 @@ usuari
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,8>, <tipo,casodeuso>,<section,description>
+<id,8>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1783,7 +1797,7 @@ sistem
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>
+<id,11>, <tipo,casodeuso>,<sección,descripción>
 \end_layout
 
 \end_inset
@@ -1812,8 +1826,7 @@ Ocurrencias: número de ocurrencias del token en la lista.
  en caso de que el token sea la misma palabra y además aparezca en la misma
  sección.
  Esta particularidad se debe a que luego los tokens son ponderados y debe
- respetarse la sección en la cual aparece el token a la hora de asignarle
- su peso.
+ respetarse la sección en la cual aparece a la hora de asignarle su peso.
  Por lo tanto, existirán tokens con la misma palabra pero diferente sección.
  
 \end_layout
@@ -1863,7 +1876,7 @@ regist
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>, <ocurrencias,2>
+<id,1>, <tipo,casodeuso>,<sección,nombre>, <ocurrencias,2>
 \end_layout
 
 \end_inset
@@ -1883,7 +1896,7 @@ usuari
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>,<ocurrencias,2>
+<id,2>, <tipo,casodeuso>,<sección,nombre>,<ocurrencias,2>
 \end_layout
 
 \end_inset
@@ -1903,7 +1916,7 @@ dat
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>,<ocurrencias,1>
+<id,6>, <tipo,casodeuso>,<sección,descripción>,<ocurrencias,1>
 \end_layout
 
 \end_inset
@@ -1923,7 +1936,7 @@ sistem
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>,<ocurrencias,1>
+<id,11>, <tipo,casodeuso>,<sección,descripción>,<ocurrencias,1>
 \end_layout
 
 \end_inset
@@ -1953,6 +1966,16 @@ Este filtro es aplicado para enriquecer los tokens de la lista de tokens
 
 \begin_layout Standard
 Siguiendo el ejemplo anterior, y suponiendo la siguiente tabla de pesos:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hablar de los pesos de donde salen
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2132,7 +2155,7 @@ regist
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,1>, <tipo,casodeuso>,<section,name>, <ocurrencias,2>, <peso,5>
+<id,1>, <tipo,casodeuso>,<sección,nombre>, <ocurrencias,2>, <peso,5>
 \end_layout
 
 \end_inset
@@ -2152,7 +2175,7 @@ usuari
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,2>, <tipo,casodeuso>,<section,name>,<ocurrencias,2>,<peso,5>
+<id,2>, <tipo,casodeuso>,<sección,nombre>,<ocurrencias,2>,<peso,5>
 \end_layout
 
 \end_inset
@@ -2172,7 +2195,7 @@ dat
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,6>, <tipo,casodeuso>,<section,description>,<ocurrencias,1>,<peso,4>
+<id,6>, <tipo,casodeuso>,<sección,descripción>,<ocurrencias,1>,<peso,4>
 \end_layout
 
 \end_inset
@@ -2192,7 +2215,7 @@ sistem
 \begin_inset Text
 
 \begin_layout Plain Layout
-<id,11>, <tipo,casodeuso>,<section,description>,<ocurrencias,1>,<peso,4>
+<id,11>, <tipo,casodeuso>,<sección,descripción>,<ocurrencias,1>,<peso,4>
 \end_layout
 
 \end_inset
@@ -2206,9 +2229,9 @@ sistem
 \end_layout
 
 \begin_layout Standard
-Para el caso de los aspectos tempranos no es necesario aplicar el filtro
- de peso debido a que se considera que todas las palabras dentro del aspecto
- temprano tienen el mismo peso para el algoritmo.
+Para los aspectos tempranos no es necesario aplicar el filtro de peso debido
+ a que se considera que todas las palabras dentro del aspecto temprano tienen
+ el mismo peso para el algoritmo.
  Esta diferencia radica en que el caso de uso está dividido en secciones
  y se considera, en esta técnica, que hay secciones que deben ser ponderadas
  sobre otras.
@@ -2216,7 +2239,7 @@ Para el caso de los aspectos tempranos no es necesario aplicar el filtro
 \end_layout
 
 \begin_layout Section
-Análisis de las listas de tokens
+Análisis de los tokens
 \end_layout
 
 \begin_layout Standard
