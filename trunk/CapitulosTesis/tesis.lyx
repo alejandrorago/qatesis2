@@ -55,135 +55,7 @@ Trabajos Relacionados
 \end_layout
 
 \begin_layout Part
-Identificación de atributos de calidad
-\end_layout
-
-\begin_layout Standard
-En esta sección se estudiará en profundidad el enfoque elegido para la técnica
- de identificación de atributos de calidad en documentos de especificaciones
- de requerimientos.
- Esta técnica brindará una asistencia extra al analista, para identificar
- los atributos de calidad del sistema lo antes posible y evitar los problemas
- suscitados anteriormente.
-\end_layout
-
-\begin_layout Section
-Desarrollo de la técnica de identificación de atributos de calidad propuesta
-\end_layout
-
-\begin_layout Standard
-En el siguiente gráfico se pueden observar las tareas realizadas en la solución
- propuesta.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename Tareas.jpeg
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Las circunferencias que contienen los textos 
-\begin_inset Quotes eld
-\end_inset
-
-Casos de Uso
-\begin_inset Quotes erd
-\end_inset
-
- y 
-\begin_inset Quotes eld
-\end_inset
-
-Aspecto Temprano
-\begin_inset Quotes erd
-\end_inset
-
- son los datos de entrada.
- la circunferencia que contiene el texto 
-\begin_inset Quotes eld
-\end_inset
-
-QualityAttributeTheme
-\begin_inset Quotes erd
-\end_inset
-
- representa la salida de la tecnica.
- La circunferencia que posee el texto 
-\begin_inset Quotes eld
-\end_inset
-
-Ontologia
-\begin_inset Quotes erd
-\end_inset
-
- es precisamente una ontolgía que es utilizada en la solucion.
- Los rectangulos representan tareas realizadas, mientras que als flechas
- representan datos que fluyen de tarea a tarea.
- 
-\end_layout
-
-\begin_layout Standard
-Básicamente el gráfico se divide en dos etapas: la de generación de las
- listas de tokens y la del análisis de las listas de tokens.
- 
-\end_layout
-
-\begin_layout Standard
-En la primera se toma la entrada de la herramienta Aspect Extractor Tool,
- que consiste en casos de usos relacionados con aspectos tempranos.
- A partir de estas entradas se crean listas de tokens, cada uno representandolas
- palabras que los conforman esta entrada.
- A estas listas luego se les realiza un filtrado, haciendo pasar cada token
- por distintos filtros.
- Cada filtro modifica el token de diferente manera, potencialmente agregando
- propiedades adicionales a cada token que serán de utilidad en siguientes
- tareas.
-\end_layout
-
-\begin_layout Standard
-En la segunda etapa se calcula el porcentaje de pertenencia de las listas
- de tokens con los distintos atributos de calidad.
- Para ello se itera sobre cada uno de los tokens invocando a la función
- Grado de Pertenencia.
- Esta función indica el porcentaje de asociación de cada palabra con los
- distintos atributos de calidad.
- Los resultados parciales de cada palabra se combinan en la tarea Algoritmo,
- que calcula el resultado para el conjunto de la lista de tokens.
- 
-\end_layout
-
-\begin_layout Standard
-Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
- Theme.
-\end_layout
-
-\begin_layout Subsection
 Ontología
-\end_layout
-
-\begin_layout Standard
-La función 
-\shape italic
-Grado de Pertenencia
-\shape default
-, o GP, es una función que se aplica a una palabra y cuyo resultado es un
- conjunto de atributos de calidad asociados a porcentajes, que indican el
- grado o porcentaje de pertenencia de esa palabra con los distintos atributos
- de calidad.
- Para realizar este cálculo, la función se basa en el análisis de una ontología
- previamente definida y que se supone cargada por un experto.
- En las siguiente subsecciones se detallará y describirá la ontología usada,
- para luego, en la siguiente sección, explicitar el funcionamiento de la
- función GP.
-\end_layout
-
-\begin_layout Subsubsection
-Definición
 \end_layout
 
 \begin_layout Standard
@@ -267,12 +139,12 @@ Compartir un entendimiento común de la estructura de la información entre
 \end_layout
 
 \begin_layout Itemize
-Permitir el re uso de un conocimiento del dominio.
+Permitir el re uso de conocimiento de un dominio.
  
 \end_layout
 
 \begin_layout Itemize
-Hacer explicitas presunciones de un dominio.
+Hacer explícitas presunciones de un dominio.
 \end_layout
 
 \begin_layout Itemize
@@ -283,13 +155,13 @@ Separar el conocimiento del dominio del conocimiento operacional.
 Analizar el conocimiento del dominio.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Section
 Componentes
 \end_layout
 
 \begin_layout Standard
-Las ontologías tienen los siguientes componentes que servirán para representar
- el conocimiento de algún dominio 
+Las ontologías cuentan con los siguientes componentes que servirán para
+ representar el conocimiento de algún dominio 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
@@ -297,7 +169,7 @@ key "key-3"
 \end_inset
 
 .
- Los principales son
+ Los principales son:
 \end_layout
 
 \begin_layout Description
@@ -342,21 +214,34 @@ o
 Slots Los slots describen propiedades de clases o instancias.
  En el ejemplo anterior “New Age” es la marca del vino.
  Por lo tanto, esa instancia posee un slot(propiedad), que poseen todas
- las instancias de la clase “Vino”, que podría denominarse marca, y cuyo
- valor es la cadena de caracteres “New Age”.
- El valor de una propiedad puede ser una cadena de caracteres, un numero,
+ las instancias de la clase “Vino”, que podría denominarse 
+\begin_inset Quotes eld
+\end_inset
+
+marca
+\begin_inset Quotes erd
+\end_inset
+
+, y cuyo valor es la cadena de caracteres “New Age”.
+ El valor de una propiedad puede ser una cadena de caracteres, un número,
  otra instancia, etc.
  En el caso de que fuera otra instancia se forma lo que se denomina una
  relación.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Section
 Lenguajes de implementación de ontologías : OWL
 \end_layout
 
 \begin_layout Standard
-OWL (Ontology Web Language) es un lenguaje web para ontologías compatible
- con la World Wide Web .
+OWL (Ontology Web Language)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+ es un lenguaje web para ontologías compatible con la World Wide Web.
  Este es utilizado cuando la información contenida en los documentos necesitan
  ser procesados por las aplicaciones, a diferencia de situaciones en que
  el contenido sólo es necesario presentar a los seres humanos.
@@ -367,17 +252,16 @@ OWL (Ontology Web Language) es un lenguaje web para ontologías compatible
  lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
  lenguajes en su capacidad para representar a la máquina de contenido interpreta
 ble en la Web.
- Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL que
- incorpora lecciones aprendidas desde el diseño y aplicaciones de DAML+OIL.
- La especificación de este lenguaje se encuentra dentro de las recomendaciones
- de la W3C 
+ Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-4"
+key "key-6"
 
 \end_inset
 
-.
+ que incorpora lecciones aprendidas desde el diseño y aplicaciones de DAML+OIL.
+ La especificación de este lenguaje se encuentra dentro de las recomendaciones
+ de la W3C.
  OWL se diferencia de otros lenguajes porque OWL es un lenguaje de ontologías
  Web.
  Lenguajes anteriores han sido utilizados para desarrollar herramientas
@@ -388,17 +272,24 @@ key "key-4"
  
 \end_layout
 
-\begin_layout Subsubsection
-Ontología propuesta
+\begin_layout Section
+Ontología para atributos de calidad
 \end_layout
 
 \begin_layout Standard
-Como se dijo anteriormente, la función 
-\shape italic
-Grado de Pertenencia
-\shape default
- utiliza una ontología para su realizar su análisis.
- A continuación se muestra un diagrama con la ontología propuesta.
+En la figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ontologia-de-escenarios"
+
+\end_inset
+
+ se muestra un diagrama con la ontología definida, que servirá de soporte
+ en la técnica propuesta en capítulos siguientes.
  Su construcción se basa principalmente en conceptos, definiciones, y relaciones
  extraídas del libro 
 \begin_inset Quotes eld
@@ -419,14 +310,42 @@ key "key-5"
 \end_layout
 
 \begin_layout Standard
-Luego de la misma se brinda una explicación y justificación de los conceptos
- y de las relaciones que se presentan en la ontología.
-\end_layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename ontologiaReducida.jpeg
-	scale 30
+	width 100col%
+	height 100pheight%
+	keepAspectRatio
+	scaleBeforeRotation
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ontologia-de-escenarios"
+
+\end_inset
+
+Ontologia de escenarios y atributos de calidad
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -488,32 +407,72 @@ de
 \begin_inset space ~
 \end_inset
 
-estímulo.
+estímulo
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Source).
  Alguna entidad (un humano, un sistema de computación u otro actor) que
- genera una estimulo.
+ genera una estímulo.
 \end_layout
 
 \begin_layout Description
-Estímulo.
+Estímulo
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Stimulus).
  Una condición que necesita ser considerada cuando arriba al sistema.
 \end_layout
 
 \begin_layout Description
-Ambiente.
+Ambiente
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Enviroment).
  El estímulo ocurre bajo ciertas condiciones.
  El sistema puede estar sobrecargado o puede estar ejecutándose normalmente
- cuando el estimulo ocurre, o alguna otra condición puede ser verdadera.
+ cuando el estímulo ocurre, o alguna otra condición puede ser verdadera.
 \end_layout
 
 \begin_layout Description
-Artefacto.
+Artefacto
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Artifact).
  Algún artefacto es estimulado.
  Este puede ser el sistema completo o alguna parte de él.
 \end_layout
 
 \begin_layout Description
-Respuesta.
- La respuesta es una actividad llevada a cabo luego del arribo del estimulo.
+Respuesta
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Response).
+ La respuesta es una actividad llevada a cabo luego del arribo del estímulo.
 \end_layout
 
 \begin_layout Description
@@ -525,52 +484,18 @@ de
 \begin_inset space ~
 \end_inset
 
-respuesta.
- Cuando la respuesta ocurre, debería ser medido de alguna manera así el
- requerimiento puede ser medido.
- 
-\end_layout
-
-\begin_layout Standard
-Los conceptos 
-\shape italic
-ConcreteSource
-\shape default
-, 
-\shape italic
-ConcreteStimulus
-\shape default
-, 
-\shape italic
-ConcreteEnviroment
-\shape default
-, 
-\shape italic
-ConcreteArtifact
-\shape default
-, 
-\shape italic
-ConcreteResponse
-\shape default
- y 
-\shape italic
-ConcreteResponseMeasure
-\shape default
- representan estas seis partes mencionadas.
- Todos estos conceptos derivan del concepto abstracto 
-\shape italic
-scenarioPart
-\shape default
- que representa una parte de un escenario y a su vez cada uno se relaciona
- con el concepto 
-\shape italic
-Concrete Quality-Atrribute Scenario
-\shape default
-.
-\begin_inset Newline newline
+respuesta(Concrete
+\begin_inset space ~
 \end_inset
 
+Response
+\begin_inset space ~
+\end_inset
 
+Measure).
+ Cuando la respuesta ocurre, ésta debería ser medida de alguna manera así
+ el requerimiento puede ser testeado.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -578,10 +503,7 @@ Se distinguen como escenarios generales de calidad a aquellos que son independie
 ntes del sistema y pueden, potencialmente, pertenecer a cualquier sistema,
  de aquellos denominados escenarios concretos de calidad, que son específicos
  de un sistema en particular que esta bajo consideración.
-\end_layout
-
-\begin_layout Standard
-Es por esto ultimo que aparece el concepto abstracto 
+ Es por esto último que aparece el concepto abstracto 
 \shape italic
 Quality-Attribute Scenario, 
 \shape default
@@ -598,8 +520,8 @@ General Quality-Attribute Scenario
 \series bold
 isDerivedFrom
 \series default
- deja constancia del hecho de que un escenario concreto deriva de uno general,
- haciendo las partes del últimos especificas de un sistema bajo consideración.
+ constata el hecho de que un escenario concreto deriva de uno general, haciendo
+ las partes del últimos especificas de un sistema bajo consideración.
 \begin_inset Newline newline
 \end_inset
 
@@ -615,8 +537,151 @@ s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
 dos.
 \end_layout
 
-\begin_layout Subsubsection
-Instancias propuestas
+\begin_layout Part
+Identificación de atributos de calidad
+\end_layout
+
+\begin_layout Standard
+En este capitulo se describirá en detalle el enfoque elegido para la técnica
+ de identificación de atributos de calidad en documentos de especificaciones
+ de requerimientos.
+ Esta técnica brindará una asistencia extra al analista, para identificar
+ los atributos de calidad del sistema en etapas tempranas del desarrollo
+ y evitar los problemas suscitados anteriormente.
+\end_layout
+
+\begin_layout Section
+Desarrollo de la técnica de identificación de atributos de calidad propuesta
+\end_layout
+
+\begin_layout Standard
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tareas_de_la_tecnica_Propuesta"
+
+\end_inset
+
+ se pueden observar las tareas realizadas en la solución propuesta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Tareas.jpeg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tareas_de_la_tecnica_Propuesta"
+
+\end_inset
+
+Tareas realizadas en la solucion propuesta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las circunferencias que contienen los textos 
+\begin_inset Quotes eld
+\end_inset
+
+Casos de Uso
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+Aspecto Temprano
+\begin_inset Quotes erd
+\end_inset
+
+ son los datos de entrada.
+ la circunferencia que contiene el texto 
+\begin_inset Quotes eld
+\end_inset
+
+QualityAttributeTheme
+\begin_inset Quotes erd
+\end_inset
+
+ representa la salida de la tecnica.
+ La circunferencia que posee el texto 
+\begin_inset Quotes eld
+\end_inset
+
+Ontologia
+\begin_inset Quotes erd
+\end_inset
+
+ es precisamente una ontolgía que es utilizada en la solucion.
+ Los rectangulos representan tareas realizadas, mientras que als flechas
+ representan datos que fluyen de tarea a tarea.
+ 
+\end_layout
+
+\begin_layout Standard
+Básicamente el gráfico se divide en dos etapas: la de generación de las
+ listas de tokens y la del análisis de las listas de tokens.
+ 
+\end_layout
+
+\begin_layout Standard
+En la primera se toma la entrada de la herramienta Aspect Extractor Tool,
+ que consiste en casos de usos relacionados con aspectos tempranos.
+ A partir de estas entradas se crean listas de tokens, cada uno representandolas
+ palabras que los conforman esta entrada.
+ A estas listas luego se les realiza un filtrado, haciendo pasar cada token
+ por distintos filtros.
+ Cada filtro modifica el token de diferente manera, potencialmente agregando
+ propiedades adicionales a cada token que serán de utilidad en siguientes
+ tareas.
+\end_layout
+
+\begin_layout Standard
+En la segunda etapa se calcula el porcentaje de pertenencia de las listas
+ de tokens con los distintos atributos de calidad.
+ Para ello se itera sobre cada uno de los tokens invocando a la función
+ Grado de Pertenencia.
+ Esta función indica el porcentaje de asociación de cada palabra con los
+ distintos atributos de calidad.
+ Los resultados parciales de cada palabra se combinan en la tarea Algoritmo,
+ que calcula el resultado para el conjunto de la lista de tokens.
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
+ Theme.
 \end_layout
 
 \begin_layout Section
@@ -2155,22 +2220,31 @@ Análisis de las listas de tokens
 \end_layout
 
 \begin_layout Standard
-En la etapa de análisis de las listas de tokens se encuentran todas las
- tareas necesarias para 
+En la etapa de 
 \begin_inset Quotes eld
 \end_inset
 
-descubrir
+Análisis de las listas de tokens
 \begin_inset Quotes erd
 \end_inset
 
- los atributos de calidad a partir de una lista de tokens extraídos de los
- casos de uso y del aspecto temprano.
- En este punto ya la entrada ha sido analizada, armando listas de tokens
- con la palabra de cada token pasada a minúscula, llevada a su raíz, ponderizand
-ola de acuerdo a su peso y dejando constancia del numero de ocurrencias.
+ se encuentran las tareas para identificar los atributos de calidad a partir
+ de una lista de tokens extraídos de los casos de uso y de los aspectos
+ tempranos.
+ En este punto la entrada ha sido analizada, la lista de tokens con la palabra
+ de cada token pasada a minúscula, llevada a su raíz, ponderizandola de
+ acuerdo a su peso y dejando constancia del numero de ocurrencias, ha sido
+ construida.
  De esta manera, a esta etapa llegan dos listas de tokens: una correspondiente
- a los casos de uso y otra correspondiente al aspecto temprano.
+ a los casos de uso y otra correspondiente a los aspectos tempranos.
+\end_layout
+
+\begin_layout Standard
+El objetivo de esta etapa es identificar el Quality Attribute Theme correspondie
+nte a esas listas de tokens.
+ Para ello se analiza cada token de cada lista, para luego combinar todos
+ estos resultados parciales de cada token, y asi lograr el objetivo de la
+ identificación del QAT.
 \end_layout
 
 \begin_layout Standard
@@ -2203,24 +2277,84 @@ Los cálculos anteriores se aplican a cada una de las listas, la de los casos
 \end_layout
 
 \begin_layout Subsection
-Quality-Attribute Algorithm
+Calcular Quality Attribute Theme
 \end_layout
 
 \begin_layout Standard
-En esta sección se estudiará el algoritmo que, finalmente, asigna un conjunto
- de atributos de calidad, con un porcentaje cada uno, a un conjunto de casos
- uso relacionados con un aspecto temprano.
+Esta tarea es la que tiene como objetivo asignar un conjunto de atributos
+ de calidad, con un porcentaje cada uno, a un conjunto de casos uso relacionados
+ con un aspecto temprano.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
- Para su análisis, este algoritmo utiliza estos atributos del token, además
- de la función GP (Grado de pertenencia) explicada en la sección anterior.
 \end_layout
 
 \begin_layout Standard
-Primero se define el concepto de mapa y de de operaciones sobre ellos, para
- luego explicar en detalle el algoritmo.
- 
+A continuación se muestra un fragmento de pseudocodigo, con una versión
+ simplificada de la tarea
+\end_layout
+
+\begin_layout LyX-Code
+1: Mapa<QA,porcentaje> porcentaje_total = 0;
+\end_layout
+
+\begin_layout LyX-Code
+2: cantidad_de_palabras = 0;
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+3: por c/ token de la lista de tokens
+\end_layout
+
+\begin_layout LyX-Code
+4: inicio
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+5: Mapa<QA,porcentaje> porcentaje_palabra =
+\end_layout
+
+\begin_layout LyX-Code
+   asociar palabra con atributos de calidad;
+\end_layout
+
+\begin_layout LyX-Code
+6: porcentaje_total = porcentaje_total + porcentaje_palabra  ;
+\end_layout
+
+\begin_layout LyX-Code
+7: cantidad_de_palabras = cantidad_de_palabras + 1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+8: final
+\end_layout
+
+\begin_layout LyX-Code
+9: porcentaje_total = porcentaje_total/cantidad_de_palabras
+\end_layout
+
+\begin_layout Standard
+En la línea 1 se declara un conjunto o mapa de pares (QA, porcentaje).
+ Este porcentaje es un numero entre 0 y 1, y la suma de todos los porcentajes
+ de los pares de un mapa es igual a 1.
+ Al igualar este mapa a cero lo que se hace es incializar todos estos porcentaje
+s en 
+\end_layout
+
+\begin_layout Standard
+En el fragemento de pseudocodigo se aprecia que se recorren todos los tokens
+ de una lista de tokens.
+ A cada palabra de cada token se le asocia una conjunto de pares (atributos
+ de calidad, porcentaje).
+ Cada uno de estos pares esta conformado por un atributo de calidad y un
+ porcentaje
 \end_layout
 
 \begin_layout Subsubsection
@@ -2241,7 +2375,7 @@ La función Grado de pertenencia toma como parámetro de entrada una secuencia
 \begin_layout Standard
 Básicamente esta función consta de dos partes.
  La primera es averiguar a que parte del escenario corresponde la palabra.
- Es decir, descubrir si corresponde a una Fuente, a un Estimulo o a alguna
+ Es decir, descubrir si corresponde a una Fuente, a un estímulo o a alguna
  otra.
  Una vez reconocida la instancia a la que se corresponde la palabra, se
  averigua cuantos y cuales escenarios se relacionan con esa instancia.
@@ -2300,7 +2434,7 @@ ConcreteResponseMeasure.
  
 \shape default
 Básicamente, al arribar la palabra X se intenta responder a la pregunta,
- ¿ es X una fuente, un estimulo, un ambiente, un artefacto, una respuesta
+ ¿ es X una fuente, un estímulo, un ambiente, un artefacto, una respuesta
  o una medida de respuesta?
 \end_layout
 
@@ -2653,6 +2787,14 @@ en donde k es un numero real entre 0 y 1.
 (Agrega ejemplo gráfico)
 \end_layout
 
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -2709,6 +2851,20 @@ key "key-5"
 \end_inset
 
 Software Architecture in Practice, Second Edition.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+Dan Connolly, Frank van Harmelen, Ian Horrocks, Deborah L.
+ McGuinness, Peter F.
+ Patel-Schneider y Lynn Andrea Stein.
+ DAML+OIL (March 2001) Reference Description.
+ W3C Note, 18 December 2001.
 \end_layout
 
 \end_body
