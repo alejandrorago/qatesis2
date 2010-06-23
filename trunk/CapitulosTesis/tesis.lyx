@@ -2278,15 +2278,23 @@ nte a esas listas de tokens.
 \end_layout
 
 \begin_layout Standard
-Por cada palabra de cada una de la lista de palabras se averigua el grado
- de pertenencia de esa palabra con los distintos atributos de calidad.
+Por cada palabra de cada una de la listas se averigua el grado de asosiacion
+ de esa palabra con los distintos atributos de calidad.
  Es decir, qué tan ligada se encuentra esa palabra con los distintos atributos
  de calidad y en que porcentaje o grado.
- Para ello se invoca, por cada token, a la función 
-\shape italic
-Grado de pertenencia
-\shape default
-, la cual hace uso de una ontología.
+ Para ello se desarrolla, por cada token, la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Asociar palabra con atributo de calidad
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La misma toma como entrada una palabra y devuelve un conjunto de pares
+ <atributo de calidad, porcentaje>, indicando el grado o porcentaje de asosiacio
+n de esa palabra con los distintos atributos de calidad.
+ Esta tarea arroja este resultado con la ayuda de una ontologia.
 \end_layout
 
 \begin_layout Standard
@@ -2324,6 +2332,39 @@ Esta tarea es la que tiene como objetivo asignar un conjunto de atributos
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
+\end_layout
+
+\begin_layout Standard
+Como se puede apreciar en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tareas_de_la_tecnica_Propuesta"
+
+\end_inset
+
+esta tarea produce un llamado a la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Asociar Palabra con Atributos de Calidad
+\begin_inset Quotes erd
+\end_inset
+
+.
+ El funcionamiento de la misma se explica detalladamente en la subsección
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Asociar-palabra-con"
+
+\end_inset
+
+, pero por ahora basta con detallar que la misma tomo como entrada una palabra
+ y devuelve el porcentaje o grado de asociacion de esa palabra con los distintos
+ atributos de calidad.
+ Especificamente, se devuelve un conjunto de pares <atributo de calidad,
+ porcentaje>, indicando, para los distintos atributos de calidad, el porcentaje
+ de asociacion de esa palabra con el mismo.
 \end_layout
 
 \begin_layout Standard
@@ -2434,11 +2475,8 @@ s en cero.
 \begin_layout Standard
 En la línea 3 se inicializa una iteración por cada uno de los tokens de
  una lista de tokens.
- Por cada uno de esos tokens se recupera la palabra y se asocia a esa palabra
- un conjunto de atributos de calidad, junto con un porcentaje de adhesion
- o de asosiación de esa palabra con cada atributo de calidad.
- Esta asociación de una palabra con los atributos de calidad se realiza
- mediante una ontologia, tarea que se describirá mas adelante.
+ Por cada uno de esos tokens se recupera la palabra; y se la asocia a a
+ un conjunto de pares <Atributo de calidad, porcentaje>.
 \end_layout
 
 \begin_layout Standard
@@ -2455,20 +2493,6 @@ Finalmente, en la línea 9 se divide cada porcentaje de cada atributo de
  
 \end_layout
 
-\begin_layout Standard
-Este algoritmo de la tarea 
-\begin_inset Quotes eld
-\end_inset
-
-Calcular Quality Attibute Theme
-\begin_inset Quotes erd
-\end_inset
-
- tambien posee una definicion matemática formal.
- Para ello, primero presentamos el concepto de Mapa en la siguiente subsección,
- para luego detallar las ecuaciones matemáticas que la describen.
-\end_layout
-
 \begin_layout Subsubsection
 Mapa 
 \begin_inset CommandInset label
@@ -2481,15 +2505,23 @@ name "sub:Mapa"
 \end_layout
 
 \begin_layout Standard
-Para pode detallar la formalizacion matematica presentada en la subseccion
- que representan a la tarea descripta en la seccion 
+Presentamos el concepto de 
+\begin_inset Quotes erd
+\end_inset
+
+Mapa
+\begin_inset Quotes erd
+\end_inset
+
+ para podee detallar la formalizacion matematica presentada en la subseccion
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Calcular-Quality-Attribute"
 
 \end_inset
 
-presentamos el concepto de Mapa.
+.
  De esta manera, definimos un mapa como una conjunto de tuplas <K,V> , donde
  a K se lo denomina “clave” y a V se lo denomina “valor”.
  Un mapa no puede tener dos tuplas con claves idénticas.
@@ -2529,7 +2561,7 @@ Sean M1 y M2 dos mapas con igual numero de tuplas.
  Definimos la suma M1+M2, como un mapa M3 en donde cada tupla que éste posee
  es el resultado de la suma de los valores de las tuplas de igual clave
  de M1 y M2.
- Por ejemplo, si tenemos el mapa 
+ Por ejemplo, si se tiene el mapa 
 \begin_inset Formula $M_{1}=(<K_{1},a>;<K_{2},b>)$
 \end_inset
 
@@ -2774,25 +2806,7 @@ Básicamente esta tarea consta de dos partes.
  averigua cuantos y cuales escenarios se relacionan con esa instancia.
  A partir de esto ultimo, y de calcular los porcentajes en que ese grupo
  de escenarios se relacionan con los atributos de calidad, se obtiene el
- mapa 
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-En la sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Mapa"
-
-\end_inset
-
- se definirá formalmente un Mapa y las operaciones sobre el mismo.
- 
-\end_layout
-
-\end_inset
-
- de atributos de calidad y porcentajes.
+ mapa de atributos de calidad y porcentajes.
 \end_layout
 
 \begin_layout Paragraph
