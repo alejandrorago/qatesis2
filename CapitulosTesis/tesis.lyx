@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -274,6 +274,13 @@ key "key-6"
 
 \begin_layout Section
 Ontología para atributos de calidad
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Ontología-para-atributos"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2301,12 +2308,19 @@ Los cálculos anteriores se aplican a cada una de las listas, la de los casos
 
 \begin_layout Subsection
 Calcular Quality Attribute Theme
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Calcular-Quality-Attribute"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Esta tarea es la que tiene como objetivo asignar un conjunto de atributos
  de calidad, con un porcentaje cada uno, a un conjunto de casos uso relacionados
- con un aspecto temprano.
+ con aspectos tempranos.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
@@ -2314,7 +2328,43 @@ Esta tarea es la que tiene como objetivo asignar un conjunto de atributos
 
 \begin_layout Standard
 A continuación se muestra un fragmento de pseudocodigo, con una versión
- simplificada de la tarea
+ simplificada de la tarea, aplicada solo a una lista de tokens.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Pseudocodigo-simplificado"
+
+\end_inset
+
+Pseudocodigo simplificado de la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Calcular Quality Attribute Theme
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout LyX-Code
@@ -2363,40 +2413,360 @@ A continuación se muestra un fragmento de pseudocodigo, con una versión
 9: porcentaje_total = porcentaje_total/cantidad_de_palabras
 \end_layout
 
-\begin_layout Standard
-En la línea 1 se declara un conjunto o mapa de pares (QA, porcentaje).
- Este porcentaje es un numero entre 0 y 1, y la suma de todos los porcentajes
- de los pares de un mapa es igual a 1.
- Al igualar este mapa a cero lo que se hace es incializar todos estos porcentaje
-s en 
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En el fragemento de pseudocodigo se aprecia que se recorren todos los tokens
- de una lista de tokens.
- A cada palabra de cada token se le asocia una conjunto de pares (atributos
- de calidad, porcentaje).
- Cada uno de estos pares esta conformado por un atributo de calidad y un
- porcentaje
+En la línea 1 se declara un conjunto o mapa de pares (QA, porcentaje).
+ Este porcentaje es un número entre 0 y 1, y la suma de todos los porcentajes
+ de los pares de un mapa es igual a 1.
+ Al igualar este mapa a cero lo que se hace es incializar todos estos porcentaje
+s en cero.
+ 
+\end_layout
+
+\begin_layout Standard
+En la línea 3 se inicializa una iteración por cada uno de los tokens de
+ una lista de tokens.
+ Por cada uno de esos tokens se recupera la palabra y se asocia a esa palabra
+ un conjunto de atributos de calidad, junto con un porcentaje de adhesion
+ o de asosiación de esa palabra con cada atributo de calidad.
+ Esta asociación de una palabra con los atributos de calidad se realiza
+ mediante una ontologia, tarea que se describirá mas adelante.
+\end_layout
+
+\begin_layout Standard
+Los porcentajes de cada palabra, para cada atributo de calidad, se van sumando
+ y almacenando en la variable porcentaje_total.
+ La cantidad de palabras analizadas se va almacenando en la variable cantidad_de
+_palabras.
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente, en la línea 9 se divide cada porcentaje de cada atributo de
+ caliad del conjunto porcentaje_total por la cantidad de palabras analizadas.
+ 
+\end_layout
+
+\begin_layout Standard
+Este algoritmo de la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Calcular Quality Attibute Theme
+\begin_inset Quotes erd
+\end_inset
+
+ tambien posee una definicion matemática formal.
+ Para ello, primero presentamos el concepto de Mapa en la siguiente subsección,
+ para luego detallar las ecuaciones matemáticas que la describen.
 \end_layout
 
 \begin_layout Subsubsection
-Función Grado de Pertenencia (GP)
+Mapa 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Mapa"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-La función Grado de pertenencia toma como parámetro de entrada una secuencia
- de caracteres que representa una palabra y devuelve un conjunto de atributos
- de calidad, asociados cada uno con un porcentaje.
+Para pode detallar la formalizacion matematica presentada en la subseccion
+ que representan a la tarea descripta en la seccion 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Calcular-Quality-Attribute"
+
+\end_inset
+
+presentamos el concepto de Mapa.
+ De esta manera, definimos un mapa como una conjunto de tuplas <K,V> , donde
+ a K se lo denomina “clave” y a V se lo denomina “valor”.
+ Un mapa no puede tener dos tuplas con claves idénticas.
+ Es decir, dado un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2>
+ tal que K1=K2.
+\end_layout
+
+\begin_layout Standard
+En los mapas definidos en este tranajo se utiliza como 
+\begin_inset Quotes eld
+\end_inset
+
+claves
+\begin_inset Quotes erd
+\end_inset
+
+ los nombres de los atributos de calidad y como 
+\begin_inset Quotes eld
+\end_inset
+
+valores
+\begin_inset Quotes erd
+\end_inset
+
+ números reales entre 0 y 1.
+\end_layout
+
+\begin_layout Paragraph
+Suma de dos mapas
+\end_layout
+
+\begin_layout Standard
+Sean M1 y M2 dos mapas con igual numero de tuplas.
+ Además toda clave K que pertenece a alguna tupla de M1, también pertenece
+ a alguna tupla de M2.
+ Sea además cualquier valor de V perteneciente a M1 y M2 un número real.
+ Definimos la suma M1+M2, como un mapa M3 en donde cada tupla que éste posee
+ es el resultado de la suma de los valores de las tuplas de igual clave
+ de M1 y M2.
+ Por ejemplo, si tenemos el mapa 
+\begin_inset Formula $M_{1}=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+ y el mapa 
+\begin_inset Formula $M_{2}=(<K_{1},c>;<K_{2},d>)$
+\end_inset
+
+ se define 
+\begin_inset Formula $M_{1}+M_{2}=(<K_{1},a+c>;<K_{2},b+d>)$
+\end_inset
+
+ siendo K1 y K2 claves; a, b, c y d números reales
+\end_layout
+
+\begin_layout Paragraph
+División de un mapa por un numero real
+\end_layout
+
+\begin_layout Standard
+Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
+ y V son números reales.
+ Sea x un numero real distinto de cero.
+ La división de M por x da como resultado el mismo mapa, con todos los valores
+ V divididos por ese numero.
+ Por ejemplo, si 
+\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $M/x=(<K_{1},a/x>;<K_{2},b/x>)$
+\end_inset
+
+, siendo a,b y x numero reales; M un mapa; K1,K2 claves del mapa.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Multiplicación de un mapa por un numero real
+\end_layout
+
+\begin_layout Standard
+Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
+ y V son números reales.
+ Sea x un numero real.
+ La multiplicación de M por x da como resultado el mismo mapa, con todos
+ los valores V multiplicados por ese numero.
+ Por ejemplo, si
+\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
+\end_inset
+
+, entonces 
+\begin_inset Formula $M\times x=(<K_{1},a\times x>;<K_{2},b\times x>)$
+\end_inset
+
+, siendo a,b y x números reales; M un mapa; K1,K2 claves del mapa.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Explicación matemática
+\end_layout
+
+\begin_layout Standard
+Como se ha dicho anteriormente, la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Calcular Quality Attibute Theme
+\begin_inset Quotes erd
+\end_inset
+
+ tiene como entrada dos listas de tokens extraídos de los casos de uso y
+ de los aspectos tempranos.
+ Así, denominamos como UCL[] a un arreglo compuesto por tokens extraídos
+ de los casos de uso y a EAL[] como otro arreglo de tokens extraídos de
+ los aspectos tempranos.
+\end_layout
+
+\begin_layout Standard
+Aunque se ha mencionado anteriormente vale la pena recordar que un token
+ 
+\shape italic
+x
+\shape default
+ tiene varias propiedades, y en las siguiente ecuaciones se denomina como
+ 
+\shape italic
+x.palabra
+\shape default
+ al conjunto de caracteres del token que representan la palabra, 
+\shape italic
+x.ocurrencias
+\shape default
+ a la propiedad que indica el numero de ocurrencias de ese token y 
+\shape italic
+x.peso
+\shape default
+ al valor o peso que se le asigna a ese token.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+AP
+\begin_inset Quotes erd
+\end_inset
+
+ son las siglas que denominan a la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Asociar Palabra
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Esta tarea toma como entrada una palabra y devuelve un mapa de atributos
+ de caliadad y porcentajes, como se mostró en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tareas_de_la_tecnica_Propuesta"
+
+\end_inset
+
+.
+ Es la misma tarea invocada en al linea 5 del fragmento de pseudocodigo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Pseudocodigo-simplificado"
+
+\end_inset
+
+ y es detalladaa en la subsección
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Asociar-palabra-con"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Entonces, sea i un numero entero, UCL[i] se refiere al token en la posición
+ i del arreglo UCL.
+ Similar es el caso del arreglo EAL.
+ De esta manera se definen las siguientes ecuaciones.
+\end_layout
+
+\begin_layout Standard
+Sea totalUCM un mapa que se define como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+totalUCM=\frac{\overset{n}{\underset{i=1}{\sum}}AP(UCL[i].palabra)\times UCL[i].ocurrencias\times UCL[i].peso}{\overset{n}{\underset{i=1}{\sum}}UCL[i].ocurrencias\times UCL[i].peso}\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Y sea totalEAM un mapa que se define como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+totalEAM=\frac{\overset{n}{\underset{i=1}{\sum}}AP(EAL[i].palabra)\times EAL[i].ocurrencias}{\underset{i=1}{\overset{n}{\sum}}EAL[i].ocurrencias}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces se define el mapa totalMap como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+totalMap=k\times totalUCM+(1-k)\times totalEAM\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+en donde k es un numero real entre 0 y 1.
+ La constante k indica el “peso “ correspondiente a la lista de tokens extraídos
+ de los casos de uso y a la lista de tokens extraídos del aspecto temprano.
+ Es decir, a la hora de calcular el totalMap, k indica que porcentaje sera
+ extraído del totalUCM y qué porcentaje del totalEAM.
+ Nótese que si k=1, entonces totalMap es igual a totalUCM; si k=0 entonces
+ totalMap es igual a totalEAM; si k=0.5 totalMap es la mitad de totalUCM
+ más la mitad de totalEAM.
+ 
+\end_layout
+
+\begin_layout Standard
+(Agrega ejemplo gráfico)
+\end_layout
+
+\begin_layout Subsubsection
+Asociar palabra con atributos de calidad
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Asociar-palabra-con"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta tarea toma como parámetro de entrada una secuencia de caracteres que
+ representa una palabra y devuelve un conjunto de atributos de calidad,
+ asociados cada uno con un porcentaje.
  Este porcentaje indica el grado o porcentaje de asociación o pertenencia
  que tiene ese palabra con cada atributo de calidad.
- Para realizar este cálculo, la función consulta las instancias de la ontología
- formada por los conceptos y relaciones explicadas anteriormente.
- Se supone que las instancias han sido creadas por un experto.
+ Para realizar este cálculo, la tarea consulta las instancias de la ontología,
+ formada por los conceptos y relaciones explicadas en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ontología-para-atributos"
+
+\end_inset
+
+.
+ Se supone que las instancias de la ontologia han sido creadas por un experto.
 \end_layout
 
 \begin_layout Standard
-Básicamente esta función consta de dos partes.
+Básicamente esta tarea consta de dos partes.
  La primera es averiguar a que parte del escenario corresponde la palabra.
  Es decir, descubrir si corresponde a una Fuente, a un estímulo o a alguna
  otra.
@@ -2617,197 +2987,6 @@ bility".
  En este caso la función finalmente devolvería <Performance 0.75, Aviability
  0.2, Modificability 0.05>.
  (Agrega un ejemplo gráfico)
-\end_layout
-
-\begin_layout Subsubsection
-Mapa 
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Mapa"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Se define un mapa como una conjunto de tuplas <K,V> , donde a K se lo denomina
- “clave” y a V se lo denomina “valor”.
- Un mapa no puede tener dos tuplas con claves idénticas.
- Es decir, dado un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2>
- tal que K1=K2.
-\end_layout
-
-\begin_layout Standard
-En este algoritmo se usará como claves los nombres de los atributos de calidad
- y los valores serán números reales entre 0 y 1.
-\end_layout
-
-\begin_layout Paragraph
-Suma de dos mapas
-\end_layout
-
-\begin_layout Standard
-Sean M1 y M2 dos mapas con igual numero de tuplas.
- Además toda clave K que pertenece a alguna tupla de M1, también pertenece
- a alguna tupla de M2.
- Sea además cualquier valor de V perteneciente a M1 y M2 un número real.
- Se define la suma M1+M2, como un mapa M3 en donde cada tupla que éste posee
- es el resultado de la suma de los valores de las tuplas de igual clave
- de M1 y M2.
- Por ejemplo, si tenemos el mapa 
-\begin_inset Formula $M_{1}=(<K_{1},a>;<K_{2},b>)$
-\end_inset
-
- y el mapa 
-\begin_inset Formula $M_{2}=(<K_{1},c>;<K_{2},d>)$
-\end_inset
-
- se define 
-\begin_inset Formula $M_{1}+M_{2}=(<K_{1},a+c>;<K_{2},b+d>)$
-\end_inset
-
- siendo K1 y K2 claves; a, b, c y d números reales
-\end_layout
-
-\begin_layout Paragraph
-División de un mapa por un numero real
-\end_layout
-
-\begin_layout Standard
-Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
- y V son números reales.
- Sea x un numero real distinto de cero.
- La división de M por x da como resultado el mismo mapa, con todos los valores
- V divididos por ese numero.
- Por ejemplo, si 
-\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
-\end_inset
-
-, entonces 
-\begin_inset Formula $M/x=(<K_{1},a/x>;<K_{2},b/x>)$
-\end_inset
-
-, siendo a,b y x numero reales; M un mapa; K1,K2 claves del mapa.
- 
-\end_layout
-
-\begin_layout Paragraph
-Multiplicación de un mapa por un numero real
-\end_layout
-
-\begin_layout Standard
-Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
- y V son números reales.
- Sea x un numero real.
- La multiplicación de M por x da como resultado el mismo mapa, con todos
- los valores V multiplicados por ese numero.
- Por ejemplo, si
-\begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
-\end_inset
-
-, entonces 
-\begin_inset Formula $M\times x=(<K_{1},a\times x>;<K_{2},b\times x>)$
-\end_inset
-
-, siendo a,b y x números reales; M un mapa; K1,K2 claves del mapa.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Explicación matemática del algoritmo del algoritmo
-\end_layout
-
-\begin_layout Standard
-Como se ha dicho anteriormente este algoritmo tiene como entrada dos listas
- de tokens extraídos de los casos de uso y del aspecto temprano.
- Así, se denomina como UCL[] a un arreglo compuesto por tokens extraídos
- de los casos de uso y a EAL[] como otro arreglo de tokens extraídos del
- aspecto temprano.
-\end_layout
-
-\begin_layout Standard
-Aunque se ha mencionado anteriormente vale la pena recordar que un token
- 
-\shape italic
-x
-\shape default
- tiene varias propiedades, y en las siguiente ecuaciones se denomina como
- 
-\shape italic
-x.palabra
-\shape default
- al conjunto de caracteres del token que representan la palabra, 
-\shape italic
-x.ocurrencias
-\shape default
- a la propiedad que indica el numero de ocurrencias de ese token y 
-\shape italic
-x.peso
-\shape default
- al valor o peso que se le asigna a ese token.
-\end_layout
-
-\begin_layout Standard
-Entonces, sea i un numero entero, UCL[i] se refiere al token en la posición
- i del arreglo UCL.
- Similar es el caso del arreglo EAL.
- De esta manera se definen las siguientes ecuaciones.
-\end_layout
-
-\begin_layout Standard
-Sea totalUCM un mapa que se define como:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula \[
-totalUCM=\frac{\overset{n}{\underset{i=1}{\sum}}GP(UCL[i].palabra)\times UCL[i].ocurrencias\times UCL[i].peso}{\overset{n}{\underset{i=1}{\sum}}UCL[i].ocurrencias\times UCL[i].peso}\]
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Y sea totalEAM un mapa que se define como:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula \[
-totalEAM=\frac{\overset{n}{\underset{i=1}{\sum}}GP(EAL[i].palabra)\times EAL[i].ocurrencias}{\underset{i=1}{\overset{n}{\sum}}EAL[i].ocurrencias}\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Entonces se define el mapa totalMap como:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula \[
-totalMap=k\times totalUCM+(1-k)\times totalEAM\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-en donde k es un numero real entre 0 y 1.
- La constante k indica el “peso “ correspondiente a la lista de tokens extraídos
- de los casos de uso y a la lista de tokens extraídos del aspecto temprano.
- Es decir, a la hora de calcular el totalMap, k indica que porcentaje sera
- extraído del totalUCM y qué porcentaje del totalEAM.
- Nótese que si k=1, entonces totalMap es igual a totalUCM; si k=0 entonces
- totalMap es igual a totalEAM; si k=0.5 totalMap es la mitad de totalUCM
- más la mitad de totalEAM.
- 
-\end_layout
-
-\begin_layout Standard
-(Agrega ejemplo gráfico)
 \end_layout
 
 \begin_layout Standard
