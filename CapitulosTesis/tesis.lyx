@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -700,12 +700,12 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  de “Análisis Semántico” [REF], es una lista de casos de uso, los aspectos
  tempranos detectados y las relaciones entre ellos.
  Los casos de uso respetan el estándar establecido por Rational [REF].
- De igual forma, la especificación de los aspectos tempranos siguen el formato
+ De igual modo, la especificación de los aspectos tempranos siguen el formato
  definido en Aspect Extract Tool, el cuál es semejante al de los casos de
  uso.
- Esta técnica, con esta información crea las entidades Caso de Uso y Aspecto
- Temprano, basándose además en las relaciones entre estas entidades para
- agruparlos inicialmente en el Quality Attribute Theme.
+ Con esta información, se crean las entidades Caso de Uso y Aspecto Temprano,
+ basándose además en las relaciones entre estas entidades para agruparlos
+ inicialmente en el Quality Attribute Theme.
  A partir de estas entidades se confeccionarán las listas de palabras tokens,
  las cuales serán la entrada de la próxima etapa, quien será la responsable
  de instanciar la información referida al atributo de calidad.
@@ -1166,17 +1166,10 @@ En este caso, la entrada para los filtros es una lista de tokens, por lo
 
 \begin_layout Standard
 Para esta actividad se han definido diferentes filtros que realizan transformaci
-ones sobre los tokens de la lista.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-explicar un poco aca
-\end_layout
-
-\end_inset
-
-
+ones sobre los tokens de las listas, y fueron generado de tal forma, que
+ puedan ser reutilizados y combinados para darle un formato común a cualquier
+ otro texto que represente información relevante, como por ejemplo, las
+ instancias de la ontología.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1453,35 +1446,21 @@ Filtro Stop Words
 \begin_layout Standard
 Se eliminan las denominadas stop-words, que son palabras que, desde el punto
  de vista no lingüístico, no contienen información relevante.
- Las stop-words difieren de acuerdo al lenguaje.
- Algunas de las stop words más comunes son los artículos, preposiciones,
+ Algunas de las stop words más comunes son los artículos, las preposiciones,
  etc.
  (por ejemplo: a, de, del, el, en, ella, los, se).
- Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
- cuales su palabra aparezca en la lista de stop-words dada.
  
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hablar de la incorporacion de palabras no relevantes que el desarrollador
- puede 
-\begin_inset Quotes eld
-\end_inset
-
-sacar
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
+ cuales su palabra aparezca en la lista de stop-words dada.
+ El analista/desarrollador tiene la posibilidad de incluir palabras en esta
+ lista que para su dominio no representen información valiosa para el análisis
+ (no relevantes).
+ De igual modo, se puede modificar la lista quitando palabras que en el
+ domino resulten ser relevantes para el análisis y el desarrollador desee
+ que sean procesadas.
 \end_layout
 
 \begin_layout Standard
@@ -1646,7 +1625,7 @@ Diferentes palabras pueden tener el mismo significado desde el punto de
  vista semántico, pero no tener exactamente la misma secuencia de caracteres.
  Un ejemplo de esto pueden ser las palabras aprender, aprenden y aprendió,
  que, desde el enfoque en este trabajo, tienen el mismo significado.
- Por ello se decidió utilizarla técnica stemming [REF], que es el proceso
+ Por ello se decidió utilizar la técnica stemming [REF], que es el proceso
  de transformar una palabra en su raíz (stem).
  Para el ejemplo anterior, todas esas palabras estarían identificadas por
  su raíz, es decir, “aprend”.
