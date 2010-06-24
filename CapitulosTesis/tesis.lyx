@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -2376,48 +2376,39 @@ reference "sub:Asociar-palabra-con"
 \end_layout
 
 \begin_layout Standard
-A continuación se muestra un fragmento de pseudocodigo, con una versión
- simplificada de la tarea, aplicada solo a una lista de tokens.
+Para un mejor entendimiento de lo realizado en este tarea a continuación
+ se muestran tres versiones de la misma.
+ La primera es una version simplificada, que supone como entrada una sola
+ lista de tokens y en donde no se tienen en cuenta las ocurrencias y los
+ pesos de los tokens en el calculo de los atributos de calidad que se le
+ relacionan.
+ La segunda versión de la tarea tambien supone como entrada una sola lista
+ de tokens, pero se tienen en cuenta el peso y el numero de ocurrencias
+ de cada token.
+ En la ultima versión, que es la que adopta la técnica propuesta, se supone
+ como entrada dos listas de tokens, teniendo en cueta el peso y el numero
+ de ocurrencias de cada token en el cálculo de los atributos de caliadad
+ que se le relacionan.
+\end_layout
+
+\begin_layout Paragraph
+Una sola lista de tokens, sin calculo de ocurrencias ni pesos.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout LyX-Code
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Pseudocodigo-simplificado"
-
-\end_inset
-
-Pseudocodigo simplificado de la tarea 
-\begin_inset Quotes eld
-\end_inset
-
-Calcular Quality Attribute Theme
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+A continuación se muestra un fragmento de pseudocodigo, con una versión
+ simplificada de la tarea, aplicada solo a una lista de tokens y en donde
+ no se tiene en cuenta el peso y el número de ocurrencias de cada token.
 \end_layout
 
 \begin_layout LyX-Code
-1: Mapa<QA,porcentaje> porcentaje_total = 0;
+1: Mapa<QA,porcentaje> porcentaje_total_map = crear mapa con todos 
+\end_layout
+
+\begin_layout LyX-Code
+                                          los atributos de calidad e   
+                                                                igualar
+ porcentajes a 0;
 \end_layout
 
 \begin_layout LyX-Code
@@ -2438,58 +2429,76 @@ Calcular Quality Attribute Theme
 
 \begin_deeper
 \begin_layout LyX-Code
-5: Mapa<QA,porcentaje> porcentaje_palabra =
+5: palabra = token.palabra
 \end_layout
 
 \begin_layout LyX-Code
-   asociar palabra con atributos de calidad;
+6: Mapa<QA,porcentaje> porcentaje_palabra_map =
 \end_layout
 
 \begin_layout LyX-Code
-6: porcentaje_total = porcentaje_total + porcentaje_palabra  ;
+   asociar palabra con atributos de calidad(palabra);
 \end_layout
 
 \begin_layout LyX-Code
-7: cantidad_de_palabras = cantidad_de_palabras + 1;
+7: porcentaje_total = porcentaje_total + porcentaje_palabra  ;
+\end_layout
+
+\begin_layout LyX-Code
+8: cantidad_de_palabras = cantidad_de_palabras + 1;
 \end_layout
 
 \end_deeper
 \begin_layout LyX-Code
-8: final
+9: final
 \end_layout
 
 \begin_layout LyX-Code
-9: porcentaje_total = porcentaje_total/cantidad_de_palabras
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+10: porcentaje_total = porcentaje_total/cantidad_de_palabras
 \end_layout
 
 \begin_layout Standard
-En la línea 1 se declara un conjunto o mapa de pares (QA, porcentaje).
- Este porcentaje es un número entre 0 y 1, y la suma de todos los porcentajes
- de los pares de un mapa es igual a 1.
- Al igualar este mapa a cero lo que se hace es incializar todos estos porcentaje
-s en cero.
- 
+En la línea 1 se declara un conjunto o mapa de pares <Atributo de calidad,
+ porcentaje>.
+ A este mapa se le agregan como pares todos los atributos de calidad, con
+ los porcentajes de cada uno inicializados en 0.
+\end_layout
+
+\begin_layout Standard
+En la línea 2 se incializa la variable cantidad_de_palabras en cero.
+ Esta variable irá contando la cantidad de palabras analizadas de los tokens
+ de la lista.
 \end_layout
 
 \begin_layout Standard
 En la línea 3 se inicializa una iteración por cada uno de los tokens de
  una lista de tokens.
- Por cada uno de esos tokens se recupera la palabra; y se la asocia a a
- un conjunto de pares <Atributo de calidad, porcentaje>.
+ Por cada uno de esos tokens se recupera la palabra, como se muestra en
+ la linea 4; y se la asocia a a un conjunto de pares <Atributo de calidad,
+ porcentaje>, como se muestra en la linea 5.
+ Como se mencionó anteriormente, esta asosiación entre la palabra y un conjunto
+ de atributos de calidad es realizada por la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Asociar palabra con atributos de calidad
+\begin_inset Quotes erd
+\end_inset
+
+, en adelante denominada AP, que toma como entrada a una palabra.
+ La misma es detallada más adelante, en al subsección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Asociar-palabra-con"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 Los porcentajes de cada palabra, para cada atributo de calidad, se van sumando
- y almacenando en la variable porcentaje_total.
+ y almacenando en el mapa porcentaje_total.
  La cantidad de palabras analizadas se va almacenando en la variable cantidad_de
 _palabras.
  
@@ -2497,8 +2506,178 @@ _palabras.
 
 \begin_layout Standard
 Finalmente, en la línea 9 se divide cada porcentaje de cada atributo de
- caliad del conjunto porcentaje_total por la cantidad de palabras analizadas.
+ calidad del mapa porcentaje_total por la cantidad de palabras analizadas.
  
+\end_layout
+
+\begin_layout Standard
+A coninuacion se verá un ejemplo de lo explicado anteriormente.
+ 
+\end_layout
+
+\begin_layout Standard
+Supongase que se tiene sólo los atributos de calidad de modificability,
+ performance y aviability.
+ La linea 1 inicializa un mapa con estos tres atributos en los pares, cada
+ uno con valores en 0.
+ En la línea 2 se incializa el contador de palabras en 0.
+ De esta manera, despues de las inicializaciones, las variables quedarian
+ de la siguiente forma:
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0>;<Aviability,0>;<Performance,0>).
+\end_layout
+
+\begin_layout Verse
+cantidad_de_palabras = 0;
+\end_layout
+
+\begin_layout Standard
+Supongase que la lista de tokens esta conformada por solo dos tokens.
+ El primer token contiene la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+fast
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Supongase que la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Asociar palabra con atributo de calidad
+\begin_inset Quotes erd
+\end_inset
+
+, en adelante denominada AP, relaciona, para esa palabra, el siguiente mapa
+\end_layout
+
+\begin_layout Verse
+AP(
+\begin_inset Quotes eld
+\end_inset
+
+fast
+\begin_inset Quotes erd
+\end_inset
+
+) = (<Modificability,0.25>;<Aviability,0.0>;<Performance,0.75>)
+\end_layout
+
+\begin_layout Standard
+Este resultado significa que la tarea asigna a la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+fast
+\begin_inset Quotes erd
+\end_inset
+
+ una relación de 0.25 o 25% con el atributo de caliad 
+\begin_inset Quotes eld
+\end_inset
+
+Modificability
+\begin_inset Quotes erd
+\end_inset
+
+, un 0% con Aviability y un 75% con el atributo Performance.
+ 
+\end_layout
+
+\begin_layout Standard
+Como se dijo anteriormente los resultados parciales de cada palabra se van
+ acumulando.
+ Es por ello que este mapa se suma al mapa porcentaje_total_map durante
+ la primera iteracion.
+ A su vez, el número de palabras aumenta en 1.
+ De esta manera, el estado de las variables porcentaje_total_map y cantidad_de_p
+alabras despues de la primera iteracion es el siguiente
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0.25>;<Aviability,0>;<Performance,0.75>).
+\end_layout
+
+\begin_layout Verse
+cantidad_de_palabras = 1;
+\end_layout
+
+\begin_layout Standard
+Supongase que la sgunda palabra es 
+\begin_inset Quotes eld
+\end_inset
+
+seconds
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Durante la segunda iteración, la tarea AP la relaciona con el siguiente
+ mapa
+\end_layout
+
+\begin_layout Verse
+AP(
+\begin_inset Quotes eld
+\end_inset
+
+seconds
+\begin_inset Quotes erd
+\end_inset
+
+) = (<Modificability,0.0>;<Aviability,0.50>;<Performance,0.50>)
+\end_layout
+
+\begin_layout Standard
+Este mapa se suma al de porcentaje_total_map.
+ De esta manera, el estado de las variables porcentaje_total_map y cantidad_de_p
+alabras despues de la segunda iteracion es el siguiente
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.50>;<Performance,1.25>)
+\end_layout
+
+\begin_layout Verse
+cantidad_de_palabras = 2;
+\end_layout
+
+\begin_layout Standard
+Ya no hay mas tokens en la lista, por lo que despues de la segunda iteración
+ se sale del bucle.
+ La línea 10 del fragmento de pseudocodigo indica que esta suma de resultados
+ parciales almacenados en porcentaje_total_map debe ser dividida por la
+ cantidad de palabras.
+ De esta manera, luego de ejecutarse la línea 10, el contenido de porcentaje_tot
+al_map es la siguiente
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0.125>;<Aviability,0.25>;<Performance,0.625
+>)
+\end_layout
+
+\begin_layout Standard
+La interpretación de este resultado es que la lista de tokens se relaciona
+ en un 12,5% con modificability, un 25% con aviability y un 62,5 % con Performan
+ce.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Una sola lista de tokens, con calculo de peso y ocurrencias
+\end_layout
+
+\begin_layout Standard
+bla bla
+\end_layout
+
+\begin_layout Paragraph
+Dos listas de tokens, con calculo de peso y ocurrencias
 \end_layout
 
 \begin_layout Subsubsection
