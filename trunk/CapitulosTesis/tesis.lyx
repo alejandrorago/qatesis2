@@ -612,6 +612,14 @@ Tareas realizadas en la solucion propuesta
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Poner una referencia gáfica lo siguiente 
+\begin_inset Quotes eld
+\end_inset
+
 Las circunferencias que contienen los textos 
 \begin_inset Quotes eld
 \end_inset
@@ -650,41 +658,62 @@ Ontologia
  Los rectangulos representan tareas realizadas, mientras que als flechas
  representan datos que fluyen de tarea a tarea.
  
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Básicamente el gráfico se divide en dos etapas: la de generación de las
- listas de tokens y la del análisis de las listas de tokens.
- 
+En este trabajo se ha definido un proceso por medio del cual es posible
+ identificar el grado de relación que tiene un conjunto de casos de uso
+ y aspectos tempranos con los atributos de calidad del sistema.
+ El proceso toma como entrada una lista de casos de uso y aspectos tempranos,
+ y agrega a cada conjunto de aspecto temprano y casos de uso relacionados,
+ información del atributo de calidad dominante.
 \end_layout
 
 \begin_layout Standard
-En la primera se toma la entrada de la herramienta Aspect Extractor Tool,
- que consiste en casos de usos relacionados con aspectos tempranos.
- A partir de estas entradas se crean listas de tokens, cada uno representandolas
- palabras que los conforman esta entrada.
- A estas listas luego se les realiza un filtrado, haciendo pasar cada token
- por distintos filtros.
- Cada filtro modifica el token de diferente manera, potencialmente agregando
- propiedades adicionales a cada token que serán de utilidad en siguientes
- tareas.
+Básicamente, esta constituido por dos etapas.
+ La primer etapa denominada 
+\emph on
+generación de tokens
+\emph default
+ realiza un análisis sobre la entrada para representar la información en
+ un formato común.
+ Luego mediante un filtrado de esta información, se establece qué información
+ sera relevante y además se incluyen propiedades sobre cada elemento que
+ representa la información de entrada.
 \end_layout
 
 \begin_layout Standard
-En la segunda etapa se calcula el porcentaje de pertenencia de las listas
- de tokens con los distintos atributos de calidad.
- Para ello se itera sobre cada uno de los tokens invocando a la función
- Grado de Pertenencia.
- Esta función indica el porcentaje de asociación de cada palabra con los
- distintos atributos de calidad.
- Los resultados parciales de cada palabra se combinan en la tarea Algoritmo,
- que calcula el resultado para el conjunto de la lista de tokens.
- 
+En la segunda etapa, 
+\emph on
+análisis de tokens,
+\emph default
+ se calcula el porcentaje de pertenencia de cada elemento de la entrada
+ con los distintos atributos de calidad y luego es combinado para obtener
+ ...
 \end_layout
 
 \begin_layout Standard
-Finalmente, a partir del resultado obtenido se retorna un Quality Attribute
- Theme.
+Para soportar dicho proceso se ha implementado una herramienta con lo cúal
+ el desarrollador podrá obtener 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+bla bla bla
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
