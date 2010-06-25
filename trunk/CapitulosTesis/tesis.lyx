@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -679,16 +679,16 @@ En este trabajo se ha definido un proceso por medio del cual es posible
 \end_layout
 
 \begin_layout Standard
-Básicamente, esta constituido por dos etapas.
+Básicamente, el proceso esta constituido por dos etapas.
  La primer etapa denominada 
 \emph on
-generación de tokens
+Analisis de la Entrada o Textual
 \emph default
- realiza un análisis sobre la entrada para representar la información en
- un formato común.
- Luego mediante un filtrado de esta información, se establece qué información
- sera relevante y además se incluyen propiedades sobre cada elemento que
- representa la información de entrada.
+ realiza un análisis sobre los artefactos de entrada para representar la
+ información en un formato común.
+ Luego, mediante un filtrado de esta información, se realizá una transformación
+ para definir qué información sera relevante y además se incluyen propiedades
+ sobre cada elemento que representa la información de entrada.
 \end_layout
 
 \begin_layout Standard
@@ -704,16 +704,6 @@ análisis de tokens,
 \begin_layout Standard
 Para soportar dicho proceso se ha implementado una herramienta con lo cúal
  el desarrollador podrá obtener 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-bla bla bla
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1165,7 +1155,7 @@ El patrón de arquitectura Pipes & Filters [REF.Mary Shaw] provee una estructura
  para procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
- Los datos se pasan usando las tuberías entre filtros adyacentes y mediante
+ Los datos se pasan usando los pipes entre filtros adyacentes y mediante
  la combinación de los filtros se pueden conseguir distintas salidas.
  Las ventajas de utilizar este concepto es:
 \end_layout
@@ -1980,20 +1970,29 @@ Este filtro es aplicado para enriquecer los tokens de la lista de tokens
 \end_layout
 
 \begin_layout Standard
-Siguiendo el ejemplo anterior, y suponiendo la siguiente tabla de pesos:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hablar de los pesos de donde salen
-\end_layout
-
-\end_inset
-
-
+Hemos realizado un estudio riguroso de la importancia que tiene cada una
+ de las componentes del template que conforman los casos de uso, y por defecto
+ se asignan los pesos mostrados en la tabla 1.
+ considerando los textos y palabras que conforman las diferentes secciones.
+ Sin embrargo el desarrollador podría modificar este peso dependiendo de
+ las caracteristicas de la definición de sus casos de uso.
+ La herramienta soporta esta parametrización a través de un archivo de configura
+ción donde quedan fijados los pesos.
+ 
 \end_layout
 
 \begin_layout Standard
+Siguiendo el ejemplo anterior, y considernado los pesos por defecto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
 <features>
@@ -2120,6 +2119,20 @@ Peso
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ponderación de las secciones de los casos de uso.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
