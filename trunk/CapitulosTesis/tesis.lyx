@@ -670,11 +670,11 @@ Ontologia
 
 \begin_layout Standard
 En este trabajo se ha definido un proceso por medio del cuál es posible
- identificar el grado de relación que tiene un conjunto de casos de uso
- y aspectos tempranos con los atributos de calidad del sistema.
- Este proceso utiliza como entrada una lista de casos de uso y aspectos
- tempranos, y agrega a cada conjunto <aspecto temprano, casos de uso relacionado
-s> información del atributo de calidad dominante.
+ identificar el grado de relación que tiene un conjunto de early aspects
+ (aspectos tempranos) y casos de uso con los atributos de calidad del sistema.
+ Este proceso utiliza como entrada una lista de casos de uso y early aspects,
+ y agrega a cada conjunto <early aspect, casos de uso relacionados> información
+ del atributo de calidad dominante.
 \end_layout
 
 \begin_layout Standard
@@ -704,8 +704,8 @@ análisis de tokens,
 \begin_layout Standard
 Para soportar dicho proceso se ha implementado una herramienta como una
  extensión - plugin - del entorno de desarrollo integrado (IDE) Eclipse.
- La misma, permite al desarrollador seleccionar como entrada los aspectos
- tempranos se desea analizar, junto a los casos de uso que los relacionan.
+ La misma, permite al desarrollador seleccionar como entrada los early aspects
+ que desea analizar, junto a los casos de uso que los relacionan.
  A partir de esta información, el desarrollador podrá contar con la información
  acerca de los atributos de calidad identificados, además de tener la posibilida
 d de visualizar la trazabilidad del proceso completo.
@@ -721,10 +721,10 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  Esta entrada es la información generada como salida por la herramienta
  Aspect Extractor Tool [REF].
  La salida de dicha herramienta, luego del procesamiento con la técnica
- de “Análisis Semántico” [REF], es una lista de casos de uso, los aspectos
- tempranos detectados y las relaciones entre ellos.
+ de “Análisis Semántico” [REF], es una lista de casos de uso, los early
+ aspects detectados y las relaciones entre ellos.
  Los casos de uso respetan el estándar establecido por Rational [REF].
- De igual modo, la especificación de los aspectos tempranos siguen el formato
+ De igual modo, la especificación de los early aspects siguen el formato
  definido en Aspect Extract Tool, el cuál es semejante al de los casos de
  uso.
  Con esta información, se crean las entidades Caso de Uso y Aspecto Temprano,
@@ -771,7 +771,8 @@ name "fig:Etapa-1:-análisis"
 
 \end_inset
 
-Etapa 1: análisis de la entrada
+Etapa 1.
+ Generación de Tokens
 \end_layout
 
 \end_inset
@@ -833,7 +834,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Procesamiento de la Entrada
+Tarea Procesamiento de la Entrada
 \end_layout
 
 \end_inset
@@ -1274,7 +1275,7 @@ Filtrado de Tokens
 Como se mencionó en la sección anterior, el filtrado de los tokens es otra
  de las tareas que se realiza sobre la información de entrada.
  En este caso, se ejecutan una serie de filtros sobre los tokens de las
- listas de casos de uso y de aspectos tempranos.
+ listas de casos de uso y de early aspects.
 \end_layout
 
 \begin_layout Standard
@@ -2586,7 +2587,7 @@ Ejemplo 1.
 \end_layout
 
 \begin_layout Standard
-Para los aspectos tempranos no es necesario aplicar el filtro de peso debido
+Para los early aspects no es necesario aplicar el filtro de peso debido
  a que se considera que todas las palabras dentro del aspecto temprano tienen
  el mismo peso para el algoritmo.
  Esta diferencia radica en que el caso de uso está dividido en secciones
@@ -2609,14 +2610,13 @@ Análisis de tokens
 \end_inset
 
  se encuentran las tareas para identificar los atributos de calidad a partir
- de una lista de tokens extraídos de los casos de uso y de los aspectos
- tempranos.
+ de una lista de tokens extraídos de los casos de uso y de los early aspects.
  En este punto la entrada ha sido analizada, la lista de tokens con la palabra
  de cada token pasada a minúscula, llevada a su raíz, ponderizandola de
  acuerdo a su peso y dejando constancia del numero de ocurrencias, ha sido
  construida.
  De esta manera, a esta etapa llegan dos listas de tokens: una correspondiente
- a los casos de uso y otra correspondiente a los aspectos tempranos.
+ a los casos de uso y otra correspondiente a los early aspects.
 \end_layout
 
 \begin_layout Standard
@@ -2678,7 +2678,7 @@ name "sub:Calcular-Quality-Attribute"
 \begin_layout Standard
 Esta tarea es la que tiene como objetivo asignar un conjunto de atributos
  de calidad, con un porcentaje cada uno, a un conjunto de casos uso relacionados
- con aspectos tempranos.
+ con early aspects.
  Vale la pena recordar que a esta etapa arriban dos listas de tokens: una
  lista de tokens extraídos de los casos de uso y otra del aspecto temprano.
  Cada uno de estos tokens posee atributos como peso, ocurrencias, etc.
@@ -3163,10 +3163,10 @@ Calcular Quality Attibute Theme
 \end_inset
 
  tiene como entrada dos listas de tokens extraídos de los casos de uso y
- de los aspectos tempranos.
+ de los early aspects.
  Así, denominamos como UCL[] a un arreglo compuesto por tokens extraídos
  de los casos de uso y a EAL[] como otro arreglo de tokens extraídos de
- los aspectos tempranos.
+ los early aspects.
 \end_layout
 
 \begin_layout Standard
