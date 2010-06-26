@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -702,13 +702,13 @@ análisis de tokens,
 \end_layout
 
 \begin_layout Standard
-Para soportar dicho proceso se ha implementado una herramienta con la cúal
- el desarrollador podrá obtener, a partir de una entrada seleccionada, la
- información de los atributos de calidad buscada, y además, podrá contar
- con información con la cuál podra observar/realizar la trazabilidad del
- proceso.
- Esta herramienta se ha realizado como un extensión -plugin- de Eclipse
- [ref].
+Para soportar dicho proceso se ha implementado una herramienta como una
+ extensión -plugin- de Eclipse.
+ En la misma el desarrollador podrá seleccionar como entrada los casos de
+ uso que se desea analizar, ademas de los aspectos temporanos que los relacionan.
+ A partir de esta información el desarrollador podrá contar con información
+ acerca de los atributos de calidad identificados, además de poder visualizar
+ y chquear la trazabilidad del proceso completo.
  
 \begin_inset Note Note
 status open
