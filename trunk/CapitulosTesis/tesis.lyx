@@ -657,8 +657,7 @@ Ontologia
  es precisamente una ontolgía que es utilizada en la solucion.
  Los rectangulos representan tareas realizadas, mientras que als flechas
  representan datos que fluyen de tarea a tarea.
- 
-\begin_inset Quotes eld
+\begin_inset Quotes erd
 \end_inset
 
 
@@ -670,25 +669,25 @@ Ontologia
 \end_layout
 
 \begin_layout Standard
-En este trabajo se ha definido un proceso por medio del cual es posible
+En este trabajo se ha definido un proceso por medio del cuál es posible
  identificar el grado de relación que tiene un conjunto de casos de uso
  y aspectos tempranos con los atributos de calidad del sistema.
- El proceso toma como entrada una lista de casos de uso y aspectos tempranos,
- y agrega a cada conjunto de aspecto temprano y casos de uso relacionados,
- información del atributo de calidad dominante.
+ Este proceso utiliza como entrada una lista de casos de uso y aspectos
+ tempranos, y agrega a cada conjunto <aspecto temprano, casos de uso relacionado
+s> información del atributo de calidad dominante.
 \end_layout
 
 \begin_layout Standard
 Básicamente, el proceso esta constituido por dos etapas.
- La primer etapa denominada 
+ La primer etapa, la cuál se denominó 
 \emph on
-Analisis de la Entrada o Textual
+generación de tokens,
 \emph default
- realiza un análisis sobre los artefactos de entrada para representar la
- información en un formato común.
- Luego, mediante un filtrado de esta información, se realizá una transformación
- para definir qué información sera relevante y además se incluyen propiedades
- sobre cada elemento que representa la información de entrada.
+ realiza un análisis sobre los artefactos de entrada (casos de uso y early
+ aspects) para representar la información en un formato común.
+ Luego, mediante un filtrado se establece que información es relevante,
+ y a la vez, se incluyen propiedades/atributos sobre cada elemento que represent
+a la información de entrada.
 \end_layout
 
 \begin_layout Standard
@@ -697,13 +696,30 @@ En la segunda etapa,
 análisis de tokens,
 \emph default
  se calcula el porcentaje de pertenencia de cada elemento de la entrada
- con los distintos atributos de calidad y luego es combinado para obtener
- ...
+ con los distintos atributos de calidad del sistema.
+ Posteriormente, esa información es combinada para obtener el atributo de
+ calidad dominante para el conjunto de entrada.
 \end_layout
 
 \begin_layout Standard
-Para soportar dicho proceso se ha implementado una herramienta con lo cúal
- el desarrollador podrá obtener 
+Para soportar dicho proceso se ha implementado una herramienta con la cúal
+ el desarrollador podrá obtener, a partir de una entrada seleccionada, la
+ información de los atributos de calidad buscada, y además, podrá contar
+ con información con la cuál podra observar/realizar la trazabilidad del
+ proceso.
+ Esta herramienta se ha realizado como un extensión -plugin- de Eclipse
+ [ref].
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+revisar este fucking parrafo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -725,12 +741,25 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  Con esta información, se crean las entidades Caso de Uso y Aspecto Temprano,
  basándose además en las relaciones entre estas entidades para agruparlos
  inicialmente en el Quality Attribute Theme.
- A partir de estas entidades se confeccionarán las listas de palabras tokens,
- las cuales serán la entrada de la próxima etapa, quien será la responsable
+ A partir de estas entidades se confeccionarán las listas de palabras tokens
+ como se muestran en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Etapa-1:-análisis"
+
+\end_inset
+
+, las cuales serán la entrada de la próxima etapa, quien será la responsable
  de instanciar la información referida al atributo de calidad.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename etapa-entrada.JPG
@@ -743,10 +772,33 @@ Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Etapa-1:-análisis"
+
+\end_inset
+
+Etapa 1: análisis de la entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Para este análisis en necesario realizar dos tareas principales.
- En primer lugar un pre procesamiento de los datos de entrada y, luego un
- filtrado sobre los mismos.
+ En primer lugar un procesamiento de los datos de entrada para representarlos
+ en un formato común y, luego un filtrado sobre los mismos.
  En estas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
  del aspecto temprano, las cuales serán relevantes para la identificación
@@ -761,8 +813,12 @@ Procesamiento de la Entrada
 \begin_layout Standard
 El objetivo de esta tarea es procesar la entrada para dejar la información
  en un formato uniforme.
- Este pre procesamiento es realizado a través de la separación de la información
- de las entidades de entrada en tokens.
+ Este procesamiento es realizado a través de la separación de la información
+ de las entidades de entrada en 
+\emph on
+tokens
+\emph default
+.
  Se considera un token a una unidad básica de texto que puede ser enriquecida
  con diferentes pares <atributos,valor>, como por ejemplo: <peso:1>, <ocurrencia
 s:4>, etc.
@@ -770,10 +826,31 @@ s:4>, etc.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename entrada.PNG
 	scale 40
+	rotateOrigin center
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Procesamiento de la Entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -781,7 +858,7 @@ s:4>, etc.
 \end_layout
 
 \begin_layout Standard
-El resultado de este pre procesamiento es una lista de tokens para las palabras
+El resultado de este procesamiento es una lista de tokens para las palabras
  obtenidas de los casos de uso y otra lista de tokens para las palabras
  del aspecto temprano en cuestión.
  Al realizar la división de la entrada en tokens, se agregan además los
@@ -807,10 +884,24 @@ Sección: se registra la sección a la cuál pertenece el token.
 \end_layout
 
 \begin_layout Standard
-Por ejemplo, considerando la siguiente fracción de un caso de uso:
+Por ejemplo, considerando la fracción de la especificación de un caso de
+ uso mostrada en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Fracción-de-caso"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
 <features>
@@ -863,11 +954,49 @@ Se registran los datos del usuario en el sistema
 
 \end_layout
 
-\begin_layout Standard
-Se genera la siguiente lista de tokens:
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Fracción-de-caso"
+
+\end_inset
+
+Ejemplo 1.
+ Fracción de caso de uso.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Luego del procesamiento se genera la lista de tokens que se observa en la
+ tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-1.-Tokens"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="2">
 <features>
@@ -1120,6 +1249,34 @@ sistema
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo-1.-Tokens"
+
+\end_inset
+
+Ejemplo 1.
+ Tokens generados.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Filtrado de Tokens
 \end_layout
@@ -1132,10 +1289,33 @@ Como se mencionó en la sección anterior, el filtrado de los tokens es otra
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename etapa-filtrado.JPG
 	scale 40
 	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Filtrado de Tokens
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1151,8 +1331,14 @@ Se considera que un filtro es una unidad de procesamiento que realiza una
 \end_layout
 
 \begin_layout Standard
-El patrón de arquitectura Pipes & Filters [REF.Mary Shaw] provee una estructura
- para procesar flujos de datos.
+El patrón de arquitectura Pipes & Filters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
+
+\end_inset
+
+ provee una estructura para procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
  Los datos se pasan usando los pipes entre filtros adyacentes y mediante
@@ -1161,19 +1347,22 @@ El patrón de arquitectura Pipes & Filters [REF.Mary Shaw] provee una estructura
 \end_layout
 
 \begin_layout Itemize
-permite futuros cambios intercambiando algunos filtros;
+flexibilidad: permite futuros cambios intercambiando o utilizando filtros
+ nuevos;
 \end_layout
 
 \begin_layout Itemize
-reutilización de los filtros;
+reusabilidad: reutilización de los filtros en diferentes secuencias de procesami
+ento;
 \end_layout
 
 \begin_layout Itemize
-los datos pueden tener diferentes formatos;
+bajo acomplamiento: los filtros no comparten estados internos y son independient
+es;
 \end_layout
 
 \begin_layout Itemize
-se pueden agregar fácilmente etapas intermedias.
+perfomance: procesamiento paralelo.
 \end_layout
 
 \begin_layout Standard
@@ -1203,9 +1392,24 @@ Este filtro es el encargado de pasar las palabras de los tokens a minúsculas.
 \begin_layout Standard
 Siguiendo el ejemplo anterior, solo se modifican los tokens que su palabra
  contenga al menos una mayúscula.
+ En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-1.-FiltroLower"
+
+\end_inset
+
+ se observa la lista de tokens luego de la transformación aplicada por este
+ filtro.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="12" columns="2">
 <features>
@@ -1458,6 +1662,31 @@ sistema
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo 1.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo-1.-FiltroLower"
+
+\end_inset
+
+Filtro Lower Case.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Filtro Stop Words
 \end_layout
@@ -1483,6 +1712,12 @@ Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
 <features>
@@ -1635,6 +1870,24 @@ sistema
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo 1.
+ Filtro Stop Words
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Filtro Stemming
 \end_layout
@@ -1663,6 +1916,12 @@ Continuando con el ejemplo anterior, se llevarían las palabras de los tokens
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
 <features>
@@ -1812,6 +2071,24 @@ sistem
 
 \end_inset
 
+i
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo 1.
+ Filtro Stemming
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1842,6 +2119,12 @@ Igualmente, para este ejemplo, solo se tendrá en cuenta la palabra del token
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
@@ -1954,6 +2237,24 @@ sistem
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo 1.
+ Filtro Ocurrencias.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Filtro Pesos
 \end_layout
@@ -1972,12 +2273,19 @@ Este filtro es aplicado para enriquecer los tokens de la lista de tokens
 \begin_layout Standard
 Hemos realizado un estudio riguroso de la importancia que tiene cada una
  de las componentes del template que conforman los casos de uso, y por defecto
- se asignan los pesos mostrados en la tabla 1.
- considerando los textos y palabras que conforman las diferentes secciones.
- Sin embrargo el desarrollador podría modificar este peso dependiendo de
+ se asignan los pesos mostrados en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ponderación-de-las"
+
+\end_inset
+
+ de acuerdo a la importancia de los textos y palabras que conforman las
+ diferentes secciones.
+ Sin embrargo, el desarrollador podría modificar este peso dependiendo de
  las caracteristicas de la definición de sus casos de uso.
  La herramienta soporta esta parametrización a través de un archivo de configura
-ción donde quedan fijados los pesos.
+ción donde se establecen estos pesos.
  
 \end_layout
 
@@ -2126,6 +2434,12 @@ Peso
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ponderación-de-las"
+
+\end_inset
+
 Ponderación de las secciones de los casos de uso.
 \end_layout
 
@@ -2144,6 +2458,12 @@ La lista de tokens final quedaría de la siguiente forma:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
@@ -2250,6 +2570,24 @@ sistem
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ejemplo 1.
+ Filtro Pesos
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3204,6 +3542,14 @@ bility".
 \end_layout
 
 \begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FloatList figure
 
 \end_inset
@@ -3281,6 +3627,23 @@ Dan Connolly, Frank van Harmelen, Ian Horrocks, Deborah L.
  Patel-Schneider y Lynn Andrea Stein.
  DAML+OIL (March 2001) Reference Description.
  W3C Note, 18 December 2001.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+Buschmann, F., R.
+ Meunier, H.
+ Rohnert, P.
+ Sommerlad, and M.
+ Stal.
+ Pattern-Oriented Software Architecture: A System Of Patterns.
+ West Sussex, England: John Wiley & Sons Ltd., 1996
 \end_layout
 
 \end_body
