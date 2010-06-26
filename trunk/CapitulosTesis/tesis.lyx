@@ -1362,11 +1362,12 @@ En este caso, la entrada para los filtros es una lista de tokens, por lo
 \end_layout
 
 \begin_layout Standard
-Para esta actividad se han definido diferentes filtros que realizan transformaci
-ones sobre los tokens de las listas, y fueron generado de tal forma, que
- puedan ser reutilizados y combinados para darle un formato común a cualquier
- otro texto que represente información relevante, como por ejemplo, las
- instancias de la ontología.
+Para esta actividad, se han definido una serie de filtros que realizan transform
+aciones sobre los tokens de las listas.
+ Los mismos fueron definidos de forma tal que puedan ser reutilizados y
+ combinados para darle un formato común a cualquier otro texto que represente
+ información relevante, como por ejemplo, las instancias de la ontología
+ definida.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1692,11 +1693,12 @@ Se eliminan las denominadas stop-words, que son palabras que, desde el punto
 \begin_layout Standard
 Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
  cuales su palabra aparezca en la lista de stop-words dada.
- El analista/desarrollador tiene la posibilidad de incluir palabras en esta
- lista que para su dominio no representen información valiosa para el análisis
- (no relevantes).
- De igual modo, se puede modificar la lista quitando palabras que en el
- domino resulten ser relevantes para el análisis y el desarrollador desee
+ El analista/desarrollador tiene la posibilidad de incluir en esta lista
+ las palabras, que para el dominio en el cuál este analizando, no representen
+ información valiosa para el análisis, es decir palabras no relevantes o
+ que no aportan información valiosa al análisis.
+ De igual modo, se puede modificar la lista quitando aquellas palabras que
+ en el domino resulten relevantes para el análisis y el desarrollador desee
  que sean procesadas.
 \end_layout
 
@@ -2060,7 +2062,7 @@ sistem
 
 \end_inset
 
-i
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2602,7 +2604,7 @@ En la etapa de
 \begin_inset Quotes eld
 \end_inset
 
-Análisis de las listas de tokens
+Análisis de tokens
 \begin_inset Quotes erd
 \end_inset
 
@@ -3376,16 +3378,59 @@ Básicamente, al arribar la palabra X se intenta responder a la pregunta,
 Esta tarea podría parecer trivial, pero no lo es tanto.
  El caso ideal es que exista una sola instancia, de alguna de esas seis,
  que se corresponda con la palabra.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Instancia-única"
+
+\end_inset
+
+ ilustra este caso.
 \end_layout
 
 \begin_layout Standard
-La siguiente figura ilustra este caso.
-\end_layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename instancia-ejemplo1.jpeg
 	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Instancia-única"
+
+\end_inset
+
+Instancia única
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ver nombre de figura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3435,13 +3480,59 @@ user
 \begin_layout Standard
 Distinto es el caso en el que la misma palabra pueda representar, simultáneament
 e, distintas partes de un escenario.
- La siguiente figura ilustra este caso.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distintos-escenarios"
+
+\end_inset
+
+ilustra este otro caso.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename instancia-ejemplo2.jpeg
 	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distintos-escenarios"
+
+\end_inset
+
+Distintos escenarios
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+ver nombre de figura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
