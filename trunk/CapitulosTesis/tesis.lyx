@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -703,23 +703,12 @@ análisis de tokens,
 
 \begin_layout Standard
 Para soportar dicho proceso se ha implementado una herramienta como una
- extensión -plugin- de Eclipse.
- En la misma el desarrollador podrá seleccionar como entrada los casos de
- uso que se desea analizar, ademas de los aspectos temporanos que los relacionan.
- A partir de esta información el desarrollador podrá contar con información
- acerca de los atributos de calidad identificados, además de poder visualizar
- y chquear la trazabilidad del proceso completo.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-revisar este fucking parrafo
-\end_layout
-
-\end_inset
-
-
+ extensión - plugin - del entorno de desarrollo integrado (IDE) Eclipse.
+ La misma, permite al desarrollador seleccionar como entrada los aspectos
+ tempranos se desea analizar, junto a los casos de uso que los relacionan.
+ A partir de esta información, el desarrollador podrá contar con la información
+ acerca de los atributos de calidad identificados, además de tener la posibilida
+d de visualizar la trazabilidad del proceso completo.
 \end_layout
 
 \begin_layout Section
