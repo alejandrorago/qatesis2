@@ -2944,7 +2944,7 @@ seconds
 \begin_inset Quotes erd
 \end_inset
 
-) = (<Modificability,0.0>;<Aviability,0.50>;<Performance,0.50>)
+) = (<Modificability,0.25>;<Aviability,0.50>;<Performance,0.25>)
 \end_layout
 
 \begin_layout Standard
@@ -2954,7 +2954,7 @@ alabras despues de la segunda iteracion es el siguiente
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.50>;<Performance,1.25>)
+porcentaje_total_map = (<Modificability,0.50>;<Aviability,0.50>;<Performance,1.00>)
 \end_layout
 
 \begin_layout Verse
@@ -2972,13 +2972,12 @@ al_map es la siguiente
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0.125>;<Aviability,0.25>;<Performance,0.625
->)
+porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.25>;<Performance,0.50>)
 \end_layout
 
 \begin_layout Standard
 La interpretación de este resultado es que la lista de tokens se relaciona
- en un 12,5% con modificability, un 25% con aviability y un 62,5 % con Performan
+ en un 25,0% con modificability, un 25% con aviability y un 50,0 % con Performan
 ce.
  
 \end_layout
