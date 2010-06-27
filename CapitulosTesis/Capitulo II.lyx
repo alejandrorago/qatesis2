@@ -46,7 +46,43 @@
 status open
 
 \begin_layout Plain Layout
-ARMAR ESQUELETO DEL CAPITULO
+ARMAR ESQUELETO DEL CAPITULO POR AHORA QUEDO
+\end_layout
+
+\begin_layout Plain Layout
+* Motivacion (sacado del plan)
+\begin_inset Newline newline
+\end_inset
+
+* Problematica (sacado del plan)
+\begin_inset Newline newline
+\end_inset
+
+* Casos de Uso
+\begin_inset Newline newline
+\end_inset
+
+---- Especificacion
+\begin_inset Newline newline
+\end_inset
+
+---- Ventajas
+\begin_inset Newline newline
+\end_inset
+
+---- Template
+\begin_inset Newline newline
+\end_inset
+
+---- Casos de Uso y atributos de calidad
+\end_layout
+
+\begin_layout Plain Layout
+Atributos de Calidad
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -159,7 +195,7 @@ es críticas de calidad, y desarrollo de productos que no llegan a satisfacer
 \end_layout
 
 \begin_layout Section
-Caso de uso
+Casos de uso
 \end_layout
 
 \begin_layout Standard
@@ -392,6 +428,10 @@ Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
 
 \begin_layout Section
 Atributos de Calidad
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
