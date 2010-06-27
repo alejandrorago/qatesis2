@@ -616,51 +616,23 @@ Tareas realizadas en la solucion propuesta
 status open
 
 \begin_layout Plain Layout
-Poner una referencia gáfica lo siguiente 
-\begin_inset Quotes eld
-\end_inset
+Terminar Ref Grafica
+\end_layout
 
-Las circunferencias que contienen los textos 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Plain Layout
+Circunferencias -> Datos de entrada/salida
+\end_layout
 
-Casos de Uso
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Plain Layout
+Rectangulo1 -> Artefactos Internos 
+\end_layout
 
- y 
-\begin_inset Quotes eld
-\end_inset
+\begin_layout Plain Layout
+Rectangulo2 -> Tareas 
+\end_layout
 
-Aspecto Temprano
-\begin_inset Quotes erd
-\end_inset
-
- son los datos de entrada.
- la circunferencia que contiene el texto 
-\begin_inset Quotes eld
-\end_inset
-
-QualityAttributeTheme
-\begin_inset Quotes erd
-\end_inset
-
- representa la salida de la tecnica.
- La circunferencia que posee el texto 
-\begin_inset Quotes eld
-\end_inset
-
-Ontologia
-\begin_inset Quotes erd
-\end_inset
-
- es precisamente una ontolgía que es utilizada en la solucion.
- Los rectangulos representan tareas realizadas, mientras que als flechas
- representan datos que fluyen de tarea a tarea.
-\begin_inset Quotes erd
-\end_inset
-
-
+\begin_layout Plain Layout
+Flecha -> Flujo de datos
 \end_layout
 
 \end_inset
@@ -684,7 +656,8 @@ Básicamente, el proceso esta constituido por dos etapas.
 generación de tokens,
 \emph default
  realiza un análisis sobre los artefactos de entrada (casos de uso y early
- aspects) para representar la información en un formato común.
+ aspects) para representar la información en un formato interno definido
+ para la tecnica.
  Luego, mediante un filtrado se establece que información es relevante,
  y a la vez, se incluyen propiedades/atributos sobre cada elemento que represent
 a la información de entrada.
