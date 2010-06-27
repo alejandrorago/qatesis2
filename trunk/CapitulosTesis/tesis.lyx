@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -692,11 +692,32 @@ Generación de Tokens
 Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
  y sintáctico sobre los textos definidos como entrada para esta técnica.
  Esta entrada es la información generada como salida por la herramienta
- Aspect Extractor Tool [REF].
+ Aspect Extractor Tool 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-9"
+
+\end_inset
+
+.
  La salida de dicha herramienta, luego del procesamiento con la técnica
- de “Análisis Semántico” [REF], es una lista de casos de uso, los early
- aspects detectados y las relaciones entre ellos.
- Los casos de uso respetan el estándar establecido por Rational [REF].
+ de “Análisis Semántico” 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+, es una lista de casos de uso, los early aspects detectados y las relaciones
+ entre ellos.
+ Los casos de uso respetan el estándar establecido por Rational 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-10"
+
+\end_inset
+
+.
  De igual modo, la especificación de los early aspects siguen el formato
  definido en Aspect Extract Tool, el cuál es semejante al de los casos de
  uso.
@@ -3056,25 +3077,25 @@ En el ejemplo anterior no se tuvo en cuenta el peso y el numero de ocurrencias
 \end_layout
 
 \begin_layout Standard
-En el fragmento de pseudocodigo anterior se ha agregado una linea, la 7,
+En el fragmento de pseudocódigo anterior se ha agregado una línea, la 7,
  y además se ha modificado la línea 8.
  Cada porcentaje de cada atributo de calidad del mapa al que se le asocia
- una palabra se multiplica por el numero de ocurrencias de esa palabra y
+ una palabra se multiplica por el número de ocurrencias de esa palabra y
  el peso de la misma.
- Además se supones que el numero de ocurrencias es mayor o igual a uno (si
- no fuera asi el token no apareceria en la lista).
+ Además se supones que el número de ocurrencias es mayor o igual a uno (si
+ no fuera así el token no aparecería en la lista).
  El peso también se supone mayor a cero, aunque un peso igual a cero no
- afectaria al algoritmo, ya que en este caso se interpretaría como que el
+ afectaría al algoritmo, ya que en este caso se interpretaría como que el
  token se encontraba en una sección que no debe ser tenida en cuenta para
  el análisis.
  Ya que cada valor del mapa es multiplicados n veces, (siendo n el producto
- entre el peso y el numero de ocurrencias), la cantidad de palabras no puedo
- aumentar en uno por cada iteració, sino que aumenta n unidades.
- Es por esta razón que se ha modifica la linea 8.
+ entre el peso y el número de ocurrencias), la cantidad de palabras no puedo
+ aumentar en uno por cada iteración, sino que aumenta n unidades.
+ Es por esta razón que se ha modifica la línea 8.
 \end_layout
 
 \begin_layout Standard
-A continuación se verá el miso ejemplo del parrafo anterior, salvo que en
+A continuación se verá el miso ejemplo del párrafo anterior, salvo que en
  este caso el token que tiene la palabra 
 \begin_inset Quotes eld
 \end_inset
@@ -3092,7 +3113,7 @@ seconds
 \begin_inset Quotes erd
 \end_inset
 
- tendra un valor de dos para el numero de ocurrencias y un valor de tres
+ tendrá un valor de dos para el numero de ocurrencias y un valor de tres
  para el peso.
 \end_layout
 
@@ -3118,12 +3139,12 @@ cantidad_de_palabras = 1;
 \end_layout
 
 \begin_layout Standard
-Notese que el estado de las variables, luego de la priemra itereación, es
+Nótese que el estado de las variables, luego de la primera itereación, es
  exactamente el mismo.
  En efecto, al tener el token un valor igual a 1 en el peso, cada valor
  del mapa de atributos de calidad es multiplicado por 1.
- Ademas la cantidad de palabras aumenta en el producto entre el peso y el
- numero de ocurrencias, que es también 1.
+ Además la cantidad de palabras aumenta en el producto entre el peso y el
+ número de ocurrencias, el cuál también es 1.
 \end_layout
 
 \begin_layout Standard
@@ -3135,12 +3156,12 @@ seconds
 \begin_inset Quotes erd
 \end_inset
 
-, con un peso de 3 y un numero de ocurrencias igual a 2.
+, con un peso de 3 y un número de ocurrencias igual a 2.
  En este caso el mapa asociado para la palabra posee un valor de 0.25 para
  Modificability, 0.50 para Aviability y 0.25 para Perfomance.
  Estos valores deben ser multiplicados por n=6 (ya que este es el valor
  del producto entre el peso y el numero de ocurrencias).
- Además la cantidad de palabras tambien aumenta 6 unidades durante la segunda
+ Además la cantidad de palabras también aumenta 6 unidades durante la segunda
  iteración.
  De esta manera, el estado de las variables luego de la segunda iteracion
  es el siguiente:
@@ -3889,7 +3910,50 @@ Buschmann, F., R.
  Sommerlad, and M.
  Stal.
  Pattern-Oriented Software Architecture: A System Of Patterns.
- West Sussex, England: John Wiley & Sons Ltd., 1996
+ West Sussex, England: John Wiley & Sons Ltd., 1996Rago, Abait, Marcos, Diaz
+ Pace (2009).
+ Early Aspect Identification from Use Cases using NLP and WSD Techniques.
+ EA '09 Proceedings of the 15th workshop on Early aspects.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "8"
+key "key-8"
+
+\end_inset
+
+Rago, Abait, Marcos, Diaz Pace (2009).
+ Early Aspect Identification from Use Cases using NLP and WSD Techniques.
+ EA '09 Proceedings of the 15th workshop on Early aspects.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "9"
+key "key-9"
+
+\end_inset
+
+Haak, B., Diaz, A., Pryor, J., Marcos, C.
+ 2005 Identificación Temprana de Aspectos.
+ Revista SCCC, 2005.
+ Vol.
+ 6 (Workshop in SE).
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "10"
+key "key-10"
+
+\end_inset
+
+UML Semantics version 1.1, Rational Software Corporation, September 1997.
 \end_layout
 
 \end_body
