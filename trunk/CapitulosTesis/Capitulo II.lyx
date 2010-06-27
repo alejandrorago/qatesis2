@@ -54,6 +54,110 @@ ARMAR ESQUELETO DEL CAPITULO
 
 \end_layout
 
+\begin_layout Part
+Dominio
+\end_layout
+
+\begin_layout Section
+Motivación
+\end_layout
+
+\begin_layout Standard
+La calidad de software se define como el grado en el cual el software posee
+ una combinación deseada de atributos, tales como: performance, disponibilidad,
+ portabilidad, seguridad, usabilidad, etc.
+ [1].
+ Estos atributos son requerimientos adicionales del sistema [11] que hacen
+ referencia a características o restricciones que éste debe satisfacer,
+ y complementan los requerimientos funcionales del sistema.
+ Estas características o atributos se conocen con el nombre de atributos
+ de calidad [9].
+ En términos generales, Bass y otros autores [10] establece una clasificación
+ de los atributos de calidad en dos categorías: 
+\end_layout
+
+\begin_layout Itemize
+Observables en tiempo de ejecución: aquellos atributos que se determinan
+ del comportamiento del sistema en tiempo de ejecución (disponibilidad,
+ performance, seguridad, etc.) 
+\end_layout
+
+\begin_layout Itemize
+No observables en tiempo de ejecución: aquellos atributos que se establecen
+ durante el desarrollo del sistema (modificabilidad, reusabilidad, portabilidad,
+ escabilidad, etc.).
+ 
+\end_layout
+
+\begin_layout Standard
+Estos atributos de calidad son especificados a través de requerimientos
+ de atributos de calidad (quality-attribute requirements), en adelante denominad
+os QARs.
+ Los QARs juegan un rol crítico en el desarrollo de un sistema y guían el
+ diseño arquitectónico.
+ Por lo tanto, deben ser considerados y especificados en etapas tempranas
+ del desarrollo [3].
+ Existen evidencias de la relación entre QARs correctamente especificados
+ y el éxito de un sistema [4].
+ Por ejemplo, las consecuencias de una especificación equivocada de performance
+ pueden variar considerablemente, incluyendo: relaciones dañadas con el
+ cliente, fallas en el negocio, pérdida de ingresos, aumento del costo del
+ proyecto debido a los costos de sumar recursos adicionales para resolver
+ la falla, reducción de la competencia y, potencialmente, contribuir al
+ fracaso del proyecto.
+ En este contexto, los QARs son comúnmente señalados como un factor clave
+ de éxito en la construcción de software de calidad, estableciendo un enfoque
+ sistemático y pragmático para introducir calidad en los sistemas de software
+ [5].
+ Un concepto relacionado con los QARs es el de aspectos tempranos (early
+ aspects).
+ Un aspecto temprano es un concern que atraviesa el diseño de un sistema
+ [8], y se manifiesta generalmente en las especificaciones de requerimientos
+ u otros documentos preliminares producidos en el análisis de requerimientos.
+ Muchos aspectos tempranos se corresponden con QARs de alto nivel como seguridad
+, performance, portabilidad y usabilidad [3].
+ En consecuencia, el descubrimiento de early aspects puede proporcionar
+ pistas para identificar QARs.
+ Los casos de uso son una de las técnicas más comunes para especificar los
+ requerimientos de un sistema [4].
+ Un caso de uso es una tarea, que describe el comportamiento del sistema,
+ originada a partir de una acción de un usuario final, que tiene un resultado
+ [13].
+\end_layout
+
+\begin_layout Section
+Problemática
+\end_layout
+
+\begin_layout Standard
+Mientras que los requerimientos funcionales han recibido considerable atención
+ en la literatura, los QARs, de una arquitectura de software han recibido
+ un menor interés [4].
+ Dado que los QARs juegan un rol crítico en el diseño de la arquitectura,
+ la detección temprana de estos atributos de calidad es crucial para tomarlos
+ en consideración desde las primeras decisiones de diseño.
+ A pesar de que parece una tarea sencilla, la identificación y priorización
+ de atributos de calidad puede resultar dificultosa para un analista e insumir
+ mucho tiempo.
+ En la práctica, la mayoría de QARs están, de alguna forma, “ocultos” entre
+ los requerimientos que especifican la funcionalidad y por ello tienden
+ a ser ignorados [6].
+ Tal es así que, a diferencia de los requerimientos funcionales, los requerimien
+tos no funcionales (QARs) son muy difíciles de elicitar [7].
+ Las especificaciones de requerimientos tienden a ser organizadas en base
+ a la funcionalidad, con los QARs dispersos en varios documentos.
+ Esto puede llevar a una serie de problemas importantes como conflictos
+ no detectados, soluciones arquitectónicas que no toman en cuenta las limitacion
+es críticas de calidad, y desarrollo de productos que no llegan a satisfacer
+ las necesidades reales de los stakeholders.[3].
+ Por esta razón, el desarrollo de herramientas que asistan a analistas a
+ identificar atributos de calidad en especificaciones de requerimientos
+ (por ej., casos de uso), y permitan establecer trazabilidad entre dichos
+ atributos de calidad y los requerimientos y posteriores decisiones de diseño
+ arquitectónico son de gran utilidad.
+ 
+\end_layout
+
 \begin_layout Section
 Caso de uso
 \end_layout
