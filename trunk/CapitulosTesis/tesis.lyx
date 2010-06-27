@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -2988,7 +2988,201 @@ Una sola lista de tokens, con calculo de peso y ocurrencias
 \end_layout
 
 \begin_layout Standard
-bla bla
+En el ejemplo anterior no se tuvo en cuenta el peso y el numero de ocurrencias
+ de los tokens.
+ Estas, junto con la palabra, son propiedades que los tokens poseen y que
+ son tenidas en cuenta en la tecnica propuesta en este trabajo.
+ Para mostrar su influencia se muestra, a continuacion, el fragmento de
+ pseudocodigo anterior con las modificaciones pertinentes
+\end_layout
+
+\begin_layout LyX-Code
+1: Mapa<QA,porcentaje> porcentaje_total_map = crear mapa con todos 
+\end_layout
+
+\begin_layout LyX-Code
+                                          los atributos de calidad e   
+                                                                igualar
+ porcentajes a 0;
+\end_layout
+
+\begin_layout LyX-Code
+2: cantidad_de_palabras = 0;
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+3: por c/ token de la lista de tokens
+\end_layout
+
+\begin_layout LyX-Code
+4: inicio
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+5: palabra = token.palabra
+\end_layout
+
+\begin_layout LyX-Code
+6: Mapa<QA,porcentaje> porcentaje_palabra_map =
+\end_layout
+
+\begin_layout LyX-Code
+   asociar palabra con atributos de calidad(palabra);
+\end_layout
+
+\begin_layout LyX-Code
+7: porcentaje_palabra = porcentaje_palabra x token.ocurrencias x token.peso;
+\end_layout
+
+\begin_layout LyX-Code
+8: porcentaje_total = porcentaje_total + token.ocurrencias x token.peso;
+\end_layout
+
+\begin_layout LyX-Code
+9: cantidad_de_palabras = cantidad_de_palabras + 1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+10: final
+\end_layout
+
+\begin_layout LyX-Code
+11: porcentaje_total = porcentaje_total/cantidad_de_palabras
+\end_layout
+
+\begin_layout Standard
+En el fragmento de pseudocodigo anterior se ha agregado una linea, la 7,
+ y además se ha modificado la línea 8.
+ Cada porcentaje de cada atributo de calidad del mapa al que se le asocia
+ una palabra se multiplica por el numero de ocurrencias de esa palabra y
+ el peso de la misma.
+ Además se supones que el numero de ocurrencias es mayor o igual a uno (si
+ no fuera asi el token no apareceria en la lista).
+ El peso también se supone mayor a cero, aunque un peso igual a cero no
+ afectaria al algoritmo, ya que en este caso se interpretaría como que el
+ token se encontraba en una sección que no debe ser tenida en cuenta para
+ el análisis.
+ Ya que cada valor del mapa es multiplicados n veces, (siendo n el producto
+ entre el peso y el numero de ocurrencias), la cantidad de palabras no puedo
+ aumentar en uno por cada iteració, sino que aumenta n unidades.
+ Es por esta razón que se ha modifica la linea 8.
+\end_layout
+
+\begin_layout Standard
+A continuación se verá el miso ejemplo del parrafo anterior, salvo que en
+ este caso el token que tiene la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+fast
+\begin_inset Quotes erd
+\end_inset
+
+ tendrá un peso de uno, y un numero de ocurrencias de uno.
+ Sin embargo, el token que posee la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+seconds
+\begin_inset Quotes erd
+\end_inset
+
+ tendra un valor de dos para el numero de ocurrencias y un valor de tres
+ para el peso.
+\end_layout
+
+\begin_layout Standard
+El primer token contiene la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+fast
+\begin_inset Quotes erd
+\end_inset
+
+, por lo que el estado de las variables luego de la primera iteración es
+ el siguiente
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.0>;<Performance,0.75>).
+\end_layout
+
+\begin_layout Verse
+cantidad_de_palabras = 1;
+\end_layout
+
+\begin_layout Standard
+Notese que el estado de las variables, luego de la priemra itereación, es
+ exactamente el mismo.
+ En efecto, al tener el token un valor igual a 1 en el peso, cada valor
+ del mapa de atributos de calidad es multiplicado por 1.
+ Ademas la cantidad de palabras aumenta en el producto entre el peso y el
+ numero de ocurrencias, que es también 1.
+\end_layout
+
+\begin_layout Standard
+Distinto es el caso del segundo token, que posee la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+seconds
+\begin_inset Quotes erd
+\end_inset
+
+, con un peso de 3 y un numero de ocurrencias igual a 2.
+ En este caso el mapa asociado para la palabra posee un valor de 0.25 para
+ Modificability, 0.50 para Aviability y 0.25 para Perfomance.
+ Estos valores deben ser multiplicados por n=6 (ya que este es el valor
+ del producto entre el peso y el numero de ocurrencias).
+ Además la cantidad de palabras tambien aumenta 6 unidades durante la segunda
+ iteración.
+ De esta manera, el estado de las variables luego de la segunda iteracion
+ es el siguiente:
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,1.75>;<Aviability,3.0>;<Performance,2.25>).
+\end_layout
+
+\begin_layout Verse
+cantidad_de_palabras = 7;
+\end_layout
+
+\begin_layout Standard
+Luego de la segunda iteración no hay mas tokens, por los que los valores
+ del mapa porcentaje_total_map deben ser divididos por cantidad_de_palabras,
+ dando como resultado aproximado el siguiente mapa
+\end_layout
+
+\begin_layout Verse
+porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.43>;<Performance,0.32>)
+\end_layout
+
+\begin_layout Standard
+La interpretación de este resultado es que la lista de tokens se relaciona
+ en un 25.0% con modificability, un 43.0% con aviability y un 32 % con Performance.
+ Comparandolo con el resultado del ejemplo anterior, se puede notar que
+ el resutlado para performance ha disminuido, mientras que el de aviability
+ ha aumentado, hasta incluso a superar el interior.
+ La lista de tokens es la misma, sin embargo el peso y el numero de ocurrencias
+ del segundo token, que en su conjunto son seis veces mayores que el primero,
+ hacen inclinar la balanza hacia aviability, que es el atributo de calidad
+ con el que mas se relaciona la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+seconds
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph
