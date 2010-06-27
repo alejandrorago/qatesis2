@@ -4,7 +4,7 @@
 \begin_header
 \textclass article
 \use_default_options true
-\language spanish
+\language english
 \inputencoding auto
 \font_roman default
 \font_sans default
@@ -36,19 +36,29 @@
 \tracking_changes false
 \output_changes false
 \author "" 
+\author "" 
 \end_header
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
-\lang english
+\begin_layout Plain Layout
+ARMAR ESQUELETO DEL CAPITULO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Caso de uso
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 En ingeniería del software, un caso de uso es una técnica para la captura
  de requisitos potenciales de un nuevo sistema o una actualización de software.
  Cada caso de uso proporciona uno o más escenarios que indican cómo debería
@@ -61,29 +71,38 @@ En ingeniería del software, un caso de uso es una técnica para la captura
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Los casos de uso se convirtieron en una de las prácticas más comunes para
  la captura de requisitos funcionales, especialmente con el desarrollo del
  paradigma de la programación orientada a objetos.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
+Especificación de un requerimiento mediante casos de uso (o Aplicación)
+ 
+\begin_inset Note Note
+status open
 
-\lang english
-Normas de aplicación
+\begin_layout Plain Layout
+ver titulo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Los casos de uso evitan típicamente la jerga técnica, prefiriendo la lengua
  del usuario final o del experto del campo del saber al que se va a aplicar.
  Los casos del uso son a menudo elaborados en colaboración por los analistas
  de requerimientos y los clientes.
  Cada caso de uso se centra en describir cómo alcanzar una única meta o
  tarea de negocio.
- Desde una perspectiva tradicional de la ingeniería de software, un caso
+ 
+\end_layout
+
+\begin_layout Standard
+Desde una perspectiva tradicional de la ingeniería de software, un caso
  de uso describe una característica del sistema.
  Para la mayoría de proyectos de software, esto significa que quizás a veces
  es necesario especificar diez o centenares de casos de uso para definir
@@ -100,75 +119,34 @@ iento del software o de los sistemas.
  Simplemente muestran los pasos que el actor sigue para realizar una tarea.
 \end_layout
 
-\begin_layout Subsection
-
-\lang english
+\begin_layout Standard
 Un caso de uso debe:
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
-describir una tarea del negocio que sirva a una meta de negocio
+tener un nivel apropiado del detalle;
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
-tener un nivel apropiado del detalle
+describir una tarea del negocio que sirva a una meta de negocio;
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 ser bastante sencillo como que un desarrollador lo elabore en un único lanzamien
-to 
+to.
 \end_layout
 
 \begin_layout Subsection
-
-\lang english
-Situaciones que pueden darse:
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-Un actor se comunica con un caso de uso (si se trata de un actor primario
- la comunicación la iniciará el actor, en cambio si es secundario, el sistema
- será el que inicie la comunicación).
- 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-Un caso de uso extiende otro caso de uso.
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-Un caso de uso utiliza otro caso de uso.
-\end_layout
-
-\begin_layout Subsection
-
-\lang english
 Ventajas 
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 La técnica de caso de uso tiene éxito en sistemas interactivos, ya que expresa
  la intención que tiene el actor (su usuario) al hacer uso del sistema.
  
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 Como técnica de extracción de requerimiento permite que el analista se centre
  en las necesidades del usuario, qué espera éste lograr al utilizar el sistema,
  evitando que la gente especializada en informática dirija la funcionalidad
@@ -177,8 +155,6 @@ Como técnica de extracción de requerimiento permite que el analista se centre
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 A su vez, durante la extracción (elicitation en inglés), el analista se
  concentra en las tareas centrales del usuario describiendo por lo tanto
  los casos de uso que mayor valor aportan al negocio.
@@ -186,14 +162,118 @@ A su vez, durante la extracción (elicitation en inglés), el analista se
 \end_layout
 
 \begin_layout Subsection
+Template de Rational 
+\begin_inset Note Note
+status open
 
-\lang english
-Casos de Uso y Requerimientos No Funcionales o ATRIBUTOS DE CALIDAD
+\begin_layout Subsubsection
+revisar bien este template y explicar cada sección
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Secciones
+\end_layout
 
-\lang english
+\begin_layout Itemize
+ID
+\end_layout
+
+\begin_layout Itemize
+NOMBRE
+\end_layout
+
+\begin_layout Itemize
+REFERENCIAS CRUZADAS 
+\end_layout
+
+\begin_layout Itemize
+CREADO POR 
+\end_layout
+
+\begin_layout Itemize
+ULTIMA ACTUALIZACION POR
+\end_layout
+
+\begin_layout Itemize
+FECHA DE CREACION 
+\end_layout
+
+\begin_layout Itemize
+FECHA DE ULTIMA ACTUALIZACION 
+\end_layout
+
+\begin_layout Itemize
+ACTORES
+\end_layout
+
+\begin_layout Itemize
+DESCRIPCION
+\end_layout
+
+\begin_layout Itemize
+TRIGGER 
+\end_layout
+
+\begin_layout Itemize
+PRE-CONDICION
+\end_layout
+
+\begin_layout Itemize
+POST-CONDICION 
+\end_layout
+
+\begin_layout Itemize
+FLUJO NORMAL 
+\end_layout
+
+\begin_layout Itemize
+FLUJOS ALTERNATIVOS 
+\end_layout
+
+\begin_layout Itemize
+INCLUDES 
+\end_layout
+
+\begin_layout Itemize
+FRECUENCIA DE USO
+\end_layout
+
+\begin_layout Itemize
+REGLAS DE NEGOCIO 
+\end_layout
+
+\begin_layout Itemize
+REQUERIMIENTOS ESPECIALES
+\end_layout
+
+\begin_layout Itemize
+NOTAS 
+\end_layout
+
+\begin_layout Itemize
+ASUNTO
+\end_layout
+
+\begin_layout Subsection
+Casos de Uso y Requerimientos No Funcionales o ATRIBUTOS DE CALIDAD 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ver titulo, aca deberia introducir atributos de calidad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Los casos de uso pueden ser útiles para establecer requisitos de comportamiento,
  pero no establecen completamente los requisitos funcionales ni permiten
  determinar los requisitos no funcionales.
@@ -206,218 +286,8 @@ Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
  
 \end_layout
 
-\begin_layout Subsection
-
-\lang english
-Definiciones básicas 
-\end_layout
-
-\begin_layout Subsubsection
-
-\lang english
-Actores
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-Se le llama Actor a toda entidad externa al sistema que guarda una relación
- con este y que le demanda una funcionalidad.
- Esto incluye a los operadores humanos pero también incluye a todos los
- sistemas externos así como a entidades abstractas como el tiempo.
- En el caso de los seres humanos se pueden ver a los actores como definiciones
- de rol, por lo que un mismo individuo puede corresponder a uno o más Actores.
- Suele suceder sin embargo, que es el sistema quien va a tener interés en
- el tiempo.
- Es frecuente encontrar que nuestros sistemas deben efectuar operaciones
- automáticas en determinados momentos; y siendo esto un requisito funcional
- obvio, resulta de interés desarrollar alguna forma de capturar dicho requisito
- en el modelo de caso de uso final.
-\end_layout
-
-\begin_layout Subsubsection
-
-\lang english
-Tipos de relaciones (esto no va o se acota mucho)
-\end_layout
-
-\begin_layout Standard
-
-\lang english
-``comunica (<<communicates>>): Relación (asociación) entre un actor y un
- caso de uso que denota la participación del actor en dicho caso de uso.
- ``usa ( <<uses>>) (o <<include>> en la nueva versión de UML): Relación
- de dependencia entre dos casos de uso que denota la inclusión del comportamient
-o de un escenario en otro.
- ``extiende (<< extends>>): Relación de dependencia entre dos casos de uso
- que denota que un caso de uso es una especialización de otro.
- Por ejemplo, podría tenerse un caso de uso que extienda la forma de pedir
- azúcar, para que permita escoger el tipo de azúcar (normal, dietético o
- moreno) y además la cantidad en las unidades adecuadas (cucharadas o bolsas).
- Un posible diagrama se muestra en la figura Se utiliza una relación de
- tipo <<extends>> entre casos de uso cuando nos encontramos con un caso
- de uso similar a otro pero que hace algo más que éste (variante).
- Por contra, utilizaremos una relación tipo << uses>> cuando nos encontramos
- con una parte de comportamiento similar en dos casos de uso y no queremos
- repetir la descripción de dicho comportamiento común.
- En una relación << extends>>, un actor que lleve a cabo el caso de uso
- base puede realizar o no sus extensiones.
- Mientras, en una relación <<include>> el actor que realiza el caso de uso
- base también realiza el caso de uso incluido.
- En general utilizaremos <<extends>> cuando se presenta una variación del
- comportamiento normal, y <<include>> cuando se repite un comportamiento
- en dos casos de uso y queremos evitar dicha repetición.
- Por último en un diagrama de casos de uso, además de las relaciones entre
- casos de uso y actor (asociaciones) y las dependencias entre casos de uso
- (<<include>> y <<extends>>), pueden existir relaciones de herencia ya sea
- entre casos de uso o entre actores.
- Llamamos modelo de casos de uso a la combinación de casos de uso y sus
- correspondientes diagramas.
- Los modelos de casos de uso se suelen acompañar por un glosario que describe
- la terminología utilizada.
- El glosario y el modelo de casos de uso son importantes puntos de partida
- para el desarrollo de los diagramas de clases.
- Por último se debe tener en cuenta, que aunque cada caso de uso puede llevar
- a diferentes realizaciones, es importante reflejar en cada representación
- el motivo que nos ha llevado a descartarla, si es el caso.
-\end_layout
-
-\begin_layout Subsubsection
-
-\lang english
-Template de Rational 
-\begin_inset Note Note
-status open
-
-\begin_layout Subsubsection
-
-\lang english
-Revisar y hacer esto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-ID: identificador del caso de uso.
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-NOMBRE: 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-REFERENCIAS CRUZADAS 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-CREADO POR 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-ULTIMA ACTUALIZACION POR
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-FECHA DE CREACION 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-FECHA DE ULTIMA ACTUALIZACION 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-ACTORES
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-DESCRIPCION
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-TRIGGER 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-PRE-CONDICION
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-POST-CONDICION 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-FLUJO NORMAL 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-FLUJOS ALTERNATIVOS 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-INCLUDES 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-FRECUENCIA DE USO
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-REGLAS DE NEGOCIO 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-REQUERIMIENTOS ESPECIALES
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-NOTAS 
-\end_layout
-
-\begin_layout Itemize
-
-\lang english
-ASUNTO
+\begin_layout Section
+Atributos de Calidad
 \end_layout
 
 \end_body
