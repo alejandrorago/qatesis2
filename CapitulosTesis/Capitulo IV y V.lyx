@@ -3869,14 +3869,12 @@ name "fig:Instancia-única"
 
 \end_inset
 
-Instancia única
-\begin_inset Note Note
-status collapsed
+Una única instancia se corresponde con la palabra 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
-ver nombre de figura
-\end_layout
-
+user
+\begin_inset Quotes erd
 \end_inset
 
 
@@ -3971,14 +3969,12 @@ name "fig:Distintos-escenarios"
 
 \end_inset
 
-Distintos escenarios
-\begin_inset Note Note
-status collapsed
+Dos instancias, de diferente tipo, se corresponden con la palabra 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
-ver nombre de figura
-\end_layout
-
+system
+\begin_inset Quotes erd
 \end_inset
 
 
