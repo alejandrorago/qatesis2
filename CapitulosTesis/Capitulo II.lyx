@@ -2,7 +2,7 @@
 \lyxformat 345
 \begin_document
 \begin_header
-\textclass article
+\textclass book
 \use_default_options true
 \language english
 \inputencoding auto
@@ -17,6 +17,7 @@
 
 \graphics default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -47,6 +48,10 @@ status open
 
 \begin_layout Plain Layout
 ARMAR ESQUELETO DEL CAPITULO POR AHORA QUEDO
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -58,6 +63,10 @@ ARMAR ESQUELETO DEL CAPITULO POR AHORA QUEDO
 \begin_inset Newline newline
 \end_inset
 
+* Aspectos Tempranos
+\end_layout
+
+\begin_layout Plain Layout
 * Casos de Uso
 \begin_inset Newline newline
 \end_inset
@@ -94,8 +103,12 @@ Atributos de Calidad
 Dominio
 \end_layout
 
+\begin_layout Standard
+En este capitulo bla bla bla
+\end_layout
+
 \begin_layout Section
-Motivación
+Motivacion
 \end_layout
 
 \begin_layout Standard
@@ -192,6 +205,14 @@ es críticas de calidad, y desarrollo de productos que no llegan a satisfacer
  atributos de calidad y los requerimientos y posteriores decisiones de diseño
  arquitectónico son de gran utilidad.
  
+\end_layout
+
+\begin_layout Section
+Aspectos Tempranos 
+\end_layout
+
+\begin_layout Standard
+Sacar de la tesis de Alejandro.
 \end_layout
 
 \begin_layout Section
@@ -320,83 +341,289 @@ Secciones
 \end_layout
 
 \begin_layout Itemize
-ID
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sección
 \end_layout
 
-\begin_layout Itemize
-NOMBRE
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Decripción
 \end_layout
 
-\begin_layout Itemize
-REFERENCIAS CRUZADAS 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre
 \end_layout
 
-\begin_layout Itemize
-CREADO POR 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The name of the use case.
 \end_layout
 
-\begin_layout Itemize
-ULTIMA ACTUALIZACION POR
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descripción
 \end_layout
 
-\begin_layout Itemize
-FECHA DE CREACION 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The description should briefly convey the role and purpose of the use case.
+ A single paragraph should suffice for this description.
 \end_layout
 
-\begin_layout Itemize
-FECHA DE ULTIMA ACTUALIZACION 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flujo de Eventos
 \end_layout
 
-\begin_layout Itemize
-ACTORES
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+This use case starts when the actor does something.
+ An actor always initiates use Cases.
+ The use case should describe what the actor does and what the system does
+ in response.
+ It should be phrased in the form of a dialog between the actor and the
+ system.
+ The use case should describe what happens inside the system, but not how
+ or why.
+ If information is exchanged, be specific about what is passed back and
+ forth.
+ For example, it is not very illuminating to say that the Actor enters customer
+ information.
+ It is better to say the Actor enters the customer’s name and address.
+ A Glossary of Terms is often useful to keep the complexity of the use case
+ manageable - you may want to define things like customer information there
+ to keep the use case from drowning in details.
+ Simple alternatives may be presented within the text of the use case.
+ If it only takes a few sentences to describe what happens when there is
+ an alternative, do it directly within the Flow of Events section.
+ If the alternative flows are more complex, use a separate section to describe
+ it.
+ For example, an Alternative Flow subsection explains how to describe more
+ complex alternatives.
+ A picture is sometimes worth a thousand words, though there is no substitute
+ for clean, clear prose.
+ If it improves clarity, feel free to paste graphical depictions of user
+ interfaces, process flows or other figures into the use case.
+ If a flow chart is useful to present a complex decision process, by all
+ means use it! Similarly for state-dependent behavior, a state-transition
+ diagram often clarifies the behavior of a system better than pages upon
+ pages of text.
+ Use the right presentation medium for your problem, but be wary of using
+ terminology, notations or figures that your audience may not understand.
+ Remember that your purpose is to clarify, not obscure.
+ 
 \end_layout
 
-\begin_layout Itemize
-DESCRIPCION
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requerimientos Especiales
 \end_layout
 
-\begin_layout Itemize
-TRIGGER 
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A special requirement is typically a non-functional requirement that is
+ specific to a use case, but is not easily or naturally specified in the
+ text of the use case’s event flow.
+ Examples of special requirements include legal and regulatory requirements,
+ application standards, and quality attributes of the system to be built
+ including usability, reliability, performance or supportability requirements.
+ Additionally, other requirements-such as operating systems and environments,
+ compatibility requirements, and design constraints-should be captured in
+ this section.
 \end_layout
 
-\begin_layout Itemize
-PRE-CONDICION
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precondiciones
 \end_layout
 
-\begin_layout Itemize
-POST-CONDICION 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A pre-condition of a use case is the state of the system that must be present
+ prior to a use case being performed
 \end_layout
 
-\begin_layout Itemize
-FLUJO NORMAL 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postcondiciones
 \end_layout
 
-\begin_layout Itemize
-FLUJOS ALTERNATIVOS 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A post-condition of a use case is a list of possible states the system can
+ be in immediately after a use case has finished
 \end_layout
 
-\begin_layout Itemize
-INCLUDES 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puntos de Extension
 \end_layout
 
-\begin_layout Itemize
-FRECUENCIA DE USO
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extension points of the use case.
 \end_layout
 
-\begin_layout Itemize
-REGLAS DE NEGOCIO 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relaciones
 \end_layout
 
-\begin_layout Itemize
-REQUERIMIENTOS ESPECIALES
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definition of the location of the extension point in the flow of events.
+ Definition of the location of the extension point in the flow of events.
 \end_layout
 
-\begin_layout Itemize
-NOTAS 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
-\begin_layout Itemize
-ASUNTO
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Secciones de la especifiación textual de Uso de Caso de RUP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -428,10 +655,6 @@ Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
 
 \begin_layout Section
 Atributos de Calidad
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
