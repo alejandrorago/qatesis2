@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -641,26 +641,25 @@ Flecha -> Flujo de datos
 \end_layout
 
 \begin_layout Standard
-En este trabajo se ha definido un proceso por medio del cuál es posible
+En este trabajo se ha definido un proceso por medio del cual es posible
  identificar el grado de relación que tiene un conjunto de early aspects
  (aspectos tempranos) y casos de uso con los atributos de calidad del sistema.
  Este proceso utiliza como entrada una lista de casos de uso y early aspects,
  y agrega a cada conjunto <early aspect, casos de uso relacionados> información
- del atributo de calidad dominante.
+ del atributo de calidad dominante para el conjunto en cuestión.
 \end_layout
 
 \begin_layout Standard
-Básicamente, el proceso esta constituido por dos etapas.
- La primer etapa, la cuál se denominó 
+Básicamente, el proceso está constituido por dos etapas.
+ La primera etapa, denominada
 \emph on
-generación de tokens,
+ generación de tokens,
 \emph default
- realiza un análisis sobre los artefactos de entrada (casos de uso y early
- aspects) para representar la información en un formato interno definido
- para la tecnica.
- Luego, mediante un filtrado se establece que información es relevante,
- y a la vez, se incluyen propiedades/atributos sobre cada elemento que represent
-a la información de entrada.
+ realiza un análisis sobre los elementos de entrada (casos de uso y early
+ aspects) para representar la información en un formato interno.
+ Luego, mediante un filtrado, se establece que información es relevante,
+ y a la vez, se incluyen propiedades/atributos sobre cada elemento que conforma
+ la información de entrada.
 \end_layout
 
 \begin_layout Standard
@@ -668,8 +667,8 @@ En la segunda etapa,
 \emph on
 análisis de tokens,
 \emph default
- se calcula el porcentaje de pertenencia de cada elemento de la entrada
- con los distintos atributos de calidad del sistema.
+ se calcula el porcentaje de pertenencia de cada elemento de entrada con
+ los diferentes atributos de calidad del sistema.
  Posteriormente, esa información es combinada para obtener el atributo de
  calidad dominante para el conjunto de entrada.
 \end_layout
@@ -690,27 +689,27 @@ Generación de Tokens
 
 \begin_layout Standard
 Este bloque de tareas tiene como finalidad llevar a cabo un análisis léxico
- y sintáctico sobre los textos definidos como entrada para esta técnica.
- Esta entrada es la información generada como salida por la herramienta
- Aspect Extractor Tool 
+ y sintáctico sobre los textos definidos como entrada para la técnica propuesta.
+ Esta entrada es la información generada por la herramienta Aspect Extractor
+ Tool 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-9"
 
 \end_inset
 
-.
- La salida de dicha herramienta, luego del procesamiento con la técnica
- de “Análisis Semántico” 
+, luego del procesamiento con la técnica de “Análisis Semántico” 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-8"
 
 \end_inset
 
-, es una lista de casos de uso, los early aspects detectados y las relaciones
- entre ellos.
- Los casos de uso respetan el estándar establecido por Rational 
+.
+ La salida producida por esta herramienta es una lista de early aspects
+ detectados, los casos de uso analizados y las relaciones entre ellos.
+ La especificación textual de los casos de uso respetan el estándar establecido
+ por Rational 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-10"
@@ -721,19 +720,11 @@ key "key-10"
  De igual modo, la especificación de los early aspects siguen el formato
  definido en Aspect Extract Tool, el cuál es semejante al de los casos de
  uso.
- Con esta información, se crean las entidades Caso de Uso y Aspecto Temprano,
- basándose además en las relaciones entre estas entidades para agruparlos
- inicialmente en el Quality Attribute Theme.
- A partir de estas entidades se confeccionarán las listas de palabras tokens
- como se muestran en la figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Etapa-1:-análisis"
-
-\end_inset
-
-, las cuales serán la entrada de la próxima etapa, quien será la responsable
- de instanciar la información referida al atributo de calidad.
+ A partir de estas entidades se confeccionarán las listas de 
+\emph on
+tokens
+\emph default
+, las cuales serán la entrada de la próxima etapa.
 \end_layout
 
 \begin_layout Standard
@@ -780,12 +771,13 @@ Etapa 1.
 \end_layout
 
 \begin_layout Standard
-Para este análisis en necesario realizar dos tareas principales.
- En primer lugar un procesamiento de los datos de entrada para representarlos
- en un formato común y, luego un filtrado sobre los mismos.
+Para este análisis, se requiere la realización de dos actividades principales.
+ En primer lugar, un procesamiento de los datos de entrada para representarlos
+ en un formato común, y, en segundo lugar, un filtrado sobre los mismos
+ para proporcionar informacion relevante a la próxima etapa.
  En estas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
- del aspecto temprano, las cuales serán relevantes para la identificación
+ de los early aspect, las cuales serán relevantes para la identificación
  del atributo de calidad involucrado.
  
 \end_layout
@@ -795,17 +787,18 @@ Procesamiento de la Entrada
 \end_layout
 
 \begin_layout Standard
-El objetivo de esta tarea es procesar la entrada para dejar la información
- en un formato uniforme.
+El objetivo de esta tarea es procesar la información de entrada para establecer
+ la información en una representación interna uniforme.
  Este procesamiento es realizado a través de la separación de la información
- de las entidades de entrada en 
+ de las entidades de entrada (especificaciones de casos de uso y early aspects)
+ en 
 \emph on
 tokens
 \emph default
 .
- Se considera un token a una unidad básica de texto que puede ser enriquecida
+ Se define un token como una unidad básica de texto que puede ser enriquecida
  con diferentes pares <atributos,valor>, como por ejemplo: <peso:1>, <ocurrencia
-s:4>, etc.
+s:4>, etc..
  Estos tokens representan al conjunto de palabras de entrada.
 \end_layout
 
@@ -845,8 +838,8 @@ Tarea Procesamiento de la Entrada
 El resultado de este procesamiento es una lista de tokens para las palabras
  obtenidas de los casos de uso y otra lista de tokens para las palabras
  del aspecto temprano en cuestión.
- Al realizar la división de la entrada en tokens, se agregan además los
- siguientes atributos para cada token:
+ Al realizar la división de la entrada en tokens, se agregan los siguientes
+ atributos para cada uno de ellos:
 \end_layout
 
 \begin_layout Itemize
@@ -948,7 +941,7 @@ name "tab:Fracción-de-caso"
 
 \end_inset
 
-Ejemplo 1.
+Ejemplo 1.1.
  Fracción de caso de uso.
 \end_layout
 
@@ -963,8 +956,8 @@ Ejemplo 1.
 \end_layout
 
 \begin_layout Standard
-Luego del procesamiento se genera la lista de tokens que se observa en la
- tabla 
+Luego del procesamiento de estas secciones del caso de uso, se genera la
+ lista de tokens tal como se observa en la tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Ejemplo-1.-Tokens"
@@ -1243,16 +1236,12 @@ name "tab:Ejemplo-1.-Tokens"
 
 \end_inset
 
-Ejemplo 1.
+Ejemplo 1.2.
  Tokens generados.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1651,7 +1640,7 @@ sistema
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.
+Ejemplo 1.3.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1860,7 +1849,7 @@ sistema
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.
+Ejemplo 1.4.
  Filtro Stop Words
 \end_layout
 
@@ -2064,7 +2053,7 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.
+Ejemplo 1.5.
  Filtro Stemming
 \end_layout
 
@@ -2227,7 +2216,7 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.
+Ejemplo 1.6.
  Filtro Ocurrencias.
 \end_layout
 
@@ -2566,7 +2555,7 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.
+Ejemplo 1.7.
  Filtro Pesos
 \end_layout
 
@@ -2614,7 +2603,7 @@ Análisis de tokens
 \end_layout
 
 \begin_layout Standard
-El objetivo de esta etapa es identificar el Quality Attribute Theme(QAT)
+El objetivo de esta etapa es identificar el Quality Attribute Theme (QAT)
  correspondiente a esas listas de tokens.
  Para ello, por cada palabra de cada una de la listas se identifica el grado
  de asosiación de esa palabra con los distintos atributos de calidad.
