@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -302,7 +302,7 @@ reference "fig:Ontologia-de-escenarios"
 \begin_inset Quotes eld
 \end_inset
 
-Software Architecure in Practice
+Software Architecture in Practice
 \begin_inset Quotes erd
 \end_inset
 
@@ -346,7 +346,7 @@ name "fig:Ontologia-de-escenarios"
 
 \end_inset
 
-Ontologia de escenarios y atributos de calidad
+Ontología de escenarios y atributos de calidad
 \end_layout
 
 \end_inset
@@ -598,7 +598,7 @@ name "fig:Tareas_de_la_tecnica_Propuesta"
 
 \end_inset
 
-Tareas realizadas en la solucion propuesta
+Tareas realizadas en la solución propuesta
 \end_layout
 
 \end_inset
@@ -774,7 +774,7 @@ Etapa 1.
 Para este análisis, se requiere la realización de dos actividades principales.
  En primer lugar, un procesamiento de los datos de entrada para representarlos
  en un formato común, y, en segundo lugar, un filtrado sobre los mismos
- para proporcionar informacion relevante a la próxima etapa.
+ para proporcionar información relevante a la próxima etapa.
  En estas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
  de los early aspect, las cuales serán relevantes para la identificación
@@ -1330,8 +1330,8 @@ ento;
 \end_layout
 
 \begin_layout Itemize
-bajo acomplamiento: los filtros no comparten estados internos y son independient
-es;
+bajo acoplamiento: los filtros no comparten estados internos y son independiente
+s;
 \end_layout
 
 \begin_layout Itemize
@@ -2257,15 +2257,15 @@ reference "tab:Ponderación-de-las"
 
  de acuerdo a la importancia de los textos y palabras que conforman las
  diferentes secciones.
- Sin embrargo, el desarrollador podría modificar este peso dependiendo de
- las caracteristicas de la definición de sus casos de uso.
+ Sin embargo, el desarrollador podría modificar este peso dependiendo de
+ las características de la definición de sus casos de uso.
  La herramienta soporta esta parametrización a través de un archivo de configura
 ción donde se establecen estos pesos.
  
 \end_layout
 
 \begin_layout Standard
-Siguiendo el ejemplo anterior, y considernado los pesos por defecto:
+Siguiendo el ejemplo anterior, y considerando los pesos por defecto:
 \end_layout
 
 \begin_layout Standard
@@ -2606,7 +2606,7 @@ Análisis de tokens
 El objetivo de esta etapa es identificar el Quality Attribute Theme (QAT)
  correspondiente a esas listas de tokens.
  Para ello, por cada palabra de cada una de la listas se identifica el grado
- de asosiación de esa palabra con los distintos atributos de calidad.
+ de asociación de esa palabra con los distintos atributos de calidad.
  Es decir, qué tan ligada se encuentra esa palabra con los diferentes atributos
  de calidad y en qué porcentaje o grado.
  Para ello se desarrolla, por cada token, la tarea 
@@ -2619,7 +2619,7 @@ Asociar palabra con atributo de calidad
 
 .
  La misma relaciona una palabra con un conjunto de pares <atributo de calidad,
- porcentaje>, indicando el grado o porcentaje de asosiacion de esa palabra
+ porcentaje>, indicando el grado o porcentaje de asociación de esa palabra
  con los distintos atributos de calidad.
  Esta tarea arroja este resultado con la ayuda de una ontologia.
 \end_layout
@@ -2695,9 +2695,9 @@ reference "sub:Asociar-palabra-con"
 \end_inset
 
 , pero por ahora basta con detallar que la misma relaciona una palabra con
- el porcentaje o grado de asociacion de la misma con los distintos atributos
+ el porcentaje o grado de asociación de la misma con los distintos atributos
  de calidad.
- Esta asosiación se realiza mediente un conjunto de pares 
+ Esta asociación se realiza mediante un conjunto de pares 
 \shape italic
 <atributo de calidad, porcentaje>
 \shape default
@@ -2719,16 +2719,16 @@ Calcular Quality Attribute Theme
 \end_layout
 
 \begin_layout Standard
-La primera es una version simplificada, que supone como entrada una sola
+La primera es una versión simplificada, que supone como entrada una sola
  lista de tokens y en donde no se tienen en cuenta las ocurrencias y los
  pesos de los tokens en el calculo de los atributos de calidad que se le
  relacionan.
- La segunda versión de la tarea tambien supone como entrada una sola lista
+ La segunda versión de la tarea también supone como entrada una sola lista
  de tokens, pero se tienen en cuenta el peso y el número de ocurrencias
  de cada token.
  En la ultima versión, que es la que adopta la técnica propuesta, se supone
  como entrada dos listas de tokens, teniendo en cuenta el peso y el numero
- de ocurrencias de cada token en el cálculo de los atributos de caliadad
+ de ocurrencias de cada token en el cálculo de los atributos de calidad
  que se le relacionan.
 \end_layout
 
@@ -2749,7 +2749,7 @@ Una sola lista de tokens, sin calculo de ocurrencias ni pesos.
 \end_layout
 
 \begin_layout Standard
-A continuación se muestra un fragmento de pseudocodigo, con una versión
+A continuación se muestra un fragmento de pseudocódigo, con una versión
  simplificada de la tarea, aplicada solo a una lista de tokens y en donde
  no se tiene en cuenta el peso y el número de ocurrencias de cada token.
 \end_layout
@@ -2821,7 +2821,7 @@ En la línea 1 se declara un conjunto o mapa de pares
 \end_layout
 
 \begin_layout Standard
-En la línea 2 se incializa la variable 
+En la línea 2 se inicializa la variable 
 \shape italic
 cantidad_de_palabras
 \shape default
@@ -2843,7 +2843,7 @@ palabra
 <Atributo de calidad, porcentaje>
 \shape default
 , como se muestra en la linea 5.
- Como se mencionó anteriormente, esta asosiación entre la palabra y un conjunto
+ Como se mencionó anteriormente, esta asociación entre la palabra y un conjunto
  de atributos de calidad es realizada por la tarea 
 \begin_inset Quotes eld
 \end_inset
@@ -2900,13 +2900,13 @@ Ejemplo:
 \end_layout
 
 \begin_layout Standard
-Supongase que se tiene sólo los atributos de calidad de Modificability,
+Supóngase que se tiene sólo los atributos de calidad de Modificability,
  Performance y Aviability.
  La linea 1 inicializa un mapa con estos tres atributos en los pares, cada
  uno con valores en 0.
- En la línea 2 se incializa el contador de palabras en 0.
- De esta manera, despues de las inicializaciones, las variables quedarian
- en el siguiente estado:
+ En la línea 2 se inicializa el contador de palabras en 0.
+ De esta manera, después de las inicializaciones, las variables quedan en
+ el siguiente estado:
 \end_layout
 
 \begin_layout Verse
@@ -2918,7 +2918,7 @@ cantidad_de_palabras = 0;
 \end_layout
 
 \begin_layout Standard
-Supongase que la lista de tokens esta conformada por solo dos tokens.
+Supóngase que la lista de tokens esta conformada por solo dos tokens.
  El primer token contiene la palabra 
 \begin_inset Quotes eld
 \end_inset
@@ -2928,7 +2928,7 @@ fast
 \end_inset
 
 .
- Supongase que la tarea 
+ Supóngase que la tarea 
 \shape italic
 AP
 \shape default
@@ -2991,7 +2991,7 @@ Como se dijo anteriormente los resultados parciales de cada palabra se van
 \shape italic
 porcentaje_total_map
 \shape default
- durante la primera iteracion.
+ durante la primera iteración.
  A su vez, el número de palabras aumenta en 1.
  De esta manera, el estado de las variables 
 \shape italic
@@ -3013,7 +3013,7 @@ cantidad_de_palabras = 1;
 \end_layout
 
 \begin_layout Standard
-Supongase que la sgunda palabra es 
+Supóngase que la segunda palabra es 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3055,7 +3055,7 @@ porcentaje_total_map
 \shape italic
 cantidad_de_palabras
 \shape default
- despues de la segunda iteracion es el siguiente:
+ después de la segunda iteración es el siguiente:
 \end_layout
 
 \begin_layout Verse
@@ -3067,9 +3067,9 @@ cantidad_de_palabras = 2;
 \end_layout
 
 \begin_layout Standard
-Ya no hay mas tokens en la lista, por lo que despues de la segunda iteración
+Ya no hay mas tokens en la lista, por lo que después de la segunda iteración
  se sale del bucle.
- La línea 10 del fragmento de pseudocodigo indica que esta suma de resultados
+ La línea 10 del fragmento de pseudocódigo indica que esta suma de resultados
  parciales almacenados en 
 \shape italic
 porcentaje_total_map
@@ -3102,8 +3102,8 @@ En el ejemplo anterior no se tuvo en cuenta el peso y el numero de ocurrencias
  de los tokens.
  Estas, junto con la palabra, son propiedades que los tokens poseen y que
  son tenidas en cuenta en la técnica propuesta en este trabajo.
- El siguiente fragmente de pseudocodigo es similar al anterior, pero modificado,
- y asi mostrar el enfoque propuesto para tener en cuenta estas propiedades.
+ El siguiente fragmente de pseudocódigo es similar al anterior, pero modificado,
+ y así mostrar el enfoque propuesto para tener en cuenta estas propiedades.
 \end_layout
 
 \begin_layout LyX-Code
@@ -3240,7 +3240,7 @@ cantidad_de_palabras = 1;
 \end_layout
 
 \begin_layout Standard
-En ete ejemplo, el estado de las variables, luego de la primera itereación,
+En este ejemplo, el estado de las variables, luego de la primera iteración,
  es exactamente el mismo del ejemplo anterior.
  En efecto, al tener el token un valor igual a 1 en el peso, cada valor
  del mapa de atributos de calidad es multiplicado por 1.
@@ -3264,7 +3264,7 @@ seconds
  del producto entre el peso y el numero de ocurrencias).
  Además la cantidad de palabras también aumenta 6 unidades durante la segunda
  iteración.
- De esta manera, el estado de las variables luego de la segunda iteracion
+ De esta manera, el estado de las variables luego de la segunda iteración
  es el siguiente:
 \end_layout
 
@@ -3296,7 +3296,7 @@ porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.43>;<Performance,0.3
 \begin_layout Standard
 La interpretación de este resultado es que la lista de tokens se relaciona
  en un 25% con modificability, un 43% con aviability y un 32 % con Performance.
- Comparandolo con el resultado del ejemplo anterior, se puede notar que
+ Comparándolo con el resultado del ejemplo anterior, se puede notar que
  el resultado para 
 \begin_inset Quotes eld
 \end_inset
@@ -3343,11 +3343,67 @@ seconds
 Dos listas de tokens, con calculo de peso y ocurrencias
 \end_layout
 
+\begin_layout Standard
+En los ejemplos anteriores se detalla la forma en que una lista de tokens
+ es analizada y relacionada con un conjunto de atributos de calidad, cada
+ uno con un porcentaje de asociación.
+ En este análisis interviene la palabra, el peso y el numero de ocurrencias
+ de cada token en la lista.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo, como ya se ha mencionado, en la tarea analizada en esta sección
+ intervienen dos listas distintas: una con tokens extraídos de los casos
+ de uso y otra de tokens extraídos de los aspectos tempranos que relacionan
+ a esos casos de uso.
+ De esta manera, la tarea propuesta en este trabajo combina los resultados
+ parciales de ambas listas.
+ Es decir, lo detallado en el párrafo anterior se aplica para la lista de
+ tokens extraídos de los casos de uso y luego se aplica a la lista de tokens
+ extraídos de los aspectos tempranos.
+ Luego, para combinar ambas listas se elige un factor k.
+ Este factor es un numero real entre 0 y 1 e indica la importancia que se
+ le debe dar a cada una de las listas.
+ La herramienta desarrollada en este trabajo permite que el desarrollador
+ sea capaz de ingresar este valor, según sus preferencias.
+ 
+\end_layout
+
+\begin_layout Standard
+Cada valor de cada atributo de calidad del mapa de la lista de tokens del
+ caso de uso se multiplica por k, mientras que cada valor de la lista del
+ mapa de tokens de los aspectos tempranos se multiplica por 1-k.
+ Luego, para cada atributo de calidad de cada mapa, se suman los valores
+\end_layout
+
+\begin_layout Standard
+Supóngase, por ejemplo, que el mapa A=(<Modificability,0.25>;<Aviability,0.25>;<Pe
+rformance,0.50>) es el relacionado con la lista de los casos de uso y el
+ mapa B=(<Modificability,0.10>;<Aviability,0.30>;<Performance,0.60>) es el
+ relacionado con los aspectos tempranos.
+ Eligiendo un valor de k=0.4 se tendría que multiplicar cada valor de A por
+ 0.4 y cada valor de B por 1 - 0.4 = 0.6, para luego sumar, para cada atributo
+ de calidad, los valores de ambas listas.
+ Estos daría como resultado un mapa C=(<Modificability,0.16>;<Aviability,0.28>;<Pe
+rformance,0.56>).
+\end_layout
+
+\begin_layout Standard
+Nótese que eligiendo un k=1 el mapa resultantes es el mismo que el mapa
+ que se relaciona con los casos de uso (en el caso anterior el mapa resultante,
+ C, seria igual al A).
+ Sin embargo, con un k=0, el mapa resultante es el mismo que el mapa identificad
+o a partir de la lista de tokens de los aspectos tempranos.
+ Un valor de k=0,5 implica que cada mapa aporta la misma proporción al mapa
+ resultante.
+\end_layout
+
 \begin_layout Subsubsection
-Mapa 
+Definición matemática formal
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Mapa"
+name "sub:Definción-matemática-formal"
 
 \end_inset
 
@@ -3355,25 +3411,32 @@ name "sub:Mapa"
 \end_layout
 
 \begin_layout Standard
-Antes de pasar a la definicion matemática formal de la tarea, presentamos
- el concepto de 
+En esta subsección se pasa a describir el funcionamiento de la tarea 
+\begin_inset Quotes eld
+\end_inset
+
+Calcular Quality Attribute Theme
 \begin_inset Quotes erd
+\end_inset
+
+ de una manera formal y detallada, utilizando herramientas y cálculos matemático
+s.
+ Para ello primero se introduce el concepto de 
+\begin_inset Quotes eld
 \end_inset
 
 Mapa
 \begin_inset Quotes erd
 \end_inset
 
- para poder detallar la formalizacion matematica presentada en la subseccion
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Calcular-Quality-Attribute"
+ y de operaciones del mismo.
+ Este concepto es creada por nosotros para el desarrollo de la técnica propuesta.
+ Luego se detallan las ecuaciones que conforman el funcionamiento de esta
+ tarea.
+\end_layout
 
-\end_inset
-
-.
- De esta manera, definimos un mapa como una conjunto de tuplas <K,V> , donde
+\begin_layout Standard
+De esta manera, definimos un mapa como una conjunto de tuplas <K,V> , donde
  a K se lo denomina “clave” y a V se lo denomina “valor”.
  Un mapa no puede tener dos tuplas con claves idénticas.
  Es decir, dado un mapa M no existe ningún par de tuplas <K1, V> , <K2,V2>
@@ -3381,7 +3444,7 @@ reference "sub:Calcular-Quality-Attribute"
 \end_layout
 
 \begin_layout Standard
-En los mapas definidos en este tranajo se utiliza como 
+En los mapas definidos en este trabajo se utiliza como 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3469,14 +3532,7 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
 
 , siendo a,b y x números reales; M un mapa; K1,K2 claves del mapa.
  
-\end_layout
-
-\begin_layout Subsubsection
-Definción matemática formal
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Definción-matemática-formal"
-
+\begin_inset Newline newline
 \end_inset
 
 
@@ -3493,7 +3549,7 @@ Calcular Quality Attribute Theme
 
  de una forma matemática formal.
  Al comienzo de la sección se mostró el funcionamiento de la tarea en un
- fragmento de pseudocodigo.
+ fragmento de pseudocódigo.
  En esta subsección se realiza lo mismo, pero mostrando el funcionamiento
  de la misma de una forma mas completa, mediante ecuaciones matemáticas.
 \end_layout
@@ -3553,8 +3609,8 @@ Asociar Palabra
 \end_inset
 
 .
- Esta tarea toma realciona una palabra con un mapa de atributos de caliadad
- y porcentajes, como se mostró en la figura 
+ Esta tarea relaciona una palabra con un mapa de atributos de calidad y
+ porcentajes, como se mostró en la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Tareas_de_la_tecnica_Propuesta"
@@ -3562,7 +3618,7 @@ reference "fig:Tareas_de_la_tecnica_Propuesta"
 \end_inset
 
 .
- Es la misma tarea invocada en al linea 5 del fragmento de pseudocodigo
+ Es la misma tarea invocada en al linea 5 del fragmento de pseudocódigo
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3570,7 +3626,7 @@ reference "alg:Pseudocodigo-simplificado"
 
 \end_inset
 
- y es detalladaa en la subsección
+ y es detallada en la subsección
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Asociar-palabra-con"
@@ -3754,7 +3810,7 @@ Asociar palabra con atributos de calidad
 \end_layout
 
 \begin_layout Standard
-Esta tarea relacion una secuencia de caracteres que representa una palabra
+Esta tarea relación una secuencia de caracteres que representa una palabra
  con un conjunto de atributos de calidad, asociados cada uno con un porcentaje.
  Este porcentaje indica el grado o porcentaje de asociación o pertenencia
  que tiene ese palabra con cada atributo de calidad.
@@ -3767,7 +3823,7 @@ reference "sec:Ontología-para-atributos"
 \end_inset
 
 .
- Se supone que las instancias de la ontologia han sido creadas por un experto.
+ Se supone que las instancias de la ontología han sido creadas por un experto.
 \end_layout
 
 \begin_layout Standard
