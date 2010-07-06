@@ -1,4 +1,4 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -69,10 +69,10 @@ La literatura de Inteligencia Artificial contiene varias definiciones de
 \begin_inset Quotes eld
 \end_inset
 
-Una ontología es un modelo de datos que describe conceptos en un dominio
- del discurso (también llamados clases), propiedades de cada concepto que
- describen las diversas características y atributos del concepto, y restriccione
-s sobre esas propiedades.”
+Una ontología es un modelo de datos que describe conceptos (también llamados
+ clases) en un dominio del discurso, propiedades de cada concepto que describen
+ las diversas características y atributos del concepto, y restricciones
+ sobre esas propiedades.”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-1"
@@ -83,9 +83,9 @@ key "key-1"
 \end_layout
 
 \begin_layout Standard
-Un dominio es un área de temática específica o un área de conocimiento,
- tal como medicina, fabricación de herramientas, bienes inmuebles, reparación
- automovilística, gestión financiera, etc.
+Un dominio es un área de temática específica o de conocimiento, tal como
+ medicina, fabricación de herramientas, bienes inmuebles, reparación automovilís
+tica, gestión financiera, etc.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-2"
@@ -112,9 +112,9 @@ Un dominio específico es la parte del mundo que se quiere modelar.
 \end_layout
 
 \begin_layout Standard
-Un beneficio principal cuando una ontología es creada es:”Compartir el entendimi
-ento común de la estructura de información entre personas y sistemas de
- software” 
+Un beneficio principal cuando una ontología es creada es: ”Compartir el
+ entendimiento común de la estructura de información entre personas y sistemas
+ de software” 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
@@ -160,8 +160,8 @@ Componentes
 \end_layout
 
 \begin_layout Standard
-Las ontologías cuentan con los siguientes componentes que servirán para
- representar el conocimiento de algún dominio 
+Las ontologías cuentan con los siguientes componentes que sirven para representa
+r el conocimiento de algún dominio 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-3"
@@ -226,7 +226,11 @@ marca
  El valor de una propiedad puede ser una cadena de caracteres, un número,
  otra instancia, etc.
  En el caso de que fuera otra instancia se forma lo que se denomina una
- relación.
+ 
+\shape italic
+relación
+\shape default
+.
 \end_layout
 
 \begin_layout Section
@@ -244,14 +248,14 @@ key "key-4"
  es un lenguaje web para ontologías compatible con la World Wide Web.
  Este es utilizado cuando la información contenida en los documentos necesitan
  ser procesados por las aplicaciones, a diferencia de situaciones en que
- el contenido sólo es necesario presentar a los seres humanos.
+ el contenido sólo requiere ser presetnado a los seres humanos.
  Puede ser utilizado para representar explícitamente el significado de los
  términos en los vocabularios y las relaciones entre esos términos (justamente
  una ontología).
  OWL tiene más facilidades para expresar el sentido y la semántica que otros
- lenguajes como XML, RDF y RDF-S, y por lo tanto OWL va más allá de estos
- lenguajes en su capacidad para representar a la máquina de contenido interpreta
-ble en la Web.
+ lenguajes como XML [REF], RDF[REF] y RDF-S[REF], y por lo tanto OWL va
+ más allá de estos lenguajes en su capacidad para representar a la máquina
+ de contenido interpretable en la Web.
  Este lenguaje es una revisión del lenguaje de ontologías web DAML+OIL
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -550,8 +554,7 @@ Identificación de atributos de calidad
 
 \begin_layout Standard
 En este capitulo se describirá en detalle el enfoque elegido para la técnica
- de identificación de atributos de calidad en documentos de especificaciones
- de requerimientos.
+ de identificación de atributos de calidad en especificaciones de requerimientos.
  Esta técnica brindará una asistencia extra al analista, para identificar
  los atributos de calidad del sistema en etapas tempranas del desarrollo
  y evitar los problemas suscitados anteriormente.
@@ -569,7 +572,8 @@ reference "fig:Tareas_de_la_tecnica_Propuesta"
 
 \end_inset
 
- se pueden observar las tareas realizadas en la solución propuesta.
+ se pueden observar las tareas realizadas en la solución propuesta, junto
+ con los artefactos de entrada y de salida.
 \end_layout
 
 \begin_layout Standard
@@ -627,10 +631,9 @@ Básicamente, el proceso está constituido por dos etapas.
  generación de tokens,
 \emph default
  realiza un análisis sobre los elementos de entrada (casos de uso y early
- aspects) para representar la información en un formato interno.
- Luego, mediante un filtrado, se establece que información es relevante,
- y a la vez, se incluyen propiedades/atributos sobre cada elemento que conforma
- la información de entrada.
+ aspects) para representar la información en un formato interno y, mediante
+ un filtrado, establecer qué informacién es relavante para la etapa de análisis.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -646,7 +649,7 @@ análisis de tokens,
 
 \begin_layout Standard
 Para soportar dicho proceso se ha implementado una herramienta como una
- extensión - plugin - del entorno de desarrollo integrado (IDE) Eclipse.
+ extensión - plugin - del entorno de desarrollo integrado (IDE) Eclipse[REF].
  La misma, permite al desarrollador seleccionar como entrada los early aspects
  que desea analizar, junto a los casos de uso que los relacionan.
  A partir de esta información, el desarrollador podrá contar con la información
@@ -677,8 +680,8 @@ key "key-8"
 \end_inset
 
 .
- La salida producida por esta herramienta es una lista de early aspects
- detectados, los casos de uso analizados y las relaciones entre ellos.
+ La salida producida por esta herramienta es la lista de early aspects detectado
+s, los casos de uso analizados y las relaciones entre ellos.
  La especificación textual de los casos de uso respetan el estándar establecido
  por Rational 
 \begin_inset CommandInset citation
@@ -691,7 +694,7 @@ key "key-10"
  De igual modo, la especificación de los early aspects siguen el formato
  definido en Aspect Extract Tool, el cuál es semejante al de los casos de
  uso.
- A partir de estas entidades se confeccionarán las listas de 
+ A partir de esta información se confeccionan las listas de 
 \emph on
 tokens
 \emph default
@@ -727,8 +730,7 @@ name "fig:Etapa-1:-análisis"
 
 \end_inset
 
-Etapa 1.
- Generación de Tokens
+Etapa 1 - Generación de Tokens
 \end_layout
 
 \end_inset
@@ -744,11 +746,12 @@ Etapa 1.
 \begin_layout Standard
 Para este análisis, se requiere la realización de dos actividades principales.
  En primer lugar, un procesamiento de los datos de entrada para representarlos
- en un formato común, y, en segundo lugar, un filtrado sobre los mismos
- para proporcionar información relevante a la próxima etapa.
- En estas actividades, se logrará determinar un subconjunto del conjunto
+ en un formato común.
+ Mientras que en segundo lugar se requiere un filtrado sobre los mismos
+ para identificar qué infomración es relevante para la próxima etapa.
+ En éstas actividades, se logrará determinar un subconjunto del conjunto
  de palabras que forman la especificación de los casos de uso y la definición
- de los early aspect, las cuales serán relevantes para la identificación
+ de los early aspects, las cuales serán relevantes para la identificación
  del atributo de calidad involucrado.
  
 \end_layout
@@ -832,7 +835,7 @@ Sección: se registra la sección a la cuál pertenece el token.
 \end_layout
 
 \begin_layout Standard
-Por ejemplo, considerando la fracción de la especificación de un caso de
+Por ejemplo, considerese la fracción de la especificación de un caso de
  uso mostrada en la tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -840,7 +843,17 @@ reference "tab:Fracción-de-caso"
 
 \end_inset
 
-:
+.
+ Tomando ésto como entrada, el resultado de aplicar el procesamiento descripto
+ anteriormente daria como resultado la lista tokens mostrada en la tabla
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab: Tokens -generados"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -912,8 +925,7 @@ name "tab:Fracción-de-caso"
 
 \end_inset
 
-Ejemplo 1.1.
- Fracción de caso de uso.
+ - Fracción de caso de uso.
 \end_layout
 
 \end_inset
@@ -924,18 +936,6 @@ Ejemplo 1.1.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Luego del procesamiento de estas secciones del caso de uso, se genera la
- lista de tokens tal como se observa en la tabla 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Ejemplo-1.-Tokens"
-
-\end_inset
-
-:
 \end_layout
 
 \begin_layout Standard
@@ -1203,12 +1203,11 @@ sistema
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Ejemplo-1.-Tokens"
+name "tab: Tokens -generados"
 
 \end_inset
 
-Ejemplo 1.2.
- Tokens generados.
+ - Tokens generados.
 \end_layout
 
 \end_inset
@@ -1285,9 +1284,13 @@ key "key-7"
  provee una estructura para procesar flujos de datos.
  Cada paso de procesamiento se encapsula en un filtro y es independiente
  del resto.
- Los datos se pasan usando los pipes entre filtros adyacentes y mediante
- la combinación de los filtros se pueden conseguir distintas salidas.
- Las ventajas de utilizar este concepto es:
+ Los datos se transmiten usando los pipes entre filtros adyacentes y mediante
+ la combinación de éstos últimos se pueden conseguir diferentes salidas.
+ 
+\end_layout
+
+\begin_layout Standard
+Las ventajas de utilizar este concepto son:
 \end_layout
 
 \begin_layout Itemize
@@ -1330,17 +1333,24 @@ Filtro Lower Case
 \end_layout
 
 \begin_layout Standard
-Este filtro es el encargado de pasar las palabras de los tokens a minúsculas.
+Este filtro es el encargado de pasar todos los caracteres de las palabras
+ de los tokens a minúscula.
  
 \end_layout
 
 \begin_layout Standard
-Siguiendo el ejemplo anterior, solo se modifican los tokens que su palabra
- contenga al menos una mayúscula.
+Continunado con los tokens generados en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab: Tokens -generados"
+
+\end_inset
+
+, sólo se modifican los caracteres en mayúscula de las palabras de los tokens.
  En la tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Ejemplo-1.-FiltroLower"
+reference "tab:Ejemplo-FiltroLower"
 
 \end_inset
 
@@ -1611,15 +1621,21 @@ sistema
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.3.
- 
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Ejemplo-1.-FiltroLower"
+name "tab:Ejemplo-FiltroLower"
 
 \end_inset
 
-Filtro Lower Case.
+Lista de tokens, luego de haberse aplicado el filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Lower Case
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -1655,6 +1671,24 @@ Por lo tanto, este filtro elimina de la lista de tokens aquellos en los
  De igual modo, se puede modificar la lista quitando aquellas palabras que
  en el domino resulten relevantes para el análisis y el desarrollador desee
  que sean procesadas.
+\end_layout
+
+\begin_layout Standard
+La tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-StopWords"
+
+\end_inset
+
+ muestra el estado de los tokens de la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-FiltroLower"
+
+\end_inset
+
+ luego de haberse aplicado este filtro.
 \end_layout
 
 \begin_layout Standard
@@ -1820,8 +1854,21 @@ sistema
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.4.
- Filtro Stop Words
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo-StopWords"
+
+\end_inset
+
+Lista de tokens, luego de haberse aplicado el filtro 
+\begin_inset Quotes eld
+\end_inset
+
+Stop Words
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1857,8 +1904,8 @@ Por lo tanto, a través de este filtro, se modifican los tokens de la lista
 \end_layout
 
 \begin_layout Standard
-Continuando con el ejemplo anterior, se llevarían las palabras de los tokens
- a su raíz:
+Continuando con el ejemplo 1.4, se llevarían las palabras de los tokens a
+ su raíz, como muestra :
 \end_layout
 
 \begin_layout Standard
@@ -2024,8 +2071,13 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.5.
- Filtro Stemming
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo - Stemming"
+
+\end_inset
+
+Ejemplo 1.5 - Filtro Stemming
 \end_layout
 
 \end_inset
@@ -2209,8 +2261,8 @@ Filtro Pesos
 Este filtro es aplicado para enriquecer los tokens de la lista de tokens
  de casos de uso, asignando un peso a cada token.
  Este peso depende de la sección donde aparece la palabra.
- Es evidente que existen secciones en las cuáles las palabras que la forman
- tienen mayor importancia para el análisis.
+ En la técnica propuesta las palabras tienen distinta importancia según
+ la sección del caso de uso en la que aparezcan.
  Por ejemplo, se asignará un peso alto a una palabra perteneciente al nombre
  o descripción del caso de uso, mientras que se asignará un peso más bajo
  a una palabra perteneciente a un flujo alternativo.
@@ -2543,10 +2595,8 @@ Ejemplo 1.7.
 \begin_layout Standard
 Para los early aspects no es necesario aplicar el filtro de peso debido
  a que se considera que todas las palabras dentro del aspecto temprano tienen
- el mismo peso para el algoritmo.
- Esta diferencia radica en que el caso de uso está dividido en secciones
- y se considera, en esta técnica, que hay secciones que deben ser ponderadas
- sobre otras.
+ la misma importancia, mientras que el caso de uso está dividido en secciones,
+ y se considera que hay secciones que deben ser ponderadas sobre otras.
  
 \end_layout
 
@@ -2565,10 +2615,10 @@ Análisis de tokens
 
  se encuentran las tareas para identificar los atributos de calidad a partir
  de una lista de tokens extraídos de los casos de uso y de los early aspects.
- En este punto la entrada ha sido analizada, la lista de tokens con la palabra
- de cada token pasada a minúscula, llevada a su raíz, ponderizandola de
- acuerdo a su peso y dejando constancia del número de ocurrencias, ha sido
- construida.
+ En este punto la entrada ha sido analizada y ha sido construida la lista
+ de tokens con la palabra de cada token pasada a minúscula, llevada a su
+ raíz, ponderizandola de acuerdo al peso y dejando constancia del número
+ de ocurrencias.
  De esta manera, a esta etapa llegan dos listas de tokens: una correspondiente
  a los casos de uso y otra correspondiente a los early aspects.
 \end_layout
@@ -2578,9 +2628,13 @@ El objetivo de esta etapa es identificar el Quality Attribute Theme (QAT)
  correspondiente a esas listas de tokens.
  Para ello, por cada palabra de cada una de la listas se identifica el grado
  de asociación de esa palabra con los distintos atributos de calidad.
- Es decir, qué tan ligada se encuentra esa palabra con los diferentes atributos
- de calidad y en qué porcentaje o grado.
- Para ello se desarrolla, por cada token, la tarea 
+ Es decir, identificar qué tan ligada se encuentra esa palabra con los diferente
+s atributos de calidad y en qué porcentaje o grado.
+ Para ello se desarrolla, por cada token, una tarea que relaciona una palabra
+ con un conjunto de pares <atributo de calidad, porcentaje>, indicando el
+ grado o porcentaje de asociación de esa palabra con los distintos atributos
+ de calidad.
+ Esta tarea, que se denomina 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2588,19 +2642,15 @@ Asociar palabra con atributo de calidad
 \begin_inset Quotes erd
 \end_inset
 
-.
- La misma relaciona una palabra con un conjunto de pares <atributo de calidad,
- porcentaje>, indicando el grado o porcentaje de asociación de esa palabra
- con los distintos atributos de calidad.
- Esta tarea arroja este resultado con la ayuda de una ontologia.
+, arroja los resultados con la ayuda de una ontología.
 \end_layout
 
 \begin_layout Standard
 El mecanismo anterior se repite para cada token y los resultados individuales
  de cada uno se combinan en una ecuación definida, que tiene en cuenta el
- peso de cada uno de los tokens y el numero de ocurrencias del mismo, y
- da como resultado un conjunto de atributos de calidad y un porcentaje asociado
- a cada uno de ellos.
+ peso de cada uno de los tokens y el número de ocurrencias del mismo.
+ Esta ecuación da como resultado un conjunto de atributos de calidad y un
+ porcentaje asociado a cada uno de ellos.
  
 \end_layout
 
@@ -2648,7 +2698,7 @@ reference "fig:Tareas_de_la_tecnica_Propuesta"
 
 \end_inset
 
-esta tarea produce un llamado a la tarea 
+ esta tarea utiliza a la tarea 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2711,8 +2761,8 @@ reference "sub:Definción-matemática-formal"
 
 \end_inset
 
- enunciamos una serie de ecuaciones matemáticas que definen formal y completamen
-te el funcionamiento de esta tarea.
+ enunciamos una serie de ecuaciones matemáticas que definen, formal y completame
+nte, el funcionamiento de esta tarea.
 \end_layout
 
 \begin_layout Paragraph
@@ -2808,12 +2858,12 @@ En la línea 3 se inicializa una iteración por cada uno de los tokens de
 \shape italic
 palabra
 \shape default
-, como se muestra en la linea 4; y se la asocia a a un conjunto de pares
+, como se muestra en la linea 5; y se la asocia a a un conjunto de pares
  
 \shape italic
 <Atributo de calidad, porcentaje>
 \shape default
-, como se muestra en la linea 5.
+, como se muestra en la linea 6.
  Como se mencionó anteriormente, esta asociación entre la palabra y un conjunto
  de atributos de calidad es realizada por la tarea 
 \begin_inset Quotes eld
@@ -2857,7 +2907,7 @@ cantidad_de_palabras
 \end_layout
 
 \begin_layout Standard
-Finalmente, en la línea 9 se divide cada porcentaje de cada atributo de
+Finalmente, en la línea 10 se divide cada porcentaje de cada atributo de
  calidad del mapa 
 \shape italic
 porcentaje_total
@@ -3069,12 +3119,12 @@ Una sola lista de tokens, con calculo de peso y ocurrencias
 \end_layout
 
 \begin_layout Standard
-En el ejemplo anterior no se tuvo en cuenta el peso y el numero de ocurrencias
+En el ejemplo anterior no se tuvo en cuenta el peso y el número de ocurrencias
  de los tokens.
- Estas, junto con la palabra, son propiedades que los tokens poseen y que
+ Éstas, junto con la palabra, son propiedades que los tokens poseen y que
  son tenidas en cuenta en la técnica propuesta en este trabajo.
- El siguiente fragmente de pseudocódigo es similar al anterior, pero modificado,
- y así mostrar el enfoque propuesto para tener en cuenta estas propiedades.
+ El siguiente fragmente de pseudocódigo es una modificación del anterior,
+ para así tener en cuenta estas propiedades.
 \end_layout
 
 \begin_layout LyX-Code
@@ -3157,7 +3207,7 @@ Se supone que el número de ocurrencias es mayor o igual a uno (si no fuera
 
 \begin_layout Standard
 Ya que cada valor del mapa es multiplicados n veces, (siendo n el producto
- entre el peso y el número de ocurrencias), la cantidad de palabras no puedo
+ entre el peso y el número de ocurrencias), la cantidad de palabras no puede
  aumentar en uno por cada iteración, sino que aumenta n unidades.
  Es por esta razón que se ha modificado la línea 8.
 \end_layout
@@ -3181,7 +3231,7 @@ seconds
 \begin_inset Quotes erd
 \end_inset
 
- tendrá un valor de 2 para el numero de ocurrencias y un valor de 3 para
+ tendrá un valor de 2 para el número de ocurrencias y un valor de 3 para
  el peso.
 \end_layout
 
@@ -3248,7 +3298,7 @@ cantidad_de_palabras = 7;
 \end_layout
 
 \begin_layout Standard
-Luego de esta iteración no hay mas tokens, por los que los valores del mapa
+Luego de esta iteración no hay más tokens, por los que los valores del mapa
  
 \shape italic
 porcentaje_total_map
@@ -3299,7 +3349,7 @@ Performance
 La lista de tokens es la misma, sin embargo el peso y el numero de ocurrencias
  del segundo token, que en su conjunto son seis veces mayores que el primero,
  hacen inclinar la balanza hacia Aviability, que es el atributo de calidad
- con el que mas se relaciona la palabra 
+ con el que más se relaciona la palabra 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3318,7 +3368,7 @@ Dos listas de tokens, con calculo de peso y ocurrencias
 En los ejemplos anteriores se detalla la forma en que una lista de tokens
  es analizada y relacionada con un conjunto de atributos de calidad, cada
  uno con un porcentaje de asociación.
- En este análisis interviene la palabra, el peso y el numero de ocurrencias
+ En este análisis interviene la palabra, el peso y el número de ocurrencias
  de cada token en la lista.
  
 \end_layout
@@ -3334,7 +3384,7 @@ Sin embargo, como ya se ha mencionado, en la tarea analizada en esta sección
  tokens extraídos de los casos de uso y luego se aplica a la lista de tokens
  extraídos de los aspectos tempranos.
  Luego, para combinar ambas listas se elige un factor k.
- Este factor es un numero real entre 0 y 1 e indica la importancia que se
+ Este factor es un número real entre 0 y 1 e indica la importancia que se
  le debe dar a cada una de las listas.
  La herramienta desarrollada en este trabajo permite que el desarrollador
  sea capaz de ingresar este valor, según sus preferencias.
@@ -3349,15 +3399,15 @@ Cada valor de cada atributo de calidad del mapa de la lista de tokens del
 \end_layout
 
 \begin_layout Standard
-Supóngase, por ejemplo, que el mapa A=(<Modificability,0.25>;<Aviability,0.25>;<Pe
-rformance,0.50>) es el relacionado con la lista de los casos de uso y el
- mapa B=(<Modificability,0.10>;<Aviability,0.30>;<Performance,0.60>) es el
- relacionado con los aspectos tempranos.
+Supóngase, por ejemplo, que el mapa A=(<Modificability,0.25>; <Aviability,0.25>;
+ <Performance,0.50>) es el relacionado con la lista de los casos de uso y
+ el mapa B=(<Modificability,0.10>; <Aviability,0.30>; <Performance,0.60>) es
+ el relacionado con los aspectos tempranos.
  Eligiendo un valor de k=0.4 se tendría que multiplicar cada valor de A por
  0.4 y cada valor de B por 1 - 0.4 = 0.6, para luego sumar, para cada atributo
  de calidad, los valores de ambas listas.
- Estos daría como resultado un mapa C=(<Modificability,0.16>;<Aviability,0.28>;<Pe
-rformance,0.56>).
+ Estos daría como resultado un mapa C=(<Modificability,0.16>; <Aviability,0.28>;
+ <Performance,0.56>).
 \end_layout
 
 \begin_layout Standard
@@ -3400,8 +3450,9 @@ Mapa
 \begin_inset Quotes erd
 \end_inset
 
- y de operaciones del mismo.
- Este concepto es creada por nosotros para el desarrollo de la técnica propuesta.
+, definiendo operaciones sobre el mismo.
+ Este concepto es introducido por nosotros, para el desarrollo de la técnica
+ propuesta.
  Luego se detallan las ecuaciones que conforman el funcionamiento de esta
  tarea.
 \end_layout
@@ -3493,7 +3544,7 @@ Sea M un mapa compuesto por un conjunto de tuplas <K,V> donde K es la clave
  Sea x un numero real.
  La multiplicación de M por x da como resultado el mismo mapa, con todos
  los valores V multiplicados por ese numero.
- Por ejemplo, si
+ Por ejemplo, si 
 \begin_inset Formula $M=(<K_{1},a>;<K_{2},b>)$
 \end_inset
 
@@ -3588,16 +3639,7 @@ reference "fig:Tareas_de_la_tecnica_Propuesta"
 
 \end_inset
 
-.
- Es la misma tarea invocada en al linea 5 del fragmento de pseudocódigo
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Pseudocodigo-simplificado"
-
-\end_inset
-
- y es detallada en la subsección
+, siendo detallada en la subsección
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Asociar-palabra-con"
@@ -3907,10 +3949,25 @@ user
 \end_layout
 
 \begin_layout Standard
-En el diagrama se muestra en un recuadro rojo la instancia, mientras que
- en un recuadro negro se representa la clase.
- A su vez la instancia posee una propiedad de tipo String que se denomina
- concreteScenarioPartDescription y cuyo valor, en este caso, es 
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Instancia-única"
+
+\end_inset
+
+ se muestra en un recuadro rojo la instancia, mientras que en un recuadro
+ negro se representa la clase.
+ A su vez la instancia posee una propiedad (de tipo 
+\begin_inset Quotes eld
+\end_inset
+
+cadena de caracteres
+\begin_inset Quotes erd
+\end_inset
+
+) que se denomina concreteScenarioPartDescription y cuyo valor, en este
+ caso, es 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3956,7 +4013,7 @@ reference "fig:Distintos-escenarios"
 
 \end_inset
 
-ilustra este otro caso.
+ ilustra este otro caso.
 \end_layout
 
 \begin_layout Standard
@@ -4017,8 +4074,8 @@ system
 
  podría ser una fuente o un artefacto.
  Lo que lleva a la cuestión de decidir entre ambas opciones.
- Para ello se chequea con cuantos escenarios se relacionan cada una de las
- instancias.
+ Para ello se contabiliza con cuántos escenarios se relacionan cada una
+ de las instancias.
  Será elegida como significado semántico de la palabra la instancia que
  se relacione con un mayor numero de escenarios.
  En este ultimo caso si la instancia_1 se relaciona con 3 escenarios y la
@@ -4039,10 +4096,9 @@ Obtención de porcentajes de atributos de calidad para una palabra
 \end_layout
 
 \begin_layout Standard
-Una vez que, dada una palabra, se ha encontrado la instancia de alguna parte
- de un escenario que se corresponde con esa palabra, se dispone a obtener
- los distintos porcentajes de los distintos atributos de calidad que se
- relacionan con esa palabra.
+Una vez que ue se ha encontrado la instancia de alguna parte de un escenario
+ que se corresponde con una palabra, se dispone a obtener los porcentajes
+ de los distintos atributos de calidad que se relacionan con esa palabra.
 \end_layout
 
 \begin_layout Standard
@@ -4083,9 +4139,16 @@ Response Measure
  De esta manera podemos concluir que ese concepto, latency, se relaciona
  en un 75% de certeza con "Performance", 20% con "Aviability" y 5% con "Modifica
 bility".
- En este caso la función finalmente devolvería <Performance 0.75, Aviability
- 0.2, Modificability 0.05>.
- (Agrega un ejemplo gráfico)
+ En este caso la tarea relacionaría a la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+latency
+\begin_inset Quotes erd
+\end_inset
+
+ con <Performance 0.75, Aviability 0.2, Modificability 0.05>.
+ 
 \end_layout
 
 \begin_layout Standard
