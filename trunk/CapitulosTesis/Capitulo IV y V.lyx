@@ -3420,6 +3420,14 @@ o a partir de la lista de tokens de los aspectos tempranos.
  resultante.
 \end_layout
 
+\begin_layout Standard
+Para la técnica propuesta en este trabajo se determinó que un valor de k
+ igual a 0,5 es el más adecuado para el análisis, ya que balancea de forma
+ equitativa la información extraída a partir de los casos de uso y de los
+ aspectos tempranos.
+ 
+\end_layout
+
 \begin_layout Subsubsection
 Definición matemática formal
 \begin_inset CommandInset label
@@ -3823,12 +3831,12 @@ Asociar palabra con atributos de calidad
 \end_layout
 
 \begin_layout Standard
-Esta tarea relación una secuencia de caracteres que representa una palabra
+Esta tarea relaciona una secuencia de caracteres que representa una palabra
  con un conjunto de atributos de calidad, asociados cada uno con un porcentaje.
- Este porcentaje indica el grado o porcentaje de asociación o pertenencia
- que tiene ese palabra con cada atributo de calidad.
+ Este porcentaje indica el grado de asociación o pertenencia que tiene ese
+ palabra con cada atributo de calidad.
  Para realizar este cálculo, la tarea consulta las instancias de la ontología,
- formada por los conceptos y relaciones explicadas en 
+ formada por los conceptos y relaciones explicadas en la sección
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ontología-para-atributos"
@@ -3842,12 +3850,27 @@ reference "sec:Ontología-para-atributos"
 \begin_layout Standard
 Básicamente esta tarea consta de dos partes.
  La primera es averiguar a que parte del escenario corresponde la palabra.
- Es decir, descubrir si corresponde a una Fuente, a un estímulo o a alguna
- otra.
+ Es decir, descubrir si corresponde a una 
+\begin_inset Quotes eld
+\end_inset
+
+Fuente de estímulo
+\begin_inset Quotes erd
+\end_inset
+
+, a un 
+\begin_inset Quotes eld
+\end_inset
+
+Estímulo
+\begin_inset Quotes erd
+\end_inset
+
+ o a alguna otra.
  Una vez reconocida la instancia a la que se corresponde la palabra, se
- averigua cuantos y cuales escenarios se relacionan con esa instancia.
- A partir de esto ultimo, y de calcular los porcentajes en que ese grupo
- de escenarios se relacionan con los atributos de calidad, se obtiene el
+ averigua cuántos y cuáles escenarios se relacionan con esa instancia.
+ A partir de esto último, y de calcular los porcentajes en que ese grupo
+ de escenarios se relacionan con los atributos de calidad, se obtiene un
  mapa de atributos de calidad y porcentajes.
 \end_layout
 
@@ -3861,30 +3884,81 @@ En esta parte se intenta identificar si la palabra se corresponde con alguna
 \shape italic
 ConcreteSource
 \shape default
-, 
+ (Fuente), 
 \shape italic
 ConcreteStimulus
 \shape default
-, 
+ (Estímulo), 
 \shape italic
 ConcreteEnviroment
 \shape default
-, 
+ (Ambiente), 
 \shape italic
 ConcreteArtifact
 \shape default
-, 
+ (Artefacto), 
 \shape italic
-ConcreteResponse
+ConcreteResponse 
 \shape default
- y 
+(Respuesta) y 
 \shape italic
-ConcreteResponseMeasure.
+ConcreteResponseMeasure 
+\shape default
+(Medida de Respuesta)
+\shape italic
+.
  
 \shape default
 Básicamente, al arribar la palabra X se intenta responder a la pregunta,
- ¿ es X una fuente, un estímulo, un ambiente, un artefacto, una respuesta
- o una medida de respuesta?
+ ¿ es X una 
+\begin_inset Quotes eld
+\end_inset
+
+Fuente
+\begin_inset Quotes erd
+\end_inset
+
+, un 
+\begin_inset Quotes eld
+\end_inset
+
+Estímulo
+\begin_inset Quotes erd
+\end_inset
+
+, un 
+\begin_inset Quotes eld
+\end_inset
+
+Ambiente
+\begin_inset Quotes erd
+\end_inset
+
+, un 
+\begin_inset Quotes eld
+\end_inset
+
+Artefacto
+\begin_inset Quotes erd
+\end_inset
+
+, una 
+\begin_inset Quotes eld
+\end_inset
+
+Respuesta
+\begin_inset Quotes erd
+\end_inset
+
+ o una 
+\begin_inset Quotes eld
+\end_inset
+
+Medida de Respuesta
+\begin_inset Quotes erd
+\end_inset
+
+?
 \end_layout
 
 \begin_layout Standard
@@ -3966,8 +4040,15 @@ cadena de caracteres
 \begin_inset Quotes erd
 \end_inset
 
-) que se denomina concreteScenarioPartDescription y cuyo valor, en este
- caso, es 
+) que se denomina 
+\begin_inset Quotes eld
+\end_inset
+
+concreteScenarioPartDescription
+\begin_inset Quotes erd
+\end_inset
+
+ y cuyo valor, en este caso, es 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3977,7 +4058,15 @@ user
 
 .
  Uno o mas escenario se pueden relacionar con esta instancia mediante la
- propiedad concreteScenariohasSource.
+ propiedad 
+\begin_inset Quotes eld
+\end_inset
+
+concreteScenariohasSource
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3990,9 +4079,28 @@ user
 \end_inset
 
 .
- En este caso hay una sola instancia en la ontología, la Instancia_1, que
- es de tipo ConcreteSource, que mediante la propiedad concreteScenarioPartDescri
-ption posee el valor 
+ En este caso hay una sola instancia en la ontología, cuyo identificdor
+ único de instancia es 
+\begin_inset Quotes eld
+\end_inset
+
+Instancia_1
+\begin_inset Quotes erd
+\end_inset
+
+, que es de tipo 
+\shape italic
+ConcreteSource
+\shape default
+, que mediante la propiedad 
+\begin_inset Quotes eld
+\end_inset
+
+concreteScenarioPartDescription
+\begin_inset Quotes erd
+\end_inset
+
+ posee el valor 
 \begin_inset Quotes eld
 \end_inset
 
@@ -4072,15 +4180,45 @@ system
 \begin_inset Quotes erd
 \end_inset
 
- podría ser una fuente o un artefacto.
+ podría ser un 
+\shape italic
+ConcreteSource
+\shape default
+ o un 
+\shape italic
+ConcreteArtifact
+\shape default
+.
  Lo que lleva a la cuestión de decidir entre ambas opciones.
  Para ello se contabiliza con cuántos escenarios se relacionan cada una
  de las instancias.
  Será elegida como significado semántico de la palabra la instancia que
  se relacione con un mayor numero de escenarios.
- En este ultimo caso si la instancia_1 se relaciona con 3 escenarios y la
- instancia_2 con 6, se retorna la instancia_2, tomándose como que la palabra
- 
+ En este ultimo caso si la 
+\begin_inset Quotes eld
+\end_inset
+
+instancia_1
+\begin_inset Quotes erd
+\end_inset
+
+ se relaciona con 3 escenarios y la 
+\begin_inset Quotes eld
+\end_inset
+
+instancia_2
+\begin_inset Quotes erd
+\end_inset
+
+ con 6, se retorna la 
+\begin_inset Quotes eld
+\end_inset
+
+instancia_2
+\begin_inset Quotes erd
+\end_inset
+
+, tomándose como que la palabra 
 \begin_inset Quotes eld
 \end_inset
 
@@ -4088,7 +4226,46 @@ system
 \begin_inset Quotes erd
 \end_inset
 
- es un artefacto.
+ es un 
+\shape italic
+ConcreteArtifact
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+En este punto cabe aclarar que no existen dos instancias que se relacionen
+ con la misma palabra (mediante la propiedad 
+\begin_inset Quotes eld
+\end_inset
+
+concreteScenraioPartDescription
+\begin_inset Quotes erd
+\end_inset
+
+) y que sea del mismo tipo (
+\shape italic
+ConcreteScource
+\shape default
+, 
+\shape italic
+ConcreteArtifact
+\shape default
+, etc.) Es decir, por ejemplo, no puede haber dos instancias en las que ambas
+ sean estímulos y además se relacionen con la palabra 
+\begin_inset Quotes eld
+\end_inset
+
+developer
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Si esto ocurriera, se pasan todas las relaciones de una instancia a la
+ otra, y se elimina la primera.
+ Este es un proceso que se realiza al crear la ontología.
+ Es por ello que en la descripción anterior, con devolver la instancia ya
+ se asegura que es única para ese parte de escenario.
 \end_layout
 
 \begin_layout Paragraph
@@ -4096,25 +4273,33 @@ Obtención de porcentajes de atributos de calidad para una palabra
 \end_layout
 
 \begin_layout Standard
-Una vez que ue se ha encontrado la instancia de alguna parte de un escenario
+Una vez que se ha identificado la instancia de alguna parte de un escenario
  que se corresponde con una palabra, se dispone a obtener los porcentajes
  de los distintos atributos de calidad que se relacionan con esa palabra.
-\end_layout
+ Los atributos de calidad, juntos con los porcentajes asociados, se agrupan
+ en un mapa como el descripto en la subsección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Definción-matemática-formal"
 
-\begin_layout Standard
-En este momento se puede pensar que la salida es una lista de pares <Atributo
- de calidad, valor>, en donde valor indica el porcentaje de asociación de
- esa palabra con ese atributo de calidad.
- La suma de los valores de la lista es igual a 1 o a 100%.
- Como se dijo anteriormente, mas adelante se definirá un Mapa, que es al
- salida real de esta función.
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 Para encontrar estos porcentajes, primero se recuperan todos los escenarios
  que se relacionan con la instancia encontrada en el paso anterior.
  Cada uno de estos escenarios se relaciona con un atributo de calidad mediante
- la propiedad isSpecifOf.
+ la propiedad 
+\begin_inset Quotes eld
+\end_inset
+
+isSpecifOf
+\begin_inset Quotes erd
+\end_inset
+
+.
  De esta manera, para cada atributo de calidad, se devuelven los porcentajes
  en que estos escenarios se relacionan con cada uno de ellos.
  
@@ -4123,22 +4308,48 @@ Para encontrar estos porcentajes, primero se recuperan todos los escenarios
 \begin_layout Standard
 Por ejemplo, supóngase que como entrada se obtuvo el término "latency".
  Después del paso anterior, se encuentra que esa palabra se corresponde
- con la instancia_48 que es de tipo 
+ con la 
 \begin_inset Quotes eld
 \end_inset
 
-Response Measure
+Instancia_48
+\begin_inset Quotes erd
+\end_inset
+
+ que es de tipo 
+\shape italic
+ResponseMeasure
+\shape default
+.
+ A su vez 40 escenarios se relacionan con la 
+\begin_inset Quotes eld
+\end_inset
+
+Instancia_48
+\begin_inset Quotes erd
+\end_inset
+
+ mediante la propiedad 
+\begin_inset Quotes eld
+\end_inset
+
+scenarioHasResponseMeasure
 \begin_inset Quotes erd
 \end_inset
 
 .
- A su vez 40 escenarios se relacionan con la instancia_48 mediante la propiedad
- scenarioHasResponseMeasure.
  De esos 40 escenarios, 30 de ellos se relacionan con el atributo de calidad
  "Performance", 8 con "Aviability" y 2 con "Modificability".
- De esta manera podemos concluir que ese concepto, latency, se relaciona
- en un 75% de certeza con "Performance", 20% con "Aviability" y 5% con "Modifica
-bility".
+ De esta manera podemos concluir que ese concepto, 
+\begin_inset Quotes eld
+\end_inset
+
+latency
+\begin_inset Quotes erd
+\end_inset
+
+, se relaciona en un 75% de certeza con "Performance", 20% con "Aviability"
+ y 5% con "Modificability".
  En este caso la tarea relacionaría a la palabra 
 \begin_inset Quotes eld
 \end_inset
@@ -4147,7 +4358,11 @@ latency
 \begin_inset Quotes erd
 \end_inset
 
- con <Performance 0.75, Aviability 0.2, Modificability 0.05>.
+ con 
+\shape italic
+<Performance 0.75, Aviability 0.2, Modificability 0.05>
+\shape default
+.
  
 \end_layout
 
