@@ -1,4 +1,4 @@
-#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
@@ -42,6 +42,15 @@
 
 \begin_body
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
 Introducción
 \end_layout
@@ -82,6 +91,7 @@ key "key-1"
 
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
 Un dominio es un área de temática específica o de conocimiento, tal como
  medicina, fabricación de herramientas, bienes inmuebles, reparación automovilís
@@ -99,6 +109,7 @@ key "key-2"
  
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 Un dominio específico es la parte del mundo que se quiere modelar.
  Representa el significado aplicado a los términos usados en la construcción
@@ -925,7 +936,7 @@ name "tab:Fracción-de-caso"
 
 \end_inset
 
- - Fracción de caso de uso.
+ Fracción de caso de uso
 \end_layout
 
 \end_inset
@@ -1207,7 +1218,7 @@ name "tab: Tokens -generados"
 
 \end_inset
 
- - Tokens generados.
+ Tokens generados luego del análisis de la entrada
 \end_layout
 
 \end_inset
@@ -1627,15 +1638,9 @@ name "tab:Ejemplo-FiltroLower"
 
 \end_inset
 
-Lista de tokens, luego de haberse aplicado el filtro 
-\begin_inset Quotes eld
-\end_inset
-
-Lower Case
-\begin_inset Quotes erd
-\end_inset
-
-.
+Estado de los tokens luego del filtro 
+\emph on
+LowerCase
 \end_layout
 
 \end_inset
@@ -1860,15 +1865,9 @@ name "tab:Ejemplo-StopWords"
 
 \end_inset
 
-Lista de tokens, luego de haberse aplicado el filtro 
-\begin_inset Quotes eld
-\end_inset
-
+ Lista de tokens pos filtro 
+\emph on
 Stop Words
-\begin_inset Quotes erd
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1904,8 +1903,24 @@ Por lo tanto, a través de este filtro, se modifican los tokens de la lista
 \end_layout
 
 \begin_layout Standard
-Continuando con el ejemplo 1.4, se llevarían las palabras de los tokens a
- su raíz, como muestra :
+Continuando con el ejemplo observado en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-StopWords"
+
+\end_inset
+
+, se modificarión las palabras de los tokens, llevando cada una de ellas
+ a su raíz.
+ En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo - Stemming"
+
+\end_inset
+
+ se muestra el estado de los tokens luego de que se aplique el filto en
+ cuestión.
 \end_layout
 
 \begin_layout Standard
@@ -2077,7 +2092,9 @@ name "tab:Ejemplo - Stemming"
 
 \end_inset
 
-Ejemplo 1.5 - Filtro Stemming
+Estado de los tokens luego del filtro 
+\emph on
+Stemming
 \end_layout
 
 \end_inset
@@ -2112,8 +2129,16 @@ Ocurrencias: número de ocurrencias del token en la lista.
 \end_layout
 
 \begin_layout Standard
-Igualmente, para este ejemplo, solo se tendrá en cuenta la palabra del token
- para considerarlo repetido.
+Igualmente, para continuar con el ejemplo, solo se tendrá en cuenta la palabra
+ del token para considerarlo repetido.
+ De esta forma, se observa en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-1.6.-Filtro"
+
+\end_inset
+
+ el nuevo atributo que se agrega a cada token.
 \end_layout
 
 \begin_layout Standard
@@ -2239,8 +2264,15 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.6.
- Filtro Ocurrencias.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo-1.6.-Filtro"
+
+\end_inset
+
+Lista de tokens luego de aplicar el filtro 
+\emph on
+Ocurrencias
 \end_layout
 
 \end_inset
@@ -2288,7 +2320,21 @@ ción donde se establecen estos pesos.
 \end_layout
 
 \begin_layout Standard
-Siguiendo el ejemplo anterior, y considerando los pesos por defecto:
+Considerando los pesos por defecto mostrados en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ponderación-de-las"
+
+\end_inset
+
+, la lista de toknes final quedaria tal como se muestra en la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Ejemplo-1.7.-Filtro"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2438,7 +2484,7 @@ name "tab:Ponderación-de-las"
 
 \end_inset
 
-Ponderación de las secciones de los casos de uso.
+Ponderación de las secciones de los casos de uso
 \end_layout
 
 \end_inset
@@ -2449,10 +2495,6 @@ Ponderación de las secciones de los casos de uso.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-La lista de tokens final quedaría de la siguiente forma:
 \end_layout
 
 \begin_layout Standard
@@ -2578,8 +2620,15 @@ sistem
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Ejemplo 1.7.
- Filtro Pesos
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Ejemplo-1.7.-Filtro"
+
+\end_inset
+
+Estado final de los tokens, luego del filtro 
+\emph on
+Pesos
 \end_layout
 
 \end_inset
