@@ -104,7 +104,15 @@ Dominio
 \end_layout
 
 \begin_layout Standard
-En este capitulo bla bla bla
+En este capitulo se presentara el dominio analizado, junto a la motivación
+ y la problematica que se busca resolver mediante la tecnica propuesta en
+ este trabajo.
+ Se introduciran los conceptos necesarios para comprender en detalle la
+ finalidad del trabajo.
+ Entre estos, se encuentran los conceptos de atributo de calidad, aspecto
+ temprano (o early aspect) y caso de uso, evidenciando la relación que surje
+ entre ellos cuando se busca realizar un sistema de calidad desde las primeras
+ etapas de desarrollo.
 \end_layout
 
 \begin_layout Section
@@ -212,11 +220,34 @@ Aspectos Tempranos
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Sacar de la tesis de Alejandro.
+ Revisar cuando se debe presentar este concepto y con cuanta profundidad.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Casos de uso
+Casos de uso 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Revisar la profundidad que se le dará a este tema.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -238,8 +269,8 @@ Los casos de uso se convirtieron en una de las prácticas más comunes para
 \end_layout
 
 \begin_layout Subsection
-Especificación de un requerimiento mediante casos de uso (o Aplicación)
- 
+Especificación de un requerimiento mediante casos de uso (o Aplicación de
+ Casos de Uso) 
 \begin_inset Note Note
 status open
 
@@ -337,7 +368,15 @@ revisar bien este template y explicar cada sección
 \end_layout
 
 \begin_layout Standard
-Secciones
+En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Secciones"
+
+\end_inset
+
+ se presenta el template definido por Rational para la especificacion de
+ casos de uso
 \end_layout
 
 \begin_layout Itemize
@@ -386,7 +425,7 @@ Nombre
 \begin_inset Text
 
 \begin_layout Plain Layout
-The name of the use case.
+Nombre del caso de uso.
 \end_layout
 
 \end_inset
@@ -406,8 +445,7 @@ Descripción
 \begin_inset Text
 
 \begin_layout Plain Layout
-The description should briefly convey the role and purpose of the use case.
- A single paragraph should suffice for this description.
+Breve descripcion donde se describe el rol y proposito en un parrafo simple.
 \end_layout
 
 \end_inset
@@ -609,15 +647,17 @@ Definition of the location of the extension point in the flow of events.
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Secciones"
+
+\end_inset
+
 Secciones de la especifiación textual de Uso de Caso de RUP
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -627,7 +667,10 @@ Secciones de la especifiación textual de Uso de Caso de RUP
 \end_layout
 
 \begin_layout Subsection
-Casos de Uso y Requerimientos No Funcionales o ATRIBUTOS DE CALIDAD 
+Casos de Uso y Requerimientos No Funcionales
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -641,9 +684,9 @@ ver titulo, aca deberia introducir atributos de calidad
 \end_layout
 
 \begin_layout Standard
-Los casos de uso pueden ser útiles para establecer requisitos de comportamiento,
- pero no establecen completamente los requisitos funcionales ni permiten
- determinar los requisitos no funcionales.
+Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
+ o funcionales, pero no establecen completamente los requisitos funcionales
+ ni permiten determinar los requisitos no funcionales.
  Los casos de uso deben complementarse con información adicional como reglas
  de negocio, requisitos no funcionales, diccionario de datos que complementen
  los requerimientos del sistema.
@@ -655,6 +698,20 @@ Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
 
 \begin_layout Section
 Atributos de Calidad
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Se explico algo en la motivacion ...
+ quizás se peuda ampliar la motivacion y evitar poner un apartado
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
