@@ -1,8 +1,11 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
 \lyxformat 345
 \begin_document
 \begin_header
-\textclass article
+\textclass book
+\begin_preamble
+\renewcommand{\tablename}{Tabla}
+\end_preamble
 \use_default_options true
 \language spanish
 \inputencoding auto
@@ -43,6 +46,10 @@
 \begin_body
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -51,19 +58,31 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Part
+\begin_layout Chapter
 Introducción
 \end_layout
 
-\begin_layout Part
+\begin_layout Standard
+Acá iría el capítulo 1
+\end_layout
+
+\begin_layout Chapter
 Dominio
 \end_layout
 
-\begin_layout Part
+\begin_layout Standard
+Acá iría el capítulo 2
+\end_layout
+
+\begin_layout Chapter
 Trabajos Relacionados
 \end_layout
 
-\begin_layout Part
+\begin_layout Standard
+Acá iría el capítulo 3
+\end_layout
+
+\begin_layout Chapter
 Ontología
 \end_layout
 
@@ -559,7 +578,7 @@ s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
 dos.
 \end_layout
 
-\begin_layout Part
+\begin_layout Chapter
 Identificación de atributos de calidad
 \end_layout
 
@@ -2508,7 +2527,7 @@ status open
 <lyxtabular version="3" rows="5" columns="2">
 <features>
 <column alignment="center" valignment="top" width="0">
-<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2825,13 +2844,15 @@ A continuación se muestra un fragmento de pseudocódigo, con una versión
 \end_layout
 
 \begin_layout LyX-Code
-1: Mapa<QA,porcentaje> porcentaje_total_map = crear mapa con todos 
+1: Mapa<QA,porcentaje> porcentaje_total_map = crear 
 \end_layout
 
 \begin_layout LyX-Code
-                                          los atributos de calidad e   
-                                                                igualar
- porcentajes a 0;
+    mapa con todos los atributos de calidad e igualar 
+\end_layout
+
+\begin_layout LyX-Code
+    porcentajes a 0;
 \end_layout
 
 \begin_layout LyX-Code
@@ -2864,7 +2885,11 @@ A continuación se muestra un fragmento de pseudocódigo, con una versión
 \end_layout
 
 \begin_layout LyX-Code
-7: porcentaje_total = porcentaje_total + porcentaje_palabra  ;
+7: porcentaje_total = porcentaje_total 
+\end_layout
+
+\begin_layout LyX-Code
+                      + porcentaje_palabra  ;
 \end_layout
 
 \begin_layout LyX-Code
@@ -2980,7 +3005,7 @@ Supóngase que se tiene sólo los atributos de calidad de Modificability,
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0>;<Aviability,0>;<Performance,0>).
+porcentaje_total_map = (<Modificability,0>; <Aviability,0>; <Performance,0>).
 \end_layout
 
 \begin_layout Verse
@@ -3014,7 +3039,7 @@ fast
 \begin_inset Quotes erd
 \end_inset
 
-) = (<Modificability,0.25>;<Aviability,0.0>;<Performance,0.75>)
+) = (<Modificability,0.25>; <Aviability,0.0>; <Performance,0.75>)
 \end_layout
 
 \begin_layout Standard
@@ -3075,7 +3100,7 @@ cantidad_de_palabras,
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0.25>;<Aviability,0>;<Performance,0.75>).
+porcentaje_total_map = (<Modificability,0.25>; <Aviability,0>; <Performance,0.75>).
 \end_layout
 
 \begin_layout Verse
@@ -3129,7 +3154,8 @@ cantidad_de_palabras
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0.50>;<Aviability,0.50>;<Performance,1.00>)
+porcentaje_total_map = (<Modificability,0.50>; <Aviability,0.50>; <Performance,1.00
+>)
 \end_layout
 
 \begin_layout Verse
@@ -3153,7 +3179,8 @@ porcentaje_total_map
 \end_layout
 
 \begin_layout Verse
-porcentaje_total_map = (<Modificability,0.25>;<Aviability,0.25>;<Performance,0.50>)
+porcentaje_total_map = (<Modificability,0.25>; <Aviability,0.25>; <Performance,0.50
+>)
 \end_layout
 
 \begin_layout Standard
