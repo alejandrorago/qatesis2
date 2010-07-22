@@ -71,7 +71,767 @@ Dominio
 \end_layout
 
 \begin_layout Standard
-Acá iría el capítulo 2
+En este capítulo se presenta el dominio, junto con los conceptos que se
+ utilizarán a lo largo de este trabajo.
+ De esta manera se introducen los conceptos de 
+\begin_inset Quotes eld
+\end_inset
+
+Atributo de calidad
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Escenarios
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+Early Aspects
+\begin_inset Quotes erd
+\end_inset
+
+ (Aspecto Tempranos).
+ También se introducen las técnicas de especificaciones de requerimientos,
+ centrandose en el concepto de 
+\begin_inset Quotes eld
+\end_inset
+
+Caso de Usos
+\begin_inset Quotes erd
+\end_inset
+
+ y su relación con los aspectos tempranos y atributos de calidad.
+\end_layout
+
+\begin_layout Section
+Atributos de calidad
+\end_layout
+
+\begin_layout Standard
+La calidad de software se define como el grado en el cual éste posee una
+ combinación deseada de atributos, tales como: Performance, Disponibilidad,
+ Portabilidad, Seguridad, Usabilidad, etc.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-11"
+
+\end_inset
+
+.
+ Estos atributos son requerimientos adicionales del sistema
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-12"
+
+\end_inset
+
+ que hacen referencia a características o restricciones que éste debe satisfacer
+, y complementan los requerimientos funcionales del mismo.
+ Estas características o atributos se conocen con el nombre de 
+\begin_inset Quotes eld
+\end_inset
+
+atributos de calidad
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-22"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Los atributos de calidad de un sistema son independientes de la funcionalidad
+ del mismo
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.
+ Si esto no fuera asi, una funcionalidad seleccionada dictaría los niveles
+ de seguridad, modificabilidad, disponibilidad, etc.
+ de un sistema.
+ Esto no significa que cualquier nivel de calquier atributo de calidad puede
+ ser alcanzado para cualquier funcionalidad.
+ Manipular gráficos complejos o realizar complejos cálculos matemáticos,
+ por ejemplo, ciertamente tienen un impacto negativo sobre la performance.
+ Sin embargo, lo que sí es posible es, bajo determinada funcionalidad, tomar
+ ciertas decisiones que determinen un nivel relativo de calidad.
+ 
+\end_layout
+
+\begin_layout Standard
+La funcionalidad es la habilidad de un sistema para realizar el trabajo.
+ A pesar de estar muy relacionada con los atributos de calidad, en general
+ es en ella en donde se pone el foco de atención duarante las distintas
+ etapas de desarrollo, dejando a estos últimos, con mucha suerte, en un
+ segundo plano.
+ De esta manera la mayoría de los enfoques lidian con los atributos de calidad
+ separadamente de la funcionalidad, dejando su integración para las etapas
+ finales del ciclo de desarrollo.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-23"
+
+\end_inset
+
+ Sin embargo, los atributos de calidad deben ser considerados en todas las
+ etapas del proceso.
+ Ningún atributo de calidad es enteramente dependiente de la etapa de diseño
+ o de la implmentación, o de cualquier otra
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En términos generales, Bass y otros autores 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+ establece una clasificación de los atributos de calidad en dos categorías:
+ 
+\end_layout
+
+\begin_layout Itemize
+Observables en tiempo de ejecución: aquellos atributos que se determinan
+ del comportamiento del sistema en tiempo de ejecución (disponibilidad,
+ performance, seguridad, etc.) 
+\end_layout
+
+\begin_layout Itemize
+No observables en tiempo de ejecución: aquellos atributos que se establecen
+ durante el desarrollo del sistema (modificabilidad, reusabilidad, portabilidad,
+ escabilidad, etc.).
+ 
+\end_layout
+
+\begin_layout Standard
+La arquitectura de software un un programa o sistema computarizado es la
+ estructura, o estructuras, de un sistema, que compromete los elementos
+ de software, las propiedades externas visibles de esos elementos y las
+ relaciones entre ellos.
+ Esta es crítica para la realización de muchos atributos de calidad de un
+ sistemas, y varios de estos atributos deben ser diseñados y testeados en
+ un nivel arquitectural.
+ 
+\end_layout
+
+\begin_layout Section
+Escenarios de calidad
+\end_layout
+
+\begin_layout Standard
+Los escenarios de calidad son una forma de representar requerimientos de
+ atributos de calidad.
+ Un escenarios consiste de seis partes:
+\end_layout
+
+\begin_layout Description
+Fuente
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+estímulo
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Source).
+ Alguna entidad (un humano, un sistema de computación u otro actor) que
+ genera una estímulo.
+\end_layout
+
+\begin_layout Description
+Estímulo
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Stimulus).
+ Una condición que necesita ser considerada cuando arriba al sistema.
+\end_layout
+
+\begin_layout Description
+Ambiente
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Enviroment).
+ El estímulo ocurre bajo ciertas condiciones.
+ El sistema puede estar sobrecargado o puede estar ejecutándose normalmente
+ cuando el estímulo ocurre, o alguna otra condición puede ser verdadera.
+\end_layout
+
+\begin_layout Description
+Artefacto
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Artifact).
+ Algún artefacto es estimulado.
+ Este puede ser el sistema completo o alguna parte de él.
+\end_layout
+
+\begin_layout Description
+Respuesta
+\begin_inset space ~
+\end_inset
+
+(Concrete
+\begin_inset space ~
+\end_inset
+
+Response).
+ La respuesta es una actividad llevada a cabo luego del arribo del estímulo.
+\end_layout
+
+\begin_layout Description
+Medida
+\begin_inset space ~
+\end_inset
+
+de
+\begin_inset space ~
+\end_inset
+
+respuesta(Concrete
+\begin_inset space ~
+\end_inset
+
+Response
+\begin_inset space ~
+\end_inset
+
+Measure).
+ Cuando la respuesta ocurre, ésta debería ser medida de alguna manera así
+ el requerimiento puede ser testeado.
+ 
+\end_layout
+
+\begin_layout Standard
+Se distinguen como escenarios generales de calidad (escenarios generales)
+ a aquellos que son independientes del sistema y pueden, potencialmente,
+ pertenecer a cualquier sistema, de aquellos denominados escenarios concretos
+ de calidad (escenarios concretos), que son específicos de un sistema en
+ particular que esta bajo consideración.
+ La caracterización de atributos de calidad puede ser hecha como una colección
+ de escenarios generales, sin embargo, para traducir la caracterización
+ de los atributos a requerimientos para un sistema específico, los escenarios
+ generales deben transformarse en específicos.
+ 
+\end_layout
+
+\begin_layout Standard
+Una colección de escenarios concretos pueden ser usados como los requerimientos
+ de calidad para un sistema.
+ Cada escenario es suficientemente concreto para ser significativo para
+ un arquitecto, y los detalles de la respuesta son suficientemente significativo
+s para soportar tests convalidando que los requerimientos hayan sido cumplimenta
+dos.
+\end_layout
+
+\begin_layout Section
+Casos de uso 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Revisar la profundidad que se le dará a este tema.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En ingeniería del software, un caso de uso es una técnica para la captura
+ de requisitos potenciales de un nuevo sistema o una actualización de software.
+ Cada caso de uso proporciona uno o más escenarios que indican cómo debería
+ interactuar el sistema con el usuario o con otro sistema para conseguir
+ un objetivo específico.
+ Normalmente, en los casos de usos se evita el empleo de jergas técnicas,
+ prefiriendo en su lugar un lenguaje más cercano al usuario final.
+ En ocasiones, se utiliza a usuarios sin experiencia junto a los analistas
+ para el desarrollo de casos de uso.
+\end_layout
+
+\begin_layout Standard
+Los casos de uso se convirtieron en una de las prácticas más comunes para
+ la captura de requisitos funcionales, especialmente con el desarrollo del
+ paradigma de la programación orientada a objetos.
+\end_layout
+
+\begin_layout Subsection
+Especificación de un requerimiento mediante casos de uso (o Aplicación de
+ Casos de Uso) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ver titulo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los casos de uso evitan típicamente la jerga técnica, prefiriendo la lengua
+ del usuario final o del experto del campo del saber al que se va a aplicar.
+ Los casos del uso son a menudo elaborados en colaboración por los analistas
+ de requerimientos y los clientes.
+ Cada caso de uso se centra en describir cómo alcanzar una única meta o
+ tarea de negocio.
+ 
+\end_layout
+
+\begin_layout Standard
+Desde una perspectiva tradicional de la ingeniería de software, un caso
+ de uso describe una característica del sistema.
+ Para la mayoría de proyectos de software, esto significa que quizás a veces
+ es necesario especificar diez o centenares de casos de uso para definir
+ completamente el nuevo sistema.
+ El grado de la formalidad de un proyecto particular del software y de la
+ etapa del proyecto influenciará el nivel del detalle requerido en cada
+ caso de uso.
+ Los casos de uso pretenden ser herramientas simples para describir el comportam
+iento del software o de los sistemas.
+ Un caso del uso contiene una descripción textual de todas las maneras que
+ los actores previstos podrían trabajar con el software o el sistema.
+ Los casos de uso no describen ninguna funcionalidad interna (oculta al
+ exterior) del sistema, ni explican cómo se implementará.
+ Simplemente muestran los pasos que el actor sigue para realizar una tarea.
+\end_layout
+
+\begin_layout Standard
+Un caso de uso debe:
+\end_layout
+
+\begin_layout Itemize
+tener un nivel apropiado del detalle;
+\end_layout
+
+\begin_layout Itemize
+describir una tarea del negocio que sirva a una meta de negocio;
+\end_layout
+
+\begin_layout Itemize
+ser bastante sencillo como que un desarrollador lo elabore en un único lanzamien
+to.
+\end_layout
+
+\begin_layout Subsection
+Ventajas 
+\end_layout
+
+\begin_layout Itemize
+La técnica de caso de uso tiene éxito en sistemas interactivos, ya que expresa
+ la intención que tiene el actor (su usuario) al hacer uso del sistema.
+ 
+\end_layout
+
+\begin_layout Itemize
+Como técnica de extracción de requerimiento permite que el analista se centre
+ en las necesidades del usuario, qué espera éste lograr al utilizar el sistema,
+ evitando que la gente especializada en informática dirija la funcionalidad
+ del nuevo sistema basándose solamente en criterios tecnológicos.
+ 
+\end_layout
+
+\begin_layout Itemize
+A su vez, durante la extracción (elicitation en inglés), el analista se
+ concentra en las tareas centrales del usuario describiendo por lo tanto
+ los casos de uso que mayor valor aportan al negocio.
+ Esto facilita luego la priorización del requerimiento.
+\end_layout
+
+\begin_layout Subsection
+Template de Rational 
+\begin_inset Note Note
+status open
+
+\begin_layout Subsubsection
+revisar bien este template y explicar cada sección
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Secciones"
+
+\end_inset
+
+ se presenta el template definido por Rational para la especificacion de
+ casos de uso
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features islongtable="true">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sección
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Decripción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre del caso de uso.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descripción
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Breve descripcion donde se describe el rol y proposito en un parrafo simple.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flujo de Eventos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+This use case starts when the actor does something.
+ An actor always initiates use Cases.
+ The use case should describe what the actor does and what the system does
+ in response.
+ It should be phrased in the form of a dialog between the actor and the
+ system.
+ The use case should describe what happens inside the system, but not how
+ or why.
+ If information is exchanged, be specific about what is passed back and
+ forth.
+ For example, it is not very illuminating to say that the Actor enters customer
+ information.
+ It is better to say the Actor enters the customer’s name and address.
+ A Glossary of Terms is often useful to keep the complexity of the use case
+ manageable - you may want to define things like customer information there
+ to keep the use case from drowning in details.
+ Simple alternatives may be presented within the text of the use case.
+ If it only takes a few sentences to describe what happens when there is
+ an alternative, do it directly within the Flow of Events section.
+ If the alternative flows are more complex, use a separate section to describe
+ it.
+ For example, an Alternative Flow subsection explains how to describe more
+ complex alternatives.
+ A picture is sometimes worth a thousand words, though there is no substitute
+ for clean, clear prose.
+ If it improves clarity, feel free to paste graphical depictions of user
+ interfaces, process flows or other figures into the use case.
+ If a flow chart is useful to present a complex decision process, by all
+ means use it! Similarly for state-dependent behavior, a state-transition
+ diagram often clarifies the behavior of a system better than pages upon
+ pages of text.
+ Use the right presentation medium for your problem, but be wary of using
+ terminology, notations or figures that your audience may not understand.
+ Remember that your purpose is to clarify, not obscure.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requerimientos Especiales
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A special requirement is typically a non-functional requirement that is
+ specific to a use case, but is not easily or naturally specified in the
+ text of the use case’s event flow.
+ Examples of special requirements include legal and regulatory requirements,
+ application standards, and quality attributes of the system to be built
+ including usability, reliability, performance or supportability requirements.
+ Additionally, other requirements-such as operating systems and environments,
+ compatibility requirements, and design constraints-should be captured in
+ this section.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precondiciones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A pre-condition of a use case is the state of the system that must be present
+ prior to a use case being performed
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postcondiciones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A post-condition of a use case is a list of possible states the system can
+ be in immediately after a use case has finished
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Puntos de Extension
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extension points of the use case.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relaciones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definition of the location of the extension point in the flow of events.
+ Definition of the location of the extension point in the flow of events.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Secciones"
+
+\end_inset
+
+Secciones de la especifiación textual de Uso de Caso de RUP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Casos de Uso y Requerimientos No Funcionales
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ver titulo, aca deberia introducir atributos de calidad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los casos de uso pueden ser útiles para establecer requisitos de comportamiento
+ o funcionales, pero no establecen completamente los requisitos funcionales
+ ni permiten determinar los requisitos no funcionales.
+ Los casos de uso deben complementarse con información adicional como reglas
+ de negocio, requisitos no funcionales, diccionario de datos que complementen
+ los requerimientos del sistema.
+ Sin embargo la ingeniería del funcionamiento especifica que cada caso crítico
+ del uso debe tener un requisito no funcional centrado en el funcionamiento
+ asocia
 \end_layout
 
 \begin_layout Chapter
@@ -4461,6 +5221,7 @@ latency
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "1"
 key "key-1"
 
 \end_inset
@@ -4471,6 +5232,7 @@ Ontology Development 101: A Guide to Creating Your First Ontology Escenario
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "2"
 key "key-2"
 
 \end_inset
@@ -4482,6 +5244,7 @@ OWL Web Ontology Language - Use Cases and Requirements (W3C Recommendation-
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "3"
 key "key-3"
 
 \end_inset
@@ -4499,6 +5262,7 @@ Gruber, T.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "4"
 key "key-4"
 
 \end_inset
@@ -4509,16 +5273,22 @@ OWL Web Ontology Language Overview (W3C Recommendation - 10 February 2004)
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "5"
 key "key-5"
 
 \end_inset
 
-Software Architecture in Practice, Second Edition.
+Bass, L., Clements, P., & Kazman, R.
+ (1998).
+ Software Architecture in practice.
+ Addison-Wesley.
+ 
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "6"
 key "key-6"
 
 \end_inset
@@ -4534,6 +5304,7 @@ Dan Connolly, Frank van Harmelen, Ian Horrocks, Deborah L.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "7"
 key "key-7"
 
 \end_inset
@@ -4588,6 +5359,64 @@ key "key-10"
 \end_inset
 
 UML Semantics version 1.1, Rational Software Corporation, September 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "11"
+key "key-11"
+
+\end_inset
+
+IEEE Standard 1061-1992.
+ Standard for a Software Quality Metrics Meth- IEEE-1061 Methodology.
+ New York: Institute of Electrical and Electronics Engineers, 1992.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "12"
+key "key-12"
+
+\end_inset
+
+Kazman, R., Clements, P., Klein, M.
+ (2001).
+ Evaluating Software Architectures.
+ Methods and case studies.
+ Addison Wesley.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "13"
+key "key-22"
+
+\end_inset
+
+Mario Barbacci, Mark H.
+ Klein, Thomas A.
+ Longstaff, Charles B.
+ Weinstock, Quality Attributes, Technical Report CMU/SEI-95-TR-021 ESC-TR-95-021
+, December 1995.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "14"
+key "key-23"
+
+\end_inset
+
+Isabel Brito, Ana Moreira, João Araújo (2002).
+ A requirements model for quality attributes.
+ Aspect-Oriented Requirements Engineering and Architecture Design Conference.
 \end_layout
 
 \end_body
