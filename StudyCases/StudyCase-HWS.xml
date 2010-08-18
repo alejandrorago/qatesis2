@@ -28,7 +28,7 @@
 			<flow>1.3 In the case of a query on diseases, the system retrieves the list of diseases</flow>
 			<flow>1.3.1 The system retrieves the details of each disease type such as its unique identifier and name</flow>
 			<flow>1.3.2 The list of disease is presented to the user on their local display</flow>
-			<flow>2. The citizen provides the data for the query')
+			<flow>2. The citizen provides the data for the query')</flow>
 			<flow>2.1 In the case of a query on specialties grouped by health units, the citizen selects the health unit to be queried</flow>
 			<flow>2.1.1 A unique identifier representing the selected health unit is sent to the server</flow>
 			<flow>2.1.2 The system ensures the health unit information is consistent</flow>
@@ -86,7 +86,9 @@
 		<preconditions>
 			<condition></condition>
 		</preconditions>
-		<postconditions />
+		<postconditions>
+		<condition>The complaint saved on the system</condition>
+		</postconditions>
 		<basic-flow>
 			<flow>1. The citizen selects the kind of complaint</flow>
 			<flow>2. The system shows the specific screen for each type of complaint</flow>
@@ -124,13 +126,15 @@
 		<id>3</id>
 		<name>Login</name>
 		<actor>Employee</actor>
-		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system.</description>
+		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system</description>
 		<priority>High</priority>
 		<trigger></trigger>
 		<preconditions>
 			<condition></condition>
 		</preconditions>
-		<postconditions />
+		<postconditions>
+			<condition>Password validated by the system</condition>
+		</postconditions>
 		<basic-flow>
 			<flow>1. The employee provides the login and password</flow>
 			<flow>2. The login and password are sent to the server</flow>
@@ -139,12 +143,12 @@
 			<flow>5. The result of the login attempt is presented to the employee on their local display</flow>
 		</basic-flow>
 		<alternative-flow>
-			<flow>1. A communication error occurs</flow>
-			<flow>2. Raise an error message</flow>
-			<flow>3. A problem occurs retrieving the employee details</flow>
-			<flow>4. Raise an error message</flow>
-			<flow>5. The system cannot validate the employee</flow>
-			<flow>6. Raise an error message</flow>
+			<flow>2: A communication error occurs</flow>
+			<flow>1. Raise an error message</flow>
+			<flow>3: A problem occurs retrieving the employee details</flow>
+			<flow>1. Raise an error message</flow>
+			<flow>4: The system cannot validate the employee</flow>
+			<flow>1. Raise an error message</flow>
 		</alternative-flow>
 		<especial-reqs>
 			<req></req>
@@ -155,7 +159,7 @@
 		<id>4</id>
 		<name>Register tables</name>
 		<actor>Employee</actor>
-		<description>This use case allows the registration of system tables. The following operations are possible: insert, update, delete, search and print.</description>
+		<description>This use case allows the registration of system tables. The following operations are possible: insert, update, delete, search and print</description>
 		<priority>High</priority>
 		<trigger></trigger>
 		<preconditions>
@@ -170,12 +174,6 @@
 			<flow>3. The system saves the data</flow>
 		</basic-flow>
 		<alternative-flow>
-			<flow>A communication error occurs</flow>
-			<flow>Raise an error message</flow>
-			<flow>A problem occurs retrieving the employee details</flow>
-			<flow>Raise an error message</flow>
-			<flow>The system cannot validate the employee</flow>
-			<flow>Raise an error message</flow>
 		</alternative-flow>
 		<especial-reqs>
 			<req></req>
@@ -195,7 +193,7 @@
 			<condition>Verified employee</condition>	
 	</preconditions>
 		<postconditions>
-			<condition>Updated data on the tables</condition>
+			<condition>Complaint updated and with state CLOSED</condition>
 		</postconditions>
 		<basic-flow>
 			<flow>1. The employee selects the update complaint option</flow>
@@ -213,6 +211,7 @@
 			<flow>12. The conclusion is sent to the server</flow>
 			<flow>13. The complaint status is set to closed; the date the conclusion was entered is set in addition to the employee who dealt with the complaint</flow>
 			<flow>14. The system ensures the complaint is left in a consistent state</flow>
+			<flow>15. The complaint information is updated to store the new information</flow>
 		</basic-flow>
 		<alternative-flow>
 			<flow>2 and 8: An error occurs retrieving the registered complaints</flow>
@@ -243,7 +242,7 @@
 			<condition>Verified employee</condition>
 		</preconditions>
 		<postconditions>
-			<condition>Updated data on the tables</condition>
+			<condition>New employee registered on the system</condition>
 		</postconditions>
 		<basic-flow>
 			<flow>1. The employee selects the insert employee option</flow>
@@ -252,8 +251,23 @@
 			<flow>4. The entered data is transmitted to the server</flow>
 			<flow>5. The system verifies the entered data</flow>
 			<flow>6. The system ensures employee data is consistent</flow>
+			<flow>7. The system saves the new employee's data</flow>
 		</basic-flow>
-		<alternative-flow></alternative-flow>
+	<alternative-flow>
+				<flow>2: Incomplete data entered</flow>
+				<flow>1. Show a message informing the employee of the missing/incorrect	data</flow>
+				<flow>4: A communication error occurs</flow>
+				<flow>1. Raise an error message</flow>
+				<flow>5: The employee is already entered</flow>
+				<flow>1. Inform the employee that the new employee is already entered</flow>
+				<flow>2. Abandon the entry</flow>
+				<flow>6: Data Consistency cannot be ensured</flow>
+				<flow>1. The employee entry is rolled-back</flow>
+				<flow>2. The employee is informed the employee cannot be inserted</flow>
+				<flow>7: An error occurs storing the new employeeâ€™s details</flow>
+				<flow>1. The employee entry is rolled-back</flow>
+				<flow>2. Raise an error message</flow>
+		</alternative-flow>
 		<especial-reqs>
 			<req></req>
 		</especial-reqs>
@@ -263,18 +277,27 @@
 		<id>7</id>
 		<name>Update employee</name>
 		<actor>Employee</actor>
-		<description>This use case allows the registration of system tables. The following operations are possible: insert, update, delete, search and print.</description>
+		<description>This use case allows of the employee's data to be updated on the system</description>
 		<priority>High</priority>
 		<trigger></trigger>
 		<preconditions>
 			<condition>Verified employee</condition>
 		</preconditions>
 		<postconditions>
-			<condition>Updated data on the tables</condition>
+			<condition>Employee's data updated on the system</condition>
 		</postconditions>
 		<basic-flow>
+			<flow>1. The employee chooses the update employee option</flow>
+			<flow>2. The employee provides the data to be updated: Name, New password (with second password field for confirmation)Current password</flow>
+			<flow>3. The employee confirms the update</flow>
+			<flow>4. The entered data is sent to the server</flow>
+			<flow>5. The system verifies the entered data</flow>
+			<flow>6. The system ensures the employee data is consistent</flow>
+			<flow>7. The system stores the updated employee information</flow>
 		</basic-flow>
 		<alternative-flow>
+			<flow>On step 3, in case the name or the current password is missing/invalid, an
+error message should be showed</flow>
 		</alternative-flow>
 		<especial-reqs>
 			<req></req>
@@ -285,7 +308,7 @@
 		<id>8</id>
 		<name>Update health unit</name>
 		<actor>Employee</actor>
-		<description>This use case allows the health unit's data to be updated.</description>
+		<description>This use case allows the health unit's data to be updated</description>
 		<priority>High</priority>
 		<trigger></trigger>
 		<preconditions>
@@ -298,13 +321,13 @@
 			<flow>1. The employee chooses the update health unit option</flow>
 			<flow>2. The system retrieves the list of all health units</flow>
 			<flow>3. The list of health units is returned to the employee</flow>
-			<flow>4. The list of health units is formatted and displayed on the employee’s local display</flow>
+			<flow>4. The list of health units is formatted and displayed on the employeeï¿½s local display</flow>
 			<flow>5. The employee selects the health unit to be updated</flow>
 			<flow>6. The unique identifier for the selected health unit is sent to the server</flow>
-			<flow>7. The system ensures the health unit data is consistentv
+			<flow>7. The system ensures the health unit data is consistentv</flow>
 			<flow>8. The system retrieves the data for the selected health unit</flow>
 			<flow>9. The data retrieved is returned to the employee</flow>
-			<flow>10. The health unit data is formatted and presented on the employee’s local display</flow>
+			<flow>10. The health unit data is formatted and presented on the employeeï¿½s local display</flow>
 			<flow>11. The employee alters the necessary data</flow>
 			<flow>12. The updated information is sent to the server</flow>
 			<flow>13. The system ensures the health unit data is left in a consistent state</flow>
@@ -1072,7 +1095,7 @@
 	</relation>
 
 	<relation>
-		<early-aspect>17<early-aspect>
+		<early-aspect>17</early-aspect>
 		<use-cases>
 			<id>1</id>
 			<id>2</id>
