@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="SIMS">
+<!-- El caso de estudio trata un sistema de gestión para alumnos de una facultad, donde existen tres tipos de usuarios: alumnos, profesores y administradores (en este caso secretarias/os). Los alumnos podrán darse de alta, inscribirse para cursar una materia, rendir un final, observar sus notas, etc. Los profesores podrán ingresar nuevas notas a un determinado alumno. Los administradores podrán visualizar estadísticas respecto de los alumnos. Para realizar cada tipo de operación, los usuarios deberán contar con los permisos correspondientes.-->
+	<use-case>
+		<id>1</id>
+		<name>Register For A Course</name>
+		<actor>Student</actor>
+		<description>Enable a student to register for a course, the student must have appropriate permissions. The system has to process this activity in few seconds in most of the cases</description>
+		<priority>High</priority>
+		<trigger>The student selects the inscription for courses activity</trigger>
+		<preconditions>
+			<condition>The student must be logged.</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do that operation</flow>
+			<flow>The system analyzes according to the courses taken by the student which s/he is allowed to follow</flow>
+			<flow>TThe system shows to the student the courses s/he can follow</flow>
+			<flow>The student chooses a course</flow>
+			<flow>The system stores the information of the inscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req>Safe connection</req>
+		</especial-reqs>
+	</use-case>
+
+	<use-case>
+		<id>2</id>
+		<name>Register For Final Exam</name>
+		<actor>Student</actor>
+		<description>Enable a student to register for a final exam, the student must have appropriate permissions. The system has to process this activity in few seconds in most of the cases</description>
+		<priority>High</priority>
+		<trigger>The student selects the inscription for final exam activity</trigger>
+		<preconditions>
+			<condition>The student must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do that operation</flow>
+			<flow>The system selects, according to the passed courses by the student which s/he can sit for the final exam</flow>
+			<flow>The system shows the courses to the student</flow>
+			<flow>The student chooses the desired subject</flow>
+			<flow>The system stores the information of the inscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req>Safe connection</req>
+		</especial-reqs>
+	</use-case>
+
+	<use-case>
+		<id>3</id>
+		<name>Display Statistics About Students</name>
+		<actor>Manager</actor>
+		<description>Enable a manager to visualize the statistical diagrams about students, the manager must have appropriate permissions</description>
+		<priority>Low</priority>
+		<trigger />
+		<preconditions>
+			<condition>The manager must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system verifies that manager has permissions to do that activity</flow>
+			<flow>The system shows a menu in order to the manager sets desire filters</flow>
+			<flow>The system visualizes the diagram with the statistic</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+
+	<early-aspect>
+		<id>1</id>
+		<name>have</name>
+		<pairs>
+			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>has</verb>
+				<object>permissions</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<early-aspect>
+		<id>2</id>
+		<name>shows</name>
+		<pairs>
+			<pair>
+				<verb>shows</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>shows</verb>
+				<object>course</object>
+			</pair>
+			<pair>
+				<verb>shows</verb>
+				<object>menu</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<early-aspect>
+		<id>3</id>
+		<name>occur</name>
+		<pairs>
+			<pair>
+				<verb>do</verb>
+				<object>operation</object>
+			</pair>
+			<pair>
+				<verb>do</verb>
+				<object>activity</object>
+			</pair>
+			<pair>
+				<verb>occur</verb>
+				<object>seconds</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+		<early-aspect>
+		<id>4</id>
+		<name>stores</name>
+		<pairs>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<relation>
+		<early-aspect>1</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>2</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>3</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>4</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+		</use-cases>
+	</relation>
+
+</project>
