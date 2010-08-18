@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="SIMS">
+<!-- Este caso de estudio presenta un sistema para la administración de historias clínicas en un hospital. Para este sistema de gestión existen tres tipos de usuarios: los profesionales, los directores y el administrador. Cada uno de los pacientes del hospital tiene su historia clínica registrada. Si se atiende un paciente en el hospital por primera vez, el profesional que lo atiende deberá crear la historia clínica para el nuevo paciente. Cada vez que un profesional atiende la consulta de un paciente deberá registrar la consulta realizada en la historia clínica. Los usuarios de tipo director tienen permisos para realizar las operaciones de alta, baja o modificación de los profesionales del hospital. El sistema permite la impresión de informes respecto de los profesionales y las consultas atendidas, sólo algunos usuarios directores tendrán accesos a los diferentes tipos de informes..-->
+	<use-case>
+		<id>1</id>
+		<name>Create Professional</name>
+		<actor>Director, Professional</actor>
+		<description>Enable a student to register for a course, the student must have appropriate permissions. The system has to process this activity in few seconds in most of the cases</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>A professional personal file does not exist</condition>
+			<condition>Director must be authenticated in the system</condition>
+		</preconditions>
+		<postconditions>
+			<condition>New professional file information was stored</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>Use case starts when a director creates a professional docket</flow>
+			<flow>System checks if director has permission for this operation validating his registered permissions</flow>
+			<flow>The system requires the Director to enter a professional identification number DNI</flow>
+			<flow>The system checks that there is no a professional personal file with same DNI number</flow>
+			<flow>System asks to enter data to create professional personal file: full name, born date, enrolment number, field work, obtained degrees, work references</flow>
+		<flow>The system registers the professional personal file data</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>In step 3, if system verifies that a professional personal file already exists with same DNI number, director is advised and go to step 2</flow>
+			<flow>In step 4, if system verifies that director has no right permissions to create a professional file, director is advised and use case end</flow>
+		</alternative-flow>
+		<especial-reqs />
+	</use-case>
+
+	<use-case>
+		<id>2</id>
+		<name>Medical Record Update</name>
+		<actor>Professional</actor>
+		<description>Allows a hospital’s professional to register a patient’s medical record</description>
+		<priority>High</priority>
+		<trigger />
+		<preconditions>
+			<condition>Medical record must be already registered</condition>
+			<condition>Professional user must be authenticated into the system</condition>
+		</preconditions>
+		<postconditions>
+			<condition>Patient’s updated medical record was stored.</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>Use case starts when a professional modifies a patient’s medical record</flow>
+			<flow>The system asks for patient’s DNI</flow>
+			<flow>The system checks that medical record exists</flow>
+			<flow>The system shows patient’s medical record data</flow>
+			<flow>The system asks the professional to enter patient’s updated medical record data</flow>
+			<flow>System stores patient’s updated medical record data</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>In step 3, if the system verifies that there is no a patient’s medical record that matches entered DNI number then professional is advised and goes to 2</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req>Safe connection</req>
+		</especial-reqs>
+	</use-case>
+
+	<use-case>
+		<id>3</id>
+		<name>Report Printing</name>
+		<actor>Director</actor>
+		<description>Allows an authorized director to realize a report printing</description>
+		<priority>Low</priority>
+		<trigger />
+		<preconditions>
+			<condition>Director must be authenticated into the system</condition>
+		</preconditions>
+		<postconditions>
+			<condition>Report was successfully printed</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>Use case starts when a director wants to print a report</flow>
+			<flow>System asks for report type to be generated</flow>
+			<flow>The system checks if director has right permissions to realize a report printing</flow>
+			<flow>System asks for entering data to print selected report type</flow>
+			<flow>System recovers data from repository to print selected report type</flow>
+			<flow>System prints report</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>In step 5, if system checks that director has no rights permissions to do an operation, director is advised and goes to 2</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req>Report printing must be done in a secure way; non authorized users could not execute unauthorized tasks</req>
+		</especial-reqs>
+	</use-case>
+
+	<early-aspect>
+		<id>1</id>
+		<name>have</name>
+		<pairs>
+			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>has</verb>
+				<object>permissions</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<early-aspect>
+		<id>2</id>
+		<name>shows</name>
+		<pairs>
+			<pair>
+				<verb>shows</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>shows</verb>
+				<object>course</object>
+			</pair>
+			<pair>
+				<verb>shows</verb>
+				<object>menu</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<early-aspect>
+		<id>3</id>
+		<name>occur</name>
+		<pairs>
+			<pair>
+				<verb>do</verb>
+				<object>operation</object>
+			</pair>
+			<pair>
+				<verb>do</verb>
+				<object>activity</object>
+			</pair>
+			<pair>
+				<verb>occur</verb>
+				<object>seconds</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+		<early-aspect>
+		<id>4</id>
+		<name>stores</name>
+		<pairs>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<relation>
+		<early-aspect>1</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>2</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>3</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>4</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+		</use-cases>
+	</relation>
+
+</project>
