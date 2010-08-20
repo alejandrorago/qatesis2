@@ -1,0 +1,170 @@
+; Fri Aug 20 16:24:56 ART 2010
+; 
+;+ (version "3.2.1")
+;+ (build "Build 365")
+
+([KB_044591_Instance_9] of  QualityAttribute
+
+	(qualityAttributeName "Modifiability"))
+
+([ontology_Instance_0] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_30001])
+	(concreteScenarioHasResponse [ontology_Instance_30002])
+	(concreteScenarioHasSource [ontology_Instance_10000])
+	(concreteScenarioHasStimlus [ontology_Instance_10003])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_10000] of  ConcreteSource
+
+	(concreteScenarioPartDescription "employee"))
+
+([ontology_Instance_10003] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "tries to login into the system"))
+
+([ontology_Instance_15] of  QualityAttribute
+
+	(qualityAttributeName "Performace"))
+
+([ontology_Instance_16] of  QualityAttribute
+
+	(qualityAttributeName "Aviability"))
+
+([ontology_Instance_20000] of  ConcreteSource
+
+	(concreteScenarioPartDescription "end user"))
+
+([ontology_Instance_20001] of  ConcreteSource
+
+	(concreteScenarioPartDescription "system administrator"))
+
+([ontology_Instance_20002] of  ConcreteSource
+
+	(concreteScenarioPartDescription "developer"))
+
+([ontology_Instance_20003] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "add"))
+
+([ontology_Instance_20004] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "delete quality attribute"))
+
+([ontology_Instance_20005] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "modify capacity"))
+
+([ontology_Instance_20006] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "vary functionality"))
+
+([ontology_Instance_20007] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "platform"))
+
+([ontology_Instance_20008] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "System user interface"))
+
+([ontology_Instance_20009] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "environment"))
+
+([ontology_Instance_20010] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "system that interoperates with target system"))
+
+([ontology_Instance_20011] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "runtime"))
+
+([ontology_Instance_20012] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "design"))
+
+([ontology_Instance_20013] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "build  time"))
+
+([ontology_Instance_20014] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "compile"))
+
+([ontology_Instance_20015] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "deploys modification"))
+
+([ontology_Instance_20016] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "makes modification without affecting other functionality"))
+
+([ontology_Instance_20017] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "Locates places in architecture to be modified"))
+
+([ontology_Instance_20019] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Cost in terms of number of elements modules affected"))
+
+([ontology_Instance_20020] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "extent to which this affects other functions or quality attributes"))
+
+([ontology_Instance_20021] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "money"))
+
+([ontology_Instance_20022] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "effort"))
+
+([ontology_Instance_20023] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_20007])
+	(concreteScenarioHasEnviroment [ontology_Instance_20011])
+	(concreteScenarioHasResponse [ontology_Instance_20015])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_20019])
+	(concreteScenarioHasSource [ontology_Instance_20000])
+	(concreteScenarioHasStimlus [ontology_Instance_20003])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_20024] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_20008])
+	(concreteScenarioHasEnviroment [ontology_Instance_20014])
+	(concreteScenarioHasResponse [ontology_Instance_20016])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_20020])
+	(concreteScenarioHasSource [ontology_Instance_20002])
+	(concreteScenarioHasStimlus [ontology_Instance_20004])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_20025] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_20010])
+	(concreteScenarioHasEnviroment [ontology_Instance_20013])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_20021])
+	(concreteScenarioHasSource [ontology_Instance_20001])
+	(concreteScenarioHasStimlus [ontology_Instance_20005])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_20026] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_20009])
+	(concreteScenarioHasEnviroment [ontology_Instance_20013])
+	(concreteScenarioHasResponse [ontology_Instance_20017])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_20021])
+	(concreteScenarioHasStimlus [ontology_Instance_20006])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_30000] of  QualityAttribute
+
+	(qualityAttributeName "Security"))
+
+([ontology_Instance_30001] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "under normal operations"))
+
+([ontology_Instance_30002] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "system validates password"))

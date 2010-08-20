@@ -1,0 +1,139 @@
+; Fri Aug 20 16:24:56 ART 2010
+; 
+;+ (version "3.2.1")
+;+ (build "Build 365")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot qualityAttributeName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isSpecificof
+		(type INSTANCE)
+;+		(allowed-classes QualityAttribute)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasStimlus
+		(type INSTANCE)
+;+		(allowed-classes ConcreteStimulus)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasArtifact
+		(type INSTANCE)
+;+		(allowed-classes ConcreteArtifact)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
+		(type INSTANCE)
+;+		(allowed-classes ConcreteEnviroment)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponseMeasure
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponseMeasure)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponse
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponse)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasSource
+		(type INSTANCE)
+;+		(allowed-classes ConcreteSource)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioPartDescription
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass QualityAttribute
+	(is-a USER)
+	(role concrete)
+	(single-slot qualityAttributeName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass QualityAttributeScenario
+	(is-a USER)
+	(role abstract)
+	(single-slot isSpecificof
+		(type INSTANCE)
+;+		(allowed-classes QualityAttribute)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass GeneralQualityAttributeScenario
+	(is-a QualityAttributeScenario)
+	(role concrete))
+
+(defclass ConcreteQualityAttributeScenario
+	(is-a QualityAttributeScenario)
+	(role concrete)
+	(single-slot concreteScenarioHasStimlus
+		(type INSTANCE)
+;+		(allowed-classes ConcreteStimulus)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasArtifact
+		(type INSTANCE)
+;+		(allowed-classes ConcreteArtifact)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
+		(type INSTANCE)
+;+		(allowed-classes ConcreteEnviroment)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponseMeasure
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponseMeasure)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponse
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponse)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasSource
+		(type INSTANCE)
+;+		(allowed-classes ConcreteSource)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass ConcreteScenarioPart
+	(is-a USER)
+	(role abstract)
+	(single-slot concreteScenarioPartDescription
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass ConcreteResponseMeasure
+	(is-a ConcreteScenarioPart)
+	(role concrete))
+
+(defclass ConcreteArtifact
+	(is-a ConcreteScenarioPart)
+	(role concrete))
+
+(defclass ConcreteResponse
+	(is-a ConcreteScenarioPart)
+	(role concrete))
+
+(defclass ConcreteEnviroment
+	(is-a ConcreteScenarioPart)
+	(role concrete))
+
+(defclass ConcreteStimulus
+	(is-a ConcreteScenarioPart)
+	(role concrete))
+
+(defclass ConcreteSource
+	(is-a ConcreteScenarioPart)
+	(role concrete))
