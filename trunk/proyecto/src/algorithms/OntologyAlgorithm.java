@@ -118,8 +118,11 @@ public class OntologyAlgorithm implements Algorithm {
             logger.info("Palabra entrante: " + richedWord.getWord());
             logger.info("ID: " + richedWord.getAttribute(richedWord.SECTION));
             logger.info("Weight: " + richedWord.getAttribute(richedWord.WEIGHT));
-            logger.info("Ocurrencias: " + richedWord.OCURRENCES);
+            logger.info("Ocurrencias: " + richedWord.getAttribute(richedWord.OCURRENCES));
             
+            if ("".equals(richedWord.getWord())){
+            	System.out.println("Aca ta");
+            }
             wordMap = qabelongable.getWordPertenence(richedWord.getWord());
 
             //Puede ser que la palabra no pertenezca a la ontologia, por lo que no 

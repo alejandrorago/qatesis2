@@ -30,7 +30,7 @@ public class TestProjectManager {
 		// con esto te retorna una lista de todos los casos de uso que estan en el XML
 		
 		ProjectManager pm = new ProjectManager();
-		pm.loadProject("resources//proyecto.xml", "resources//mapping.xml");
+		pm.loadProject("resources//StudyCase-HWS.xml", "resources//mapping.xml");
 		Project p = pm.getProject();
 		System.out.println(p.getUseCases());
 	

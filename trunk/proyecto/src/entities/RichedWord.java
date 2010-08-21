@@ -34,6 +34,8 @@ public class RichedWord implements RichedWordInterface {
      * Seccion del caso de uso en que se encuentra la palabra
      */
     public static final String SECTION = "SECTION";
+    
+    public static final String CUENTA_CROSSCUTING = "CUENTA_CROSSCUTING";
 
     /** Palabra */
     private String word;
