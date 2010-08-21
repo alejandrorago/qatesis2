@@ -20,7 +20,7 @@ public class FilterStopWords extends Filter {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		
 	 	for (RichedWord rw : list) {
-	 		if (!stopWordsAnalizer.isStopWord(rw.getWord())) {
+	 		if (!stopWordsAnalizer.isStopWord(rw.getWord()) &&  !"".equalsIgnoreCase(rw.getWord())) {
 	 			result.add(rw);
 	 		}
 	 		else {
