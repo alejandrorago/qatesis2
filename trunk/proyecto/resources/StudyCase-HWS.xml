@@ -7,18 +7,15 @@
 		<actor>Employee</actor>
 		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system.</description>
 		<priority>High</priority>
-		<trigger></trigger>
-		<preconditions>
-			<condition></condition>
-		</preconditions>
-		<postconditions />
+		<trigger/>
+		<preconditions/>
+		<postconditions/>
 		<basic-flow>
 			<flow>The employee provides the login and password</flow>
 			<flow>The login and password are sent to the server</flow>
 			<flow>The system retrieves the employee details using the login as a unique identifier</flow>
 			<flow>The system validates the entered password</flow>
 			<flow>The result of the login attempt is presented to the employee on their local display</flow>
-			
 		</basic-flow>
 		<alternative-flow>
 			<flow>A communication error occurs</flow>
@@ -28,9 +25,7 @@
 			<flow>The system cannot validate the employee</flow>
 			<flow>Raise an error message</flow>
 		</alternative-flow>
-		<especial-reqs>
-			<req></req>
-		</especial-reqs>
+		<especial-reqs/>
 	</use-case>
 
 		<early-aspect>
