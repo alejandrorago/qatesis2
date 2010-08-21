@@ -103,7 +103,11 @@ public class OntologyManager extends OntologyAnalyzer {
 
             	word = fm.runFiltersWord(words[i]);
 
-                if (word!= null) {
+            	//word es null si es un stopword. 
+            	//word no deberia ser vacia, pero se agregar por si el usuario puso un valor con dos espacios, es decir
+            	//algo como "run  time". Esos dos espacios entre run y time hacen que el split anterior separe en tres palabras, 
+            	//con la cadena vacia en el medio
+            	if (word!= null && !("".equals(word))) {
 
                     formatedInstance = this.existeInstanciaFormateada(super.getType(
                                 instance), word);
