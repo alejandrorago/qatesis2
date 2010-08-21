@@ -1,4 +1,4 @@
-; Fri Aug 20 16:24:56 ART 2010
+; Fri Aug 20 21:02:03 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -168,3 +168,389 @@
 ([ontology_Instance_30002] of  ConcreteResponse
 
 	(concreteScenarioPartDescription "system validates password"))
+
+([ontology_Instance_40000] of  ConcreteSource
+
+	(concreteScenarioPartDescription "internal"))
+
+([ontology_Instance_40001] of  ConcreteSource
+
+	(concreteScenarioPartDescription "external"))
+
+([ontology_Instance_40002] of  ConcreteSource
+
+	(concreteScenarioPartDescription "users"))
+
+([ontology_Instance_40003] of  ConcreteSource
+
+	(concreteScenarioPartDescription "unit developer"))
+
+([ontology_Instance_40004] of  ConcreteSource
+
+	(concreteScenarioPartDescription "increment integrator"))
+
+([ontology_Instance_40005] of  ConcreteSource
+
+	(concreteScenarioPartDescription "system verifier or tester"))
+
+([ontology_Instance_40006] of  ConcreteSource
+
+	(concreteScenarioPartDescription "client acceptance"))
+
+([ontology_Instance_40007] of  ConcreteSource
+
+	(concreteScenarioPartDescription "system user"))
+
+([ontology_Instance_40008] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "omission"))
+
+([ontology_Instance_40009] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "crash"))
+
+([ontology_Instance_40010] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "response"))
+
+([ontology_Instance_40011] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "fault timing"))
+
+([ontology_Instance_40015] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "process"))
+
+([ontology_Instance_40022] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "periodic events arrive"))
+
+([ontology_Instance_40023] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "sporadic"))
+
+([ontology_Instance_40024] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "stochastic"))
+
+([ontology_Instance_40025] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "analysis"))
+
+([ontology_Instance_40026] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "architecture"))
+
+([ontology_Instance_40027] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "design"))
+
+([ontology_Instance_40028] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "class"))
+
+([ontology_Instance_40029] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "subsystem integration completed"))
+
+([ontology_Instance_40031] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "normal operation"))
+
+([ontology_Instance_40032] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "degraded mode"))
+
+([ontology_Instance_40033] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "fewer features"))
+
+([ontology_Instance_40034] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "overload"))
+
+([ontology_Instance_40035] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "emergency"))
+
+([ontology_Instance_40036] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "normal mode"))
+
+([ontology_Instance_40037] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "design time"))
+
+([ontology_Instance_40038] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "development"))
+
+([ontology_Instance_40039] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "compile"))
+
+([ontology_Instance_40040] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "deployment"))
+
+([ontology_Instance_40042] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "communication channels"))
+
+([ontology_Instance_40043] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "processors"))
+
+([ontology_Instance_40044] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "persistent storage"))
+
+([ontology_Instance_40045] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "process"))
+
+([ontology_Instance_40046] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "System"))
+
+([ontology_Instance_40047] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "system services"))
+
+([ontology_Instance_40048] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "Piece of design"))
+
+([ontology_Instance_40049] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "code"))
+
+([ontology_Instance_40050] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "complete application"))
+
+([ontology_Instance_40051] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "unit"))
+
+([ontology_Instance_40052] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "system detect event and record it"))
+
+([ontology_Instance_40053] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "notify appropriate parties or users"))
+
+([ontology_Instance_40054] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "be unavailable for a prespecified interval"))
+
+([ontology_Instance_40055] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "continue to operate"))
+
+([ontology_Instance_40056] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "changes level of service"))
+
+([ontology_Instance_40057] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "normal to overload mode"))
+
+([ontology_Instance_40058] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "transactions processed"))
+
+([ontology_Instance_40059] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "provides computed values"))
+
+([ontology_Instance_40060] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "Provides access to state values"))
+
+([ontology_Instance_40061] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "prepares test environment"))
+
+([ontology_Instance_40062] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "interval when the system must be available"))
+
+([ontology_Instance_40063] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Availability time"))
+
+([ontology_Instance_40064] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "be in degraded mode"))
+
+([ontology_Instance_40065] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Repair time"))
+
+([ontology_Instance_40066] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Latency"))
+
+([ontology_Instance_40067] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "throughput jitter"))
+
+([ontology_Instance_40068] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "rate data loss"))
+
+([ontology_Instance_40069] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Percent executable statements executed"))
+
+([ontology_Instance_40070] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Probability of failure if fault exists"))
+
+([ontology_Instance_40071] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Length of longest dependency chain in a test"))
+
+([ontology_Instance_40072] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Length of time to prepare test environment"))
+
+([ontology_Instance_40073] of  QualityAttribute
+
+	(qualityAttributeName "Testability"))
+
+([ontology_Instance_40074] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40043])
+	(concreteScenarioHasEnviroment [ontology_Instance_40031])
+	(concreteScenarioHasResponse [ontology_Instance_40052])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40062])
+	(concreteScenarioHasSource [ontology_Instance_40000])
+	(concreteScenarioHasStimlus [ontology_Instance_40008])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_40076] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40042])
+	(concreteScenarioHasEnviroment [ontology_Instance_40032])
+	(concreteScenarioHasResponse [ontology_Instance_40053])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40063])
+	(concreteScenarioHasSource [ontology_Instance_40001])
+	(concreteScenarioHasStimlus [ontology_Instance_40009])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_40079] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40044])
+	(concreteScenarioHasResponse [ontology_Instance_40054])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40064])
+	(concreteScenarioHasStimlus [ontology_Instance_40010])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_40080] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40045])
+	(concreteScenarioHasEnviroment [ontology_Instance_40033])
+	(concreteScenarioHasResponse [ontology_Instance_40055])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40065])
+	(concreteScenarioHasStimlus [ontology_Instance_40011])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_40081] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40046])
+	(concreteScenarioHasEnviroment [ontology_Instance_40036])
+	(concreteScenarioHasResponse [ontology_Instance_40083])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40066])
+	(concreteScenarioHasSource [ontology_Instance_40082])
+	(concreteScenarioHasStimlus [ontology_Instance_40022])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_40082] of  ConcreteSource
+
+	(concreteScenarioPartDescription "independent sources"))
+
+([ontology_Instance_40083] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "process stimuli"))
+
+([ontology_Instance_40084] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40047])
+	(concreteScenarioHasEnviroment [ontology_Instance_40034])
+	(concreteScenarioHasResponse [ontology_Instance_40056])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40085])
+	(concreteScenarioHasSource [ontology_Instance_40001])
+	(concreteScenarioHasStimlus [ontology_Instance_40023])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_40085] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "deadline"))
+
+([ontology_Instance_40087] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_40035])
+	(concreteScenarioHasResponse [ontology_Instance_40057])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40067])
+	(concreteScenarioHasSource [ontology_Instance_40000])
+	(concreteScenarioHasStimlus [ontology_Instance_40024])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_40088] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40068])
+	(concreteScenarioHasSource [ontology_Instance_40002])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_40089] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40048])
+	(concreteScenarioHasEnviroment [ontology_Instance_40037])
+	(concreteScenarioHasResponse [ontology_Instance_40060])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40069])
+	(concreteScenarioHasSource [ontology_Instance_40003])
+	(concreteScenarioHasStimlus [ontology_Instance_40025])
+	(isSpecificof [ontology_Instance_40073]))
+
+([ontology_Instance_40090] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40072])
+	(concreteScenarioHasSource [ontology_Instance_40007])
+	(concreteScenarioHasStimlus [ontology_Instance_40029])
+	(isSpecificof [ontology_Instance_40073]))
+
+([ontology_Instance_40091] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40051])
+	(concreteScenarioHasEnviroment [ontology_Instance_40040])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40071])
+	(concreteScenarioHasSource [ontology_Instance_40006])
+	(concreteScenarioHasStimlus [ontology_Instance_40028])
+	(isSpecificof [ontology_Instance_40073]))
+
+([ontology_Instance_40092] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40050])
+	(concreteScenarioHasEnviroment [ontology_Instance_40039])
+	(concreteScenarioHasResponse [ontology_Instance_40059])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40070])
+	(concreteScenarioHasSource [ontology_Instance_40005])
+	(concreteScenarioHasStimlus [ontology_Instance_40027])
+	(isSpecificof [ontology_Instance_40073]))
+
+([ontology_Instance_40093] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_40049])
+	(concreteScenarioHasEnviroment [ontology_Instance_40038])
+	(concreteScenarioHasResponse [ontology_Instance_40061])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_40094])
+	(concreteScenarioHasSource [ontology_Instance_40004])
+	(concreteScenarioHasStimlus [ontology_Instance_40026])
+	(isSpecificof [ontology_Instance_40073]))
+
+([ontology_Instance_40094] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "time to perform tests"))
