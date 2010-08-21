@@ -48,6 +48,7 @@ public class OntologyManager extends OntologyAnalyzer {
         fm.setOntologyFilters();
         this.fm = fm;
         this.formatModel();
+        this.listarOntologia();
     
     }
 

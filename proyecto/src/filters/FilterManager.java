@@ -59,7 +59,7 @@ public class FilterManager {
 		List<RichedWord> result = new ArrayList<RichedWord>();
 		result.add(new RichedWord(word));
 		for (Filter f : filters) {
-			f.filter(result);
+			result = f.filter(result);
 		}
 		if(!result.isEmpty()){
 			return ((RichedWord)result.get(0)).getWord();
