@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="HWS">
+<!-- Health Watcher System.-->
+	<use-case>
+		<id>1</id>
+		<name>Login</name>
+		<actor>Employee</actor>
+		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system.</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition></condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The employee provides the login and password</flow>
+			<flow>The login and password are sent to the server</flow>
+			<flow>The system retrieves the employee details using the login as a unique identifier</flow>
+			<flow>The system validates the entered password</flow>
+			<flow>The result of the login attempt is presented to the employee on their local display</flow>
+			
+		</basic-flow>
+		<alternative-flow>
+			<flow>A communication error occurs</flow>
+			<flow>Raise an error message</flow>
+			<flow>A problem occurs retrieving the employee details</flow>
+			<flow>Raise an error message</flow>
+			<flow>The system cannot validate the employee</flow>
+			<flow>Raise an error message</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+
+		<early-aspect>
+		<id>1</id>
+		<name>validates</name>
+		<pairs>
+			<pair>
+				<verb>validates</verb>
+				<object>password</object>
+			</pair>
+			<pair>
+				<verb>validate</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>validated</verb>
+				<object>system</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<relation>
+		<early-aspect>1</early-aspect>
+		<use-cases>
+			<id>1</id>
+		</use-cases>
+	</relation>
+
+</project>

@@ -47,71 +47,141 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="isSpecificof">
-    <rdfs:domain rdf:resource="#QualityAttributeScenario"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#QualityAttributeScenario"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasEnviroment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="qualityAttributeName">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="#QualityAttribute"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasResponseMeasure">
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioPartDescription">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="#ConcreteScenarioPart"/>
   </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="concreteScenarioHasStimlus">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="#ConcreteQualityAttributeScenario"/>
   </owl:FunctionalProperty>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40046">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40063">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Availability time</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_20022">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >effort</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteArtifact rdf:ID="ontology_Instance_20007">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >platform</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_40036">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >normal mode</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40026">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >architecture</concreteScenarioPartDescription>
+  </ConcreteStimulus>
   <QualityAttribute rdf:ID="ontology_Instance_15">
     <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Performace</qualityAttributeName>
   </QualityAttribute>
-  <ConcreteArtifact rdf:ID="ontology_Instance_30003">
+  <ConcreteEnviroment rdf:ID="ontology_Instance_20012">
     <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >system</concreteScenarioPartDescription>
-  </ConcreteArtifact>
-  <QualityAttribute rdf:ID="KB_044591_Instance_9">
-    <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Modifiability</qualityAttributeName>
-  </QualityAttribute>
-  <ConcreteEnviroment rdf:ID="ontology_Instance_30001">
-    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >under normal operations</concreteScenarioPartDescription>
+    >design</concreteScenarioPartDescription>
   </ConcreteEnviroment>
-  <QualityAttribute rdf:ID="ontology_Instance_16">
-    <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Aviability</qualityAttributeName>
-  </QualityAttribute>
+  <ConcreteResponse rdf:ID="ontology_Instance_40056">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >changes level of service</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteResponse rdf:ID="ontology_Instance_20017">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Locates places in architecture to be modified</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteSource rdf:ID="ontology_Instance_40005">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >system verifier or tester</concreteScenarioPartDescription>
+  </ConcreteSource>
   <ConcreteStimulus rdf:ID="ontology_Instance_10003">
     <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >tries to login into the system</concreteScenarioPartDescription>
   </ConcreteStimulus>
+  <ConcreteSource rdf:ID="ontology_Instance_40082">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >independent sources</concreteScenarioPartDescription>
+  </ConcreteSource>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_20026">
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_20021">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >money</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_20017"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_20006">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vary functionality</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_20013">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >build  time</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_20009">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >environment</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+    <isSpecificof>
+      <QualityAttribute rdf:ID="KB_044591_Instance_9">
+        <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Modifiability</qualityAttributeName>
+      </QualityAttribute>
+    </isSpecificof>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40015">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >process</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40045">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >process</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40064">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >be in degraded mode</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteResponse rdf:ID="ontology_Instance_40060">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provides access to state values</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_40035">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >emergency</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteArtifact rdf:ID="ontology_Instance_20008">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System user interface</concreteScenarioPartDescription>
+  </ConcreteArtifact>
   <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_0">
-    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_10003"/>
-    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_30003"/>
-    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_30001"/>
-    <concreteScenarioHasResponse>
-      <ConcreteResponse rdf:ID="ontology_Instance_30002">
-        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >system validates password</concreteScenarioPartDescription>
-      </ConcreteResponse>
-    </concreteScenarioHasResponse>
-    <concreteScenarioHasSource>
-      <ConcreteSource rdf:ID="ontology_Instance_10000">
-        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >employee</concreteScenarioPartDescription>
-      </ConcreteSource>
-    </concreteScenarioHasSource>
     <isSpecificof>
       <QualityAttribute rdf:ID="ontology_Instance_30000">
         <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -119,6 +189,467 @@
       </QualityAttribute>
     </isSpecificof>
   </ConcreteQualityAttributeScenario>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_20011">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >runtime</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40025">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >analysis</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40050">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >complete application</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteResponse rdf:ID="ontology_Instance_40055">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >continue to operate</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteSource rdf:ID="ontology_Instance_40006">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >client acceptance</concreteScenarioPartDescription>
+  </ConcreteSource>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_20025">
+    <isSpecificof rdf:resource="#KB_044591_Instance_9"/>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_20001">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >system administrator</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_20005">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >modify capacity</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_20010">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >system that interoperates with target system</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_20013"/>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_20021"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40081">
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_40036"/>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40066">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Latency</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40046"/>
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_40083">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >process stimuli</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40022">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >periodic events arrive</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40082"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_20024">
+    <isSpecificof rdf:resource="#KB_044591_Instance_9"/>
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_20016">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >makes modification without affecting other functionality</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_20020">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >extent to which this affects other functions or quality attributes</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_20014">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >compile</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_20004">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >delete quality attribute</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_20008"/>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_20002">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >developer</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_40038">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >development</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40065">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Repair time</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteResponse rdf:ID="ontology_Instance_40061">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >prepares test environment</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteResponse rdf:ID="ontology_Instance_40058">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >transactions processed</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_20019">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cost in terms of number of elements modules affected</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40024">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >stochastic</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40090">
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40029">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >subsystem integration completed</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_40007">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >system user</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40072">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Length of time to prepare test environment</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <isSpecificof>
+      <QualityAttribute rdf:ID="ontology_Instance_40073">
+        <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Testability</qualityAttributeName>
+      </QualityAttribute>
+    </isSpecificof>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40070">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Probability of failure if fault exists</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40080">
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40065"/>
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40055"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40011">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >fault timing</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_40033">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >fewer features</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40045"/>
+    <isSpecificof>
+      <QualityAttribute rdf:ID="ontology_Instance_16">
+        <qualityAttributeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Aviability</qualityAttributeName>
+      </QualityAttribute>
+    </isSpecificof>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteSource rdf:ID="ontology_Instance_40003">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >unit developer</concreteScenarioPartDescription>
+  </ConcreteSource>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40044">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >persistent storage</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_20023">
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_20015">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >deploys modification</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_20019"/>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_20011"/>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_20007"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_20003">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >add</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_20000">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >end user</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+    <isSpecificof rdf:resource="#KB_044591_Instance_9"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_40037">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >design time</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40062">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >interval when the system must be available</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40076">
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40009">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >crash</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_40042">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >communication channels</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_40032">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >degraded mode</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_40001">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >external</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+    <isSpecificof rdf:resource="#ontology_Instance_16"/>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40063"/>
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_40053">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >notify appropriate parties or users</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteResponse rdf:ID="ontology_Instance_40057">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >normal to overload mode</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40023">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sporadic</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteSource rdf:ID="ontology_Instance_40004">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >increment integrator</concreteScenarioPartDescription>
+  </ConcreteSource>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40010">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >response</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40043">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >processors</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40092">
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_40059">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >provides computed values</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40050"/>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_40039">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >compile</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40070"/>
+    <isSpecificof rdf:resource="#ontology_Instance_40073"/>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40005"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40027">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >design</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40087">
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40057"/>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40067">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >throughput jitter</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_40035"/>
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40024"/>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_40000">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >internal</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteResponse rdf:ID="ontology_Instance_40052">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >system detect event and record it</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_40031">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >normal operation</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40091">
+    <isSpecificof rdf:resource="#ontology_Instance_40073"/>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40006"/>
+    <concreteScenarioHasStimlus>
+      <ConcreteStimulus rdf:ID="ontology_Instance_40028">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >class</concreteScenarioPartDescription>
+      </ConcreteStimulus>
+    </concreteScenarioHasStimlus>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_40040">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >deployment</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40071">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Length of longest dependency chain in a test</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_40051">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >unit</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteResponse rdf:ID="ontology_Instance_30002">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >system validates password</concreteScenarioPartDescription>
+  </ConcreteResponse>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40088">
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40068">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >rate data loss</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasSource>
+      <ConcreteSource rdf:ID="ontology_Instance_40002">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >users</concreteScenarioPartDescription>
+      </ConcreteSource>
+    </concreteScenarioHasSource>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40085">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >deadline</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteArtifact rdf:ID="ontology_Instance_40049">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >code</concreteScenarioPartDescription>
+  </ConcreteArtifact>
+  <ConcreteResponseMeasure rdf:ID="ontology_Instance_40094">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >time to perform tests</concreteScenarioPartDescription>
+  </ConcreteResponseMeasure>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40089">
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40060"/>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_40048">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Piece of design</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_40037"/>
+    <concreteScenarioHasResponseMeasure>
+      <ConcreteResponseMeasure rdf:ID="ontology_Instance_40069">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Percent executable statements executed</concreteScenarioPartDescription>
+      </ConcreteResponseMeasure>
+    </concreteScenarioHasResponseMeasure>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40003"/>
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40025"/>
+    <isSpecificof rdf:resource="#ontology_Instance_40073"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteStimulus rdf:ID="ontology_Instance_40008">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >omission</concreteScenarioPartDescription>
+  </ConcreteStimulus>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40084">
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40001"/>
+    <concreteScenarioHasArtifact>
+      <ConcreteArtifact rdf:ID="ontology_Instance_40047">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >system services</concreteScenarioPartDescription>
+      </ConcreteArtifact>
+    </concreteScenarioHasArtifact>
+    <concreteScenarioHasEnviroment>
+      <ConcreteEnviroment rdf:ID="ontology_Instance_40034">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >overload</concreteScenarioPartDescription>
+      </ConcreteEnviroment>
+    </concreteScenarioHasEnviroment>
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40023"/>
+    <isSpecificof rdf:resource="#ontology_Instance_15"/>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40085"/>
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40056"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteEnviroment rdf:ID="ontology_Instance_30001">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >under normal operations</concreteScenarioPartDescription>
+  </ConcreteEnviroment>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40074">
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40008"/>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40000"/>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40043"/>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40062"/>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_40031"/>
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40052"/>
+    <isSpecificof rdf:resource="#ontology_Instance_16"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40079">
+    <concreteScenarioHasResponse>
+      <ConcreteResponse rdf:ID="ontology_Instance_40054">
+        <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >be unavailable for a prespecified interval</concreteScenarioPartDescription>
+      </ConcreteResponse>
+    </concreteScenarioHasResponse>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40064"/>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40044"/>
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40010"/>
+    <isSpecificof rdf:resource="#ontology_Instance_16"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteQualityAttributeScenario rdf:ID="ontology_Instance_40093">
+    <concreteScenarioHasResponse rdf:resource="#ontology_Instance_40061"/>
+    <concreteScenarioHasResponseMeasure rdf:resource="#ontology_Instance_40094"/>
+    <concreteScenarioHasEnviroment rdf:resource="#ontology_Instance_40038"/>
+    <concreteScenarioHasArtifact rdf:resource="#ontology_Instance_40049"/>
+    <concreteScenarioHasStimlus rdf:resource="#ontology_Instance_40026"/>
+    <isSpecificof rdf:resource="#ontology_Instance_40073"/>
+    <concreteScenarioHasSource rdf:resource="#ontology_Instance_40004"/>
+  </ConcreteQualityAttributeScenario>
+  <ConcreteSource rdf:ID="ontology_Instance_10000">
+    <concreteScenarioPartDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >employee</concreteScenarioPartDescription>
+  </ConcreteSource>
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->
