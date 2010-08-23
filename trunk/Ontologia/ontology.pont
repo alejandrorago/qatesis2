@@ -1,4 +1,4 @@
-; Fri Aug 20 21:02:03 ART 2010
+; Mon Aug 23 11:06:44 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -21,16 +21,6 @@
 ;+		(allowed-classes ConcreteResponse)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponseMeasure
-		(type INSTANCE)
-;+		(allowed-classes ConcreteResponseMeasure)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasEnviroment
-		(type INSTANCE)
-;+		(allowed-classes ConcreteEnviroment)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot concreteScenarioHasArtifact
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteArtifact)
@@ -41,13 +31,23 @@
 ;+		(allowed-classes ConcreteStimulus)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot isSpecificof
+	(single-slot concreteScenarioHasResponseMeasure
 		(type INSTANCE)
-;+		(allowed-classes QualityAttribute)
+;+		(allowed-classes ConcreteResponseMeasure)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
+		(type INSTANCE)
+;+		(allowed-classes ConcreteEnviroment)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot qualityAttributeName
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isSpecificof
+		(type INSTANCE)
+;+		(allowed-classes QualityAttribute)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -80,16 +80,6 @@
 ;+		(allowed-classes ConcreteResponse)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponseMeasure
-		(type INSTANCE)
-;+		(allowed-classes ConcreteResponseMeasure)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasEnviroment
-		(type INSTANCE)
-;+		(allowed-classes ConcreteEnviroment)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot concreteScenarioHasArtifact
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteArtifact)
@@ -98,6 +88,16 @@
 	(single-slot concreteScenarioHasStimlus
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteStimulus)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponseMeasure
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponseMeasure)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
+		(type INSTANCE)
+;+		(allowed-classes ConcreteEnviroment)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasSource
