@@ -1,4 +1,4 @@
-; Fri Aug 20 21:02:03 ART 2010
+; Mon Aug 23 11:06:44 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -9,10 +9,12 @@
 
 ([ontology_Instance_0] of  ConcreteQualityAttributeScenario
 
-	(concreteScenarioHasEnviroment [ontology_Instance_30001])
-	(concreteScenarioHasResponse [ontology_Instance_30002])
-	(concreteScenarioHasSource [ontology_Instance_10000])
-	(concreteScenarioHasStimlus [ontology_Instance_10003])
+	(concreteScenarioHasArtifact [ontology_Instance_50003])
+	(concreteScenarioHasEnviroment [ontology_Instance_50004])
+	(concreteScenarioHasResponse [ontology_Instance_50005])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50006])
+	(concreteScenarioHasSource [ontology_Instance_50001])
+	(concreteScenarioHasStimlus [ontology_Instance_50002])
 	(isSpecificof [ontology_Instance_30000]))
 
 ([ontology_Instance_10000] of  ConcreteSource
@@ -85,7 +87,7 @@
 
 ([ontology_Instance_20013] of  ConcreteEnviroment
 
-	(concreteScenarioPartDescription "build  time"))
+	(concreteScenarioPartDescription "build time"))
 
 ([ontology_Instance_20014] of  ConcreteEnviroment
 
@@ -153,7 +155,7 @@
 	(concreteScenarioHasArtifact [ontology_Instance_20009])
 	(concreteScenarioHasEnviroment [ontology_Instance_20013])
 	(concreteScenarioHasResponse [ontology_Instance_20017])
-	(concreteScenarioHasResponseMeasure [ontology_Instance_20021])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_20022])
 	(concreteScenarioHasStimlus [ontology_Instance_20006])
 	(isSpecificof [KB_044591_Instance_9]))
 
@@ -554,3 +556,261 @@
 ([ontology_Instance_40094] of  ConcreteResponseMeasure
 
 	(concreteScenarioPartDescription "time to perform tests"))
+
+([ontology_Instance_50000] of  QualityAttribute
+
+	(qualityAttributeName "Usability"))
+
+([ontology_Instance_50001] of  ConcreteSource
+
+	(concreteScenarioPartDescription "correctly identified"))
+
+([ontology_Instance_50002] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "authorized"))
+
+([ontology_Instance_50003] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "services"))
+
+([ontology_Instance_50004] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "online"))
+
+([ontology_Instance_50005] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "records attempts"))
+
+([ontology_Instance_50006] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "Time effort resources required to circumvent security measures with probability of success"))
+
+([ontology_Instance_50007] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_50010])
+	(concreteScenarioHasEnviroment [ontology_Instance_50011])
+	(concreteScenarioHasResponse [ontology_Instance_50012])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50013])
+	(concreteScenarioHasSource [ontology_Instance_50008])
+	(concreteScenarioHasStimlus [ontology_Instance_50009])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_50008] of  ConcreteSource
+
+	(concreteScenarioPartDescription "incorrectly"))
+
+([ontology_Instance_50009] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "Internal"))
+
+([ontology_Instance_50010] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "data"))
+
+([ontology_Instance_50011] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "firewalled"))
+
+([ontology_Instance_50012] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "Authenticates hides user"))
+
+([ontology_Instance_50013] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "probability of detecting attack"))
+
+([ontology_Instance_50014] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50018])
+	(concreteScenarioHasResponse [ontology_Instance_50017])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50019])
+	(concreteScenarioHasSource [ontology_Instance_50015])
+	(concreteScenarioHasStimlus [ontology_Instance_50016])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_50015] of  ConcreteSource
+
+	(concreteScenarioPartDescription "unknown identity"))
+
+([ontology_Instance_50016] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "Vast resources"))
+
+([ontology_Instance_50017] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "blocks allows grants  withdraws permission access to data and services"))
+
+([ontology_Instance_50018] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "Connected"))
+
+([ontology_Instance_50019] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "probability of identifying individual responsible for attack or access modification of data and or services"))
+
+([ontology_Instance_50020] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50023])
+	(concreteScenarioHasResponse [ontology_Instance_50024])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50025])
+	(concreteScenarioHasStimlus [ontology_Instance_50022])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_50022] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "limited"))
+
+([ontology_Instance_50023] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "disconnected"))
+
+([ontology_Instance_50024] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "stores data in an unreadable format"))
+
+([ontology_Instance_50025] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "percentage of services still available under denial-of-services attack"))
+
+([ontology_Instance_50026] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50028])
+	(concreteScenarioHasResponse [ontology_Instance_50029])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50030])
+	(concreteScenarioHasStimlus [ontology_Instance_50027])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_50027] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "external"))
+
+([ontology_Instance_50028] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "open"))
+
+([ontology_Instance_50029] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "recognizes an unexplainable high demand for services"))
+
+([ontology_Instance_50030] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "restore data services"))
+
+([ontology_Instance_50031] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50033])
+	(concreteScenarioHasResponse [ontology_Instance_50034])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50035])
+	(concreteScenarioHasStimlus [ontology_Instance_50032])
+	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_50032] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "unauthorized"))
+
+([ontology_Instance_50033] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "offline"))
+
+([ontology_Instance_50034] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "restricts availability of services"))
+
+([ontology_Instance_50035] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "extent to which data services damaged and or legitimate access denied"))
+
+([ontology_Instance_50036] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponse [ontology_Instance_50039])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50040])
+	(concreteScenarioHasSource [ontology_Instance_50037])
+	(concreteScenarioHasStimlus [ontology_Instance_50038])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_50037] of  ConcreteSource
+
+	(concreteScenarioPartDescription "end user"))
+
+([ontology_Instance_50038] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "learn system features"))
+
+([ontology_Instance_50039] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "help system is sensitive to context  interface is familiar usable in an unfamiliar context"))
+
+([ontology_Instance_50040] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "satisfaction"))
+
+([ontology_Instance_50041] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponse [ontology_Instance_50043])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50044])
+	(concreteScenarioHasStimlus [ontology_Instance_50042])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_50042] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "use system efficiently"))
+
+([ontology_Instance_50043] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "aggregation of data  commands re-use of already entered  support for efficient navigation within a scree distinct views with consistent operations comprehensive searching"))
+
+([ontology_Instance_50044] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "gain of user knowledge"))
+
+([ontology_Instance_50045] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponse [ontology_Instance_50049])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_50048])
+	(concreteScenarioHasStimlus [ontology_Instance_50046])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_50046] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "minimize impact of errors"))
+
+([ontology_Instance_50048] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "number of problems solved"))
+
+([ontology_Instance_50049] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "undo cancel recognize and correct  error verify system resources"))
+
+([ontology_Instance_50050] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "adapt"))
+
+([ontology_Instance_50051] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50052])
+	(concreteScenarioHasResponse [ontology_Instance_50053])
+	(concreteScenarioHasStimlus [ontology_Instance_50050])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_50052] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "configure"))
+
+([ontology_Instance_50053] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "customizability internationalization"))
+
+([ontology_Instance_50054] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_50056])
+	(concreteScenarioHasResponse [ontology_Instance_50055])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_50055] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "display system state work at the user's pace"))
+
+([ontology_Instance_50056] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "runtime"))
