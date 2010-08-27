@@ -1,4 +1,4 @@
-; Mon Aug 23 11:06:44 ART 2010
+; Fri Aug 27 20:52:05 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -814,3 +814,310 @@
 ([ontology_Instance_50056] of  ConcreteEnviroment
 
 	(concreteScenarioPartDescription "runtime"))
+
+([ontology_Instance_60000] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60003])
+	(concreteScenarioHasEnviroment [ontology_Instance_60004])
+	(concreteScenarioHasResponse [ontology_Instance_60005])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60006])
+	(concreteScenarioHasSource [ontology_Instance_60001])
+	(concreteScenarioHasStimlus [ontology_Instance_60002])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_60001] of  ConcreteSource
+
+	(concreteScenarioPartDescription "Operations manager"))
+
+([ontology_Instance_60002] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "requests that a new display be made operational"))
+
+([ontology_Instance_60003] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "in the Bus Tracker system"))
+
+([ontology_Instance_60004] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "outside of the peak trafﬁc period"))
+
+([ontology_Instance_60005] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "The new display starts displaying estimated arrival times for buses relevant to it"))
+
+([ontology_Instance_60006] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "within 5 minutes of the request"))
+
+([ontology_Instance_60008] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60003])
+	(concreteScenarioHasEnviroment [ontology_Instance_60009])
+	(concreteScenarioHasResponse [ontology_Instance_60010])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60011])
+	(concreteScenarioHasSource [ontology_Instance_60001])
+	(concreteScenarioHasStimlus [ontology_Instance_60002])
+	(isSpecificof [KB_044591_Instance_9]))
+
+([ontology_Instance_60009] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "while no buses are running"))
+
+([ontology_Instance_60010] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "The new display is available to start displaying estimated arrival times for buses relevant to it"))
+
+([ontology_Instance_60011] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "within 4 hours"))
+
+([ontology_Instance_60013] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_60018])
+	(concreteScenarioHasResponse [ontology_Instance_60017])
+	(concreteScenarioHasSource [ontology_Instance_60014])
+	(concreteScenarioHasStimlus [ontology_Instance_60015])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_60014] of  ConcreteSource
+
+	(concreteScenarioPartDescription "user"))
+
+([ontology_Instance_60015] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "asks for help"))
+
+([ontology_Instance_60017] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "help reflects the appropriate contex"))
+
+([ontology_Instance_60018] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "at runtime in a particular contex"))
+
+([ontology_Instance_60020] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponse [ontology_Instance_60021])
+	(concreteScenarioHasStimlus [ontology_Instance_60022])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_60021] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "displays interface in native language"))
+
+([ontology_Instance_60022] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "indicates prefered language"))
+
+([ontology_Instance_60024] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_40031])
+	(concreteScenarioHasResponse [ontology_Instance_60027])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60029])
+	(concreteScenarioHasSource [ontology_Instance_60025])
+	(concreteScenarioHasStimlus [ontology_Instance_60026])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_60025] of  ConcreteSource
+
+	(concreteScenarioPartDescription "down server"))
+
+([ontology_Instance_60026] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "failure request"))
+
+([ontology_Instance_60027] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "system suspends request, recourses are available, distribution to others server is not affected. Operate in degraded mode"))
+
+([ontology_Instance_60029] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "minutes"))
+
+([ontology_Instance_60030] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60032])
+	(concreteScenarioHasEnviroment [ontology_Instance_60033])
+	(concreteScenarioHasResponse [ontology_Instance_60034])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60029])
+	(concreteScenarioHasStimlus [ontology_Instance_60031])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_60031] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "request"))
+
+([ontology_Instance_60032] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "server"))
+
+([ontology_Instance_60033] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "degraded mode.  system overloads or failures"))
+
+([ontology_Instance_60034] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "requirement is not lost Cold start"))
+
+([ontology_Instance_60035] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60039])
+	(concreteScenarioHasEnviroment [ontology_Instance_40031])
+	(concreteScenarioHasResponse [ontology_Instance_60037])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60036])
+	(concreteScenarioHasSource [ontology_Instance_60041])
+	(concreteScenarioHasStimlus [ontology_Instance_60040])
+	(isSpecificof [ontology_Instance_16]))
+
+([ontology_Instance_60036] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "within 30 seconds of the failure"))
+
+([ontology_Instance_60037] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "All displays must start showing the scheduled arrival time for all buses ing the scheduled arrival time for the bus"))
+
+([ontology_Instance_60038] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "comduring normal operation"))
+
+([ontology_Instance_60039] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "communications network"))
+
+([ontology_Instance_60040] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "causes a failure"))
+
+([ontology_Instance_60041] of  ConcreteSource
+
+	(concreteScenarioPartDescription "A random event"))
+
+([ontology_Instance_60043] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_60045])
+	(concreteScenarioHasResponse [ontology_Instance_60046])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60047])
+	(concreteScenarioHasStimlus [ontology_Instance_60044])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_60044] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "after 24 hours of down time"))
+
+([ontology_Instance_60045] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "down mode"))
+
+([ontology_Instance_60046] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "operations re-prioritizes backlogged workload to ensure tasks are worked off in priority order and that normal operations continue to be supported with no degraded throughput following esumption of normal ops"))
+
+([ontology_Instance_60047] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "30 minutes"))
+
+([ontology_Instance_60048] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_40036])
+	(concreteScenarioHasResponse [ontology_Instance_60051])
+	(concreteScenarioHasSource [ontology_Instance_60049])
+	(concreteScenarioHasStimlus [ontology_Instance_60050])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_60049] of  ConcreteSource
+
+	(concreteScenarioPartDescription "sites"))
+
+([ontology_Instance_60050] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "receive ingest requests"))
+
+([ontology_Instance_60051] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "work off in priority order and manage throughput to requirements"))
+
+([ontology_Instance_60052] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasEnviroment [ontology_Instance_60056])
+	(concreteScenarioHasResponse [ontology_Instance_60055])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60053])
+	(concreteScenarioHasSource [ontology_Instance_60014])
+	(concreteScenarioHasStimlus [ontology_Instance_60057])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_60053] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "second"))
+
+([ontology_Instance_60054] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "transaction completes"))
+
+([ontology_Instance_60055] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "transaction completes"))
+
+([ontology_Instance_60056] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "twice the current peak load"))
+
+([ontology_Instance_60057] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "initiates update customer account transaction"))
+
+([ontology_Instance_60058] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60061])
+	(concreteScenarioHasEnviroment [ontology_Instance_60062])
+	(concreteScenarioHasResponse [ontology_Instance_60063])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60064])
+	(concreteScenarioHasSource [ontology_Instance_60059])
+	(concreteScenarioHasStimlus [ontology_Instance_60060])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_60059] of  ConcreteSource
+
+	(concreteScenarioPartDescription "subsystem"))
+
+([ontology_Instance_60060] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "sends out a message with its current speed and location every 15 seconds"))
+
+([ontology_Instance_60061] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "central subsystem"))
+
+([ontology_Instance_60062] of  ConcreteEnviroment
+
+	(concreteScenarioPartDescription "working adequately"))
+
+([ontology_Instance_60063] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "produces an estimated arrival time for all relevant displays and sends them out to the display where the estimate is shown"))
+
+([ontology_Instance_60064] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "under 30 seconds"))
+
+([ontology_Instance_60065] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasArtifact [ontology_Instance_60061])
+	(concreteScenarioHasEnviroment [ontology_Instance_60062])
+	(concreteScenarioHasResponse [ontology_Instance_60067])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_60068])
+	(concreteScenarioHasSource [ontology_Instance_60059])
+	(concreteScenarioHasStimlus [ontology_Instance_60066])
+	(isSpecificof [ontology_Instance_15]))
+
+([ontology_Instance_60066] of  ConcreteStimulus
+
+	(concreteScenarioPartDescription "sends out a message with its current speed and location every 5 seconds"))
+
+([ontology_Instance_60067] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "The system stores the bus’ id, location and speed with a timestamp for when the message was received"))
+
+([ontology_Instance_60068] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "under 1 second"))

@@ -1,4 +1,4 @@
-; Mon Aug 23 11:06:44 ART 2010
+; Fri Aug 27 20:52:05 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -11,14 +11,9 @@
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasSource
+	(single-slot concreteScenarioHasStimlus
 		(type INSTANCE)
-;+		(allowed-classes ConcreteSource)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponse
-		(type INSTANCE)
-;+		(allowed-classes ConcreteResponse)
+;+		(allowed-classes ConcreteStimulus)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasArtifact
@@ -26,19 +21,14 @@
 ;+		(allowed-classes ConcreteArtifact)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasStimlus
+	(single-slot concreteScenarioHasResponse
 		(type INSTANCE)
-;+		(allowed-classes ConcreteStimulus)
+;+		(allowed-classes ConcreteResponse)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponseMeasure
+	(single-slot concreteScenarioHasSource
 		(type INSTANCE)
-;+		(allowed-classes ConcreteResponseMeasure)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasEnviroment
-		(type INSTANCE)
-;+		(allowed-classes ConcreteEnviroment)
+;+		(allowed-classes ConcreteSource)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot qualityAttributeName
@@ -48,6 +38,16 @@
 	(single-slot isSpecificof
 		(type INSTANCE)
 ;+		(allowed-classes QualityAttribute)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
+		(type INSTANCE)
+;+		(allowed-classes ConcreteEnviroment)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponseMeasure
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponseMeasure)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -75,9 +75,9 @@
 (defclass ConcreteQualityAttributeScenario
 	(is-a QualityAttributeScenario)
 	(role concrete)
-	(single-slot concreteScenarioHasResponse
+	(single-slot concreteScenarioHasStimlus
 		(type INSTANCE)
-;+		(allowed-classes ConcreteResponse)
+;+		(allowed-classes ConcreteStimulus)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasArtifact
@@ -85,14 +85,14 @@
 ;+		(allowed-classes ConcreteArtifact)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasStimlus
+	(single-slot concreteScenarioHasResponse
 		(type INSTANCE)
-;+		(allowed-classes ConcreteStimulus)
+;+		(allowed-classes ConcreteResponse)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponseMeasure
+	(single-slot concreteScenarioHasSource
 		(type INSTANCE)
-;+		(allowed-classes ConcreteResponseMeasure)
+;+		(allowed-classes ConcreteSource)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasEnviroment
@@ -100,9 +100,9 @@
 ;+		(allowed-classes ConcreteEnviroment)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasSource
+	(single-slot concreteScenarioHasResponseMeasure
 		(type INSTANCE)
-;+		(allowed-classes ConcreteSource)
+;+		(allowed-classes ConcreteResponseMeasure)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
