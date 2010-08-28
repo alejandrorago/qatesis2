@@ -1,4 +1,4 @@
-; Fri Aug 27 20:52:05 ART 2010
+; Sat Aug 28 16:51:30 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -47,7 +47,7 @@
 
 ([ontology_Instance_20003] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "add"))
+	(concreteScenarioPartDescription "add addit"))
 
 ([ontology_Instance_20004] of  ConcreteStimulus
 
@@ -55,7 +55,7 @@
 
 ([ontology_Instance_20005] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "modify capacity"))
+	(concreteScenarioPartDescription "modify change capacity"))
 
 ([ontology_Instance_20006] of  ConcreteStimulus
 
@@ -103,7 +103,7 @@
 
 ([ontology_Instance_20017] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "Locates places in architecture to be modified"))
+	(concreteScenarioPartDescription "Locates places in architecture to be modified updated"))
 
 ([ontology_Instance_20019] of  ConcreteResponseMeasure
 
@@ -115,7 +115,7 @@
 
 ([ontology_Instance_20021] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "money"))
+	(concreteScenarioPartDescription "budget money"))
 
 ([ontology_Instance_20022] of  ConcreteResponseMeasure
 
@@ -209,7 +209,7 @@
 
 ([ontology_Instance_40009] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "crash"))
+	(concreteScenarioPartDescription "crash defect"))
 
 ([ontology_Instance_40010] of  ConcreteStimulus
 
@@ -381,7 +381,7 @@
 
 ([ontology_Instance_40063] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "Availability time"))
+	(concreteScenarioPartDescription "Availability time downtine"))
 
 ([ontology_Instance_40064] of  ConcreteResponseMeasure
 
@@ -490,7 +490,7 @@
 
 ([ontology_Instance_40085] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "deadline"))
+	(concreteScenarioPartDescription "deadline maximum"))
 
 ([ontology_Instance_40087] of  ConcreteQualityAttributeScenario
 
@@ -617,10 +617,11 @@
 
 ([ontology_Instance_50013] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "probability of detecting attack"))
+	(concreteScenarioPartDescription "probability of preventing detecting attack"))
 
 ([ontology_Instance_50014] of  ConcreteQualityAttributeScenario
 
+	(concreteScenarioHasArtifact [ontology_Instance_70000])
 	(concreteScenarioHasEnviroment [ontology_Instance_50018])
 	(concreteScenarioHasResponse [ontology_Instance_50017])
 	(concreteScenarioHasResponseMeasure [ontology_Instance_50019])
@@ -677,6 +678,7 @@
 	(concreteScenarioHasEnviroment [ontology_Instance_50028])
 	(concreteScenarioHasResponse [ontology_Instance_50029])
 	(concreteScenarioHasResponseMeasure [ontology_Instance_50030])
+	(concreteScenarioHasSource [ontology_Instance_70001])
 	(concreteScenarioHasStimlus [ontology_Instance_50027])
 	(isSpecificof [ontology_Instance_30000]))
 
@@ -714,7 +716,7 @@
 
 ([ontology_Instance_50034] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "restricts availability of services"))
+	(concreteScenarioPartDescription "restricts ensures availability of services"))
 
 ([ontology_Instance_50035] of  ConcreteResponseMeasure
 
@@ -734,11 +736,11 @@
 
 ([ontology_Instance_50038] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "learn system features"))
+	(concreteScenarioPartDescription "learn understand system features"))
 
 ([ontology_Instance_50039] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "help system is sensitive to context  interface is familiar usable in an unfamiliar context"))
+	(concreteScenarioPartDescription "help system is sensitive to context  interface is familiar easily usable in an unfamiliar context"))
 
 ([ontology_Instance_50040] of  ConcreteResponseMeasure
 
@@ -885,7 +887,7 @@
 
 ([ontology_Instance_60015] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "asks for help"))
+	(concreteScenarioPartDescription "Clicks asks for help"))
 
 ([ontology_Instance_60017] of  ConcreteResponse
 
@@ -932,7 +934,7 @@
 
 ([ontology_Instance_60029] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "minutes"))
+	(concreteScenarioPartDescription "minutes hours"))
 
 ([ontology_Instance_60030] of  ConcreteQualityAttributeScenario
 
@@ -1015,12 +1017,13 @@
 
 ([ontology_Instance_60047] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "30 minutes"))
+	(concreteScenarioPartDescription "Responses takes 30 minutes"))
 
 ([ontology_Instance_60048] of  ConcreteQualityAttributeScenario
 
 	(concreteScenarioHasEnviroment [ontology_Instance_40036])
 	(concreteScenarioHasResponse [ontology_Instance_60051])
+	(concreteScenarioHasResponseMeasure [ontology_Instance_70002])
 	(concreteScenarioHasSource [ontology_Instance_60049])
 	(concreteScenarioHasStimlus [ontology_Instance_60050])
 	(isSpecificof [ontology_Instance_15]))
@@ -1048,7 +1051,7 @@
 
 ([ontology_Instance_60053] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "second"))
+	(concreteScenarioPartDescription "second milisecond"))
 
 ([ontology_Instance_60054] of  ConcreteResponse
 
@@ -1121,3 +1124,15 @@
 ([ontology_Instance_60068] of  ConcreteResponseMeasure
 
 	(concreteScenarioPartDescription "under 1 second"))
+
+([ontology_Instance_70000] of  ConcreteArtifact
+
+	(concreteScenarioPartDescription "information"))
+
+([ontology_Instance_70001] of  ConcreteSource
+
+	(concreteScenarioPartDescription "malicius user"))
+
+([ontology_Instance_70002] of  ConcreteResponseMeasure
+
+	(concreteScenarioPartDescription "fast"))
