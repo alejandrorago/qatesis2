@@ -28,7 +28,7 @@
 			<flow>1.3 In the case of a query on diseases, the system retrieves the list of diseases</flow>
 			<flow>1.3.1 The system retrieves the details of each disease type such as its unique identifier and name</flow>
 			<flow>1.3.2 The list of disease is presented to the user on their local display</flow>
-			<flow>2. The citizen provides the data for the query')</flow>
+			<flow>2. The citizen provides the data for the query</flow>
 			<flow>2.1 In the case of a query on specialties grouped by health units, the citizen selects the health unit to be queried</flow>
 			<flow>2.1.1 A unique identifier representing the selected health unit is sent to the server</flow>
 			<flow>2.1.2 The system ensures the health unit information is consistent</flow>
@@ -390,6 +390,34 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>			
+			<pair>
+				<verb>presented</verb>
 				<object>employee</object>
 			</pair>
 			<pair>
@@ -437,6 +465,11 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>stored</verb>
+				<object></object>
+			</pair>
+			
+			<pair>
+				<verb>stored</verb>
 				<object>state</object>
 			</pair>
 			<pair>
@@ -447,6 +480,11 @@ error message should be showed</flow>
 				<verb>storing</verb>
 				<object>complaint</object>
 			</pair>
+			<pair>
+				<verb>storing</verb>
+				<object>complaint</object>
+			</pair>
+			
 			<pair>
 				<verb>storing</verb>
 				<object>data</object>
@@ -476,10 +514,54 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
 				<object>data</object>
 			</pair>
 			<pair>
 				<verb>ensured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ensured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>assured</verb>
 				<object></object>
 			</pair>
 			<pair>
@@ -507,6 +589,15 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>allows</verb>
+				<object>citizen</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>employees</object>
+			</pair>
+			
+			<pair>
+				<verb>allows</verb>
 				<object>employee</object>
 			</pair>
 			<pair>
@@ -519,12 +610,13 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>allows</verb>
-				<object>employees</object>
+				<object>data</object>
 			</pair>
 			<pair>
 				<verb>allows</verb>
 				<object>data</object>
 			</pair>
+			
 			<pair>
 				<verb>allowed</verb>
 				<object>sub-system</object>
@@ -544,6 +636,46 @@ error message should be showed</flow>
 		<id>5</id>
 		<name>retrieved</name>
 		<pairs>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
 			<pair>
 				<verb>sent</verb>
 				<object>server</object>
@@ -571,6 +703,27 @@ error message should be showed</flow>
 				<verb>retrieves</verb>
 				<object>list</object>
 			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			
 			<pair>
 				<verb>retrieved</verb>
 				<object></object>
@@ -621,8 +774,22 @@ error message should be showed</flow>
 		<pairs>
 			<pair>
 				<verb>entered</verb>
+				<object></object>
+			</pair>
+			
+			<pair>
+				<verb>entered</verb>
 				<object>user</object>
 			</pair>
+			<pair>
+				<verb>entered</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>entered</verb>
+				<object>user</object>
+			</pair>
+			
 			<pair>
 				<verb>enters</verb>
 				<object>conclusion</object>
@@ -631,6 +798,11 @@ error message should be showed</flow>
 				<verb>registered</verb>
 				<object>system</object>
 			</pair>
+			<pair>
+				<verb>registered</verb>
+				<object>system</object>
+			</pair>
+			
 			<pair>
 				<verb>registers</verb>
 				<object>time</object>
@@ -663,6 +835,11 @@ error message should be showed</flow>
 				<verb>selects</verb>
 				<object>unit</object>
 			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>unit</object>
+			</pair>
+			
 			<pair>
 				<verb>selects</verb>
 				<object>specialty</object>
@@ -745,6 +922,22 @@ error message should be showed</flow>
 				<object></object>
 			</pair>
 			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>update</verb>
+				<object></object>
+			</pair>
+			<pair>
 				<verb>informing</verb>
 				<object>user</object>
 			</pair>
@@ -752,6 +945,11 @@ error message should be showed</flow>
 				<verb>described</verb>
 				<object>login</object>
 			</pair>
+			<pair>
+				<verb>changed</verb>
+				<object></object>
+			</pair>
+			
 			</pairs>
 	</early-aspect>
 
@@ -765,8 +963,33 @@ error message should be showed</flow>
 				<object></object>
 			</pair>
 			<pair>
+				<verb>queried</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>queried</verb>
+				<object></object>
+			</pair>
+			<pair>
 				<verb>left</verb>
 				<object>state</object>
+			</pair>
+			<pair>
+				<verb>left</verb>
+				<object>state</object>
+			</pair>
+			
+			<pair>
+				<verb>left</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object>system</object>
 			</pair>
 			<pair>
 				<verb>updated</verb>
@@ -808,6 +1031,30 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
 				<object>employee</object>
 			</pair>
 		</pairs>
@@ -824,8 +1071,17 @@ error message should be showed</flow>
 			</pair>
 			<pair>
 				<verb>grouped</verb>
+				<object>units</object>
+			</pair>
+			<pair>
+				<verb>grouped</verb>
 				<object>specialties</object>
 			</pair>
+			<pair>
+				<verb>grouped</verb>
+				<object>specialties</object>
+			</pair>
+			
 			<pair>
 				<verb>typed</verb>
 				<object>data</object>
@@ -845,26 +1101,13 @@ error message should be showed</flow>
 				<verb>provides</verb>
 				<object>data</object>
 			</pair>
-		</pairs>
-	</early-aspect>
-	
-
-	<early-aspect>
-		<id>15</id>
-		<name>provides</name>
-		<pairs>
-			<pair>
-				<verb>provides</verb>
-				<object>code</object>
-			</pair>
 			<pair>
 				<verb>provides</verb>
 				<object>data</object>
 			</pair>
 		</pairs>
 	</early-aspect>
-
-
+	
 
 	<early-aspect>
 		<id>16</id>
@@ -894,6 +1137,22 @@ error message should be showed</flow>
 				<object></object>
 			</pair>
 			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
 				<verb>dealt</verb>
 				<object>complaint</object>
 			</pair>
@@ -908,13 +1167,21 @@ error message should be showed</flow>
 				<verb>verifies</verb>
 				<object>data</object>
 			</pair>
-		</pairs>
+			<pair>
+				<verb>verifies</verb>
+				<object>data</object>
+			</pair>
+			</pairs>
 	</early-aspect>
 
 	<early-aspect>
 		<id>19</id>
 		<name>stores</name>
 		<pairs>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
 			<pair>
 				<verb>stores</verb>
 				<object>information</object>
