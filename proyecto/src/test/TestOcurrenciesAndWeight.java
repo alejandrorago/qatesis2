@@ -36,8 +36,8 @@ public class TestOcurrenciesAndWeight {
         listAspect.add(student);
         listAspect.add(administr2);
         
-        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/useCaseWeight.properties");
-        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository",fm);
+        FilterManager fm= new FilterManager("resources/stopWordsList.txt","resources/config.properties");
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository",fm,"resources/config.properties");
         algorithm.setUseCaseFactor(Double.valueOf(0.50));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(listCase,listAspect);
         MapUtils.imprimirMap(map);
