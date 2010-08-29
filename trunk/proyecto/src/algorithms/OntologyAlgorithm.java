@@ -1,8 +1,11 @@
 package algorithms;
 
-import entities.QualityAttributeInterface;
-import entities.RichedWord;
-import filters.FilterManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 import ontology.OntologyManager;
 import ontology.QualityAttributeBelongable;
@@ -11,10 +14,9 @@ import org.apache.log4j.Logger;
 
 import utils.LoggerUtils;
 import utils.MapUtils;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import entities.QualityAttributeInterface;
+import entities.RichedWord;
+import filters.FilterManager;
 
 
 /**
@@ -39,9 +41,15 @@ public class OntologyAlgorithm implements Algorithm {
      * @param owlFilePath DOCUMENT ME!
      * @param repositoryFilePath DOCUMENT ME!
      */
-    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath, FilterManager fm) {
+    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath, FilterManager fm, String configurationFile) {
         this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath, fm);
-        this.useCaseFactor = Double.valueOf(1.0);
+        
+        Properties properties = new Properties();
+		try {
+			properties.load(new FileInputStream(configurationFile));
+		} catch (IOException e) {
+		}
+	    this.useCaseFactor = Double.valueOf(properties.getProperty("USECASEFACTOR"));
     }
 
     /**
@@ -102,7 +110,7 @@ public class OntologyAlgorithm implements Algorithm {
 
     private Map<QualityAttributeInterface, Double> getAttributesMap(
         List<RichedWord> words) {
-        logger.info("An√°lis de las palabras - Comienzo");
+        logger.info("An·lisis de las palabras - Comienzo");
     	
     	Map<QualityAttributeInterface, Double> wordMap = null;
 
