@@ -65,28 +65,42 @@ public class OntologyAlgorithm implements Algorithm {
     public Map<QualityAttributeInterface, Double> getQualityAttributePertenence(
         List<RichedWord> useCaseWordsList, List<RichedWord> earlyAspectWordsList) {
         
-    	//Map de los casos de uso
-    	Map<QualityAttributeInterface, Double> useCaseMap = this.getAttributesMap(useCaseWordsList);
+    	logger.info("UseCaseFactor: " + this.useCaseFactor);
     	
+    	//Map de los casos de uso
+    	logger.info("Palabras de los casos de uso ------------ Comienzo");
+    	Map<QualityAttributeInterface, Double> useCaseMap = this.getAttributesMap(useCaseWordsList);
+    	logger.info("Palabras de los casos de uso ------------ Fin");
     	//Si useCaseFactor=1, no hace falta el analisis de las palabras del EarlyAspect
     	if (!this.useCaseFactor.equals(Double.valueOf(1.0))){
-    		//Map del earlyAspect
+
+    		logger.info("Palabras de los aspectos tempranos ------------ Comienzo");
     		Map<QualityAttributeInterface, Double> earlyApectMap = this.getAttributesMap(earlyAspectWordsList);
-    		
+        	logger.info("Palabras de los aspectos tempranos ------------ Fin");		
 
     		if (MapUtils.areAllValuesZero(useCaseMap)){ 
-    			MapUtils.imprimirMap(earlyApectMap);
+    	    	logger.info("El mapa de casos de uso da todo cero");
+    	    	logger.info("Mapa de Aspectos");
+    	    	MapUtils.imprimirMap(earlyApectMap);
     			return earlyApectMap;
     			
     		}
     		if (MapUtils.areAllValuesZero(earlyApectMap)){
+    	    	logger.info("El mapa de aspectos da todo cero");
+    	    	logger.info("Mapa de Casos de Uso");
     			MapUtils.imprimirMap(useCaseMap);
     			return useCaseMap;
     		}
+    		logger.info("Mapa de casos de uso");
+			MapUtils.imprimirMap(useCaseMap);
+    		logger.info("Mapa de aspectos tempranos");
+			MapUtils.imprimirMap(earlyApectMap);
+			
     		useCaseMap = MapUtils.multiplyMapByFactor(useCaseMap, useCaseFactor);
     		earlyApectMap = MapUtils.multiplyMapByFactor(earlyApectMap, 1.0 - useCaseFactor);
     		
     		Map<QualityAttributeInterface, Double> totalMap = MapUtils.addMaps(useCaseMap, earlyApectMap);
+    		logger.info("Mapa combinado de aspectos tempranos y casos de uso");
     		MapUtils.imprimirMap(totalMap);
     		return totalMap;
         }
@@ -110,7 +124,7 @@ public class OntologyAlgorithm implements Algorithm {
 
     private Map<QualityAttributeInterface, Double> getAttributesMap(
         List<RichedWord> words) {
-        logger.info("An�lisis de las palabras - Comienzo");
+        //logger.info("Analisis de las palabras - Comienzo");
     	
     	Map<QualityAttributeInterface, Double> wordMap = null;
 
@@ -123,20 +137,17 @@ public class OntologyAlgorithm implements Algorithm {
 
         while (richedWordIterator.hasNext()) {
             richedWord = richedWordIterator.next();
-            logger.info("Palabra entrante: " + richedWord.getWord());
-            logger.info("ID: " + richedWord.getAttribute(richedWord.SECTION));
-            logger.info("Weight: " + richedWord.getAttribute(richedWord.WEIGHT));
-            logger.info("Ocurrencias: " + richedWord.getAttribute(richedWord.OCURRENCES));
-            
-            if ("".equals(richedWord.getWord())){
-            	System.out.println("Aca ta");
-            }
+            //logger.info("Palabra entrante: " + richedWord.getWord());
+            //logger.info("ID: " + richedWord.getAttribute(richedWord.SECTION));
+            //logger.info("Weight: " + richedWord.getAttribute(richedWord.WEIGHT));
+            //logger.info("Ocurrencias: " + richedWord.getAttribute(richedWord.OCURRENCES));
+
             wordMap = qabelongable.getWordPertenence(richedWord.getWord());
 
             //Puede ser que la palabra no pertenezca a la ontologia, por lo que no 
             //se tiene en cuenta.
             if (wordMap != null) {
-            	logger.info("La palabra se encuentra en la ontology");
+            	//logger.info("La palabra se encuentra en la ontology");
             	wordMap = MapUtils.convertMapToPromedy(wordMap);
             	LoggerUtils.imprimirMap(wordMap, "Mapa de la palabra: " + richedWord.getWord() );
             	
@@ -149,10 +160,10 @@ public class OntologyAlgorithm implements Algorithm {
                 totalMap = MapUtils.addMaps(totalMap, wordMap);
                 totalWords = totalWords + weight;
             }else{
-            	logger.info("La palabra no se encuentra en la ontologia");
+            	//logger.info("La palabra no se encuentra en la ontologia");
             }
         }
-        logger.info("Anális de las palabras - Fin");
+        //logger.info("Anális de las palabras - Fin");
         //Si totalWords es igual a cero, significa que ninguna de las palabras se encuentra en la ontologia
         if (totalWords!=0)
         	totalMap = MapUtils.divideTotal(totalMap, totalWords);
