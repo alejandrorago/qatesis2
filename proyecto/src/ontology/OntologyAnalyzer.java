@@ -226,7 +226,7 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
 
     @Override
     public Map<QualityAttributeInterface, Double> getWordPertenence(String word) {
-        logger.info("Palabra entrante: " + word);
+        //logger.info("Palabra entrante: " + word);
 
         AbstractEntityFactory entityFactory = new EntityFactory();
         Map<QualityAttributeInterface, Double> map = MapUtils.convertAttributesLisToMap(this.loadQualityAttributes());
@@ -236,9 +236,9 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
         //Si scenarioPart es igual a null, significa q esa palabra no se encuentra presente en la ontologia
         if (scenarioPart != null) {
             Resource scenarioPartType = this.getType(scenarioPart); //Devueve el tipo de esa instancia, ejemplo, http://www.owl-ontologies.com/unnamed.owl#ConcreteSource
-            logger.info("La palabra " + word +
-                " se reconoce como perteneciente a una una instancia de " +
-                scenarioPartType.getURI());
+           // logger.info("La palabra " + word +
+           //     " se reconoce como perteneciente a una una instancia de " +
+            //    scenarioPartType.getURI());
 
             //A partir de ese concreteSource, se necesita saber el  Uri de la propiedad con la que se relaciona con las instancias
             //de escenarios. Siguiendo el ejemplo, el metodo nos devolveria el uri http://www.owl-ontologies.com/unnamed.owl#concreteScenarioHasSource
@@ -272,8 +272,8 @@ public class OntologyAnalyzer implements QualityAttributeBelongable {
             	return null;
             }
         } else {
-            logger.info("La palabra " + word +
-                " no existe dentro del a ontologia como parte de un escenario");
+            ///logger.info("La palabra " + word +
+            //    " no existe dentro del a ontologia como parte de un escenario");
             return null; 
         }
 
