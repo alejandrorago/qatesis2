@@ -1,35 +1,1116 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project name="HWS">
 <!-- Health Watcher System.-->
+		
+	<!-- USE CASES -->
+	
 	<use-case>
 		<id>1</id>
-		<name>Login</name>
-		<actor>Employee</actor>
-		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system.</description>
+		<name>Query information</name>
+		<actor>Citizen</actor>
+		<description>This use case allows a citizen to perform queries</description>
 		<priority>High</priority>
-		<trigger/>
-		<preconditions/>
-		<postconditions/>
+		<trigger></trigger>
+		<preconditions>
+			<condition>The data to be queried must be registered on the system</condition>
+		</preconditions>
+		<postconditions>
+			<condition>The query result to the citizen</condition>
+		</postconditions>
 		<basic-flow>
-			<flow>The employee provides the login and password</flow>
-			<flow>The login and password are sent to the server</flow>
-			<flow>The system retrieves the employee details using the login as a unique identifier</flow>
-			<flow>The system validates the entered password</flow>
-			<flow>The result of the login attempt is presented to the employee on their local display</flow>
+			<flow>1. The citizen chooses the type of query</flow>
+			<flow>1.1 In the case of query on specialties grouped by health units, the system retrieves the list of health units stored</flow>
+			<flow>1.1.1 The system retrieves the details of each health unit such as its description and specialties</flow>
+			<flow>1.1.2 The list of health units is presented to the user on their local display</flow>
+			<flow>1.2 In the case of a query on health units grouped by specialties, the system retrieves the list of registered specialties</flow>
+			<flow>1.2.1 The system retrieves the details of each specialty such as its unique identifier and name</flow>
+			<flow>1.2.2 The list of specialties is presented to the user on their local display</flow>
+			<flow>1.3 In the case of a query on diseases, the system retrieves the list of diseases</flow>
+			<flow>1.3.1 The system retrieves the details of each disease type such as its unique identifier and name</flow>
+			<flow>1.3.2 The list of disease is presented to the user on their local display</flow>
+			<flow>2. The citizen provides the data for the query</flow>
+			<flow>2.1 In the case of a query on specialties grouped by health units, the citizen selects the health unit to be queried</flow>
+			<flow>2.1.1 A unique identifier representing the selected health unit is sent to the server</flow>
+			<flow>2.1.2 The system ensures the health unit information is consistent</flow>
+			<flow>2.1.3 The unique identifier is used by the system to search the repository for the selected health unit</flow>
+			<flow>2.1.4 The details of the selected health unit are retrieved including its specialties</flow>
+			<flow>2.1.5 The specialties for the selected health unit are returned to the user</flow>
+			<flow>2.2 In the case of a query on health units grouped by specialties, the citizen selects the specialty to be queried</flow>
+			<flow>2.2.1 A unique identifier representing the selected specialty is sent to the server</flow>
+			<flow>2.2.2 The system ensures the health unit information is consistent</flow>
+			<flow>2.2.3 The unique identifier is used to retrieve the list of health units which are associated with the selected specialty</flow>
+			<flow>2.2.4 The details of the health units and specialties are retrieved</flow>
+			<flow>2.2.5 The retrieved health units are returned to the user</flow>
+			<flow>2.3 In the case of a query on complaints, the citizen provides the complaint code</flow>
+			<flow>2.3.1 The unique identifier representing the complaint to be retrieved is sent to the server</flow>
+			<flow>2.3.2 The system ensures the complaint information is consistent</flow>
+			<flow>2.3.3 The unique identifier is used to retrieve the complaint entry</flow>
+			<flow>2.3.4 The system must determine the complaint type as to retrieve the appropriate information</flow>
+			<flow>2.3.4.1 If the complaint is a special complaint the complainer\u2019s age, education level and occupation are retrieved (in addition to the standard complaint information)</flow>
+			<flow>2.3.4.2 If the complaint is a food complaint the meal which was consumed, the number of people who ate the meal, the number of sick people, etc. are retrieved (in addition to the standard complaint information)</flow>
+			<flow>2.3.4.3 If the complaint is an animal complaint the animal species and the number of animals affected (in addition to the standard complaint information)</flow>
+			<flow>2.3.5 The complaint with all the appropriate information is returned to the user</flow>
+			<flow>2.4 In the case of a query on diseases, the citizen selects the disease to be queried</flow>
+			<flow>2.4.1 The unique identifier representing the disease type to be retrieved is sent to the server</flow>
+			<flow>2.4.2 The system ensures the disease type information is consistent</flow>
+			<flow>2.4.3 The unique identifier is used to retrieve the disease type to query</flow>
+			<flow>2.4.4 The symptoms for the selected disease type are retrieved</flow>
+			<flow>2.4.5 The complete disease information is returned to the user</flow>
+			<flow>3. The query results are formatted and presented to the user on their local display</flow>
 		</basic-flow>
 		<alternative-flow>
-			<flow>A communication error occurs</flow>
-			<flow>Raise an error message</flow>
-			<flow>A problem occurs retrieving the employee details</flow>
-			<flow>Raise an error message</flow>
-			<flow>The system cannot validate the employee</flow>
-			<flow>Raise an error message</flow>
+			<flow>1.x and 2.x: A communication problem occurs</flow>
+			<flow> 1. Raise an error message</flow>
+			<flow>1.x.1 and 2.x.4: A problem occurs retrieving the complaint data</flow>
+			<flow> 1. The system retrieves the available information</flow>
+			<flow> 2. Raise an error message</flow>
+			<flow>2.3.3: An invalid complaint code is entered</flow>
+			<flow> 1. Raise an error message informing the user the complaint does not exist</flow>
+			<flow>2.x.2: Consistent data cannot be assured</flow>
+			<flow> 1. The system abandons the data retrieval</flow>
+			<flow> 2. Raise an error message</flow>
 		</alternative-flow>
-		<especial-reqs/>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
 	</use-case>
-
-		<early-aspect>
+	
+	
+	<use-case>
+		<id>2</id>
+		<name>Complaint specification</name>
+		<actor>Citizen</actor>
+		<description>This use case allows a citizen to register complaints</description>
+		<priority></priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition></condition>
+		</preconditions>
+		<postconditions>
+		<condition>The complaint saved on the system</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The citizen selects the kind of complaint</flow>
+			<flow>2. The system shows the specific screen for each type of complaint</flow>
+			<flow>3. The system registers the kind, date and time of the complaints</flow>
+			<flow>4. The citizen provides the complaint specific data</flow>
+			<flow>5. The system saves the complaint</flow>
+			<flow>5.1. The information entered by the user is sent to the server</flow>
+			<flow>5.2. The system parses the data entered by the user</flow>
+			<flow>5.3. The system creates a new instance of the appropriate complaint type</flow>
+			<flow>5.4. The system generates a unique identifier and assigns this to the new complaint</flow>
+			<flow>5.5. The complainers address is parsed and saved</flow>
+			<flow>5.6. The common complaint information is parsed and stored with the OPENED state</flow>
+			<flow>5.7. The specific complaint data is then extracted and stored accordingly</flow>
+			<flow>5.8. The system ensures the data is left in a consistent state</flow>
+			<flow>6. The unique identifier is returned and presented to the user on their local display</flow>			
+		</basic-flow>
+		<alternative-flow>
+			<flow>5.1: A communication problem occurs</flow>
+			<flow> 1. Raise an error message</flow>
+			<flow>5.2: Invalid data is entered by the user</flow>
+			<flow> 1. Raise an error message</flow>
+			<flow>5.5-5.7: A problem occurs storing the complaint</flow>
+			<flow> 1. The complaint entry is rolled-back</flow>
+			<flow> 2. Raise an error message</flow>
+			<flow>5.8: Data consistency cannot be ensured</flow>
+			<flow> 1. The complaint entry is rolled-back</flow>
+			<flow> 2. Raise an error message</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	<use-case>
+		<id>3</id>
+		<name>Login</name>
+		<actor>Employee</actor>
+		<description>This use case allows an employee to have access to restricted operations on the Health-Watcher system</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition></condition>
+		</preconditions>
+		<postconditions>
+			<condition>Password validated by the system</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee provides the login and password</flow>
+			<flow>2. The login and password are sent to the server</flow>
+			<flow>3. The system retrieves the employee details using the login as a unique identifier</flow>
+			<flow>4. The system validates the entered password</flow>
+			<flow>5. The result of the login attempt is presented to the employee on their local display</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>2: A communication error occurs</flow>
+			<flow>1. Raise an error message</flow>
+			<flow>3: A problem occurs retrieving the employee details</flow>
+			<flow>1. Raise an error message</flow>
+			<flow>4: The system cannot validate the employee</flow>
+			<flow>1. Raise an error message</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	<use-case>
+		<id>4</id>
+		<name>Register tables</name>
+		<actor>Employee</actor>
+		<description>This use case allows the registration of system tables. The following operations are possible: insert, update, delete, search and print</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>Verified employee</condition>
+		</preconditions>
+		<postconditions>
+			<condition>Updated data on the tables</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee chooses the option to register (insert/update) in one of the tables</flow>
+			<flow>2. The employee enters the data</flow>
+			<flow>3. The system saves the data</flow>
+		</basic-flow>
+		<alternative-flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	
+	<use-case>
+		<id>5</id>
+		<name>Update complaint</name>
+		<actor>Employee</actor>
+		<description>This use case allows the state of a complaint to be updated</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>The complaint must be registered and have the OPENED state</condition>
+			<condition>Verified employee</condition>	
+	</preconditions>
+		<postconditions>
+			<condition>Complaint updated and with state CLOSED</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee selects the update complaint option</flow>
+			<flow>2. The system retrieves the list of all registered complaints</flow>
+			<flow>2.1. The complaint list is populated with general and complaint type specific data</flow>
+			<flow>3. The list of complaints is returned to the employee</flow>
+			<flow>4. The complaints are formatted and presented to the employee on their local display</flow>
+			<flow>5. The employee selects the complaint they wish to update</flow>
+			<flow>6. The complaint unique identifier is sent to the server</flow>
+			<flow>7. The system ensures the complaint data is consistent</flow>
+			<flow>8. The system retrieves the complaint entry</flow>
+			<flow>9. The complaint is returned to the employee</flow>
+			<flow>10. The complaint is formatted and presented to the employee on their local display</flow>
+			<flow>11. The employee enters the conclusion</flow>
+			<flow>12. The conclusion is sent to the server</flow>
+			<flow>13. The complaint status is set to closed; the date the conclusion was entered is set in addition to the employee who dealt with the complaint</flow>
+			<flow>14. The system ensures the complaint is left in a consistent state</flow>
+			<flow>15. The complaint information is updated to store the new information</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>2 and 8: An error occurs retrieving the registered complaints</flow>
+			<flow> 2. Raise an error message</flow>
+			<flow>7 and 14: Data consistency cannot be ensured</flow>
+			<flow> 1. The complaint changes are rolled-back</flow>
+			<flow> 2. Raise an error message</flow>
+			<flow>3, 6, 9, and 12: A communication error occurs</flow>
+			<flow> 1. Raise an error message</flow>
+			<flow>15: An error occurs storing the updated complaint</flow>
+			<flow> 1. The complaint changes are rolled back</flow>
+			<flow> 2. Raise an error message</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	
+	<use-case>
+		<id>6</id>
+		<name>Register new employee</name>
+		<actor>Employee</actor>
+		<description>This use case allows new employees to be registered on the system</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>Verified employee</condition>
+		</preconditions>
+		<postconditions>
+			<condition>New employee registered on the system</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee selects the insert employee option</flow>
+			<flow>2. The employee provides the following information about the new employee: Name, Login ID, Password (with second password field for confirmation)</flow>
+			<flow>3. The employee confirms the operation</flow>
+			<flow>4. The entered data is transmitted to the server</flow>
+			<flow>5. The system verifies the entered data</flow>
+			<flow>6. The system ensures employee data is consistent</flow>
+			<flow>7. The system saves the new employee's data</flow>
+		</basic-flow>
+	<alternative-flow>
+				<flow>2: Incomplete data entered</flow>
+				<flow>1. Show a message informing the employee of the missing/incorrect	data</flow>
+				<flow>4: A communication error occurs</flow>
+				<flow>1. Raise an error message</flow>
+				<flow>5: The employee is already entered</flow>
+				<flow>1. Inform the employee that the new employee is already entered</flow>
+				<flow>2. Abandon the entry</flow>
+				<flow>6: Data Consistency cannot be ensured</flow>
+				<flow>1. The employee entry is rolled-back</flow>
+				<flow>2. The employee is informed the employee cannot be inserted</flow>
+				<flow>7: An error occurs storing the new employee’s details</flow>
+				<flow>1. The employee entry is rolled-back</flow>
+				<flow>2. Raise an error message</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	<use-case>
+		<id>7</id>
+		<name>Update employee</name>
+		<actor>Employee</actor>
+		<description>This use case allows of the employee's data to be updated on the system</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>Verified employee</condition>
+		</preconditions>
+		<postconditions>
+			<condition>Employee's data updated on the system</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee chooses the update employee option</flow>
+			<flow>2. The employee provides the data to be updated: Name, New password (with second password field for confirmation)Current password</flow>
+			<flow>3. The employee confirms the update</flow>
+			<flow>4. The entered data is sent to the server</flow>
+			<flow>5. The system verifies the entered data</flow>
+			<flow>6. The system ensures the employee data is consistent</flow>
+			<flow>7. The system stores the updated employee information</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>On step 3, in case the name or the current password is missing/invalid, an
+error message should be showed</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	<use-case>
+		<id>8</id>
+		<name>Update health unit</name>
+		<actor>Employee</actor>
+		<description>This use case allows the health unit's data to be updated</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>Verified employee</condition>
+		</preconditions>
+		<postconditions>
+			<condition>Health unit's data updated on the system</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee chooses the update health unit option</flow>
+			<flow>2. The system retrieves the list of all health units</flow>
+			<flow>3. The list of health units is returned to the employee</flow>
+			<flow>4. The list of health units is formatted and displayed on the employee�s local display</flow>
+			<flow>5. The employee selects the health unit to be updated</flow>
+			<flow>6. The unique identifier for the selected health unit is sent to the server</flow>
+			<flow>7. The system ensures the health unit data is consistentv</flow>
+			<flow>8. The system retrieves the data for the selected health unit</flow>
+			<flow>9. The data retrieved is returned to the employee</flow>
+			<flow>10. The health unit data is formatted and presented on the employee�s local display</flow>
+			<flow>11. The employee alters the necessary data</flow>
+			<flow>12. The updated information is sent to the server</flow>
+			<flow>13. The system ensures the health unit data is left in a consistent state</flow>
+			<flow>14. The system stores the updated health unit information</flow>	
+	</basic-flow>
+	<alternative-flow>
+		<flow>2, 8: A problem occurs retrieving the health unit information</flow>
+		<flow>1. Raise an error message</flow>
+		<flow>3, 6, 9, 12: A communication problem occurs</flow>
+		<flow>1. Raise an error message</flow>
+		<flow>7 and 13: Data consistency cannot be assured</flow>
+		<flow>1. Any health unit updates are rolled-back</flow>
+		<flow>2. Raise an error message</flow>
+		<flow>14: A problem occurs storing the updated health unit data</flow>
+		<flow>1. Any health unit updates are rolled-back</flow>
+		<flow>2. Raise an error message</flow>
+	</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+	
+	<use-case>
+		<id>9</id>
+		<name>Change logged employee</name>
+		<actor>Employee</actor>
+		<description>This use case allows the currently logged employee to be changed</description>
+		<priority>High</priority>
+		<trigger></trigger>
+		<preconditions>
+			<condition>Verified employee</condition>
+		</preconditions>
+		<postconditions>
+			<condition>First employee signed out and new employee logged-in</condition>
+		</postconditions>
+		<basic-flow>
+			<flow>1. The employee chooses the change logged employee option</flow>
+			<flow>2. The system shows the login screen, and from this point on, the flow will follow the one described in [Login.FR10]</flow>
+		</basic-flow>
+		<alternative-flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+		
+	<!-- EARLY ASPECTS -->
+	
+	<early-aspect>
 		<id>1</id>
+		<name>presented</name>
+		<pairs>
+			<pair>
+				<verb>perform</verb>
+				<object>queries</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>			
+			<pair>
+				<verb>presented</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>representing</verb>
+				<object>unit</object>
+			</pair>
+			<pair>
+				<verb>representing</verb>
+				<object>specialty</object>
+			</pair>
+			<pair>
+				<verb>representing</verb>
+				<object>complaint</object>
+			</pair>
+			<pair>
+				<verb>representing</verb>
+				<object>type</object>
+			</pair>
+			<pair>
+				<verb>creates</verb>
+				<object>instance</object>
+			</pair>
+			<pair>
+				<verb>generates</verb>
+				<object>assigns</object>
+			</pair>
+			<pair>
+				<verb>alters</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>being</verb>
+				<object>system</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>2</id>
+		<name>stored</name>
+		<pairs>
+			<pair>
+				<verb>stored</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>stored</verb>
+				<object></object>
+			</pair>
+			
+			<pair>
+				<verb>stored</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>store</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>storing</verb>
+				<object>complaint</object>
+			</pair>
+			<pair>
+				<verb>storing</verb>
+				<object>complaint</object>
+			</pair>
+			
+			<pair>
+				<verb>storing</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>have</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>have</verb>
+				<object>HELP</object>
+			</pair>
+			<pair>
+				<verb>has</verb>
+				<object>access</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>3</id>
+		<name>ensures</name>
+		<pairs>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensures</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>ensured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ensured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>assured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>assured</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>confirms</verb>
+				<object>operation</object>
+			</pair>
+			<pair>
+				<verb>confirms</verb>
+				<object>update</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>4</id>
+		<name>allowed</name>
+		<pairs>
+			<pair>
+				<verb>allows</verb>
+				<object>citizen</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>citizen</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>employees</object>
+			</pair>
+			
+			<pair>
+				<verb>allows</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>registration</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>data</object>
+			</pair>
+			
+			<pair>
+				<verb>allowed</verb>
+				<object>sub-system</object>
+			</pair>
+			<pair>
+				<verb>provides</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>provides</verb>
+				<object>password</object>
+			</pair>
+			</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>5</id>
+		<name>retrieved</name>
+		<pairs>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sent</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>retrieved</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>transmitted</verb>
+				<object>server</object>
+			</pair>
+			<pair>
+				<verb>sending</verb>
+				<object>data</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>6</id>
+		<name>retrieves</name>
+		<pairs>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>list</object>
+			</pair>
+			
+			<pair>
+				<verb>retrieved</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>retrieve</verb>
+				<object>entry</object>
+			</pair>
+			<pair>
+				<verb>retrieve</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>retrieve</verb>
+				<object>type</object>
+			</pair>
+			<pair>
+				<verb>retrieving</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>details</object>
+			</pair>
+			<pair>
+				<verb>retrieving</verb>
+				<object>details</object>
+			</pair>
+			<pair>
+				<verb>retrieving</verb>
+				<object>complaints</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>determine</verb>
+				<object>type</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	
+	<early-aspect>
+		<id>7</id>
+		<name>entered</name>
+		<pairs>
+			<pair>
+				<verb>entered</verb>
+				<object></object>
+			</pair>
+			
+			<pair>
+				<verb>entered</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>entered</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>entered</verb>
+				<object>user</object>
+			</pair>
+			
+			<pair>
+				<verb>enters</verb>
+				<object>conclusion</object>
+			</pair>
+			<pair>
+				<verb>registered</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>registered</verb>
+				<object>system</object>
+			</pair>
+			
+			<pair>
+				<verb>registers</verb>
+				<object>time</object>
+			</pair>
+			<pair>
+				<verb>register</verb>
+				<object>complaints</object>
+			</pair>
+			<pair>
+				<verb>enters</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>option</object>
+			</pair>
+			
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>8</id>
+		<name>selects</name>
+		<pairs>
+			<pair>
+				<verb>chooses</verb>
+				<object>type</object>
+			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>unit</object>
+			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>unit</object>
+			</pair>
+			
+			<pair>
+				<verb>selects</verb>
+				<object>specialty</object>
+			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>deasease</object>
+			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>kind</object>
+			</pair>
+			<pair>
+				<verb>selects</verb>
+				<object>option</object>
+			</pair>
+			<pair>
+				<verb>using</verb>
+				<object>login</object>
+			</pair>
+			<pair>
+				<verb>use</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>use</verb>
+				<object>protocol</object>
+			</pair>
+			<pair>
+				<verb>used</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>using</verb>
+				<object>servlets</object>
+			</pair>
+			<pair>
+				<verb>fixed</verb>
+				<object></object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	
+	<early-aspect>
+		<id>9</id>
+		<name>retrieves</name>
+		<pairs>
+			<pair>
+				<verb>chooses</verb>
+				<object>option</object>
+			</pair>
+			<pair>
+				<verb>chooses</verb>
+				<object>change</object>
+			</pair>
+			<pair>
+				<verb>associated</verb>
+				<object>specialty</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>retrieving</verb>
+				<object>information</object>
+			</pair>
+			</pairs>
+	</early-aspect>
+
+	
+	
+	<early-aspect>
+		<id>10</id>
+		<name>updated</name>
+		<pairs>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>update</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>informing</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>described</verb>
+				<object>login</object>
+			</pair>
+			<pair>
+				<verb>changed</verb>
+				<object></object>
+			</pair>
+			
+			</pairs>
+	</early-aspect>
+
+	
+	<early-aspect>
+		<id>11</id>
+		<name>updated</name>
+		<pairs>
+			<pair>
+				<verb>queried</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>queried</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>queried</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>left</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>left</verb>
+				<object>state</object>
+			</pair>
+			
+			<pair>
+				<verb>left</verb>
+				<object>state</object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>updated</verb>
+				<object>system</object>
+			</pair>
+			</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>12</id>
+		<name>saves</name>
+		<pairs>
+			<pair>
+				<verb>saves</verb>
+				<object>complaint</object>
+			</pair>
+			<pair>
+				<verb>saved</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>saves</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>saved</verb>
+				<object></object>
+			</pair>
+			</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>13</id>
+		<name>returned</name>
+		<pairs>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>user</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+			<pair>
+				<verb>returned</verb>
+				<object>employee</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	
+	<early-aspect>
+		<id>14</id>
+		<name>grouped</name>
+		<pairs>
+			<pair>
+				<verb>grouped</verb>
+				<object>units</object>
+			</pair>
+			<pair>
+				<verb>grouped</verb>
+				<object>units</object>
+			</pair>
+			<pair>
+				<verb>grouped</verb>
+				<object>specialties</object>
+			</pair>
+			<pair>
+				<verb>grouped</verb>
+				<object>specialties</object>
+			</pair>
+			
+			<pair>
+				<verb>typed</verb>
+				<object>data</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+	<early-aspect>
+		<id>15</id>
+		<name>provides</name>
+		<pairs>
+			<pair>
+				<verb>provides</verb>
+				<object>code</object>
+			</pair>
+			<pair>
+				<verb>provides</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>provides</verb>
+				<object>data</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+	
+
+	<early-aspect>
+		<id>16</id>
 		<name>validates</name>
 		<pairs>
 			<pair>
@@ -46,12 +1127,265 @@
 			</pair>
 		</pairs>
 	</early-aspect>
+
+	<early-aspect>
+		<id>17</id>
+		<name>occurs</name>
+		<pairs>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>ocurrs</verb>
+				<object></object>
+			</pair>
+			<pair>
+				<verb>dealt</verb>
+				<object>complaint</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>18</id>
+		<name>verifies</name>
+		<pairs>
+			<pair>
+				<verb>verifies</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>verifies</verb>
+				<object>data</object>
+			</pair>
+			</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>19</id>
+		<name>stores</name>
+		<pairs>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<!-- RELATIONS -->
 	
 	<relation>
 		<early-aspect>1</early-aspect>
 		<use-cases>
 			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>5</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>2</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>5</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>3</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>5</id>
+			<id>6</id>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>4</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>5</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>5</id>
+			<id>6</id>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>6</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>3</id>
+			<id>5</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>7</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>8</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>5</id>
+			<id>6</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
+	
+	<relation>
+		<early-aspect>9</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>4</id>
+			<id>7</id>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
+	
+	<relation>
+		<early-aspect>10</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>5</id>
+			<id>7</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
+	
+	<relation>
+		<early-aspect>11</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>5</id>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
+	
+	<relation>
+		<early-aspect>12</early-aspect>
+		<use-cases>
+			<id>2</id>
+			<id>4</id>
+			
+		</use-cases>
+	</relation>
+	
+	
+	
+	<relation>
+		<early-aspect>13</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>5</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
+	<relation>
+		<early-aspect>14</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>5</id>
+			
+		</use-cases>
+	</relation>
+	
+	<relation>
+		<early-aspect>15</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>8</id>
 		</use-cases>
 	</relation>
 
+
+	<relation>
+		<early-aspect>16</early-aspect>
+		<use-cases>
+			<id>3</id>
+		</use-cases>
+	</relation>
+
+	<relation>
+		<early-aspect>17</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+		<id>5</id>
+		<id>9</id>
+		</use-cases>
+	</relation>
+
+	<relation>
+		<early-aspect>18</early-aspect>
+		<use-cases>
+			<id>8</id>
+			<id>6</id>
+		</use-cases>
+	</relation>
+	
+	<relation>
+		<early-aspect>19</early-aspect>
+		<use-cases>
+			<id>8</id>
+			<id>9</id>
+		</use-cases>
+	</relation>
+	
 </project>
