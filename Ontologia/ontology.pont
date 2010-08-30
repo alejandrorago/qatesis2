@@ -1,4 +1,4 @@
-; Sat Aug 28 16:51:30 ART 2010
+; Sun Aug 29 21:25:49 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -75,11 +75,6 @@
 (defclass ConcreteQualityAttributeScenario
 	(is-a QualityAttributeScenario)
 	(role concrete)
-	(single-slot concreteScenarioHasSource
-		(type INSTANCE)
-;+		(allowed-classes ConcreteSource)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot concreteScenarioHasEnviroment
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteEnviroment)
@@ -103,6 +98,11 @@
 	(single-slot concreteScenarioHasResponse
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteResponse)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasSource
+		(type INSTANCE)
+;+		(allowed-classes ConcreteSource)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
