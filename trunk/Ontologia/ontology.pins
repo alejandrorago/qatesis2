@@ -1,4 +1,4 @@
-; Sat Aug 28 16:51:30 ART 2010
+; Sun Aug 29 21:25:50 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -353,7 +353,7 @@
 
 ([ontology_Instance_40056] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "changes level of service"))
+	(concreteScenarioPartDescription "level of service"))
 
 ([ontology_Instance_40057] of  ConcreteResponse
 
@@ -571,7 +571,7 @@
 
 ([ontology_Instance_50003] of  ConcreteArtifact
 
-	(concreteScenarioPartDescription "services"))
+	(concreteScenarioPartDescription "services fran"))
 
 ([ontology_Instance_50004] of  ConcreteEnviroment
 
@@ -1067,7 +1067,7 @@
 
 ([ontology_Instance_60057] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "initiates update customer account transaction"))
+	(concreteScenarioPartDescription "initiates customer account transaction"))
 
 ([ontology_Instance_60058] of  ConcreteQualityAttributeScenario
 
