@@ -1,4 +1,4 @@
-; Tue Aug 31 13:16:10 ART 2010
+; Tue Aug 31 19:46:59 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -16,14 +16,6 @@
 	(concreteScenarioHasSource [ontology_Instance_50001])
 	(concreteScenarioHasStimlus [ontology_Instance_50002])
 	(isSpecificof [ontology_Instance_30000]))
-
-([ontology_Instance_10000] of  ConcreteSource
-
-	(concreteScenarioPartDescription "employee"))
-
-([ontology_Instance_10003] of  ConcreteStimulus
-
-	(concreteScenarioPartDescription "tries to login into the system"))
 
 ([ontology_Instance_15] of  QualityAttribute
 
@@ -571,7 +563,7 @@
 
 ([ontology_Instance_50003] of  ConcreteArtifact
 
-	(concreteScenarioPartDescription "services fran"))
+	(concreteScenarioPartDescription "services"))
 
 ([ontology_Instance_50004] of  ConcreteEnviroment
 
