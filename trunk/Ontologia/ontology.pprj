@@ -1,4 +1,4 @@
-; Sun Aug 29 21:25:50 ART 2010
+; Tue Aug 31 13:16:11 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -20,16 +20,16 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontology_ProjectKB_Instance_10120]
-		[ontology_ProjectKB_Instance_10121]
-		[ontology_ProjectKB_Instance_10122]
-		[ontology_ProjectKB_Instance_10123]
-		[ontology_ProjectKB_Instance_10124]
-		[ontology_ProjectKB_Instance_10125]
-		[ontology_ProjectKB_Instance_10126]
-		[ontology_ProjectKB_Instance_10127]
-		[ontology_ProjectKB_Instance_10128]
-		[ontology_ProjectKB_Instance_10129]))
+		[ontology_ProjectKB_Instance_10110]
+		[ontology_ProjectKB_Instance_10111]
+		[ontology_ProjectKB_Instance_10112]
+		[ontology_ProjectKB_Instance_10113]
+		[ontology_ProjectKB_Instance_10114]
+		[ontology_ProjectKB_Instance_10115]
+		[ontology_ProjectKB_Instance_10116]
+		[ontology_ProjectKB_Instance_10117]
+		[ontology_ProjectKB_Instance_10118]
+		[ontology_ProjectKB_Instance_10119]))
 
 ([CLSES_TAB] of  Widget
 
@@ -196,52 +196,52 @@
 	(property_list [ontology_ProjectKB_Instance_11])
 	(widget_class_name "ezpal.EZPalTab"))
 
-([ontology_ProjectKB_Instance_10120] of  String
+([ontology_ProjectKB_Instance_10110] of  String
 
 	(name "ConcreteEnviroment")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10121] of  String
+([ontology_ProjectKB_Instance_10111] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([ontology_ProjectKB_Instance_10122] of  String
+([ontology_ProjectKB_Instance_10112] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([ontology_ProjectKB_Instance_10123] of  String
+([ontology_ProjectKB_Instance_10113] of  String
 
 	(name "ConcreteResponseMeasure")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10124] of  String
+([ontology_ProjectKB_Instance_10114] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([ontology_ProjectKB_Instance_10125] of  String
+([ontology_ProjectKB_Instance_10115] of  String
 
 	(name "ConcreteStimulus")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10126] of  String
+([ontology_ProjectKB_Instance_10116] of  String
 
 	(name "ConcreteArtifact")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10127] of  String
+([ontology_ProjectKB_Instance_10117] of  String
 
 	(name "ConcreteResponse")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10128] of  String
+([ontology_ProjectKB_Instance_10118] of  String
 
 	(name "ConcreteSource")
 	(string_value "concreteScenarioPartDescription"))
 
-([ontology_ProjectKB_Instance_10129] of  String
+([ontology_ProjectKB_Instance_10119] of  String
 
 	(name "QualityAttribute")
 	(string_value "qualityAttributeName"))
