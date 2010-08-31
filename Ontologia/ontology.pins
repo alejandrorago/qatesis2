@@ -1,4 +1,4 @@
-; Tue Aug 31 19:46:59 ART 2010
+; Tue Aug 31 19:59:49 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -688,7 +688,7 @@
 
 ([ontology_Instance_50030] of  ConcreteResponseMeasure
 
-	(concreteScenarioPartDescription "restore data services"))
+	(concreteScenarioPartDescription "restore data services restore data services verifies validates password"))
 
 ([ontology_Instance_50031] of  ConcreteQualityAttributeScenario
 

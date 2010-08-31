@@ -1,4 +1,4 @@
-; Tue Aug 31 19:46:59 ART 2010
+; Tue Aug 31 19:59:49 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -20,16 +20,16 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontology_ProjectKB_Instance_20130]
-		[ontology_ProjectKB_Instance_20131]
-		[ontology_ProjectKB_Instance_20132]
-		[ontology_ProjectKB_Instance_20133]
-		[ontology_ProjectKB_Instance_20134]
-		[ontology_ProjectKB_Instance_20135]
-		[ontology_ProjectKB_Instance_20136]
-		[ontology_ProjectKB_Instance_20137]
-		[ontology_ProjectKB_Instance_20138]
-		[ontology_ProjectKB_Instance_20139]))
+		[ontology_ProjectKB_Instance_20140]
+		[ontology_ProjectKB_Instance_20141]
+		[ontology_ProjectKB_Instance_20142]
+		[ontology_ProjectKB_Instance_20143]
+		[ontology_ProjectKB_Instance_20144]
+		[ontology_ProjectKB_Instance_20145]
+		[ontology_ProjectKB_Instance_20146]
+		[ontology_ProjectKB_Instance_20147]
+		[ontology_ProjectKB_Instance_20148]
+		[ontology_ProjectKB_Instance_20149]))
 
 ([CLSES_TAB] of  Widget
 
@@ -251,47 +251,47 @@
 	(property_list [ontology_ProjectKB_Instance_21])
 	(widget_class_name "uk.ac.man.ac.mig.coode.individuals.ui.OWLDLIndividualsTab"))
 
-([ontology_ProjectKB_Instance_20130] of  String
+([ontology_ProjectKB_Instance_20140] of  String
 
 	(name "ConcreteStimulus"))
 
-([ontology_ProjectKB_Instance_20131] of  String
+([ontology_ProjectKB_Instance_20141] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([ontology_ProjectKB_Instance_20132] of  String
+([ontology_ProjectKB_Instance_20142] of  String
 
 	(name "ConcreteResponseMeasure"))
 
-([ontology_ProjectKB_Instance_20133] of  String
+([ontology_ProjectKB_Instance_20143] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([ontology_ProjectKB_Instance_20134] of  String
+([ontology_ProjectKB_Instance_20144] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([ontology_ProjectKB_Instance_20135] of  String
+([ontology_ProjectKB_Instance_20145] of  String
 
 	(name "ConcreteEnviroment"))
 
-([ontology_ProjectKB_Instance_20136] of  String
+([ontology_ProjectKB_Instance_20146] of  String
 
 	(name "QualityAttribute")
 	(string_value "qualityAttributeName"))
 
-([ontology_ProjectKB_Instance_20137] of  String
+([ontology_ProjectKB_Instance_20147] of  String
 
 	(name "ConcreteSource"))
 
-([ontology_ProjectKB_Instance_20138] of  String
+([ontology_ProjectKB_Instance_20148] of  String
 
 	(name "ConcreteResponse"))
 
-([ontology_ProjectKB_Instance_20139] of  String
+([ontology_ProjectKB_Instance_20149] of  String
 
 	(name "ConcreteArtifact"))
 
