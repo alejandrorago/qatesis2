@@ -1,4 +1,4 @@
-; Tue Aug 31 19:59:49 ART 2010
+; Wed Sep 08 10:35:20 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -20,16 +20,16 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[ontology_ProjectKB_Instance_20140]
-		[ontology_ProjectKB_Instance_20141]
-		[ontology_ProjectKB_Instance_20142]
-		[ontology_ProjectKB_Instance_20143]
-		[ontology_ProjectKB_Instance_20144]
-		[ontology_ProjectKB_Instance_20145]
-		[ontology_ProjectKB_Instance_20146]
-		[ontology_ProjectKB_Instance_20147]
-		[ontology_ProjectKB_Instance_20148]
-		[ontology_ProjectKB_Instance_20149]))
+		[ontology_ProjectKB_Instance_10135]
+		[ontology_ProjectKB_Instance_10136]
+		[ontology_ProjectKB_Instance_10137]
+		[ontology_ProjectKB_Instance_10138]
+		[ontology_ProjectKB_Instance_10139]
+		[ontology_ProjectKB_Instance_10140]
+		[ontology_ProjectKB_Instance_10141]
+		[ontology_ProjectKB_Instance_10142]
+		[ontology_ProjectKB_Instance_10143]
+		[ontology_ProjectKB_Instance_10144]))
 
 ([CLSES_TAB] of  Widget
 
@@ -196,6 +196,56 @@
 	(property_list [ontology_ProjectKB_Instance_11])
 	(widget_class_name "ezpal.EZPalTab"))
 
+([ontology_ProjectKB_Instance_10135] of  String
+
+	(name "ConcreteStimulus")
+	(string_value "concreteScenarioPartDescription"))
+
+([ontology_ProjectKB_Instance_10136] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([ontology_ProjectKB_Instance_10137] of  String
+
+	(name "ConcreteResponseMeasure")
+	(string_value "concreteScenarioPartDescription"))
+
+([ontology_ProjectKB_Instance_10138] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([ontology_ProjectKB_Instance_10139] of  String
+
+	(name "ConcreteEnviroment")
+	(string_value "concreteScenarioPartDescription"))
+
+([ontology_ProjectKB_Instance_10140] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([ontology_ProjectKB_Instance_10141] of  String
+
+	(name "QualityAttribute")
+	(string_value "qualityAttributeName"))
+
+([ontology_ProjectKB_Instance_10142] of  String
+
+	(name "ConcreteSource")
+	(string_value "concreteScenarioPartDescription"))
+
+([ontology_ProjectKB_Instance_10143] of  String
+
+	(name "ConcreteResponse")
+	(string_value "concreteScenarioPartDescription"))
+
+([ontology_ProjectKB_Instance_10144] of  String
+
+	(name "ConcreteArtifact")
+	(string_value "concreteScenarioPartDescription"))
+
 ([ontology_ProjectKB_Instance_11] of  Property_List
 )
 
@@ -250,50 +300,6 @@
 	(is_hidden TRUE)
 	(property_list [ontology_ProjectKB_Instance_21])
 	(widget_class_name "uk.ac.man.ac.mig.coode.individuals.ui.OWLDLIndividualsTab"))
-
-([ontology_ProjectKB_Instance_20140] of  String
-
-	(name "ConcreteStimulus"))
-
-([ontology_ProjectKB_Instance_20141] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([ontology_ProjectKB_Instance_20142] of  String
-
-	(name "ConcreteResponseMeasure"))
-
-([ontology_ProjectKB_Instance_20143] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([ontology_ProjectKB_Instance_20144] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([ontology_ProjectKB_Instance_20145] of  String
-
-	(name "ConcreteEnviroment"))
-
-([ontology_ProjectKB_Instance_20146] of  String
-
-	(name "QualityAttribute")
-	(string_value "qualityAttributeName"))
-
-([ontology_ProjectKB_Instance_20147] of  String
-
-	(name "ConcreteSource"))
-
-([ontology_ProjectKB_Instance_20148] of  String
-
-	(name "ConcreteResponse"))
-
-([ontology_ProjectKB_Instance_20149] of  String
-
-	(name "ConcreteArtifact"))
 
 ([ontology_ProjectKB_Instance_21] of  Property_List
 )
@@ -585,8 +591,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[PAL_FORM_WIDGET]
-		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
+		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
