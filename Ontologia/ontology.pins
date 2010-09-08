@@ -1,4 +1,4 @@
-; Tue Aug 31 19:59:49 ART 2010
+; Wed Sep 08 10:35:20 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -16,6 +16,15 @@
 	(concreteScenarioHasSource [ontology_Instance_50001])
 	(concreteScenarioHasStimlus [ontology_Instance_50002])
 	(isSpecificof [ontology_Instance_30000]))
+
+([ontology_Instance_10000] of  ConcreteQualityAttributeScenario
+
+	(concreteScenarioHasResponse [ontology_Instance_10001])
+	(isSpecificof [ontology_Instance_50000]))
+
+([ontology_Instance_10001] of  ConcreteResponse
+
+	(concreteScenarioPartDescription "Same screen presented to user, but different presentation  fonts sizes colors"))
 
 ([ontology_Instance_15] of  QualityAttribute
 
@@ -803,7 +812,7 @@
 
 ([ontology_Instance_50055] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "display system state work at the user's pace"))
+	(concreteScenarioPartDescription "display show system state work at the user's pace"))
 
 ([ontology_Instance_50056] of  ConcreteEnviroment
 
@@ -969,7 +978,7 @@
 
 ([ontology_Instance_60037] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "All displays must start showing the scheduled arrival time for all buses ing the scheduled arrival time for the bus"))
+	(concreteScenarioPartDescription "All displays must start showing the scheduled arrival time for all buses"))
 
 ([ontology_Instance_60038] of  ConcreteArtifact
 
@@ -1089,7 +1098,7 @@
 
 ([ontology_Instance_60063] of  ConcreteResponse
 
-	(concreteScenarioPartDescription "produces an estimated arrival time for all relevant displays and sends them out to the display where the estimate is shown"))
+	(concreteScenarioPartDescription "produces an estimated arrival time for all relevant displays and sends them out to the display"))
 
 ([ontology_Instance_60064] of  ConcreteResponseMeasure
 
