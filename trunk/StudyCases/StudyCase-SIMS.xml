@@ -9,13 +9,13 @@
 		<priority>High</priority>
 		<trigger>The student selects the inscription for courses activity</trigger>
 		<preconditions>
-			<condition>The student must be logged.</condition>
+			<condition>The student must be logged</condition>
 		</preconditions>
 		<postconditions />
 		<basic-flow>
 			<flow>The system checks whether the student has permissions to do that operation</flow>
 			<flow>The system analyzes according to the courses taken by the student which s/he is allowed to follow</flow>
-			<flow>TThe system shows to the student the courses s/he can follow</flow>
+			<flow>The system shows to the student the courses s/he can follow</flow>
 			<flow>The student chooses a course</flow>
 			<flow>The system stores the information of the inscription</flow>
 		</basic-flow>
@@ -92,6 +92,30 @@
 				<object>permissions</object>
 			</pair>
 			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>have</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>has</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
+				<verb>has</verb>
+				<object>permissions</object>
+			</pair>
+			<pair>
 				<verb>has</verb>
 				<object>permissions</object>
 			</pair>
@@ -102,6 +126,14 @@
 		<id>2</id>
 		<name>shows</name>
 		<pairs>
+			<pair>
+				<verb>shows</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>shows</verb>
+				<object>message</object>
+			</pair>
 			<pair>
 				<verb>shows</verb>
 				<object>message</object>
@@ -127,6 +159,10 @@
 			</pair>
 			<pair>
 				<verb>do</verb>
+				<object>operation</object>
+			</pair>
+			<pair>
+				<verb>do</verb>
 				<object>activity</object>
 			</pair>
 			<pair>
@@ -140,6 +176,10 @@
 		<id>4</id>
 		<name>stores</name>
 		<pairs>
+			<pair>
+				<verb>stores</verb>
+				<object>information</object>
+			</pair>
 			<pair>
 				<verb>stores</verb>
 				<object>information</object>
