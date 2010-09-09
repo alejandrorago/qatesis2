@@ -1,0 +1,133 @@
+1) Extrayendo los datos del proyecto (Mon Mar 30 12:20:43 ART 2009)
+2) Realizando el analisis del procesador NLP (Mon Mar 30 12:20:43 ART 2009)
+3) Realizando la desambiguacion semantica (Mon Mar 30 12:20:47 ART 2009)
+4) Extrayendo verbos y objetos directos (Mon Mar 30 12:20:53 ART 2009)
+No existia un verbo en el predicado (probablemente se detecto como sustantivo)
+No se pudo detectar, incluso con el uso del parche
+El parche encontro un verbo mal etiquetado por el NLP.
+El parche encontro un verbo mal etiquetado por el NLP.
+El verbo no era ni transitivo ni intransitivo, era un verbo be)
+El verbo no era ni transitivo ni intransitivo, era un verbo nexo)
+No existia un verbo en el predicado (probablemente se detecto como sustantivo)
+No se pudo detectar, incluso con el uso del parche
+El parche encontro un verbo mal etiquetado por el NLP.
+El verbo no era ni transitivo ni intransitivo, era un verbo nexo)
+El verbo no era ni transitivo ni intransitivo, era un verbo nexo)
+El verbo no era ni transitivo ni intransitivo, era un verbo be)
+5) Generando el grafo de identificacion (Mon Mar 30 12:20:53 ART 2009)
+6) Buscando aspectos candidatos en el grafo (Mon Mar 30 12:20:54 ART 2009)
+7) Ordenando los aspectos candidatos encontrados (Mon Mar 30 12:20:54 ART 2009)
+8) Generando tabla de informacion (Mon Mar 30 12:20:54 ART 2009)
+
+Aspecto Nº1: have
+Aspecto candidato funcional.
+Cuenta crosscutting total = 8.
+Cuenta croscutting CU: Register for a course = 3.
+Cuenta croscutting CU: Register for final exam = 2.
+Cuenta croscutting CU: Display statistics about students = 3.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: have, objeto directo: permissions.
+Verbo: have, objeto directo: permissions.
+Verbo: have, objeto directo: permissions.
+Verbo: have, objeto directo: permissions.
+Verbo: have, objeto directo: permissions.
+Verbo: has, objeto directo: permissions.
+Verbo: has, objeto directo: permissions.
+Verbo: has, objeto directo: permissions.
+
+
+Aspecto Nº2: shows
+Aspecto candidato funcional.
+Cuenta crosscutting total = 5.
+Cuenta croscutting CU: Register for a course = 1.
+Cuenta croscutting CU: Register for final exam = 2.
+Cuenta croscutting CU: Display statistics about students = 2.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: shows, objeto directo: message.
+Verbo: shows, objeto directo: courses.
+Verbo: shows, objeto directo: message.
+Verbo: shows, objeto directo: menu.
+Verbo: shows, objeto directo: message.
+
+
+Aspecto Nº3: occur
+Aspecto candidato no funcional.
+Cuenta crosscutting total = 3.
+Cuenta croscutting CU: Register for a course = 1.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 1.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: do, objeto directo: operation.
+Verbo: do, objeto directo: operation.
+Verbo: do, objeto directo: activity.
+Verbo: occur, objeto directo: seconds.
+
+
+Aspecto Nº4: checks
+Aspecto candidato funcional.
+Cuenta crosscutting total = 3.
+Cuenta croscutting CU: Register for a course = 2.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 0.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: checks, objeto directo: student.
+Verbo: checks, objeto directo: student.
+Verbo: according, objeto directo: courses.
+
+
+Aspecto Nº5: reboots
+Aspecto candidato funcional.
+Cuenta crosscutting total = 3.
+Cuenta croscutting CU: Register for a course = 1.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 1.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: reboots, objeto directo: case.
+Verbo: reboots, objeto directo: case.
+Verbo: reboots, objeto directo: case.
+
+
+Aspecto Nº6: chooses
+Aspecto candidato funcional.
+Cuenta crosscutting total = 3.
+Cuenta croscutting CU: Register for a course = 2.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 0.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: register, objeto directo: course.
+Verbo: chooses, objeto directo: course.
+Verbo: chooses, objeto directo: subject.
+
+
+Aspecto Nº7: follow
+Aspecto candidato funcional.
+Cuenta crosscutting total = 3.
+Cuenta croscutting CU: Register for a course = 2.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 0.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: follow
+Verbo: follow
+Verbo: sit, objeto directo: examen.
+
+
+Aspecto Nº8: process
+Aspecto candidato funcional.
+Cuenta crosscutting total = 2.
+Cuenta croscutting CU: Register for a course = 1.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 0.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: process, objeto directo: activity.
+Verbo: process, objeto directo: activity.
+
+
+Aspecto Nº9: stores
+Aspecto candidato funcional.
+Cuenta crosscutting total = 2.
+Cuenta croscutting CU: Register for a course = 1.
+Cuenta croscutting CU: Register for final exam = 1.
+Cuenta croscutting CU: Display statistics about students = 0.
+Pares (verbos, objetos directo) que determinan el aspecto candidato:
+Verbo: stores, objeto directo: information.
+Verbo: stores, objeto directo: information.
