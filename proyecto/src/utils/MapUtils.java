@@ -32,7 +32,7 @@ public class MapUtils {
 
         while (iterator.hasNext()) {
             qa = iterator.next();
-            logger.info(qa.getName() + " - " + map.get(qa).toString().substring(4));
+            logger.info(qa.getName() + " - " + map.get(qa).toString());
         }
     }
 
