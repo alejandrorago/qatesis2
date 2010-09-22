@@ -41,15 +41,10 @@ public class OntologyAlgorithm implements Algorithm {
      * @param owlFilePath DOCUMENT ME!
      * @param repositoryFilePath DOCUMENT ME!
      */
-    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath, FilterManager fm, String configurationFile) {
+    public OntologyAlgorithm(String owlFilePath, String repositoryFilePath, FilterManager fm, double k) {
         this.qabelongable = new OntologyManager(owlFilePath, repositoryFilePath, fm);
         
-        Properties properties = new Properties();
-		try {
-			properties.load(new FileInputStream(configurationFile));
-		} catch (IOException e) {
-		}
-	    this.useCaseFactor = Double.valueOf(properties.getProperty("USECASEFACTOR"));
+	    this.useCaseFactor = k;
     }
 
     /**
