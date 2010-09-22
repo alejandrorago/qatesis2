@@ -60,7 +60,7 @@ public class TestProjectManager {
 		
 		LoggerUtils.logList(tokensEAFiltered, "Lista Early Aspects Filtrados");
 		        
-        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository", fm,"resources/config.properties");
+        Algorithm algorithm = new OntologyAlgorithm("file:resources/ontology.owl","file:resources/ontology.repository", fm,0.5);
         algorithm.setUseCaseFactor(Double.valueOf(0.5));
         Map<QualityAttributeInterface,Double> map= algorithm.getQualityAttributePertenence(tokensUseCaseFiltered,tokensEAFiltered);
 	}
