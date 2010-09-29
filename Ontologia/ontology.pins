@@ -1,4 +1,4 @@
-; Wed Sep 08 10:35:20 ART 2010
+; Thu Sep 09 19:19:10 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -990,7 +990,7 @@
 
 ([ontology_Instance_60040] of  ConcreteStimulus
 
-	(concreteScenarioPartDescription "causes a failure"))
+	(concreteScenarioPartDescription "causes a failure exception"))
 
 ([ontology_Instance_60041] of  ConcreteSource
 
