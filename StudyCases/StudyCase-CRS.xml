@@ -1,0 +1,1413 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="CRS">
+
+	<!--
+		DESCRIPTION As the head of information systems for Wylie College you are tasked with developing a new student registration system. The college would like a new client-server system to replace its much  older system developed around mainframe technology. The new system will allow students to register for courses and view report cards from personal computers attached to the campus LAN. Professors will be able to access the system to sign up to teach courses as well as record grades. Due to a decrease in federal funding the college cannot afford to replace the entire system at once. The college will keep the existing course catalog database where all course information is maintained. This database is an Ingres relational database running on a DEC VAX. Fortunately the college has invested in an open SQL interface that allows access to this database from college�s Unix servers. The legacy system performance is rather poor, so the newsystem must insure that access to the data on the legacy system occurs in a timely manner. 
+
+		The new system will access course information from	the legacy database but will not update it. The registrar�s office will continue to maintain course information through another system. At the beginning of each semester students may request a course catalogue containing a list of course offerings for the semester. 	Information about each course, such as professor, department, and prerequisites will be included to help students make informed decisions. The new system will allow students to select four course offerings for the coming semester. In addition, each student will  indicate two alternative choices in case the student cannot be assigned to a primary selection. Course offerings will have a maximum	of ten students and a minimum of three students. A course offering with fewer than three students will be canceled. For each semester,
+		there is a period of time that students can change their schedule. Students must be able to access the system during this time to add or drop courses. Once the registration process is completed for a student, the registration system sends information to the billing system so the student can be billed for the semester. If a course fills up during the actual registration process, the student must be notified of the change before submitting the schedule for processing.
+		
+		At the end of the semester, the student will be able to access the system to view an electronic report card. Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access. Professors must be able to access the on-line system to indicate which courses they will be teaching. They will also need to see which students signed up for their course offerings. In addition, the professors will be able to record the grades for the students in each class.
+	-->
+
+
+	<!--  USE CASES  -->
+
+	<use-case>
+		<id>1</id>
+		<name>Login</name>
+		<actor>Student, Professor, Registrar</actor>
+		<description>This use case describes how a user logs into the Course
+			Registration System</description>
+		<priority>High</priority>
+		<trigger>The student selects the inscription for final exam activity
+		</trigger>
+		<preconditions>
+			<condition>The student must be logged</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>The system checks whether the student has permissions to do
+				that operation</flow>
+			<flow>The system selects, according to the passed courses by the
+				student which s/he can sit for the final exam</flow>
+			<flow>The system shows the courses to the student</flow>
+			<flow>The student chooses the desired subject</flow>
+			<flow>The system stores the information of the inscription</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>If the student is not log, or the student doesn't have any
+				permissions, the system shows an error message</flow>
+			<flow>The student gets the error</flow>
+			<flow>The system reboots the use case</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req>Safe connection</req>
+		</especial-reqs>
+	</use-case>
+
+
+	<use-case>
+		<id>2</id>
+		<name>View Report Card</name>
+		<description>This use case allows a Student to view his/her report
+			card for the previously completed semester</description>
+		<actor>Student</actor>
+		<priority>High</priority>
+		<trigger>The use case begins when the Student selects the "view report
+			card" activity from the Main Form</trigger>
+		<basic-flow>
+			<flow>View Report Card:
+				1. The system retrieves the grade information
+				for each of the courses
+				the Student completed during the previous
+				semester.
+				2. The system prepares, formats, and displays the grade
+				information.
+				3. When Student is finished viewing the grade
+				information the
+				Student selects "close."</flow>
+		</basic-flow>
+
+		<alternative-flow>
+			<flow> No Grade Information Available: If in the basic flow the
+				system cannot find any grade information from the previous semester
+				for the Student, a message is displayed. Once the Student
+				acknowledges the message the use case terminates.</flow>
+		</alternative-flow>
+		<preconditions>
+			<condition>Log In: Before this use case begins the Student has logged
+				onto the system</condition>
+		</preconditions>
+	</use-case>
+
+
+	<use-case>
+		<id>3</id>
+		<name>Register for Courses</name>
+		<description>This use case allows a Student to register for course
+			offerings in the current semester. The Student can also modify or
+			delete course selections if changes are made within the add/drop
+			period at the beginning of the semester. The Course Catalog System
+			provides a list of all the course offerings for the current semester
+		</description>
+		<actor>Student</actor>
+		<priority>High</priority>
+		<trigger>The use case begins when the Student selects the "maintain
+			schedule" activity from the Main Form</trigger>
+		<basic-flow>
+			<flow>Create a Schedule:
+				1. The Student selects "create schedule."
+				2.
+				The system displays a blank schedule form.
+				3. The system retrieves a
+				list of available course offerings from the
+				Course Catalog System.
+				4.
+				The Student selects 4 primary course offerings and 2 alternate
+				course offerings from the list of available offerings. Once the
+				selections are complete the Student selects "submit."
+				5. The "Add
+				Course Offering" sub-flow is performed at this step for
+				each selected
+				course offering.
+				6. The system saves the schedule.</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>Modify a Schedule:
+				1. The Student selects "modify schedule."
+				2.
+				The system retrieves and displays the Students current schedule
+				(e.g., the schedule for the current semester).
+				3. The system
+				retrieves a list of all the course offerings available
+				for the
+				current semester from the Course Catalog System. The system
+				displays
+				the list to the Student.
+				4. The Student can then modify the course
+				selections by deleting and
+				adding new courses. The Student selects
+				the courses to add from the
+				list of available courses. The Student
+				also selects any course
+				offerings to delete from the existing
+				schedule. Once the edits are
+				complete the Student selects "submit".
+				5. The "Add Course Offering" sub-flow is performed at this step for
+				each selected course offering.
+				6. The system saves the schedule.
+			</flow>
+			<flow>Delete a Schedule:
+
+				1. The Student selects the "delete schedule"
+				activity.
+				2. The system retrieves and displays the Student current
+				schedule.
+				3. The Student selects "delete."
+				4. The system prompts the
+				Student to verify the deletion.
+				5. The Student verifies the deletion.
+				6. The system deletes the schedule.
+		</flow>
+			<flow>Save a Schedule: At any point, the Student may choose to save a
+				schedule without submitting it by selecting "save". The current
+				schedule is saved, but the student is not added to any of the
+				selected course offerings. The course offerings are marked as
+				"selected" in the schedule</flow>
+			<flow>Add Course Offering: The system verifies that the Student has
+				the necessary prerequisites and that the course offering is open.
+				The system then adds the Student to the selected course offering.
+				The course offering is marked as "enrolled in" in the schedule.
+			</flow>
+			<flow>Unfulfilled Prerequisites or Course Full: If in the "Add
+				Course" sub-flow the system determines that the Student has not
+				satisfied the necessary prerequisites or that the selected course
+				offering is full, an error message is displayed. The Student can
+				either select a different course offering or cancel the operation,
+				at which point the use case is restarted</flow>
+			<flow>No Schedule Found: If in the "Modify a Schedule" or "Delete a
+				Schedule" sub-flows the system is unable to retrieve the Student�s
+				schedule, an error message is displayed. The Student acknowledges
+				the error and the use case is restarted.</flow>
+			<flow>Course Catalog System Unavailable: If, the system is unable to
+				communicate with the Course Catalog System after a specified number
+				of tries, the system will display an error message to the Student.
+				The Student acknowledges the error message and the use case
+				terminates</flow>
+			<flow>Course Registration Closed: If, when the student selects
+				"maintain schedule", registration for the current semester has been
+				closed, a message is displayed to the Student and the use case
+				terminates. Students cannot register for courses after registration
+				for the current semester has been closed.</flow>
+		</alternative-flow>
+
+		<preconditions>
+			<condition>Log In: Before this use case begins the Student has logged
+				onto the system</condition>
+		</preconditions>
+
+	</use-case>
+
+	<use-case>
+		<id>4</id>
+		<name>Select Courses to Teach </name>
+		<description>This use case allows a professor to select the course
+			offerings (date- and time- specific courses will be given) from the
+			course catalog for the courses that he/she is eligible for and wishes
+			to teach in the upcoming semester.</description>
+		<actor>Professor</actor>
+		<priority>High</priority>
+		<trigger>The use case begins when the professor selects the "select
+			courses to teach" activity from the Main Form</trigger>
+		<basic-flow>
+			<flow>Select Courses to Teach
+				1. The system retrieves and displays the
+				list of course offerings the
+				professor is eligible to teach for the
+				current semester. The system
+				also retrieves and displays the list of
+				courses the professor has
+				previously selected to teach.
+				2. The
+				professor selects and/or de-selects the course offerings that
+				he/she
+				wishes to teach for the upcoming semester.
+				3. The system removes the
+				professor from teaching the de-selected
+				course offerings.
+				4. The
+				system verifies that the selected offerings do not conflict
+				(i.e.,
+				have the same dates and times) with each other or any
+				offerings the
+				professor has previously signed up to teach. If there
+				is no conflict,
+				the system updates the course offering information
+				for each offering
+				the professor selects</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>No Courses Available: If in the basic flow the professor is not
+				eligible to teach any courses in the upcoming semester the system
+				will display an error message. The professor acknowledges the
+				message and the use case ends.</flow>
+			<flow>Schedule Conflict: If the systems find a schedule conflict when
+				trying to establish the course offerings the Professor should take,
+				the system will display an error message indicating that a schedule
+				conflict has occurred. The system will also indicate which are the
+				conflicting courses. The professor can either resolve the schedule
+				conflict (i.e., by canceling his selection to teach one of the
+				course offerings) or cancel the operation, in which case any
+				selections will be lost and the use case ends.</flow>
+			<flow>Course Registration Closed: If, when the Professor selects
+				"select courses to teach", registration for the current semester has
+				been closed, a message is displayed to the Professor and the use
+				case terminates. Professors cannot change the course offerings they
+				teach after registration for the current semester has been closed.
+				If a professor change is needed after registration has been closed,
+				it is handled outside the scope of this system.
+</flow>
+			<flow>Add Course Offering: The system verifies that the Student has
+				the necessary prerequisites and that the course offering is open.
+				The system then adds the Student to the selected course offering.
+				The course offering is marked as "enrolled in" in the schedule.
+			</flow>
+			<flow>Unfulfilled Prerequisites or Course Full: If in the "Add
+				Course" sub-flow the system determines that the Student has not
+				satisfied the necessary prerequisites or that the selected course
+				offering is full, an error message is displayed. The Student can
+				either select a different course offering or cancel the operation,
+				at which point the use case is restarted.</flow>
+			<flow>No Schedule Found: If in the "Modify a Schedule" or "Delete a
+				Schedule" sub-flows the system is unable to retrieve the Student�s
+				schedule, an error message is displayed. The Student acknowledges
+				the error and the use case is restarted.</flow>
+			<flow>Course Catalog System Unavailable: If, the system is unable to
+				communicate with the Course Catalog System after a specified number
+				of tries, the system will display an error message to the Student.
+				The Student acknowledges the error message and the use case
+				terminates.</flow>
+			<flow> Course Registration Closed: If, when the student selects
+				"maintain schedule", registration for the current semester has been
+				closed, a message is displayed to the Student and the use case
+				terminates. Students cannot register for courses after registration
+				for the current semester has been closed.</flow>
+		</alternative-flow>
+		<preconditions>
+			<condition>Log In: Before this use case begins the Professor has
+				logged onto the system</condition>
+		</preconditions>
+	</use-case>
+
+
+
+	<use-case>
+		<id>5</id>
+		<name>Submit Grades</name>
+		<description>This use case allows a Professor to submit student grades
+			for one or more classes completed in the previous semester
+		</description>
+		<actor>Professor</actor>
+		<priority>High</priority>
+		<trigger>The use case begins when the Professor selects the "submit
+			grades" activity from the Main Form</trigger>
+		<basic-flow>
+			<flow>Submit Grades
+				1. The system displays a list of course offerings
+				the Professor taught
+				in the previous semester.
+				2. The Professor
+				selects a course offering.
+				3. The system retrieves a list of all
+				students who were registered for
+				the course offering. The system also
+				retrieves the grade information
+				for each student in the offering.
+				4.
+				The system displays each student and any grade that was previously
+				assigned for the offering.
+				5. For each student on the list, the
+				Professor enters a grade: A, B,
+				C, D, F, or I. The system records the
+				student�s grade for the course
+				offering. If the Professor wishes to
+				skip a particular student, the
+				grade information can be left blank
+				and filled in at a later time.
+				The Professor may also change the
+				grade for a student by entering a
+				new grade.</flow>
+		</basic-flow>
+
+		<alternative-flow>
+			<flow>No Courses Taught: If in the basic flow, the Professor did not
+				teach any course offerings in the previous semester the system
+				displays an error message and the use case ends.</flow>
+			<flow>Course Cancelled: if too many students withdrew from the course
+				during the add/drop period and the course was cancelled after the
+				beginning of the semester, the system displays an error message. If
+				the Professor chooses to cancel the operation the use case
+				terminates, otherwise is restarted at step 2 of the basic flow.
+			</flow>
+		</alternative-flow>
+		<preconditions>
+			<condition>Log In: Before this use case begins the Professor has
+				logged onto the system</condition>
+		</preconditions>
+	</use-case>
+
+
+
+
+
+
+	<use-case>
+		<id>6</id>
+		<name>Maintain Professor Information</name>
+		<actor>Registrar</actor>
+		<description>This use case allows the Registrar to maintain professor
+			information in the registration system. This includes adding,
+			modifying, and deleting professors from the system</description>
+		<priority>Low</priority>
+		<trigger>The use case begins when the Registrar selects the "maintain
+			professor" activity from the Main Form</trigger>
+		<preconditions>
+			<condition>1. Log In: Before this use case begins the Registrar has
+				logged onto the system</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>Add a Professor:
+				1. The Registrar selects "add a professor."
+				2.
+				The system displays a blank professor form.
+				3. The Registrar enters
+				the following information for the professor:
+				name, date of birth,
+				social security number, status, and department.
+				4. The system
+				validates the data to insure the proper data format
+				and searches for
+				an existing professor with the specified name. If
+				the data is valid
+				the system creates a new professor and assigns a
+				unique
+				system-generated id number. This number is displayed, so it
+				can be
+				used for subsequent uses of the system.
+				5. Steps 2-4 are repeated for
+				each professor added to the system. When
+				the Registrar is finished
+				adding professors to the system the use
+				case ends.
+			</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>Modify a Professor:
+				1. The Registrar selects "Modify a
+				professor."
+				2. The system displays a blank professor form.
+				3. The
+				Registrar types in the professor id number he/she wishes to
+				modify
+				4.
+				The system retrieves the professor information and displays it on
+				the screen
+				5. The Registrar modifies one or more of the professor
+				information
+				fields: name, date of birth, social security number ,
+				status, and
+				department.
+				6. When changes are complete, the Registrar
+				selects "save."
+				7. The system updates the professor information.
+				8.
+				Steps 2-7 are repeated for each professor the Registrar wants to
+				modify. When edits are complete, the use case ends.</flow>
+			<flow>Delete a Professor:
+
+				1. The Registrar selects "Delete a
+				Professor."
+				2. The system displays a blank professor form.
+				3. The
+				Registrar types in the professor id number for the professor
+				that�s
+				being deleted.
+				4. The system retrieves the professor and displays the
+				professor
+				information in the form.
+				5. The Registrar selects "delete."
+				6. The system displays a delete verification dialog confirming the
+				deletion.
+				7. The Registrar selects "yes."
+				8. The professor is deleted
+				from the system.
+				9. Steps 2-8 are repeated for each professor the
+				Registrar wants to
+				modify. When the Registrar is finished deleting
+				professors from the
+				system, the use case ends.</flow>
+			<flow>Professor Already Exists:
+				If in the "Add a Professor" sub-flow,
+				a professor already exists with
+				the specified name, an error message,
+				"Professor Already Exists", is
+				displayed. The Registrar can either
+				change the name, choose to
+				create another professor with the same
+				name, or cancel the operation
+				at which point the use case ends.
+			</flow>
+			<flow>Professor Not Found: If in the "Modify a Professor" sub-flow or
+				"Delete a Professor" sub-flow, a professor with the specified id
+				number does not exist, the system displays an error message,
+				"Professor Not Found". Then the Registrar can type in a different id
+				number or cancel the operation at which point the use case ends.
+			</flow>
+		</alternative-flow>
+		<especial-reqs>
+			<req></req>
+		</especial-reqs>
+	</use-case>
+
+
+	<use-case>
+		<id>7</id>
+		<name>Maintain Student Information</name>
+		<description>This use case allows the Registrar to maintain student
+			information in the registration system. This includes adding,
+			modifying, and deleting students from the system	</description>
+		<actor>Registrar</actor>
+		<priority>Low</priority>
+		<trigger>The use case begins when the Registrar selects the "maintain
+			professor" activity from the Main Form</trigger>
+		<basic-flow>
+			<flow>Add Student:
+				1. The Registrar selects "add student."
+				2. The
+				system displays a blank student form.
+				3. The Registrar enters the
+				following information for the student:
+				name, date of birth, social
+				security number, status, and graduation
+				date.
+				4. The system validates
+				the data to insure the proper format and
+				searches for an existing
+				student with the specified name. If the
+				data is valid the system
+				creates a new student and assigns a unique
+				system-generated id
+				number.
+				5. Steps 2-4 are repeated for each student added to the
+				system. When
+				the Registrar is finished adding students to the system
+				the use case
+				ends.
+			</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>Modify a Student:
+				1. The Registrar selects "modify student."
+				2.
+				The system displays a blank student form.
+				3. The Registrar types in
+				the student id number he/she wishes to
+				modify.
+				4. The system retrieves
+				the student information and displays it on the
+				screen.
+				5. The
+				Registrar modifies one or more of the student information
+				fields:
+				name, date of birth, social security number, student id
+				number,
+				status, and graduation date.
+				6. When changes are complete, the
+				Registrar selects "save."
+				7. The system updates the student
+				information.
+				8. Steps 2-7 are repeated for each student the Registrar
+				wants to
+				modify. When edits are complete, the use case ends</flow>
+			<flow>Delete a Student:
+				1. The Registrar selects "delete student."
+				2.
+				The system displays a blank student form.
+				3. The Registrar types in
+				the student id number for the student that�s
+				being deleted.
+				4. The
+				system retrieves the student and displays the student
+				information in
+				the form.
+				5. The Registrar selects "delete."
+				6. The system displays a
+				delete verification dialog confirming the
+				deletion.
+				7. The Registrar
+				selects "yes."
+				8. The student is deleted from the system.
+				9. Steps 2-8
+				are repeated for each student deleted from the system.
+				When the
+				Registrar is finished deleting students to the system the
+				use case
+				ends</flow>
+			<flow>Student Already Exists:
+				If in the "Add a Student" sub-flow the
+				system finds an existing
+				student with the same name an error message
+				is displayed "Student
+				Already Exists". The Registrar can either
+				change the name, create a
+				new student with the same name, or cancel
+				the operation at which
+				point the use case ends</flow>
+			<flow>Student Not Found:
+				If in the "Modify a Student" or "Delete a
+				Student" sub-flows the
+				student name is not located, the system
+				displays an error message,
+				"Student Not Found". The Registrar can
+				then type in a different id
+				number or cancel the operation at which
+				point the use case ends
+			</flow>
+		</alternative-flow>
+		<preconditions>
+			<condition>Log In: Before this use case begins the Registrar has
+				logged onto the system</condition>
+		</preconditions>
+	</use-case>
+
+
+	<use-case>
+		<id>8</id>
+		<name>Close Registration</name>
+		<actor>Registrar</actor>
+		<description>This use case allows a Registrar to close the
+			registration process. Course offerings that do not have enough
+			students are cancelled. Course offerings must have a minimum of three
+			students in them. The billing system is notified for each student in
+			each course offering that is not cancelled, so the student can be
+			billed for the course offering.
+			The main actor of this use case is the
+			Registrar. The Billing System is
+			an actor involved within this use
+			case.</description>
+		<priority>High</priority>
+		<trigger>The use case begins when the Registrar selects the "close
+			registration" activity from the Main Form</trigger>
+		<preconditions>
+			<condition>1. Login: The Registrar must be logged onto the system in
+				order for this use case to begin</condition>
+		</preconditions>
+		<postconditions />
+		<basic-flow>
+			<flow>Successful Close Registration: The system checks to see if a
+				Registration is in progress. If it is, then a message is displayed
+				to the Registrar and the use case terminates. The Close Registration
+				processing cannot be performed if registration is in progress. For
+				each open course offering, the system checks if three students have
+				registered and a professor has signed up to teach the course
+				offering. If so, the system closes the course offering and sends a
+				transaction to the billing system for each student enrolled in the
+				course offering.</flow>
+		</basic-flow>
+		<alternative-flow>
+			<flow>Less Than Three Students in the Course Offering: If in the
+				basic flow less than three students signed up for the course
+				offering, the system will cancel the course offering. The Cancel
+				Course Offering sub-flow is executed at this point.</flow>
+			<flow>Cancel Course Offering: The system cancels the course offering.
+				For each student enrolled in the cancelled course offering, system
+				will modify the student�s schedule. The first available alternate
+				course selection will be substituted for the cancelled course
+				offering. If no alternates are available, then no substitution will
+				be made. Control returns to the Main flow to process the next course
+				offering for the semester. Once all schedules have been processed
+				for the current semester, the system will notify all students, by
+				mail, of any changes to their schedule (e.g., cancellation or
+				substitution).</flow>
+			<flow>No Professor for the Course Offering: If in the basic flow
+				there is no professor signed up to teach the course offering, the
+				system will cancel the course offering. The Cancel Course Offering
+				sub-flow is executed at this point.</flow>
+			<flow>Billing System Unavailable: If the system is unable to
+				communicate with the Billing System, the system will attempt to
+				re-send the request after a specified period. The system will
+				continue to attempt to re-send until the Billing System becomes
+				available</flow>
+		</alternative-flow>
+		<especial-reqs>
+		</especial-reqs>
+	</use-case>
+
+
+	<!--  EARLY ASPECTS -->
+
+	<early-aspect>
+		<id>1</id>
+		<name>Persistency</name>
+		<pairs>
+			<pair>
+				<verb>completed</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>prepares</verb>
+				<object>formats</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>sub-flow</object>
+			</pair>
+			<pair>
+				<verb>add</verb>
+				<object>list</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>sub-flow</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>Offering</object>
+			</pair>
+			<pair>
+				<verb>adds</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>Professor</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>Add</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+				<object>selections</object>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+			</pair>
+			<pair>
+				<verb>modifying</verb>
+				<object>students</object>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+			</pair>
+			<pair>
+				<verb>modify</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>adding</verb>
+				<object>courses</object>
+			</pair>
+			<pair>
+				<verb>added</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>added</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>teaching</verb>
+				<object>offerings</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>registration</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>updates</verb>
+				<object>course</object>
+			</pair>
+			<pair>
+				<verb>updates</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>updates</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>taught</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>change</verb>
+				<object>grade</object>
+			</pair>
+			<pair>
+				<verb>change</verb>
+				<object>name</object>
+			</pair>
+			<pair>
+				<verb>change</verb>
+				<object>name</object>
+			</pair>
+			<pair>
+				<verb>enables</verb>
+				<object>students</object>
+			</pair>
+			<pair>
+				<verb>logs</verb>
+				<object>System</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+			</pair>
+			<pair>
+				<verb>register</verb>
+				<object>offerings</object>
+			</pair>
+			<pair>
+				<verb>saves</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>saves</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>saved</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>registered</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>records</verb>
+				<object>grade</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>enrolled</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>enrolled</verb>
+				<object>course</object>
+			</pair>
+
+			<pair>
+				<verb>delete</verb>
+				<object>selections</object>
+			</pair>
+			<pair>
+				<verb>delete</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>deletes</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>deleting</verb>
+				<object>professors</object>
+			</pair>
+			<pair>
+				<verb>deleted</verb>
+			</pair>
+			<pair>
+				<verb>deleted</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>deleted</verb>
+			</pair>
+			<pair>
+				<verb>deleted</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>deleted</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>removes</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>take</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>needed</verb>
+				<object>registration</object>
+			</pair>
+			<pair>
+				<verb>require</verb>
+				<object>space</object>
+			</pair>
+
+			<pair>
+				<verb>establish</verb>
+				<object>offerings</object>
+			</pair>
+			<pair>
+				<verb>creates</verb>
+				<object>assigns</object>
+			</pair>
+			<pair>
+				<verb>creates</verb>
+				<object>assigns</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>repeated</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>create</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>create</verb>
+				<object>student</object>
+			</pair>
+
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>2</id>
+		<name>Entitlement</name>
+		<pairs>
+			<pair>
+				<verb>logs</verb>
+				<object>System</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>logged</verb>
+			</pair>
+			<pair>
+				<verb>register</verb>
+				<object>offerings</object>
+			</pair>
+			<pair>
+				<verb>saves</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>saves</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>schedule</object>
+			</pair>
+			<pair>
+				<verb>saved</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>registered</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>records</verb>
+				<object>grade</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>save</verb>
+				<object>system</object>
+			</pair>
+			<pair>
+				<verb>enrolled</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>enrolled</verb>
+				<object>course</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>3</id>
+		<name>External interface</name>
+		<pairs>
+			<pair>
+				<verb>prompts</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>teach</verb>
+			</pair>
+			<pair>
+				<verb>signed</verb>
+			</pair>
+			<pair>
+				<verb>signed</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>indicating</verb>
+				<object>conflict</object>
+			</pair>
+			<pair>
+				<verb>notified</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>communicate</verb>
+				<object>System</object>
+			</pair>
+
+			<pair>
+				<verb>submit</verb>
+			</pair>
+			<pair>
+				<verb>submit</verb>
+			</pair>
+			<pair>
+				<verb>submit</verb>
+				<object>grades</object>
+			</pair>
+
+			<pair>
+				<verb>returns</verb>
+				<object>flow</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>4</id>
+		<name>Error handling</name>
+		<pairs>
+			<pair>
+				<verb>type</verb>
+				<object>password</object>
+			</pair>
+			<pair>
+				<verb>type</verb>
+				<object>number</object>
+			</pair>
+			<pair>
+				<verb>type</verb>
+				<object>number</object>
+			</pair>
+			<pair>
+				<verb>acknowledges</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>acknowledges</verb>
+				<object>error</object>
+			</pair>
+			<pair>
+				<verb>acknowledges</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>acknowledges</verb>
+				<object>message</object>
+			</pair>
+			<pair>
+				<verb>resolve</verb>
+				<object>conflict</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>information</object>
+			</pair>
+			<pair>
+				<verb>retrieves</verb>
+				<object>student</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+	<early-aspect>
+		<id>5</id>
+		<name>Security</name>
+		<pairs>
+				<pair>
+					<verb>type</verb>
+					<object>password</object>
+				</pair>
+				<pair>
+					<verb>type</verb>
+					<object>number</object>
+				</pair>
+				<pair>
+					<verb>type</verb>
+					<object>number</object>
+				</pair>
+				<pair>
+					<verb>acknowledges</verb>
+					<object>message</object>
+				</pair>
+				<pair>
+					<verb>acknowledges</verb>
+					<object>error</object>
+				</pair>
+				<pair>
+					<verb>acknowledges</verb>
+					<object>message</object>
+				</pair>
+				<pair>
+					<verb>acknowledges</verb>
+					<object>message</object>
+				</pair>
+				<pair>
+					<verb>resolve</verb>
+					<object>conflict</object>
+				</pair>
+				<pair>
+					<verb>retrieves</verb>
+					<object>information</object>
+				</pair>
+				<pair>
+					<verb>retrieves</verb>
+					<object>professor</object>
+				</pair>
+				<pair>
+					<verb>retrieves</verb>
+					<object>information</object>
+				</pair>
+				<pair>
+					<verb>retrieves</verb>
+					<object>student</object>
+				</pair>
+		</pairs>
+	</early-aspect>
+
+
+	<early-aspect>
+		<id>6</id>
+		<name>Usability</name>
+		<pairs>
+			<pair>
+				<verb>canceling</verb>
+				<object>selection</object>
+			</pair>
+			<pair>
+				<verb>cancel</verb>
+				<object>operation</object>
+			</pair>
+			<pair>
+				<verb>cancelled</verb>
+				<object>student</object>
+			</pair>
+			<pair>
+				<verb>cancel</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>cancel</verb>
+				<object>offering</object>
+			</pair>
+			<pair>
+				<verb>cancelled</verb>
+			</pair>
+			<pair>
+				<verb>cancels</verb>
+				<object>offering</object>
+			</pair>
+
+
+			<pair>
+				<verb>verify</verb>
+				<object>deletion</object>
+			</pair>
+			<pair>
+				<verb>verifies</verb>
+				<object>deletion</object>
+			</pair>
+			<pair>
+				<verb>verifies</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>verifies</verb>
+				<object>offerings</object>
+			</pair>
+			<pair>
+				<verb>confirming</verb>
+				<object>deletion</object>
+			</pair>
+			<pair>
+				<verb>confirming</verb>
+				<object>deletion</object>
+			</pair>
+
+		</pairs>
+	</early-aspect>
+
+
+	<early-aspect>
+		<id>7</id>
+		<name>Data validation</name>
+		<pairs>
+			<pair>
+				<verb>validates</verb>
+				<object>password</object>
+			</pair>
+			<pair>
+				<verb>validates</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>validates</verb>
+				<object>data</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Student</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>professor</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Professor</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Registrar</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Registrar</object>
+			</pair>
+			<pair>
+				<verb>allows</verb>
+				<object>Registrar</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+
+	<early-aspect>
+		<id>8</id>
+		<name>Performance</name>
+		<pairs>
+			<pair>
+				<verb>process</verb>
+				<object>course</object>
+			</pair>
+			<pair>
+				<verb>processed</verb>
+				<object>semester</object>
+			</pair>
+			<pair>
+				<verb>designed</verb>
+				<object>ease-of-use</object>
+			</pair>
+		</pairs>
+	</early-aspect>
+
+
+	<!--  RELATIONS  -->
+
+	<relation>
+		<early-aspect>1</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+			<id>8</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>2</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+			<id>8</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>3</early-aspect>
+		<use-cases>
+			<id>5</id>
+			<id>3</id>
+			<id>4</id>
+			<id>8</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>4</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>4</id>
+			<id>6</id>
+			<id>7</id>
+		</use-cases>
+	</relation>
+	<relation>
+	<early-aspect>5</early-aspect>
+	<use-cases>
+		<id>1</id>
+		<id>2</id>
+		<id>3</id>
+		<id>4</id>
+		<id>6</id>
+		<id>7</id>
+	</use-cases>
+</relation>
+	<relation>
+		<early-aspect>6</early-aspect>
+		<use-cases>
+			<id>5</id>
+			<id>4</id>
+			<id>8</id>
+			<id>3</id>
+			<id>6</id>
+			<id>7</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>7</early-aspect>
+		<use-cases>
+			<id>1</id>
+			<id>2</id>
+			<id>3</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+			<id>8</id>
+		</use-cases>
+	</relation>
+	<relation>
+		<early-aspect>8</early-aspect>
+		<use-cases>
+			<id>8</id>
+		</use-cases>
+	</relation>
+</project>
