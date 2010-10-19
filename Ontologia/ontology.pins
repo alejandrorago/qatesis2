@@ -1,4 +1,4 @@
-; Thu Sep 09 19:19:10 ART 2010
+; Tue Oct 19 11:23:23 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -32,7 +32,7 @@
 
 ([ontology_Instance_16] of  QualityAttribute
 
-	(qualityAttributeName "Aviability"))
+	(qualityAttributeName "Availability"))
 
 ([ontology_Instance_20000] of  ConcreteSource
 

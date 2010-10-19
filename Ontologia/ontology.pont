@@ -1,4 +1,4 @@
-; Thu Sep 09 19:19:10 ART 2010
+; Tue Oct 19 11:23:23 ART 2010
 ; 
 ;+ (version "3.2.1")
 ;+ (build "Build 365")
@@ -7,37 +7,9 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot concreteScenarioHasResponse
+	(single-slot concreteScenarioHasSource
 		(type INSTANCE)
-;+		(allowed-classes ConcreteResponse)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasArtifact
-		(type INSTANCE)
-;+		(allowed-classes ConcreteArtifact)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasStimlus
-		(type INSTANCE)
-;+		(allowed-classes ConcreteStimulus)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioPartDescription
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasResponseMeasure
-		(type INSTANCE)
-;+		(allowed-classes ConcreteResponseMeasure)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasEnviroment
-		(type INSTANCE)
-;+		(allowed-classes ConcreteEnviroment)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot qualityAttributeName
-		(type STRING)
+;+		(allowed-classes ConcreteSource)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot isSpecificof
@@ -45,9 +17,37 @@
 ;+		(allowed-classes QualityAttribute)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasSource
+	(single-slot qualityAttributeName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasEnviroment
 		(type INSTANCE)
-;+		(allowed-classes ConcreteSource)
+;+		(allowed-classes ConcreteEnviroment)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponseMeasure
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponseMeasure)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioPartDescription
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasStimlus
+		(type INSTANCE)
+;+		(allowed-classes ConcreteStimulus)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasArtifact
+		(type INSTANCE)
+;+		(allowed-classes ConcreteArtifact)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasResponse
+		(type INSTANCE)
+;+		(allowed-classes ConcreteResponse)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -75,14 +75,9 @@
 (defclass ConcreteQualityAttributeScenario
 	(is-a QualityAttributeScenario)
 	(role concrete)
-	(single-slot concreteScenarioHasArtifact
+	(single-slot concreteScenarioHasEnviroment
 		(type INSTANCE)
-;+		(allowed-classes ConcreteArtifact)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot concreteScenarioHasStimlus
-		(type INSTANCE)
-;+		(allowed-classes ConcreteStimulus)
+;+		(allowed-classes ConcreteEnviroment)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasResponseMeasure
@@ -90,19 +85,24 @@
 ;+		(allowed-classes ConcreteResponseMeasure)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasEnviroment
+	(single-slot concreteScenarioHasStimlus
 		(type INSTANCE)
-;+		(allowed-classes ConcreteEnviroment)
+;+		(allowed-classes ConcreteStimulus)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot concreteScenarioHasSource
+	(single-slot concreteScenarioHasArtifact
 		(type INSTANCE)
-;+		(allowed-classes ConcreteSource)
+;+		(allowed-classes ConcreteArtifact)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot concreteScenarioHasResponse
 		(type INSTANCE)
 ;+		(allowed-classes ConcreteResponse)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot concreteScenarioHasSource
+		(type INSTANCE)
+;+		(allowed-classes ConcreteSource)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
