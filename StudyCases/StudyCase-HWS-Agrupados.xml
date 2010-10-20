@@ -959,7 +959,15 @@ error message should be showed</flow>
 		<!--Error Handling-->
 		<early-aspect>6</early-aspect>
 		<use-cases>
+			<id>1</id>
+			<id>2</id>
 			<id>3</id>
+			<id>4</id>
+			<id>5</id>
+			<id>6</id>
+			<id>7</id>
+			<id>8</id>
+			<id>9</id>
 		</use-cases>
 	</relation>
 
