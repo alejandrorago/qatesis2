@@ -17,32 +17,20 @@
 		<id>1</id>
 		<name>Login</name>
 		<actor>Student, Professor, Registrar</actor>
-		<description>This use case describes how a user logs into the Course
-			Registration System</description>
+		<description>This use case describes how a user logs into the Course Registration System</description>
 		<priority>High</priority>
-		<trigger>The student selects the inscription for final exam activity
-		</trigger>
-		<preconditions>
-			<condition>The student must be logged</condition>
-		</preconditions>
+		<trigger>The use case begins when the actor types his/her name and password on the login form</trigger>
+		<preconditions />
 		<postconditions />
 		<basic-flow>
-			<flow>The system checks whether the student has permissions to do
-				that operation</flow>
-			<flow>The system selects, according to the passed courses by the
-				student which s/he can sit for the final exam</flow>
-			<flow>The system shows the courses to the student</flow>
-			<flow>The student chooses the desired subject</flow>
-			<flow>The system stores the information of the inscription</flow>
+			<flow>The system validates the actor’s password and logs him/her into the system</flow>
+			<flow>The system displays the Main Form and the use case end</flow>
 		</basic-flow>
 		<alternative-flow>
-			<flow>If the student is not log, or the student doesn't have any
-				permissions, the system shows an error message</flow>
-			<flow>The student gets the error</flow>
-			<flow>The system reboots the use case</flow>
+			<flow>IInvalid Name / Password: If in the basic flow the system cannot find the name or the password is invalid, an error message is displayed. The actor can type in a new name or password or choose to cancel the operation, at which point the use case ends</flow>
 		</alternative-flow>
 		<especial-reqs>
-			<req>Safe connection</req>
+			<req></req>
 		</especial-reqs>
 	</use-case>
 
