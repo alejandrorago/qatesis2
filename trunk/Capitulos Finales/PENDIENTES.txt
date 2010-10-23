@@ -1,0 +1,5 @@
+1. Titulos Tablas (hacerlos uniformes) Ejemplo: Tabla X.X - TITULO o Tabla X.X. Titulo
+2. Descripción de los anexos? nose si va
+3. Ponemos ontología de alguna forma? (me parece que con eso nos vamos a evitar entregar el programa, sobretodo a la mina que va a querer ver la ontología... sino ya fue.
+4. Fijarse los "fin" de página (que no queden tablas cortadas o titulos)
+5. Falta el Resumen de la tesis, me estaba fijando y todas tienen un parrafo.
