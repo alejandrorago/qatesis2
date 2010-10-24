@@ -1,9 +1,11 @@
-1. Titulos Tablas (hacerlos uniformes) Ejemplo: Tabla X.X - TITULO o Tabla X.X. Titulo
-2. Descripción de los anexos? nose si va ----------ECHO  ---------- Borre el anexo 3 y puse todo en el 2.
-3. Ponemos ontología de alguna forma? (me parece que con eso nos vamos a evitar entregar el programa, sobretodo a la mina que va a querer ver la ontología... sino ya fue.
+1. Titulos Tablas (hacerlos uniformes) Ejemplo: Tabla X.X - TITULO o Tabla X.X. Titulo  ------- ECHO --- DEJE ALGO ASI: TABLA X.X - Descripción
 
-5. Falta el Resumen de la tesis, me estaba fijando y todas tienen un parrafo.
-6. Cambiar herramienta por "QA MINER" ---------- ECHO ---------- (no se si queda lindo QA Miner) de última es un "Reemplazar Todo" por otro nombre
+2. Descripción de los anexos? nose si va ----------ECHO  ---------- Borre el anexo 3 y puse todo en el 2.
+
+??? 3. Ponemos ontología de alguna forma? (me parece que con eso nos vamos a evitar entregar el programa, sobretodo a la mina que va a querer ver la ontología... sino ya fue.
+??? 5. Falta el Resumen de la tesis, me estaba fijando y todas tienen un parrafo.
+
+6. Cambiar herramienta por "QA MINER" ---------- ECHO ---------- (no se si queda lindo QA Miner) de última es un "Reemplazar Todo" por otro nombre. Tome las capturas de nuevo con ese nombre.
 
 
 ESTO HACERLO AL FINAL YA QUE TODAVIA FALTAN CORRECCIONES
